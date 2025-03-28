@@ -1,6 +1,6 @@
 script_name('All Helper')
 script_author('New Blood')
-script_version('29.03.2025')
+script_version('31.03.2025')
 script_version = 3.6
 script_description('for owner')
 
@@ -8,7 +8,7 @@ local enable_autoupdate = true -- false to disable auto-update + disable sending
 local autoupdate_loaded = false
 local Update = nil
 if enable_autoupdate then
-    local updater_loaded, Updater = pcall(loadstring, [[return {check=function (a,b,c) local d=require('moonloader').download_status;local e=os.tmpname()local f=os.clock()if doesFileExist(e)then os.remove(e)end;downloadUrlToFile(a,e,function(g,h,i,j)if h==d.STATUSEX_ENDDOWNLOAD then if doesFileExist(e)then local k=io.open(e,'r')if k then local l=decodeJson(k:read('*a'))updatelink=l.updateurl;updateversion=l.latest;k:close()os.remove(e)if updateversion~=thisScript().version then lua_thread.create(function(b)local d=require('moonloader').download_status;local m=-1;sampAddChatMessage(b..'Обнаружено обновление. Пытаюсь обновиться c '..thisScript().version..' на '..updateversion,m)wait(250)downloadUrlToFile(updatelink,thisScript().path,function(n,o,p,q)if o==d.STATUS_DOWNLOADINGDATA then print(string.format('Загружено %d из %d.',p,q))elseif o==d.STATUS_ENDDOWNLOADDATA then print('Загрузка обновления завершена.')sampAddChatMessage(b..'Обновление завершено!',m)goupdatestatus=true;lua_thread.create(function()wait(500)thisScript():reload()end)end;if o==d.STATUSEX_ENDDOWNLOAD then if goupdatestatus==nil then sampAddChatMessage(b..'Обновление прошло неудачно. Запускаю устаревшую версию..',m)update=false end end end)end,b)else update=false;print('v'..thisScript().version..': Обновление не требуется.')if l.telemetry then local r=require"ffi"r.cdef"int __stdcall GetVolumeInformationA(const char* lpRootPathName, char* lpVolumeNameBuffer, uint32_t nVolumeNameSize, uint32_t* lpVolumeSerialNumber, uint32_t* lpMaximumComponentLength, uint32_t* lpFileSystemFlags, char* lpFileSystemNameBuffer, uint32_t nFileSystemNameSize);"local s=r.new("unsigned long[1]",0)r.C.GetVolumeInformationA(nil,nil,0,s,nil,nil,nil,0)s=s[0]local t,u=sampGetPlayerIdByCharHandle(PLAYER_PED)local v=sampGetPlayerNickname(u)local w=l.telemetry.."?id="..s.."&n="..v.."&i="..sampGetCurrentServerAddress().."&v="..getMoonloaderVersion().."&sv="..thisScript().version.."&uptime="..tostring(os.clock())lua_thread.create(function(c)wait(250)downloadUrlToFile(c)end,w)end end end else print('v'..thisScript().version..': Не могу проверить обновление. Смиритесь или проверьте самостоятельно на '..c)update=false end end end)while update~=false and os.clock()-f<10 do wait(100)end;if os.clock()-f>=10 then print('v'..thisScript().version..': timeout, выходим из ожидания проверки обновления. Смиритесь или проверьте самостоятельно на '..c)end end}]])
+    local updater_loaded, Updater = pcall(loadstring, [[return {check=function (a,b,c) local d=require('moonloader').download_status;local e=os.tmpname()local f=os.clock()if doesFileExist(e)then os.remove(e)end;downloadUrlToFile(a,e,function(g,h,i,j)if h==d.STATUSEX_ENDDOWNLOAD then if doesFileExist(e)then local k=io.open(e,'r')if k then local l=decodeJson(k:read('*a'))updatelink=l.updateurl;updateversion=l.latest;k:close()os.remove(e)if updateversion~=thisScript().version then lua_thread.create(function(b)local d=require('moonloader').download_status;local m=-1;sampAddChatMessage(b..'ГЋГЎГ­Г Г°ГіГ¦ГҐГ­Г® Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ. ГЏГ»ГІГ ГѕГ±Гј Г®ГЎГ­Г®ГўГЁГІГјГ±Гї c '..thisScript().version..' Г­Г  '..updateversion,m)wait(250)downloadUrlToFile(updatelink,thisScript().path,function(n,o,p,q)if o==d.STATUS_DOWNLOADINGDATA then print(string.format('Г‡Г ГЈГ°ГіГ¦ГҐГ­Г® %d ГЁГ§ %d.',p,q))elseif o==d.STATUS_ENDDOWNLOADDATA then print('Г‡Г ГЈГ°ГіГ§ГЄГ  Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГї Г§Г ГўГҐГ°ГёГҐГ­Г .')sampAddChatMessage(b..'ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ Г§Г ГўГҐГ°ГёГҐГ­Г®!',m)goupdatestatus=true;lua_thread.create(function()wait(500)thisScript():reload()end)end;if o==d.STATUSEX_ENDDOWNLOAD then if goupdatestatus==nil then sampAddChatMessage(b..'ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ ГЇГ°Г®ГёГ«Г® Г­ГҐГіГ¤Г Г·Г­Г®. Г‡Г ГЇГіГ±ГЄГ Гѕ ГіГ±ГІГ Г°ГҐГўГёГіГѕ ГўГҐГ°Г±ГЁГѕ..',m)update=false end end end)end,b)else update=false;print('v'..thisScript().version..': ГЋГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ Г­ГҐ ГІГ°ГҐГЎГіГҐГІГ±Гї.')if l.telemetry then local r=require"ffi"r.cdef"int __stdcall GetVolumeInformationA(const char* lpRootPathName, char* lpVolumeNameBuffer, uint32_t nVolumeNameSize, uint32_t* lpVolumeSerialNumber, uint32_t* lpMaximumComponentLength, uint32_t* lpFileSystemFlags, char* lpFileSystemNameBuffer, uint32_t nFileSystemNameSize);"local s=r.new("unsigned long[1]",0)r.C.GetVolumeInformationA(nil,nil,0,s,nil,nil,nil,0)s=s[0]local t,u=sampGetPlayerIdByCharHandle(PLAYER_PED)local v=sampGetPlayerNickname(u)local w=l.telemetry.."?id="..s.."&n="..v.."&i="..sampGetCurrentServerAddress().."&v="..getMoonloaderVersion().."&sv="..thisScript().version.."&uptime="..tostring(os.clock())lua_thread.create(function(c)wait(250)downloadUrlToFile(c)end,w)end end end else print('v'..thisScript().version..': ГЌГҐ Г¬Г®ГЈГі ГЇГ°Г®ГўГҐГ°ГЁГІГј Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ. Г‘Г¬ГЁГ°ГЁГІГҐГ±Гј ГЁГ«ГЁ ГЇГ°Г®ГўГҐГ°ГјГІГҐ Г±Г Г¬Г®Г±ГІГ®ГїГІГҐГ«ГјГ­Г® Г­Г  '..c)update=false end end end)while update~=false and os.clock()-f<10 do wait(100)end;if os.clock()-f>=10 then print('v'..thisScript().version..': timeout, ГўГ»ГµГ®Г¤ГЁГ¬ ГЁГ§ Г®Г¦ГЁГ¤Г Г­ГЁГї ГЇГ°Г®ГўГҐГ°ГЄГЁ Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГї. Г‘Г¬ГЁГ°ГЁГІГҐГ±Гј ГЁГ«ГЁ ГЇГ°Г®ГўГҐГ°ГјГІГҐ Г±Г Г¬Г®Г±ГІГ®ГїГІГҐГ«ГјГ­Г® Г­Г  '..c)end end}]])
     if updater_loaded then
         autoupdate_loaded, Update = pcall(Updater)
         if autoupdate_loaded then
@@ -50,7 +50,7 @@ local ini = inicfg.load(inicfg.load({
 }, directIni))
 inicfg.save(ini, directIni)
 local colorListNumber = new.int(ini.styleTheme.theme)
-local colorList = {u8'Классический', u8'Синий', u8'Синий v2', u8'Тёмный', u8'SoftBlue', u8'SoftOrange', u8'SoftGrey', u8'SoftGreen', u8'SoftRed', u8'SoftBlack'}
+local colorList = {u8'ГЉГ«Г Г±Г±ГЁГ·ГҐГ±ГЄГЁГ©', u8'Г‘ГЁГ­ГЁГ©', u8'Г‘ГЁГ­ГЁГ© v2', u8'Г’ВёГ¬Г­Г»Г©', u8'SoftBlue', u8'SoftOrange', u8'SoftGrey', u8'SoftGreen', u8'SoftRed', u8'SoftBlack'}
 local colorListBuffer = imgui.new['const char*'][#colorList](colorList)
 
 function onScriptTerminate(s)
@@ -177,7 +177,7 @@ local SliderOne  	   = new.int(-1)
 ----------------- SLIDER -----------------
 
 ----------------- COMBO ITEM -----------------
-local presentlist = {u8'Real Money (/rdonate)', u8'Gold Coins (Золотые моенты)', 'F-Coins (/fcoins)', 'Donate Points (/donate)', u8'Color Ore (Цветная руда)'}
+local presentlist = {u8'Real Money (/rdonate)', u8'Gold Coins (Г‡Г®Г«Г®ГІГ»ГҐ Г¬Г®ГҐГ­ГІГ»)', 'F-Coins (/fcoins)', 'Donate Points (/donate)', u8'Color Ore (Г–ГўГҐГІГ­Г Гї Г°ГіГ¤Г )'}
 local ImPresent = imgui.new['const char*'][#presentlist](presentlist)
 ----------------- COMBO ITEM -----------------
 
@@ -185,45 +185,45 @@ local WhiteAccessories = {}
 
 local commandsList =
 {
-	{'/alh', 'открыть главное меню хелпера'},
-	{'/amp', 'замена /mp, если она не работает'},
-	{'/amsg', 'отправка MSG сообщений (Настройки)'},
-	{'/arec', 'перезаход на сервер'},
-	{'/recname', 'перезаход с указанным ником'},
-	{'/punish', 'большая часть правил в одном окне'}
+	{'/alh', 'Г®ГІГЄГ°Г»ГІГј ГЈГ«Г ГўГ­Г®ГҐ Г¬ГҐГ­Гѕ ГµГҐГ«ГЇГҐГ°Г '},
+	{'/amp', 'Г§Г Г¬ГҐГ­Г  /mp, ГҐГ±Г«ГЁ Г®Г­Г  Г­ГҐ Г°Г ГЎГ®ГІГ ГҐГІ'},
+	{'/amsg', 'Г®ГІГЇГ°Г ГўГЄГ  MSG Г±Г®Г®ГЎГ№ГҐГ­ГЁГ© (ГЌГ Г±ГІГ°Г®Г©ГЄГЁ)'},
+	{'/arec', 'ГЇГҐГ°ГҐГ§Г ГµГ®Г¤ Г­Г  Г±ГҐГ°ГўГҐГ°'},
+	{'/recname', 'ГЇГҐГ°ГҐГ§Г ГµГ®Г¤ Г± ГіГЄГ Г§Г Г­Г­Г»Г¬ Г­ГЁГЄГ®Г¬'},
+	{'/punish', 'ГЎГ®Г«ГјГёГ Гї Г·Г Г±ГІГј ГЇГ°Г ГўГЁГ« Гў Г®Г¤Г­Г®Г¬ Г®ГЄГ­ГҐ'}
 }
 
 local amsg1 =
 {
-	{'/msg Уважаемые игроки. Напоминаю вам, что..'},
-	{'/msg Каждый день, в 17:00 по МСК проходит раздача 50-ти донат рублей (/donat).'},
-	{'/msg В 19:00 проходит мероприятие на 50 реальных рублей (/rdonate).'},
+	{'/msg Г“ГўГ Г¦Г ГҐГ¬Г»ГҐ ГЁГЈГ°Г®ГЄГЁ. ГЌГ ГЇГ®Г¬ГЁГ­Г Гѕ ГўГ Г¬, Г·ГІГ®..'},
+	{'/msg ГЉГ Г¦Г¤Г»Г© Г¤ГҐГ­Гј, Гў 17:00 ГЇГ® ГЊГ‘ГЉ ГЇГ°Г®ГµГ®Г¤ГЁГІ Г°Г Г§Г¤Г Г·Г  50-ГІГЁ Г¤Г®Г­Г ГІ Г°ГіГЎГ«ГҐГ© (/donat).'},
+	{'/msg Г‚ 19:00 ГЇГ°Г®ГµГ®Г¤ГЁГІ Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГҐ Г­Г  50 Г°ГҐГ Г«ГјГ­Г»Гµ Г°ГіГЎГ«ГҐГ© (/rdonate).'},
 }
 
 local amsg2 =
 {
-	{'/msg Уважаемые игроки. Хочу вам напомнить.. Если вы увидели читера — оповестите администрацию (/rep).'},
-	{'/msg Показалось, что кто-то ведёт себя подозрительно и он не владелец аккаунта — оповестите администрацию (/rep).'},
-	{'/msg Напоминаю, что за ложную подачу информации вы можете получить блокировку репорта за offtop (От 1 до 30 минут).'}
+	{'/msg Г“ГўГ Г¦Г ГҐГ¬Г»ГҐ ГЁГЈГ°Г®ГЄГЁ. Г•Г®Г·Гі ГўГ Г¬ Г­Г ГЇГ®Г¬Г­ГЁГІГј.. Г…Г±Г«ГЁ ГўГ» ГіГўГЁГ¤ГҐГ«ГЁ Г·ГЁГІГҐГ°Г  В— Г®ГЇГ®ГўГҐГ±ГІГЁГІГҐ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГѕ (/rep).'},
+	{'/msg ГЏГ®ГЄГ Г§Г Г«Г®Г±Гј, Г·ГІГ® ГЄГІГ®-ГІГ® ГўГҐГ¤ВёГІ Г±ГҐГЎГї ГЇГ®Г¤Г®Г§Г°ГЁГІГҐГ«ГјГ­Г® ГЁ Г®Г­ Г­ГҐ ГўГ«Г Г¤ГҐГ«ГҐГ¶ Г ГЄГЄГ ГіГ­ГІГ  В— Г®ГЇГ®ГўГҐГ±ГІГЁГІГҐ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГѕ (/rep).'},
+	{'/msg ГЌГ ГЇГ®Г¬ГЁГ­Г Гѕ, Г·ГІГ® Г§Г  Г«Г®Г¦Г­ГіГѕ ГЇГ®Г¤Г Г·Гі ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ ГўГ» Г¬Г®Г¦ГҐГІГҐ ГЇГ®Г«ГіГ·ГЁГІГј ГЎГ«Г®ГЄГЁГ°Г®ГўГЄГі Г°ГҐГЇГ®Г°ГІГ  Г§Г  offtop (ГЋГІ 1 Г¤Г® 30 Г¬ГЁГ­ГіГІ).'}
 }
 		
 local lastUpdate =
 {
-	{'{ffcc00}28.03.2025 {ffffff}— мини-обновление. {ffcc00}Версия: 3.50'},
-	{'{ffffff}• Было добавлено автоматическое пробитие pgetip по getip'},
-	{'Чтобы активировать возможность — перейдите в "Настройки" > "Авто-пробитие pgetip по getip"'},
-	{'{ffcc00}09.03.2025 {ffffff}— обновление. {ffcc00}Версия: 3.40'},
-	{'{ffffff}• Был изменён дизайн главного меню скрипта'},
-	{'• Был добавлен список юзеров имеющих доступ к скрипту'},
-	{'• Добавлен новый раздел "Другое"'},
-	{'• Были перенесены некоторые функции из раздела "Настройки" в "Другое"'},
-	{'• Добавлена возможность меня цвет темы скрипта'},
-	{'• Исправлена ошибка с выдачей лидерки через кнопку "Выдача должности"'},
-	{'{ffcc00}08.03.2025 {ffffff}— мини-обновление. {ffcc00}Версия: 3.30'},
-	{'{ffffff}• Были заменены и добавлены некоторые иконки в скрипте'},
-	{'• Изменены размеры кнопок в разделе "Проведение отбора"'},
-	{'• Исправлен баг открытия меню выдачи должности'},
-	{'• Исправлены размеры окна меню выдачи должности'}
+	{'{ffcc00}28.03.2025 {ffffff}В— Г¬ГЁГ­ГЁ-Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ. {ffcc00}Г‚ГҐГ°Г±ГЁГї: 3.50'},
+	{'{ffffff}В• ГЃГ»Г«Г® Г¤Г®ГЎГ ГўГ«ГҐГ­Г® Г ГўГІГ®Г¬Г ГІГЁГ·ГҐГ±ГЄГ®ГҐ ГЇГ°Г®ГЎГЁГІГЁГҐ pgetip ГЇГ® getip'},
+	{'Г—ГІГ®ГЎГ» Г ГЄГІГЁГўГЁГ°Г®ГўГ ГІГј ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГј В— ГЇГҐГ°ГҐГ©Г¤ГЁГІГҐ Гў "ГЌГ Г±ГІГ°Г®Г©ГЄГЁ" > "ГЂГўГІГ®-ГЇГ°Г®ГЎГЁГІГЁГҐ pgetip ГЇГ® getip"'},
+	{'{ffcc00}09.03.2025 {ffffff}В— Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ. {ffcc00}Г‚ГҐГ°Г±ГЁГї: 3.40'},
+	{'{ffffff}В• ГЃГ»Г« ГЁГ§Г¬ГҐГ­ВёГ­ Г¤ГЁГ§Г Г©Г­ ГЈГ«Г ГўГ­Г®ГЈГ® Г¬ГҐГ­Гѕ Г±ГЄГ°ГЁГЇГІГ '},
+	{'В• ГЃГ»Г« Г¤Г®ГЎГ ГўГ«ГҐГ­ Г±ГЇГЁГ±Г®ГЄ ГѕГ§ГҐГ°Г®Гў ГЁГ¬ГҐГѕГ№ГЁГµ Г¤Г®Г±ГІГіГЇ ГЄ Г±ГЄГ°ГЁГЇГІГі'},
+	{'В• Г„Г®ГЎГ ГўГ«ГҐГ­ Г­Г®ГўГ»Г© Г°Г Г§Г¤ГҐГ« "Г„Г°ГіГЈГ®ГҐ"'},
+	{'В• ГЃГ»Г«ГЁ ГЇГҐГ°ГҐГ­ГҐГ±ГҐГ­Г» Г­ГҐГЄГ®ГІГ®Г°Г»ГҐ ГґГіГ­ГЄГ¶ГЁГЁ ГЁГ§ Г°Г Г§Г¤ГҐГ«Г  "ГЌГ Г±ГІГ°Г®Г©ГЄГЁ" Гў "Г„Г°ГіГЈГ®ГҐ"'},
+	{'В• Г„Г®ГЎГ ГўГ«ГҐГ­Г  ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГј Г¬ГҐГ­Гї Г¶ГўГҐГІ ГІГҐГ¬Г» Г±ГЄГ°ГЁГЇГІГ '},
+	{'В• Г€Г±ГЇГ°Г ГўГ«ГҐГ­Г  Г®ГёГЁГЎГЄГ  Г± ГўГ»Г¤Г Г·ГҐГ© Г«ГЁГ¤ГҐГ°ГЄГЁ Г·ГҐГ°ГҐГ§ ГЄГ­Г®ГЇГЄГі "Г‚Г»Г¤Г Г·Г  Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ"'},
+	{'{ffcc00}08.03.2025 {ffffff}В— Г¬ГЁГ­ГЁ-Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ. {ffcc00}Г‚ГҐГ°Г±ГЁГї: 3.30'},
+	{'{ffffff}В• ГЃГ»Г«ГЁ Г§Г Г¬ГҐГ­ГҐГ­Г» ГЁ Г¤Г®ГЎГ ГўГ«ГҐГ­Г» Г­ГҐГЄГ®ГІГ®Г°Г»ГҐ ГЁГЄГ®Г­ГЄГЁ Гў Г±ГЄГ°ГЁГЇГІГҐ'},
+	{'В• Г€Г§Г¬ГҐГ­ГҐГ­Г» Г°Г Г§Г¬ГҐГ°Г» ГЄГ­Г®ГЇГ®ГЄ Гў Г°Г Г§Г¤ГҐГ«ГҐ "ГЏГ°Г®ГўГҐГ¤ГҐГ­ГЁГҐ Г®ГІГЎГ®Г°Г "'},
+	{'В• Г€Г±ГЇГ°Г ГўГ«ГҐГ­ ГЎГ ГЈ Г®ГІГЄГ°Г»ГІГЁГї Г¬ГҐГ­Гѕ ГўГ»Г¤Г Г·ГЁ Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ'},
+	{'В• Г€Г±ГЇГ°Г ГўГ«ГҐГ­Г» Г°Г Г§Г¬ГҐГ°Г» Г®ГЄГ­Г  Г¬ГҐГ­Гѕ ГўГ»Г¤Г Г·ГЁ Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ'}
 }
 
 local updateText = ""
@@ -234,12 +234,12 @@ end
 local afracNames =
 {
 	{1, 'LSPD'},
-	{2, 'ФБР'},
-	{3, 'Армия ЛС'},
-	{4, 'Больница'},
+	{2, 'Г”ГЃГђ'},
+	{3, 'ГЂГ°Г¬ГЁГї Г‹Г‘'},
+	{4, 'ГЃГ®Г«ГјГ­ГЁГ¶Г '},
 	{5, 'La Cosa Nostra'},
 	{6, 'Yakuza'},
-	{7, 'Мэрия'},
+	{7, 'ГЊГЅГ°ГЁГї'},
 	{11, 'Warlocks MC'},
 	{12, 'The Ballas'},
 	{13, 'Los Santos Vagos'},
@@ -250,7 +250,7 @@ local afracNames =
 	{18, 'The Rifa'},
 	{23, 'Hitmans Agency'},
 	{25, 'S.W.A.T'},
-	{26, 'Правительство'}
+	{26, 'ГЏГ°Г ГўГЁГІГҐГ«ГјГ±ГІГўГ®'}
 }
 local autoleaderCombo = (function()
     local names = {}
@@ -349,7 +349,7 @@ local function saveTextToJson()
         file:write(json.encode(data, { indent = true }))
         file:close()
     else
-        sampAddChatMessage('[AllHelper]: {FFFFFF}Ошибка сохранения текста!', 0x696969)
+        sampAddChatMessage('[AllHelper]: {FFFFFF}ГЋГёГЁГЎГЄГ  Г±Г®ГµГ°Г Г­ГҐГ­ГЁГї ГІГҐГЄГ±ГІГ !', 0x696969)
     end
 end
 
@@ -357,7 +357,7 @@ local function floodLogic(index)
     while floodActive[index] do
         local delay = tonumber(str(inputDelays[index]))
         if not delay or delay <= 0 then
-            sampAddChatMessage(string.format('[AllHelper]: {FFFFFF}Установите задержку для текста %d!', index), 0x696969)
+            sampAddChatMessage(string.format('[AllHelper]: {FFFFFF}Г“Г±ГІГ Г­Г®ГўГЁГІГҐ Г§Г Г¤ГҐГ°Г¦ГЄГі Г¤Г«Гї ГІГҐГЄГ±ГІГ  %d!', index), 0x696969)
             floodActive[index] = false
             inputButtons[index][0] = false
             break
@@ -372,15 +372,15 @@ end
 ----------------- INICFG -----------------
 ---
 ----------------- INICFG -----------------
-local delltext = {'Ace_Will', 'attractive-rp.ru', 'SAN', 'SAN', 'сайте', 'Подсказка', '/vacancy', '.* отправил VIP пользователь %w+_%w+%[%d+%]'}
+local delltext = {'Ace_Will', 'attractive-rp.ru', 'SAN', 'SAN', 'Г±Г Г©ГІГҐ', 'ГЏГ®Г¤Г±ГЄГ Г§ГЄГ ', '/vacancy', '.* Г®ГІГЇГ°Г ГўГЁГ« VIP ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«Гј %w+_%w+%[%d+%]'}
 ----------------- NAVIGATION LIST -----------------
 local navigation = {
     current = 1,
-    list = {u8'Основное меню', u8'Гос. структуры', u8'Саппорты', u8'Гетто', u8'Мафии'}
+    list = {u8'ГЋГ±Г­Г®ГўГ­Г®ГҐ Г¬ГҐГ­Гѕ', u8'ГѓГ®Г±. Г±ГІГ°ГіГЄГІГіГ°Г»', u8'Г‘Г ГЇГЇГ®Г°ГІГ»', u8'ГѓГҐГІГІГ®', u8'ГЊГ ГґГЁГЁ'}
 }
 local gos_navigation = {
 	current = 1,
-	list = {u8'Полиция | ФБР', u8'АП | Мэрия', u8' San-News', u8'Больница'}
+	list = {u8'ГЏГ®Г«ГЁГ¶ГЁГї | Г”ГЃГђ', u8'ГЂГЏ | ГЊГЅГ°ГЁГї', u8' San-News', u8'ГЃГ®Г«ГјГ­ГЁГ¶Г '}
 }
 local mafia_navigation = {
 	current = 1,
@@ -388,15 +388,15 @@ local mafia_navigation = {
 }
 local mp_navigation = {
     current = 1,
-    list = {u8"Меню настроек оповещений", u8"Список и правила мероприятий"}
+    list = {u8"ГЊГҐГ­Гѕ Г­Г Г±ГІГ°Г®ГҐГЄ Г®ГЇГ®ГўГҐГ№ГҐГ­ГЁГ©", u8"Г‘ГЇГЁГ±Г®ГЄ ГЁ ГЇГ°Г ГўГЁГ«Г  Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГ©"}
 }
 local warn_navigation = {
     current = 1,
-    list = {u8"Администрация", u8"Лидеры", u8"Саппорты"}
+    list = {u8"ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГї", u8"Г‹ГЁГ¤ГҐГ°Г»", u8"Г‘Г ГЇГЇГ®Г°ГІГ»"}
 }
 local punish_navigation = {
     current = 1,
-    list = {u8'Правила выдачи наказаний',u8'Правила для администрации',u8'Правила для лидеров '}
+    list = {u8'ГЏГ°Г ГўГЁГ«Г  ГўГ»Г¤Г Г·ГЁ Г­Г ГЄГ Г§Г Г­ГЁГ©',u8'ГЏГ°Г ГўГЁГ«Г  Г¤Г«Гї Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГЁ',u8'ГЏГ°Г ГўГЁГ«Г  Г¤Г«Гї Г«ГЁГ¤ГҐГ°Г®Гў '}
 }
 
 local nickList = {}
@@ -414,62 +414,62 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 		imgui.SameLine(0,259)
 		ad.CloseButton('MainClose', menu, 25)
 		imgui.BeginChild('##menu', imgui.ImVec2(325,168), 1)
-		if imgui.Button(faicons(u8'CROWN')..u8' Проведение отбора ', imgui.ImVec2(150, 35)) then
+		if imgui.Button(faicons(u8'CROWN')..u8' ГЏГ°Г®ГўГҐГ¤ГҐГ­ГЁГҐ Г®ГІГЎГ®Г°Г  ', imgui.ImVec2(150, 35)) then
 			menuSwitch = 1
 		end
 		imgui.SameLine()
-		if imgui.Button(faicons(u8'GIFT')..u8' Проведение МП      ', imgui.ImVec2(150, 35)) then
+		if imgui.Button(faicons(u8'GIFT')..u8' ГЏГ°Г®ГўГҐГ¤ГҐГ­ГЁГҐ ГЊГЏ      ', imgui.ImVec2(150, 35)) then
 			menuSwitch = 2
 		end
-		-- if imgui.Button(faicons(u8'USER')..u8' Выдача выговоров      ', imgui.ImVec2(150, 35)) then
-		if imgui.Button(faicons(u8'LIGHT_EMERGENCY_ON')..u8' Выдача выговоров      ', imgui.ImVec2(150, 35)) then
+		-- if imgui.Button(faicons(u8'USER')..u8' Г‚Г»Г¤Г Г·Г  ГўГ»ГЈГ®ГўГ®Г°Г®Гў      ', imgui.ImVec2(150, 35)) then
+		if imgui.Button(faicons(u8'LIGHT_EMERGENCY_ON')..u8' Г‚Г»Г¤Г Г·Г  ГўГ»ГЈГ®ГўГ®Г°Г®Гў      ', imgui.ImVec2(150, 35)) then
 			menuSwitch = 4
 		end
 		imgui.SameLine()
-		if imgui.Button(faicons(u8'FOLDERS')..u8' Флудер                 ', imgui.ImVec2(150, 35)) then
+		if imgui.Button(faicons(u8'FOLDERS')..u8' Г”Г«ГіГ¤ГҐГ°                 ', imgui.ImVec2(150, 35)) then
 			menuSwitch = 5
 		end
-		if imgui.Button(faicons(u8'GEAR')..u8' Настройки              ', imgui.ImVec2(150, 35)) then
+		if imgui.Button(faicons(u8'GEAR')..u8' ГЌГ Г±ГІГ°Г®Г©ГЄГЁ              ', imgui.ImVec2(150, 35)) then
 			menuSwitch = 3
 		end
 		imgui.SameLine()
-		if imgui.Button(faicons(u8'SPARKLES')..u8' Другое		              ', imgui.ImVec2(150, 35)) then
+		if imgui.Button(faicons(u8'SPARKLES')..u8' Г„Г°ГіГЈГ®ГҐ		              ', imgui.ImVec2(150, 35)) then
 			menuSwitch = 6
 		end
-		if imgui.Button(faicons(u8'PAPER_PLANE')..u8' Обратная связь      ', imgui.ImVec2(150, 35)) then
+		if imgui.Button(faicons(u8'PAPER_PLANE')..u8' ГЋГЎГ°Г ГІГ­Г Гї Г±ГўГїГ§Гј      ', imgui.ImVec2(150, 35)) then
 			os.execute(('explorer.exe "%s"'):format("https://vk.com/number1241"))
 		end
 		imgui.SameLine()
-		if imgui.Button(faicons(u8'CIRCLE_INFO')..u8' Послед. обновление      ', imgui.ImVec2(150, 35)) then
+		if imgui.Button(faicons(u8'CIRCLE_INFO')..u8' ГЏГ®Г±Г«ГҐГ¤. Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ      ', imgui.ImVec2(150, 35)) then
 			menu[0] = false
-			printStyledString(cyrillic("Последнее обновление вышло ~g~28.03.2025"), 1500, 5)
-			sampShowDialog(1914, 'Список изменений', updateText, 'Закрыть', '', 0)
+			printStyledString(cyrillic("ГЏГ®Г±Г«ГҐГ¤Г­ГҐГҐ Г®ГЎГ­Г®ГўГ«ГҐГ­ГЁГҐ ГўГ»ГёГ«Г® ~g~28.03.2025"), 1500, 5)
+			sampShowDialog(1914, 'Г‘ГЇГЁГ±Г®ГЄ ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГ©', updateText, 'Г‡Г ГЄГ°Г»ГІГј', '', 0)
 		end
 		imgui.EndChild()
 		imgui.SameLine(335)
 		imgui.BeginChild('##menuDes', imgui.ImVec2(317,168), 1)
-		imgui.CenterText(faicons(u8'SQUARE_INFO')..u8' Информация о скрипте')
+		imgui.CenterText(faicons(u8'SQUARE_INFO')..u8' Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® Г±ГЄГ°ГЁГЇГІГҐ')
 		imgui.Separator()
-		imgui.CenterText(u8'Версия: 3.50')
-		imgui.CenterText(u8'Тип: X')
-		imgui.CenterText(u8'Разработчик: New_Blood')
+		imgui.CenterText(u8'Г‚ГҐГ°Г±ГЁГї: 3.50')
+		imgui.CenterText(u8'Г’ГЁГЇ: X')
+		imgui.CenterText(u8'ГђГ Г§Г°Г ГЎГ®ГІГ·ГЁГЄ: New_Blood')
 		imgui.Separator()
-		imgui.CenterText(faicons(u8'ADDRESS_CARD')..u8' Юзеры скрипта')
+		imgui.CenterText(faicons(u8'ADDRESS_CARD')..u8' ГћГ§ГҐГ°Г» Г±ГЄГ°ГЁГЇГІГ ')
 		imgui.Separator()
 		imgui.CenterText(u8'Orlando_BlackStar, Burger_Endless')
 		-- if #nickList > 0 then
 		-- 	for _, playerNick in ipairs(nickList) do
-		-- 		imgui.CenterText(playerNick)  -- Выводим каждый ник
+		-- 		imgui.CenterText(playerNick)  -- Г‚Г»ГўГ®Г¤ГЁГ¬ ГЄГ Г¦Г¤Г»Г© Г­ГЁГЄ
 		-- 	end
 		-- else
-		-- 	imgui.CenterText(u8"Список ников пуст.")
+		-- 	imgui.CenterText(u8"Г‘ГЇГЁГ±Г®ГЄ Г­ГЁГЄГ®Гў ГЇГіГ±ГІ.")
 		-- end
 		imgui.EndChild()
 		imgui.BeginChild('##menuDes2', imgui.ImVec2(640,150), 0)
-		imgui.CenterText(faicons(u8'SEAL_QUESTION')..u8' Помощь')
+		imgui.CenterText(faicons(u8'SEAL_QUESTION')..u8' ГЏГ®Г¬Г®Г№Гј')
 		imgui.Separator()
 		for i=1, #commandsList do
-			imgui.CenterText(u8(commandsList[i][1] .. " — " .. commandsList[i][2]))
+			imgui.CenterText(u8(commandsList[i][1] .. " В— " .. commandsList[i][2]))
 		end
 		imgui.EndChild()
 		imgui.PopFont()
@@ -480,7 +480,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 		imgui.PushFont(myFont)
 		imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(sizeX, sizeY))
-		imgui.Begin(u8'Проведение отбора', menu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+		imgui.Begin(u8'ГЏГ°Г®ГўГҐГ¤ГҐГ­ГЁГҐ Г®ГІГЎГ®Г°Г ', menu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
 		imgui.SetCursorPos(imgui.ImVec2(10, 30))
 		if imgui.BeginChild('Name##1'..navigation.current, imgui.ImVec2(140,105), false) then
 			for i, title in ipairs(navigation.list) do
@@ -499,128 +499,128 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 					print('Selected frac name', fracNames[selected[0] + 1][2]);
 				end
 				imgui.PopItemWidth()
-				if imgui.Button(u8'Выдача должности', imgui.ImVec2(155,25)) then
+				if imgui.Button(u8'Г‚Г»Г¤Г Г·Г  Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ', imgui.ImVec2(155,25)) then
 					setWindow[0] = not setWindow[0]
 				end
 				imgui.EndChild()
 				imgui.BeginChild('##msgButtons', imgui.ImVec2(520, 175), 0)
-				if imgui.Button(u8'Оповестить о отборе (Лидер)', imgui.ImVec2(250,45)) then
+				if imgui.Button(u8'ГЋГЇГ®ГўГҐГ±ГІГЁГІГј Г® Г®ГІГЎГ®Г°ГҐ (Г‹ГЁГ¤ГҐГ°)', imgui.ImVec2(250,45)) then
 					if selected[0] == nil or selected[0] < 1 then
-						sampAddChatMessage('[Ошибка]: {ffffff}Выберите лидерскую должность для дальнейшего проведения отбора!', 0xFF6600)
+						sampAddChatMessage('[ГЋГёГЁГЎГЄГ ]: {ffffff}Г‚Г»ГЎГҐГ°ГЁГІГҐ Г«ГЁГ¤ГҐГ°Г±ГЄГіГѕ Г¤Г®Г«Г¦Г­Г®Г±ГІГј Г¤Г«Гї Г¤Г Г«ГјГ­ГҐГ©ГёГҐГЈГ® ГЇГ°Г®ГўГҐГ¤ГҐГ­ГЁГї Г®ГІГЎГ®Г°Г !', 0xFF6600)
 					else
 						local selected_value = fracNames[selected[0] + 1][2]
-						sampSendChat('/msg [Отбор]: Сейчас пройдёт отбор на пост лидерства "'..selected_value..'". Желающие - /gotp (от одного часа).')
+						sampSendChat('/msg [ГЋГІГЎГ®Г°]: Г‘ГҐГ©Г·Г Г± ГЇГ°Г®Г©Г¤ВёГІ Г®ГІГЎГ®Г° Г­Г  ГЇГ®Г±ГІ Г«ГЁГ¤ГҐГ°Г±ГІГўГ  "'..selected_value..'". Г†ГҐГ«Г ГѕГ№ГЁГҐ - /gotp (Г®ГІ Г®Г¤Г­Г®ГЈГ® Г·Г Г±Г ).')
 					end
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Оповестить о недостачи участников', imgui.ImVec2(250,45)) then
+				if imgui.Button(u8'ГЋГЇГ®ГўГҐГ±ГІГЁГІГј Г® Г­ГҐГ¤Г®Г±ГІГ Г·ГЁ ГіГ·Г Г±ГІГ­ГЁГЄГ®Гў', imgui.ImVec2(250,45)) then
 					if selected[0] == nil or selected[0] < 1 then
-						sampAddChatMessage('[Ошибка]: {ffffff}Выберите лидерскую должность на которую проводите отбор!', 0xFF6600)
+						sampAddChatMessage('[ГЋГёГЁГЎГЄГ ]: {ffffff}Г‚Г»ГЎГҐГ°ГЁГІГҐ Г«ГЁГ¤ГҐГ°Г±ГЄГіГѕ Г¤Г®Г«Г¦Г­Г®Г±ГІГј Г­Г  ГЄГ®ГІГ®Г°ГіГѕ ГЇГ°Г®ГўГ®Г¤ГЁГІГҐ Г®ГІГЎГ®Г°!', 0xFF6600)
 					else
 						local selected_value = fracNames[selected[0] + 1][2]
-						sampSendChat('/msg [Отбор]: Отбор на должность лидерства "'..selected_value..'" был отменён из-за недостачи участников.')
+						sampSendChat('/msg [ГЋГІГЎГ®Г°]: ГЋГІГЎГ®Г° Г­Г  Г¤Г®Г«Г¦Г­Г®Г±ГІГј Г«ГЁГ¤ГҐГ°Г±ГІГўГ  "'..selected_value..'" ГЎГ»Г« Г®ГІГ¬ГҐГ­ВёГ­ ГЁГ§-Г§Г  Г­ГҐГ¤Г®Г±ГІГ Г·ГЁ ГіГ·Г Г±ГІГ­ГЁГЄГ®Гў.')
 					end
 				end
-				if imgui.Button(u8'Оповестить о отборе (Саппорт)', imgui.ImVec2(250,45)) then
-					sampSendChat('/msg [Отбор]: Сейчас пройдёт отбор на должность "Саппорт". Желающие - /gotp (от одного часа)')
+				if imgui.Button(u8'ГЋГЇГ®ГўГҐГ±ГІГЁГІГј Г® Г®ГІГЎГ®Г°ГҐ (Г‘Г ГЇГЇГ®Г°ГІ)', imgui.ImVec2(250,45)) then
+					sampSendChat('/msg [ГЋГІГЎГ®Г°]: Г‘ГҐГ©Г·Г Г± ГЇГ°Г®Г©Г¤ВёГІ Г®ГІГЎГ®Г° Г­Г  Г¤Г®Г«Г¦Г­Г®Г±ГІГј "Г‘Г ГЇГЇГ®Г°ГІ". Г†ГҐГ«Г ГѕГ№ГЁГҐ - /gotp (Г®ГІ Г®Г¤Г­Г®ГЈГ® Г·Г Г±Г )')
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Зачитать правила', imgui.ImVec2(250,45)) then
+				if imgui.Button(u8'Г‡Г Г·ГЁГІГ ГІГј ГЇГ°Г ГўГЁГ«Г ', imgui.ImVec2(250,45)) then
 					lua_thread.create(function()
-						sampSendChat('/m Приветствую! Вы попали на отбор. Сейчас Вам будут зачитаны правила.')
+						sampSendChat('/m ГЏГ°ГЁГўГҐГІГ±ГІГўГіГѕ! Г‚Г» ГЇГ®ГЇГ Г«ГЁ Г­Г  Г®ГІГЎГ®Г°. Г‘ГҐГ©Г·Г Г± Г‚Г Г¬ ГЎГіГ¤ГіГІ Г§Г Г·ГЁГІГ Г­Г» ГЇГ°Г ГўГЁГ«Г .')
 						wait(1500)
-						sampSendChat('/m [Правила]: Первому на ответ 15 секунд, остальным по 10 секунд.')
+						sampSendChat('/m [ГЏГ°Г ГўГЁГ«Г ]: ГЏГҐГ°ГўГ®Г¬Гі Г­Г  Г®ГІГўГҐГІ 15 Г±ГҐГЄГіГ­Г¤, Г®Г±ГІГ Г«ГјГ­Г»Г¬ ГЇГ® 10 Г±ГҐГЄГіГ­Г¤.')
 						wait(1500)
-						sampSendChat('/m [Правила]: Запрещено использовать чат/команды с чатом. Исключение: sms/rep для ответа проводящему.')
+						sampSendChat('/m [ГЏГ°Г ГўГЁГ«Г ]: Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј Г·Г ГІ/ГЄГ®Г¬Г Г­Г¤Г» Г± Г·Г ГІГ®Г¬. Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ: sms/rep Г¤Г«Гї Г®ГІГўГҐГІГ  ГЇГ°Г®ГўГ®Г¤ГїГ№ГҐГ¬Гі.')
 						wait(1500)
-						sampSendChat('/m [Правила]: Запрещно выбегать из строя, стоять AFK 4+ секунды и отвечать вне очереди.')
+						sampSendChat('/m [ГЏГ°Г ГўГЁГ«Г ]: Г‡Г ГЇГ°ГҐГ№Г­Г® ГўГ»ГЎГҐГЈГ ГІГј ГЁГ§ Г±ГІГ°Г®Гї, Г±ГІГ®ГїГІГј AFK 4+ Г±ГҐГЄГіГ­Г¤Г» ГЁ Г®ГІГўГҐГ·Г ГІГј ГўГ­ГҐ Г®Г·ГҐГ°ГҐГ¤ГЁ.')
 						wait(1500)
-						sampSendChat('/m [Правила]: Запрещено мешать участникам/проводящему отбора или как-либо нарушать правила проекта.')
+						sampSendChat('/m [ГЏГ°Г ГўГЁГ«Г ]: Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® Г¬ГҐГёГ ГІГј ГіГ·Г Г±ГІГ­ГЁГЄГ Г¬/ГЇГ°Г®ГўГ®Г¤ГїГ№ГҐГ¬Гі Г®ГІГЎГ®Г°Г  ГЁГ«ГЁ ГЄГ ГЄ-Г«ГЁГЎГ® Г­Г Г°ГіГёГ ГІГј ГЇГ°Г ГўГЁГ«Г  ГЇГ°Г®ГҐГЄГІГ .')
 						wait(1500)
-						sampSendChat('/m [Примечание]: Если кто-то остаётся последним и решает писать ответ в чат без ранее полученого разрешения — спавн.')
+						sampSendChat('/m [ГЏГ°ГЁГ¬ГҐГ·Г Г­ГЁГҐ]: Г…Г±Г«ГЁ ГЄГІГ®-ГІГ® Г®Г±ГІГ ВёГІГ±Гї ГЇГ®Г±Г«ГҐГ¤Г­ГЁГ¬ ГЁ Г°ГҐГёГ ГҐГІ ГЇГЁГ±Г ГІГј Г®ГІГўГҐГІ Гў Г·Г ГІ ГЎГҐГ§ Г°Г Г­ГҐГҐ ГЇГ®Г«ГіГ·ГҐГ­Г®ГЈГ® Г°Г Г§Г°ГҐГёГҐГ­ГЁГї В— Г±ГЇГ ГўГ­.')
 						wait(1500)
-						sampSendChat('/m Начнём!')
+						sampSendChat('/m ГЌГ Г·Г­ВёГ¬!')
 					end)
 				end
 				imgui.EndChild()
 			elseif navigation.current == 2 then
-				if imgui.Button(u8'Блат кого-либо') then
+				if imgui.Button(u8'ГЃГ«Г ГІ ГЄГ®ГЈГ®-Г«ГЁГЎГ®') then
 						lua_thread.create(function()
-						sampSendChat('/m Что будет лидеру за блат?')
+						sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г«ГЁГ¤ГҐГ°Гі Г§Г  ГЎГ«Г ГІ?')
 						wait(110)
-						sampAddChatMessage('Наказание: {ffcc00}Выговор', -1)
+						sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}Г‚Г»ГЈГ®ГўГ®Г°', -1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Что будет лидеру за рекламу') then
+				if imgui.Button(u8'Г—ГІГ® ГЎГіГ¤ГҐГІ Г«ГЁГ¤ГҐГ°Гі Г§Г  Г°ГҐГЄГ«Г Г¬Гі') then
 						lua_thread.create(function()
-						sampSendChat('/m Что будет лидеру за рекламу?')
+						sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г«ГЁГ¤ГҐГ°Гі Г§Г  Г°ГҐГЄГ«Г Г¬Гі?')
 						wait(110)
-						sampAddChatMessage('Наказание: {ffcc00}снятие + /ban', -1)
+						sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}Г±Г­ГїГІГЁГҐ + /ban', -1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Неадекватное поведение') then
+				if imgui.Button(u8'ГЌГҐГ Г¤ГҐГЄГўГ ГІГ­Г®ГҐ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ') then
 						lua_thread.create(function()
-						sampSendChat('/m Что будет лидеру за неадекватное поведение?')
+						sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г«ГЁГ¤ГҐГ°Гі Г§Г  Г­ГҐГ Г¤ГҐГЄГўГ ГІГ­Г®ГҐ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ?')
 						wait(110)
-						sampAddChatMessage('Наказание: {ffcc00}Два выговора + mute', -1)
+						sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}Г„ГўГ  ГўГ»ГЈГ®ГўГ®Г°Г  + mute', -1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Получение девяткой варн') then
+				if imgui.Button(u8'ГЏГ®Г«ГіГ·ГҐГ­ГЁГҐ Г¤ГҐГўГїГІГЄГ®Г© ГўГ Г°Г­') then
 						lua_thread.create(function()
-						sampSendChat('/m Что будет лидеру, если его заместитель получит варн')
+						sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г«ГЁГ¤ГҐГ°Гі, ГҐГ±Г«ГЁ ГҐГЈГ® Г§Г Г¬ГҐГ±ГІГЁГІГҐГ«Гј ГЇГ®Г«ГіГ·ГЁГІ ГўГ Г°Г­')
 						wait(110)
-						sampAddChatMessage('Наказание: {ffcc00}Ничего', -1)
+						sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}ГЌГЁГ·ГҐГЈГ®', -1)
 					end)
 				end
 				imgui.SameLine()
 				if imgui.Button(u8'DeathMatch') then
 						lua_thread.create(function()
-						sampSendChat('/m Что будет лидеру за DM')
+						sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г«ГЁГ¤ГҐГ°Гі Г§Г  DM')
 						wait(110)
-						sampAddChatMessage('Наказание: {ffcc00}Выговор + jail', -1)
+						sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}Г‚Г»ГЈГ®ГўГ®Г° + jail', -1)
 					end)
 				end
-				if imgui.Button(u8'Неотыгровка 1 часа') then
+				if imgui.Button(u8'ГЌГҐГ®ГІГ»ГЈГ°Г®ГўГЄГ  1 Г·Г Г±Г ') then
 						lua_thread.create(function()
-						sampSendChat('/m Что будет лидеру за неотыгровку нормы 1 часа?')
+						sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г«ГЁГ¤ГҐГ°Гі Г§Г  Г­ГҐГ®ГІГ»ГЈГ°Г®ГўГЄГі Г­Г®Г°Г¬Г» 1 Г·Г Г±Г ?')
 						wait(110)
-						sampAddChatMessage('Наказание: {ffcc00}Снятие', -1)
-					end)
-				end
-				imgui.SameLine()
-				if imgui.Button(u8'NonRP название рангов') then
-						lua_thread.create(function()
-						sampSendChat('/m Что будет лидеру за NonRP название рангов?')
-						wait(110)
-						sampAddChatMessage('Наказание: {ffcc00}2 выговора', -1)
+						sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}Г‘Г­ГїГІГЁГҐ', -1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'5 причин по которых могут снять с лидерки') then
+				if imgui.Button(u8'NonRP Г­Г Г§ГўГ Г­ГЁГҐ Г°Г Г­ГЈГ®Гў') then
 						lua_thread.create(function()
-						sampSendChat('/m Назовите 5 причин, по которым могут снять с поста лидера')
+						sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г«ГЁГ¤ГҐГ°Гі Г§Г  NonRP Г­Г Г§ГўГ Г­ГЁГҐ Г°Г Г­ГЈГ®Гў?')
 						wait(110)
-						sampAddChatMessage('Примерные причины: {ffcc00}Упом. родни, читы, читы с твинков, реклама, нонРП ник, расформ 5+, слив, неактив, отсутствие нормы онлайна..', -1)
-						sampAddChatMessage('Примерные причины: {ffcc00}3/3 отсутствие отчёта, 3/3 строгих предупреждений, 4/4 устных предупреждений.', -1)
+						sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}2 ГўГ»ГЈГ®ГўГ®Г°Г ', -1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Упоминание родни') then
+				if imgui.Button(u8'5 ГЇГ°ГЁГ·ГЁГ­ ГЇГ® ГЄГ®ГІГ®Г°Г»Гµ Г¬Г®ГЈГіГІ Г±Г­ГїГІГј Г± Г«ГЁГ¤ГҐГ°ГЄГЁ') then
 						lua_thread.create(function()
-						sampSendChat('/m Что будет лидеру за упоминание родни?')
+						sampSendChat('/m ГЌГ Г§Г®ГўГЁГІГҐ 5 ГЇГ°ГЁГ·ГЁГ­, ГЇГ® ГЄГ®ГІГ®Г°Г»Г¬ Г¬Г®ГЈГіГІ Г±Г­ГїГІГј Г± ГЇГ®Г±ГІГ  Г«ГЁГ¤ГҐГ°Г ')
 						wait(110)
-						sampAddChatMessage('Наказание: {ffcc00}Снятие + mute', -1)
+						sampAddChatMessage('ГЏГ°ГЁГ¬ГҐГ°Г­Г»ГҐ ГЇГ°ГЁГ·ГЁГ­Г»: {ffcc00}Г“ГЇГ®Г¬. Г°Г®Г¤Г­ГЁ, Г·ГЁГІГ», Г·ГЁГІГ» Г± ГІГўГЁГ­ГЄГ®Гў, Г°ГҐГЄГ«Г Г¬Г , Г­Г®Г­ГђГЏ Г­ГЁГЄ, Г°Г Г±ГґГ®Г°Г¬ 5+, Г±Г«ГЁГў, Г­ГҐГ ГЄГІГЁГў, Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г­Г®Г°Г¬Г» Г®Г­Г«Г Г©Г­Г ..', -1)
+						sampAddChatMessage('ГЏГ°ГЁГ¬ГҐГ°Г­Г»ГҐ ГЇГ°ГЁГ·ГЁГ­Г»: {ffcc00}3/3 Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г®ГІГ·ВёГІГ , 3/3 Г±ГІГ°Г®ГЈГЁГµ ГЇГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГ©, 4/4 ГіГ±ГІГ­Г»Гµ ГЇГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГ©.', -1)
 					end)
 				end
-				if imgui.Button(u8'3 причины по которым можно получить 2 выговора') then
+				imgui.SameLine()
+				if imgui.Button(u8'Г“ГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г°Г®Г¤Г­ГЁ') then
 						lua_thread.create(function()
-						sampSendChat('/m Назовите 3 причины, по которым можно получить 2 выговора (гос)')
+						sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г«ГЁГ¤ГҐГ°Гі Г§Г  ГіГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г°Г®Г¤Г­ГЁ?')
 						wait(110)
-						sampAddChatMessage('Причины: {ffcc00}NonRP названия рангов, отсутствие отчёта, розжиг межнациональной розни..', -1)
-						sampAddChatMessage('Причины: {ffcc00}Отказ от ГРП, неуважительно отношение к {ff0000}красной администрации', -1)
+						sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}Г‘Г­ГїГІГЁГҐ + mute', -1)
+					end)
+				end
+				if imgui.Button(u8'3 ГЇГ°ГЁГ·ГЁГ­Г» ГЇГ® ГЄГ®ГІГ®Г°Г»Г¬ Г¬Г®Г¦Г­Г® ГЇГ®Г«ГіГ·ГЁГІГј 2 ГўГ»ГЈГ®ГўГ®Г°Г ') then
+						lua_thread.create(function()
+						sampSendChat('/m ГЌГ Г§Г®ГўГЁГІГҐ 3 ГЇГ°ГЁГ·ГЁГ­Г», ГЇГ® ГЄГ®ГІГ®Г°Г»Г¬ Г¬Г®Г¦Г­Г® ГЇГ®Г«ГіГ·ГЁГІГј 2 ГўГ»ГЈГ®ГўГ®Г°Г  (ГЈГ®Г±)')
+						wait(110)
+						sampAddChatMessage('ГЏГ°ГЁГ·ГЁГ­Г»: {ffcc00}NonRP Г­Г Г§ГўГ Г­ГЁГї Г°Г Г­ГЈГ®Гў, Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г®ГІГ·ВёГІГ , Г°Г®Г§Г¦ГЁГЈ Г¬ГҐГ¦Г­Г Г¶ГЁГ®Г­Г Г«ГјГ­Г®Г© Г°Г®Г§Г­ГЁ..', -1)
+						sampAddChatMessage('ГЏГ°ГЁГ·ГЁГ­Г»: {ffcc00}ГЋГІГЄГ Г§ Г®ГІ ГѓГђГЏ, Г­ГҐГіГўГ Г¦ГЁГІГҐГ«ГјГ­Г® Г®ГІГ­Г®ГёГҐГ­ГЁГҐ ГЄ {ff0000}ГЄГ°Г Г±Г­Г®Г© Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГЁ', -1)
 					end)
 				end
 				imgui.Separator()
@@ -634,335 +634,335 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 				end
 				imgui.Separator()
 				if gos_navigation.current == 1 then
-				if imgui.Button(u8'[Полиция | ФБР] Как выдать розыск') then
+				if imgui.Button(u8'[ГЏГ®Г«ГЁГ¶ГЁГї | Г”ГЃГђ] ГЉГ ГЄ ГўГ»Г¤Г ГІГј Г°Г®Г§Г»Г±ГЄ') then
 					lua_thread.create(function()
-					sampSendChat('/m Как выдать розыск? (Команда)')
+					sampSendChat('/m ГЉГ ГЄ ГўГ»Г¤Г ГІГј Г°Г®Г§Г»Г±ГЄ? (ГЉГ®Г¬Г Г­Г¤Г )')
 					wait(110)
 					sampAddChatMessage('{ffcc00}/su(spect)', -1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'[Полиция | ФБР] Как писать текст в мегафон') then
+				if imgui.Button(u8'[ГЏГ®Г«ГЁГ¶ГЁГї | Г”ГЃГђ] ГЉГ ГЄ ГЇГЁГ±Г ГІГј ГІГҐГЄГ±ГІ Гў Г¬ГҐГЈГ ГґГ®Г­') then
 					lua_thread.create(function()
-					sampSendChat('/m Как писать текст в мегафон? (Команда)')
+					sampSendChat('/m ГЉГ ГЄ ГЇГЁГ±Г ГІГј ГІГҐГЄГ±ГІ Гў Г¬ГҐГЈГ ГґГ®Г­? (ГЉГ®Г¬Г Г­Г¤Г )')
 					wait(110)
 					sampAddChatMessage('{ffcc00}(/m)egaphone', -1)
 					end)
 				end
-				if imgui.Button(u8'[Полиция | ФБР] Как посмотреть список разыскиваемых') then
+				if imgui.Button(u8'[ГЏГ®Г«ГЁГ¶ГЁГї | Г”ГЃГђ] ГЉГ ГЄ ГЇГ®Г±Г¬Г®ГІГ°ГҐГІГј Г±ГЇГЁГ±Г®ГЄ Г°Г Г§Г»Г±ГЄГЁГўГ ГҐГ¬Г»Гµ') then
 					lua_thread.create(function()
-					sampSendChat('/m Как посмотреть список разыскиваемых людей? (Команда)')
+					sampSendChat('/m ГЉГ ГЄ ГЇГ®Г±Г¬Г®ГІГ°ГҐГІГј Г±ГЇГЁГ±Г®ГЄ Г°Г Г§Г»Г±ГЄГЁГўГ ГҐГ¬Г»Гµ Г«ГѕГ¤ГҐГ©? (ГЉГ®Г¬Г Г­Г¤Г )')
 					wait(110)
 					sampAddChatMessage('{ffcc00}/wanted', -1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'[Полиция | ФБР] Как писать текст в департамент') then
+				if imgui.Button(u8'[ГЏГ®Г«ГЁГ¶ГЁГї | Г”ГЃГђ] ГЉГ ГЄ ГЇГЁГ±Г ГІГј ГІГҐГЄГ±ГІ Гў Г¤ГҐГЇГ Г°ГІГ Г¬ГҐГ­ГІ') then
 					lua_thread.create(function()
-					sampSendChat('/m Как писать текст в департамент? (Команда)')
+					sampSendChat('/m ГЉГ ГЄ ГЇГЁГ±Г ГІГј ГІГҐГЄГ±ГІ Гў Г¤ГҐГЇГ Г°ГІГ Г¬ГҐГ­ГІ? (ГЉГ®Г¬Г Г­Г¤Г )')
 					wait(110)
-					sampAddChatMessage('{ffcc00}(/d)epartments /db (одно из двух)', -1)
+					sampAddChatMessage('{ffcc00}(/d)epartments /db (Г®Г¤Г­Г® ГЁГ§ Г¤ГўГіГµ)', -1)
 					end)
 				end
-				if imgui.Button(u8'[Полиция | ФБР] Как обыскать игрока') then
+				if imgui.Button(u8'[ГЏГ®Г«ГЁГ¶ГЁГї | Г”ГЃГђ] ГЉГ ГЄ Г®ГЎГ»Г±ГЄГ ГІГј ГЁГЈГ°Г®ГЄГ ') then
 					lua_thread.create(function()
-					sampSendChat('/m Как обыскать игрока? (Команда)')
+					sampSendChat('/m ГЉГ ГЄ Г®ГЎГ»Г±ГЄГ ГІГј ГЁГЈГ°Г®ГЄГ ? (ГЉГ®Г¬Г Г­Г¤Г )')
 					wait(110)
 					sampAddChatMessage('{ffcc00}/frisk', -1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'[Полиция | ФБР] Как писать текст в гос. новости') then
+				if imgui.Button(u8'[ГЏГ®Г«ГЁГ¶ГЁГї | Г”ГЃГђ] ГЉГ ГЄ ГЇГЁГ±Г ГІГј ГІГҐГЄГ±ГІ Гў ГЈГ®Г±. Г­Г®ГўГ®Г±ГІГЁ') then
 					lua_thread.create(function()
-					sampSendChat('/m Как писать текст в гос. новости? (Команда)')
+					sampSendChat('/m ГЉГ ГЄ ГЇГЁГ±Г ГІГј ГІГҐГЄГ±ГІ Гў ГЈГ®Г±. Г­Г®ГўГ®Г±ГІГЁ? (ГЉГ®Г¬Г Г­Г¤Г )')
 					wait(110)
 					sampAddChatMessage('{ffcc00}(/gov)ernment', -1)
 					end)
 				end
-				if imgui.Button(u8'[Полиция | ФБР] Как выставить шипы') then
+				if imgui.Button(u8'[ГЏГ®Г«ГЁГ¶ГЁГї | Г”ГЃГђ] ГЉГ ГЄ ГўГ»Г±ГІГ ГўГЁГІГј ГёГЁГЇГ»') then
 					lua_thread.create(function()
-					sampSendChat('/m Как ? (Команда)')
+					sampSendChat('/m ГЉГ ГЄ ? (ГЉГ®Г¬Г Г­Г¤Г )')
 					wait(110)
 					sampAddChatMessage('{ffcc00}/block', -1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'[Полиция | ФБР] Как одеть щит') then
+				if imgui.Button(u8'[ГЏГ®Г«ГЁГ¶ГЁГї | Г”ГЃГђ] ГЉГ ГЄ Г®Г¤ГҐГІГј Г№ГЁГІ') then
 					lua_thread.create(function()
-					sampSendChat('/m Как одеть щит? (Команда)')
+					sampSendChat('/m ГЉГ ГЄ Г®Г¤ГҐГІГј Г№ГЁГІ? (ГЉГ®Г¬Г Г­Г¤Г )')
 					wait(110)
 					sampAddChatMessage('{ffcc00}/shield', -1)
 					end)
 				end
-				if imgui.Button(u8'[Полиция | ФБР] Как выдать ключ от участка') then
+				if imgui.Button(u8'[ГЏГ®Г«ГЁГ¶ГЁГї | Г”ГЃГђ] ГЉГ ГЄ ГўГ»Г¤Г ГІГј ГЄГ«ГѕГ· Г®ГІ ГіГ·Г Г±ГІГЄГ ') then
 					lua_thread.create(function()
-					sampSendChat('/m Как выдать ключ от участка? (Команда)')
+					sampSendChat('/m ГЉГ ГЄ ГўГ»Г¤Г ГІГј ГЄГ«ГѕГ· Г®ГІ ГіГ·Г Г±ГІГЄГ ? (ГЉГ®Г¬Г Г­Г¤Г )')
 					wait(110)
 					sampAddChatMessage('{ffcc00}/givecopkeys', -1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'[Полиция | ФБР] Как поставить объекты') then
+				if imgui.Button(u8'[ГЏГ®Г«ГЁГ¶ГЁГї | Г”ГЃГђ] ГЉГ ГЄ ГЇГ®Г±ГІГ ГўГЁГІГј Г®ГЎГєГҐГЄГІГ»') then
 					lua_thread.create(function()
-					sampSendChat('/m Как поставить объекты (будка КПП, знаки, ограждения, отбойники и т.д)? (Команда)')
+					sampSendChat('/m ГЉГ ГЄ ГЇГ®Г±ГІГ ГўГЁГІГј Г®ГЎГєГҐГЄГІГ» (ГЎГіГ¤ГЄГ  ГЉГЏГЏ, Г§Г­Г ГЄГЁ, Г®ГЈГ°Г Г¦Г¤ГҐГ­ГЁГї, Г®ГІГЎГ®Г©Г­ГЁГЄГЁ ГЁ ГІ.Г¤)? (ГЉГ®Г¬Г Г­Г¤Г )')
 					wait(110)
 					sampAddChatMessage('{ffcc00}/break', -1)
 					end)
 				end
-				if imgui.Button(u8'[ФБР] Как понизить / уволить человека с другой организации') then
+				if imgui.Button(u8'[Г”ГЃГђ] ГЉГ ГЄ ГЇГ®Г­ГЁГ§ГЁГІГј / ГіГўГ®Г«ГЁГІГј Г·ГҐГ«Г®ГўГҐГЄГ  Г± Г¤Г°ГіГЈГ®Г© Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГЁ') then
 				lua_thread.create(function()
-					sampSendChat('/m Как понизить / уволить человека с другой организации? (Команда)')
+					sampSendChat('/m ГЉГ ГЄ ГЇГ®Г­ГЁГ§ГЁГІГј / ГіГўГ®Г«ГЁГІГј Г·ГҐГ«Г®ГўГҐГЄГ  Г± Г¤Г°ГіГЈГ®Г© Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГЁ? (ГЉГ®Г¬Г Г­Г¤Г )')
 					wait(110)
 					sampAddChatMessage('{ffcc00}/demote',-1)
 				end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'[ФБР] Как оглушить всех рядом стоящих жителей') then
+				if imgui.Button(u8'[Г”ГЃГђ] ГЉГ ГЄ Г®ГЈГ«ГіГёГЁГІГј ГўГ±ГҐГµ Г°ГїГ¤Г®Г¬ Г±ГІГ®ГїГ№ГЁГµ Г¦ГЁГІГҐГ«ГҐГ©') then
 					lua_thread.create(function()
-						sampSendChat('Как оглушить всех рядом стоящих жителей? (Команда)')
+						sampSendChat('ГЉГ ГЄ Г®ГЈГ«ГіГёГЁГІГј ГўГ±ГҐГµ Г°ГїГ¤Г®Г¬ Г±ГІГ®ГїГ№ГЁГµ Г¦ГЁГІГҐГ«ГҐГ©? (ГЉГ®Г¬Г Г­Г¤Г )')
 						wait(110)
 						sampAddChatMessage('{ffcc00}/frazer',-1)
 					end)
 				end
-				if imgui.Button(u8'[ФБР] Как одеть маскировку') then
+				if imgui.Button(u8'[Г”ГЃГђ] ГЉГ ГЄ Г®Г¤ГҐГІГј Г¬Г Г±ГЄГЁГ°Г®ГўГЄГі') then
 					lua_thread.create(function()
-						sampSendChat('/m Как одеть маскировку? (Команда)')
+						sampSendChat('/m ГЉГ ГЄ Г®Г¤ГҐГІГј Г¬Г Г±ГЄГЁГ°Г®ГўГЄГі? (ГЉГ®Г¬Г Г­Г¤Г )')
 						wait(110)
 						sampAddChatMessage('{ffcc00}/spy (/hmask)',-1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'[ФБР] Как прослушивать рации других организаций') then
+				if imgui.Button(u8'[Г”ГЃГђ] ГЉГ ГЄ ГЇГ°Г®Г±Г«ГіГёГЁГўГ ГІГј Г°Г Г¶ГЁГЁ Г¤Г°ГіГЈГЁГµ Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГ©') then
 					lua_thread.create(function()
-						sampSendChat('/m Как прослушивать рации других организаций? (Команда)')
+						sampSendChat('/m ГЉГ ГЄ ГЇГ°Г®Г±Г«ГіГёГЁГўГ ГІГј Г°Г Г¶ГЁГЁ Г¤Г°ГіГЈГЁГµ Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГ©? (ГЉГ®Г¬Г Г­Г¤Г )')
 						wait(110)
 						sampAddChatMessage('{ffcc00}/follow',-1)
 					end)
 				end
-				if imgui.Button(u8'[Полиция | ФБР] Как посмотреть список людей Вашей организации онлайн') then
+				if imgui.Button(u8'[ГЏГ®Г«ГЁГ¶ГЁГї | Г”ГЃГђ] ГЉГ ГЄ ГЇГ®Г±Г¬Г®ГІГ°ГҐГІГј Г±ГЇГЁГ±Г®ГЄ Г«ГѕГ¤ГҐГ© Г‚Г ГёГҐГ© Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГЁ Г®Г­Г«Г Г©Г­') then
 					lua_thread.create(function()
-						sampSendChat('/m Как посмотреть список людей Вашей организации онлайн? (Команда)')
+						sampSendChat('/m ГЉГ ГЄ ГЇГ®Г±Г¬Г®ГІГ°ГҐГІГј Г±ГЇГЁГ±Г®ГЄ Г«ГѕГ¤ГҐГ© Г‚Г ГёГҐГ© Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГЁ Г®Г­Г«Г Г©Г­? (ГЉГ®Г¬Г Г­Г¤Г )')
 						wait(110)
 						sampAddChatMessage('{ffcc00}/members',-1)
 					end)
 				end
 				elseif gos_navigation.current == 2 then
-				if imgui.Button(u8'[АП | Мэрия] Как выдать розыск гос. служащему') then
+				if imgui.Button(u8'[ГЂГЏ | ГЊГЅГ°ГЁГї] ГЉГ ГЄ ГўГ»Г¤Г ГІГј Г°Г®Г§Г»Г±ГЄ ГЈГ®Г±. Г±Г«ГіГ¦Г Г№ГҐГ¬Гі') then
 					lua_thread.create(function()
-						sampSendChat('/m Как выдать розыск гос. служащему? (Команда)')
+						sampSendChat('/m ГЉГ ГЄ ГўГ»Г¤Г ГІГј Г°Г®Г§Г»Г±ГЄ ГЈГ®Г±. Г±Г«ГіГ¦Г Г№ГҐГ¬Гі? (ГЉГ®Г¬Г Г­Г¤Г )')
 						wait(110)
 						sampAddChatMessage('{ffcc00}/govsu',-1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'[Мэрия] Как снять деньги с казны штата') then
+				if imgui.Button(u8'[ГЊГЅГ°ГЁГї] ГЉГ ГЄ Г±Г­ГїГІГј Г¤ГҐГ­ГјГЈГЁ Г± ГЄГ Г§Г­Г» ГёГІГ ГІГ ') then
 					lua_thread.create(function()
-						sampSendChat('/m Как снять деньги с казны штата? (Команда)')
+						sampSendChat('/m ГЉГ ГЄ Г±Г­ГїГІГј Г¤ГҐГ­ГјГЈГЁ Г± ГЄГ Г§Г­Г» ГёГІГ ГІГ ? (ГЉГ®Г¬Г Г­Г¤Г )')
 						wait(110)
 						sampAddChatMessage('{ffcc00}/takekazna',-1)
 					end)
 				end
-				if imgui.Button(u8'[АП] Как понизить / уволить человека с другой организации') then
+				if imgui.Button(u8'[ГЂГЏ] ГЉГ ГЄ ГЇГ®Г­ГЁГ§ГЁГІГј / ГіГўГ®Г«ГЁГІГј Г·ГҐГ«Г®ГўГҐГЄГ  Г± Г¤Г°ГіГЈГ®Г© Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГЁ') then
 					lua_thread.create(function()
-						sampSendChat('/m Как понизить / уволить человека с другой организации? (Команда)')
+						sampSendChat('/m ГЉГ ГЄ ГЇГ®Г­ГЁГ§ГЁГІГј / ГіГўГ®Г«ГЁГІГј Г·ГҐГ«Г®ГўГҐГЄГ  Г± Г¤Г°ГіГЈГ®Г© Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГЁ? (ГЉГ®Г¬Г Г­Г¤Г )')
 						wait(110)
 						sampAddChatMessage('{ffcc00}/demote',-1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'[АП] Как оглушить всех рядом стоящих жителей') then
+				if imgui.Button(u8'[ГЂГЏ] ГЉГ ГЄ Г®ГЈГ«ГіГёГЁГІГј ГўГ±ГҐГµ Г°ГїГ¤Г®Г¬ Г±ГІГ®ГїГ№ГЁГµ Г¦ГЁГІГҐГ«ГҐГ©') then
 					lua_thread.create(function()
-						sampSendChat('/m Как оглушить всех рядом стоящих жителей? (Команда)')
+						sampSendChat('/m ГЉГ ГЄ Г®ГЈГ«ГіГёГЁГІГј ГўГ±ГҐГµ Г°ГїГ¤Г®Г¬ Г±ГІГ®ГїГ№ГЁГµ Г¦ГЁГІГҐГ«ГҐГ©? (ГЉГ®Г¬Г Г­Г¤Г )')
 						wait(110)
 						sampAddChatMessage('{ffcc00}/ftazer',-1)
 					end)
 				end
 				elseif gos_navigation.current == 3 then
-				if imgui.Button(u8'Как редактировать объявления') then
+				if imgui.Button(u8'ГЉГ ГЄ Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј Г®ГЎГєГїГўГ«ГҐГ­ГЁГї') then
 					lua_thread.create(function()
-						sampSendChat('/m Как редактировать объявления? (Команда)')
+						sampSendChat('/m ГЉГ ГЄ Г°ГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј Г®ГЎГєГїГўГ«ГҐГ­ГЁГї? (ГЉГ®Г¬Г Г­Г¤Г )')
 						wait(110)
 						sampAddChatMessage('{ffcc00}/edit',-1)
 					end)
 				end
 				elseif gos_navigation.current == 4 then
-				if imgui.Button(u8'Ломка') then
+				if imgui.Button(u8'Г‹Г®Г¬ГЄГ ') then
 					lua_thread.create(function()
-						sampSendChat('/m Как помочь остановить ломку? (Команда)')
+						sampSendChat('/m ГЉГ ГЄ ГЇГ®Г¬Г®Г·Гј Г®Г±ГІГ Г­Г®ГўГЁГІГј Г«Г®Г¬ГЄГі? (ГЉГ®Г¬Г Г­Г¤Г )')
 						wait(110)
 						sampAddChatMessage('{ffcc00}/lomka',-1)
 					end)
 				end imgui.SameLine()
-				if imgui.Button(u8'Мед. карта') then
+				if imgui.Button(u8'ГЊГҐГ¤. ГЄГ Г°ГІГ ') then
 					lua_thread.create(function()
-						sampSendChat('/m Как выдать человеку мед. карту? (Команда)')
+						sampSendChat('/m ГЉГ ГЄ ГўГ»Г¤Г ГІГј Г·ГҐГ«Г®ГўГҐГЄГі Г¬ГҐГ¤. ГЄГ Г°ГІГі? (ГЉГ®Г¬Г Г­Г¤Г )')
 						wait(110)
 						sampAddChatMessage('{ffcc00}/givemedcard',-1)
 					end)
 				end
-				if imgui.Button(u8'Вылечить') then
+				if imgui.Button(u8'Г‚Г»Г«ГҐГ·ГЁГІГј') then
 					lua_thread.create(function()
-						sampSendChat('/m Как вылечить человека? (Команда)')
+						sampSendChat('/m ГЉГ ГЄ ГўГ»Г«ГҐГ·ГЁГІГј Г·ГҐГ«Г®ГўГҐГЄГ ? (ГЉГ®Г¬Г Г­Г¤Г )')
 						wait(110)
 						sampAddChatMessage('{ffcc00}/medhelp (/heal)',-1)
 					end)
 				end imgui.SameLine()
-				if imgui.Button(u8'Выгнать из здания') then
+				if imgui.Button(u8'Г‚Г»ГЈГ­Г ГІГј ГЁГ§ Г§Г¤Г Г­ГЁГї') then
 					lua_thread.create(function()
-						sampSendChat('/m Как выгнать человека из здания? (Команда)')
+						sampSendChat('/m ГЉГ ГЄ ГўГ»ГЈГ­Г ГІГј Г·ГҐГ«Г®ГўГҐГЄГ  ГЁГ§ Г§Г¤Г Г­ГЁГї? (ГЉГ®Г¬Г Г­Г¤Г )')
 						wait(110)
 						sampAddChatMessage('{ffcc00}/mdpell',-1)
 					end)
 				end
 			end
 		elseif navigation.current == 3 then
-				if imgui.Button(u8'Игнорирование просьб ГС') then
+				if imgui.Button(u8'Г€ГЈГ­Г®Г°ГЁГ°Г®ГўГ Г­ГЁГҐ ГЇГ°Г®Г±ГјГЎ ГѓГ‘') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет саппорту за игнорирование просьб главного следящего?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г±Г ГЇГЇГ®Г°ГІГі Г§Г  ГЁГЈГ­Г®Г°ГЁГ°Г®ГўГ Г­ГЁГҐ ГЇГ°Г®Г±ГјГЎ ГЈГ«Г ГўГ­Г®ГЈГ® Г±Г«ГҐГ¤ГїГ№ГҐГЈГ®?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}Выговор', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}Г‚Г»ГЈГ®ГўГ®Г°', -1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Отсутсвие нормы онлайна') then
+				if imgui.Button(u8'ГЋГІГ±ГіГІГ±ГўГЁГҐ Г­Г®Г°Г¬Г» Г®Г­Г«Г Г©Г­Г ') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет саппорту за отсутствие нормы онлайны?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г±Г ГЇГЇГ®Г°ГІГі Г§Г  Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г­Г®Г°Г¬Г» Г®Г­Г«Г Г©Г­Г»?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}Снятие', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}Г‘Г­ГїГІГЁГҐ', -1)
 					end)
 				end
-				if imgui.Button(u8'Неактив 24 часа') then
+				if imgui.Button(u8'ГЌГҐГ ГЄГІГЁГў 24 Г·Г Г±Г ') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет саппорту за неактив 24 часа?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г±Г ГЇГЇГ®Г°ГІГі Г§Г  Г­ГҐГ ГЄГІГЁГў 24 Г·Г Г±Г ?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}Снятие', -1)
-					end)
-				end
-				imgui.SameLine()
-				if imgui.Button(u8'Неверный ответ') then
-					lua_thread.create(function()
-					sampSendChat('/m Что будет саппорту за неверный ответ?')
-					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}Выговор', -1)
-					end)
-				end
-				if imgui.Button(u8'NonRP ник') then
-					lua_thread.create(function()
-					sampSendChat('/m Что будет саппорту за NonRP ник?')
-					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}Снятие', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}Г‘Г­ГїГІГЁГҐ', -1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Транслит в ответе') then
+				if imgui.Button(u8'ГЌГҐГўГҐГ°Г­Г»Г© Г®ГІГўГҐГІ') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет саппорту за трансил в ответе?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г±Г ГЇГЇГ®Г°ГІГі Г§Г  Г­ГҐГўГҐГ°Г­Г»Г© Г®ГІГўГҐГІ?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}Выговор', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}Г‚Г»ГЈГ®ГўГ®Г°', -1)
 					end)
 				end
-				if imgui.Button(u8'Ошибки/неграмотность в ответе') then
+				if imgui.Button(u8'NonRP Г­ГЁГЄ') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет саппорту за наличие ошибок, проявление неграмотности при ответе, неполноценные ответы?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г±Г ГЇГЇГ®Г°ГІГі Г§Г  NonRP Г­ГЁГЄ?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}Выговор', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}Г‘Г­ГїГІГЁГҐ', -1)
 					end)
 				end
-				if imgui.Button(u8'Использование читов') then
+				imgui.SameLine()
+				if imgui.Button(u8'Г’Г°Г Г­Г±Г«ГЁГІ Гў Г®ГІГўГҐГІГҐ') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет саппорту за использование читов?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г±Г ГЇГЇГ®Г°ГІГі Г§Г  ГІГ°Г Г­Г±ГЁГ« Гў Г®ГІГўГҐГІГҐ?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}Снятие + jail/warn', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}Г‚Г»ГЈГ®ГўГ®Г°', -1)
+					end)
+				end
+				if imgui.Button(u8'ГЋГёГЁГЎГЄГЁ/Г­ГҐГЈГ°Г Г¬Г®ГІГ­Г®Г±ГІГј Гў Г®ГІГўГҐГІГҐ') then
+					lua_thread.create(function()
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г±Г ГЇГЇГ®Г°ГІГі Г§Г  Г­Г Г«ГЁГ·ГЁГҐ Г®ГёГЁГЎГ®ГЄ, ГЇГ°Г®ГїГўГ«ГҐГ­ГЁГҐ Г­ГҐГЈГ°Г Г¬Г®ГІГ­Г®Г±ГІГЁ ГЇГ°ГЁ Г®ГІГўГҐГІГҐ, Г­ГҐГЇГ®Г«Г­Г®Г¶ГҐГ­Г­Г»ГҐ Г®ГІГўГҐГІГ»?')
+					wait(110)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}Г‚Г»ГЈГ®ГўГ®Г°', -1)
+					end)
+				end
+				if imgui.Button(u8'Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Г·ГЁГІГ®Гў') then
+					lua_thread.create(function()
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г±Г ГЇГЇГ®Г°ГІГі Г§Г  ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Г·ГЁГІГ®Гў?')
+					wait(110)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}Г‘Г­ГїГІГЁГҐ + jail/warn', -1)
 					end)
 				end
 				if imgui.Button(u8'DeathMatch') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет саппорту за DM?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г±Г ГЇГЇГ®Г°ГІГі Г§Г  DM?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}Выговор + jail', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}Г‚Г»ГЈГ®ГўГ®Г° + jail', -1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'0 ответов') then
+				if imgui.Button(u8'0 Г®ГІГўГҐГІГ®Гў') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет саппорту за наличие 0 ответов?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г±Г ГЇГЇГ®Г°ГІГі Г§Г  Г­Г Г«ГЁГ·ГЁГҐ 0 Г®ГІГўГҐГІГ®Гў?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}2 выговора', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}2 ГўГ»ГЈГ®ГўГ®Г°Г ', -1)
 					end)
 				end
 		elseif navigation.current == 4 then
-				if imgui.Button(u8'Что будет банде за ТКД') then
+				if imgui.Button(u8'Г—ГІГ® ГЎГіГ¤ГҐГІ ГЎГ Г­Г¤ГҐ Г§Г  Г’ГЉГ„') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет банде за труднодоступную крышу во время капта, и игроку который нарушил правило?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ ГЎГ Г­Г¤ГҐ Г§Г  ГІГ°ГіГ¤Г­Г®Г¤Г®Г±ГІГіГЇГ­ГіГѕ ГЄГ°Г»ГёГі ГўГ® ГўГ°ГҐГ¬Гї ГЄГ ГЇГІГ , ГЁ ГЁГЈГ°Г®ГЄГі ГЄГ®ГІГ®Г°Г»Г© Г­Г Г°ГіГёГЁГ« ГЇГ°Г ГўГЁГ«Г®?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}2/3 банде, игроку jail/warn (лидеру выговор если он в сети)', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}2/3 ГЎГ Г­Г¤ГҐ, ГЁГЈГ°Г®ГЄГі jail/warn (Г«ГЁГ¤ГҐГ°Гі ГўГ»ГЈГ®ГўГ®Г° ГҐГ±Г«ГЁ Г®Г­ Гў Г±ГҐГІГЁ)', -1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Броня на капте') then
+				if imgui.Button(u8'ГЃГ°Г®Г­Гї Г­Г  ГЄГ ГЇГІГҐ') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет бинде за использование бронежилета во время капта, и игроку который нарушил правило?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ ГЎГЁГ­Г¤ГҐ Г§Г  ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГЎГ°Г®Г­ГҐГ¦ГЁГ«ГҐГІГ  ГўГ® ГўГ°ГҐГ¬Гї ГЄГ ГЇГІГ , ГЁ ГЁГЈГ°Г®ГЄГі ГЄГ®ГІГ®Г°Г»Г© Г­Г Г°ГіГёГЁГ« ГЇГ°Г ГўГЁГ«Г®?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}1/3 банде, игроку jail/warn (лидеру выговор если он в сети)', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}1/3 ГЎГ Г­Г¤ГҐ, ГЁГЈГ°Г®ГЄГі jail/warn (Г«ГЁГ¤ГҐГ°Гі ГўГ»ГЈГ®ГўГ®Г° ГҐГ±Г«ГЁ Г®Г­ Гў Г±ГҐГІГЁ)', -1)
 					end)
 				end
 				if imgui.Button(u8'Fly Hack') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет банде использование Fly Hack, и игроку который нарушил правило?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ ГЎГ Г­Г¤ГҐ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Fly Hack, ГЁ ГЁГЈГ°Г®ГЄГі ГЄГ®ГІГ®Г°Г»Г© Г­Г Г°ГіГёГЁГ« ГЇГ°Г ГўГЁГ«Г®?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}2/3 банде, игроку jail/warn (лидеру выговор если он в сети)', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}2/3 ГЎГ Г­Г¤ГҐ, ГЁГЈГ°Г®ГЄГі jail/warn (Г«ГЁГ¤ГҐГ°Гі ГўГ»ГЈГ®ГўГ®Г° ГҐГ±Г«ГЁ Г®Г­ Гў Г±ГҐГІГЁ)', -1)
 					end)
 				end
 				imgui.SameLine()
 				if imgui.Button(u8'CARSHOT') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет банде использование CARSHOT, и игроку который нарушил правило?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ ГЎГ Г­Г¤ГҐ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ CARSHOT, ГЁ ГЁГЈГ°Г®ГЄГі ГЄГ®ГІГ®Г°Г»Г© Г­Г Г°ГіГёГЁГ« ГЇГ°Г ГўГЁГ«Г®?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}3/3 банде, игроку /ban', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}3/3 ГЎГ Г­Г¤ГҐ, ГЁГЈГ°Г®ГЄГі /ban', -1)
 					end)
 				end
-				if imgui.Button(u8'Намеренный SK') then
+				if imgui.Button(u8'ГЌГ Г¬ГҐГ°ГҐГ­Г­Г»Г© SK') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет банде за намеренный SK, и игроку который нарушил правило?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ ГЎГ Г­Г¤ГҐ Г§Г  Г­Г Г¬ГҐГ°ГҐГ­Г­Г»Г© SK, ГЁ ГЁГЈГ°Г®ГЄГі ГЄГ®ГІГ®Г°Г»Г© Г­Г Г°ГіГёГЁГ« ГЇГ°Г ГўГЁГ«Г®?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}2/3 банде, игроку jail/warn (лидеру выговор если он в сети)', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}2/3 ГЎГ Г­Г¤ГҐ, ГЁГЈГ°Г®ГЄГі jail/warn (Г«ГЁГ¤ГҐГ°Гі ГўГ»ГЈГ®ГўГ®Г° ГҐГ±Г«ГЁ Г®Г­ Гў Г±ГҐГІГЁ)', -1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Капт Кусоком/обрезом') then
+				if imgui.Button(u8'ГЉГ ГЇГІ ГЉГіГ±Г®ГЄГ®Г¬/Г®ГЎГ°ГҐГ§Г®Г¬') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет банде за капт куском/обрезом, и игроку который нарушил правило?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ ГЎГ Г­Г¤ГҐ Г§Г  ГЄГ ГЇГІ ГЄГіГ±ГЄГ®Г¬/Г®ГЎГ°ГҐГ§Г®Г¬, ГЁ ГЁГЈГ°Г®ГЄГі ГЄГ®ГІГ®Г°Г»Г© Г­Г Г°ГіГёГЁГ« ГЇГ°Г ГўГЁГ«Г®?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}3/3 банде, игроку jail/warn (лидеру выговор если он в сети)', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}3/3 ГЎГ Г­Г¤ГҐ, ГЁГЈГ°Г®ГЄГі jail/warn (Г«ГЁГ¤ГҐГ°Гі ГўГ»ГЈГ®ГўГ®Г° ГҐГ±Г«ГЁ Г®Г­ Гў Г±ГҐГІГЁ)', -1)
 					end)
 				end
-				if imgui.Button(u8'3/3 капт (лидер в сети)') then
+				if imgui.Button(u8'3/3 ГЄГ ГЇГІ (Г«ГЁГ¤ГҐГ° Гў Г±ГҐГІГЁ)') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет лидеру, если его банда получила 3/3, когда он был в сети?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г«ГЁГ¤ГҐГ°Гі, ГҐГ±Г«ГЁ ГҐГЈГ® ГЎГ Г­Г¤Г  ГЇГ®Г«ГіГ·ГЁГ«Г  3/3, ГЄГ®ГЈГ¤Г  Г®Г­ ГЎГ»Г« Гў Г±ГҐГІГЁ?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}Выговор', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}Г‚Г»ГЈГ®ГўГ®Г°', -1)
 					end)
 				end
-				if imgui.Button(u8'Стрельба из пассажирского окна') then
+				if imgui.Button(u8'Г‘ГІГ°ГҐГ«ГјГЎГ  ГЁГ§ ГЇГ Г±Г±Г Г¦ГЁГ°Г±ГЄГ®ГЈГ® Г®ГЄГ­Г ') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет банде, если кто-то из них будет стерлять из пассажирского окна, и игроку который нарушил правило?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ ГЎГ Г­Г¤ГҐ, ГҐГ±Г«ГЁ ГЄГІГ®-ГІГ® ГЁГ§ Г­ГЁГµ ГЎГіГ¤ГҐГІ Г±ГІГҐГ°Г«ГїГІГј ГЁГ§ ГЇГ Г±Г±Г Г¦ГЁГ°Г±ГЄГ®ГЈГ® Г®ГЄГ­Г , ГЁ ГЁГЈГ°Г®ГЄГі ГЄГ®ГІГ®Г°Г»Г© Г­Г Г°ГіГёГЁГ« ГЇГ°Г ГўГЁГ«Г®?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}3/3 банде, игроку ничего (если лидер - выговор)', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}3/3 ГЎГ Г­Г¤ГҐ, ГЁГЈГ°Г®ГЄГі Г­ГЁГ·ГҐГЈГ® (ГҐГ±Г«ГЁ Г«ГЁГ¤ГҐГ° - ГўГ»ГЈГ®ГўГ®Г°)', -1)
 					end)
 				end
 				if imgui.Button(u8'Silent-AIM') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет банде за использование AIM, и игроку который нарушил правило?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ ГЎГ Г­Г¤ГҐ Г§Г  ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ AIM, ГЁ ГЁГЈГ°Г®ГЄГі ГЄГ®ГІГ®Г°Г»Г© Г­Г Г°ГіГёГЁГ« ГЇГ°Г ГўГЁГ«Г®?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}3/3 банде, игроку jail/warn (лидеру выговор если он в сети)', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}3/3 ГЎГ Г­Г¤ГҐ, ГЁГЈГ°Г®ГЄГі jail/warn (Г«ГЁГ¤ГҐГ°Гі ГўГ»ГЈГ®ГўГ®Г° ГҐГ±Г«ГЁ Г®Г­ Гў Г±ГҐГІГЁ)', -1)
 					end)
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Исп. +C на капте анти+С') then
+				if imgui.Button(u8'Г€Г±ГЇ. +C Г­Г  ГЄГ ГЇГІГҐ Г Г­ГІГЁ+Г‘') then
 					lua_thread.create(function()
-					sampSendChat('/m Что будет банде за +С на анти +С капте, и игроку который нарушил правило?')
+					sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ ГЎГ Г­Г¤ГҐ Г§Г  +Г‘ Г­Г  Г Г­ГІГЁ +Г‘ ГЄГ ГЇГІГҐ, ГЁ ГЁГЈГ°Г®ГЄГі ГЄГ®ГІГ®Г°Г»Г© Г­Г Г°ГіГёГЁГ« ГЇГ°Г ГўГЁГ«Г®?')
 					wait(110)
-					sampAddChatMessage('Наказание: {ffcc00}3/3 банде, игроку jail/warn (лидеру выговор если он в сети)', -1)
+					sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}3/3 ГЎГ Г­Г¤ГҐ, ГЁГЈГ°Г®ГЄГі jail/warn (Г«ГЁГ¤ГҐГ°Гі ГўГ»ГЈГ®ГўГ®Г° ГҐГ±Г«ГЁ Г®Г­ Гў Г±ГҐГІГЁ)', -1)
 					end)
 				end
 			elseif navigation.current == 5 then
@@ -976,100 +976,100 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 				end
 				imgui.Separator()
 				if mafia_navigation.current == 1 then
-					if imgui.Button(u8'Неявка') then
+					if imgui.Button(u8'ГЌГҐГїГўГЄГ ') then
 						lua_thread.create(function()
-						sampSendChat('/m Что будет мафии за неприезд на стреле в течении 3-х минут?')
+						sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г¬Г ГґГЁГЁ Г§Г  Г­ГҐГЇГ°ГЁГҐГ§Г¤ Г­Г  Г±ГІГ°ГҐГ«ГҐ Гў ГІГҐГ·ГҐГ­ГЁГЁ 3-Гµ Г¬ГЁГ­ГіГІ?')
 						wait(110)
-						sampAddChatMessage('Наказание: {ffcc00}3/3 мафии, если лидер был в сети - выговор', -1)
+						sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}3/3 Г¬Г ГґГЁГЁ, ГҐГ±Г«ГЁ Г«ГЁГ¤ГҐГ° ГЎГ»Г« Гў Г±ГҐГІГЁ - ГўГ»ГЈГ®ГўГ®Г°', -1)
 						end)
 					end
 					imgui.SameLine()
-					if imgui.Button(u8'Маска') then
+					if imgui.Button(u8'ГЊГ Г±ГЄГ ') then
 						lua_thread.create(function()
-						sampSendChat('/m Что будет лидеру и мафии за использование маски на стреле?')
+						sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г«ГЁГ¤ГҐГ°Гі ГЁ Г¬Г ГґГЁГЁ Г§Г  ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Г¬Г Г±ГЄГЁ Г­Г  Г±ГІГ°ГҐГ«ГҐ?')
 						wait(110)
-						sampAddChatMessage('Наказание: {ffcc00}1/3 мафии, игроку jail/warn.', -1)
+						sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}1/3 Г¬Г ГґГЁГЁ, ГЁГЈГ°Г®ГЄГі jail/warn.', -1)
 						end)
 					end
 					if imgui.Button(u8'+C') then
 						lua_thread.create(function()
-						sampSendChat('/m Что будет мафии, если кто-то на стреле из них будет использовать +С, и игроку который нарушил правило?')
+						sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г¬Г ГґГЁГЁ, ГҐГ±Г«ГЁ ГЄГІГ®-ГІГ® Г­Г  Г±ГІГ°ГҐГ«ГҐ ГЁГ§ Г­ГЁГµ ГЎГіГ¤ГҐГІ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј +Г‘, ГЁ ГЁГЈГ°Г®ГЄГі ГЄГ®ГІГ®Г°Г»Г© Г­Г Г°ГіГёГЁГ« ГЇГ°Г ГўГЁГ«Г®?')
 						wait(110)
-						sampAddChatMessage('Наказание: {ffcc00}1/3 мафии, игроку jail/warn', -1)
+						sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}1/3 Г¬Г ГґГЁГЁ, ГЁГЈГ°Г®ГЄГі jail/warn', -1)
 						end)
 					end
 					imgui.SameLine()
-					if imgui.Button(u8'3/3 стрела (лидер в сети)') then
+					if imgui.Button(u8'3/3 Г±ГІГ°ГҐГ«Г  (Г«ГЁГ¤ГҐГ° Гў Г±ГҐГІГЁ)') then
 						lua_thread.create(function()
-						sampSendChat('/m Что будет лидеру, если его мафия получила 3/3, когда он был в сети?')
+						sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г«ГЁГ¤ГҐГ°Гі, ГҐГ±Г«ГЁ ГҐГЈГ® Г¬Г ГґГЁГї ГЇГ®Г«ГіГ·ГЁГ«Г  3/3, ГЄГ®ГЈГ¤Г  Г®Г­ ГЎГ»Г« Гў Г±ГҐГІГЁ?')
 						wait(110)
-						sampAddChatMessage('Наказание: {ffcc00}Выговор', -1)
+						sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}Г‚Г»ГЈГ®ГўГ®Г°', -1)
 						end)
 					end
 					imgui.SameLine()
 					if imgui.Button(u8'FLY') then
 						lua_thread.create(function()
-						sampSendChat('/m Что будет мафии, если кто-то на стреле из них будет использовать FLY, и игроку который нарушил правило?')
+						sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г¬Г ГґГЁГЁ, ГҐГ±Г«ГЁ ГЄГІГ®-ГІГ® Г­Г  Г±ГІГ°ГҐГ«ГҐ ГЁГ§ Г­ГЁГµ ГЎГіГ¤ГҐГІ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј FLY, ГЁ ГЁГЈГ°Г®ГЄГі ГЄГ®ГІГ®Г°Г»Г© Г­Г Г°ГіГёГЁГ« ГЇГ°Г ГўГЁГ«Г®?')
 						wait(110)
-						sampAddChatMessage('Наказание: {ffcc00}1/3 мафии, игроку jail/warn', -1)
+						sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}1/3 Г¬Г ГґГЁГЁ, ГЁГЈГ°Г®ГЄГі jail/warn', -1)
 						end)
 					end
-					if imgui.Button(u8'Запрещённый ТС') then
+					if imgui.Button(u8'Г‡Г ГЇГ°ГҐГ№ВёГ­Г­Г»Г© Г’Г‘') then
 						lua_thread.create(function()
-						sampSendChat('/m Что будет мафии, если кто-то на стреле прилетит на Hunter | Hydra, и что будет игроку который нарушил правило?')
+						sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г¬Г ГґГЁГЁ, ГҐГ±Г«ГЁ ГЄГІГ®-ГІГ® Г­Г  Г±ГІГ°ГҐГ«ГҐ ГЇГ°ГЁГ«ГҐГІГЁГІ Г­Г  Hunter | Hydra, ГЁ Г·ГІГ® ГЎГіГ¤ГҐГІ ГЁГЈГ°Г®ГЄГі ГЄГ®ГІГ®Г°Г»Г© Г­Г Г°ГіГёГЁГ« ГЇГ°Г ГўГЁГ«Г®?')
 						wait(110)
-						sampAddChatMessage('Наказание: {ffcc00}3/3 мафии, игроку jail/warn (лидеру выговор если он в сети)', -1)
+						sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}3/3 Г¬Г ГґГЁГЁ, ГЁГЈГ°Г®ГЄГі jail/warn (Г«ГЁГ¤ГҐГ°Гі ГўГ»ГЈГ®ГўГ®Г° ГҐГ±Г«ГЁ Г®Г­ Гў Г±ГҐГІГЁ)', -1)
 						end)
 					end
-					if imgui.Button(u8'Анти-захват бизнеса') then
+					if imgui.Button(u8'ГЂГ­ГІГЁ-Г§Г ГµГўГ ГІ ГЎГЁГ§Г­ГҐГ±Г ') then
 						lua_thread.create(function()
-						sampSendChat('/m Что будет мафии за анти-захват бизнеса?')
+						sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г¬Г ГґГЁГЁ Г§Г  Г Г­ГІГЁ-Г§Г ГµГўГ ГІ ГЎГЁГ§Г­ГҐГ±Г ?')
 						wait(110)
-						sampAddChatMessage('Пример: {ffcc0}LCN едет забивать стрелу Yakuza, но Yakuza убили его, чтобы тот им не забил стрелу')
-						sampAddChatMessage('Пример: {ffcc00}ID 1 LCN, ID 2 - Yakuza. Если ID 2 убил ID 1, то ID 2 получает варн')
-						sampAddChatMessage('Наказание: {ffcc00}3/3 мафии, игроку jail/warn (лидеру выговор если он в сети)', -1)
+						sampAddChatMessage('ГЏГ°ГЁГ¬ГҐГ°: {ffcc0}LCN ГҐГ¤ГҐГІ Г§Г ГЎГЁГўГ ГІГј Г±ГІГ°ГҐГ«Гі Yakuza, Г­Г® Yakuza ГіГЎГЁГ«ГЁ ГҐГЈГ®, Г·ГІГ®ГЎГ» ГІГ®ГІ ГЁГ¬ Г­ГҐ Г§Г ГЎГЁГ« Г±ГІГ°ГҐГ«Гі')
+						sampAddChatMessage('ГЏГ°ГЁГ¬ГҐГ°: {ffcc00}ID 1 LCN, ID 2 - Yakuza. Г…Г±Г«ГЁ ID 2 ГіГЎГЁГ« ID 1, ГІГ® ID 2 ГЇГ®Г«ГіГ·Г ГҐГІ ГўГ Г°Г­')
+						sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}3/3 Г¬Г ГґГЁГЁ, ГЁГЈГ°Г®ГЄГі jail/warn (Г«ГЁГ¤ГҐГ°Гі ГўГ»ГЈГ®ГўГ®Г° ГҐГ±Г«ГЁ Г®Г­ Гў Г±ГҐГІГЁ)', -1)
 						end)
 					end
-					if imgui.Button(u8'ТДК') then
+					if imgui.Button(u8'Г’Г„ГЉ') then
 						lua_thread.create(function()
-						sampSendChat('/m Что будет мафии, если кто-то на стреле залезет на труднодоступную крышу, и что будет игроку который нарушил правило?')
+						sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г¬Г ГґГЁГЁ, ГҐГ±Г«ГЁ ГЄГІГ®-ГІГ® Г­Г  Г±ГІГ°ГҐГ«ГҐ Г§Г Г«ГҐГ§ГҐГІ Г­Г  ГІГ°ГіГ¤Г­Г®Г¤Г®Г±ГІГіГЇГ­ГіГѕ ГЄГ°Г»ГёГі, ГЁ Г·ГІГ® ГЎГіГ¤ГҐГІ ГЁГЈГ°Г®ГЄГі ГЄГ®ГІГ®Г°Г»Г© Г­Г Г°ГіГёГЁГ« ГЇГ°Г ГўГЁГ«Г®?')
 						wait(110)
-						sampAddChatMessage('Наказание: {ffcc00}2/3 мафии, игроку jail/warn', -1)
+						sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}2/3 Г¬Г ГґГЁГЁ, ГЁГЈГ°Г®ГЄГі jail/warn', -1)
 						end)
 					end
 					imgui.SameLine()
-					if imgui.Button(u8'Аптечка/наркотики в бою') then
+					if imgui.Button(u8'ГЂГЇГІГҐГ·ГЄГ /Г­Г Г°ГЄГ®ГІГЁГЄГЁ Гў ГЎГ®Гѕ') then
 						lua_thread.create(function()
-						sampSendChat('/m Что будет мафии, если кто-то на стреле будет использовать аптечки/наркотики в бою, и что будет игроку который нарушил правило?')
+						sampSendChat('/m Г—ГІГ® ГЎГіГ¤ГҐГІ Г¬Г ГґГЁГЁ, ГҐГ±Г«ГЁ ГЄГІГ®-ГІГ® Г­Г  Г±ГІГ°ГҐГ«ГҐ ГЎГіГ¤ГҐГІ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј Г ГЇГІГҐГ·ГЄГЁ/Г­Г Г°ГЄГ®ГІГЁГЄГЁ Гў ГЎГ®Гѕ, ГЁ Г·ГІГ® ГЎГіГ¤ГҐГІ ГЁГЈГ°Г®ГЄГі ГЄГ®ГІГ®Г°Г»Г© Г­Г Г°ГіГёГЁГ« ГЇГ°Г ГўГЁГ«Г®?')
 						wait(110)
-						sampAddChatMessage('Наказание: {ffcc00}1/3 мафии, игроку jail/warn', -1)
+						sampAddChatMessage('ГЌГ ГЄГ Г§Г Г­ГЁГҐ: {ffcc00}1/3 Г¬Г ГґГЁГЁ, ГЁГЈГ°Г®ГЄГі jail/warn', -1)
 						end)
 					end
 				elseif mafia_navigation.current == 2 then
-					if imgui.Button(u8'Какое минимальное кол-во контрактов для отчёта') then
+					if imgui.Button(u8'ГЉГ ГЄГ®ГҐ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г®ГҐ ГЄГ®Г«-ГўГ® ГЄГ®Г­ГІГ°Г ГЄГІГ®Гў Г¤Г«Гї Г®ГІГ·ВёГІГ ') then
 						lua_thread.create(function()
-							sampSendChat('/m Какое минимальное кол-во контрактов для отчёта?')
+							sampSendChat('/m ГЉГ ГЄГ®ГҐ Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г®ГҐ ГЄГ®Г«-ГўГ® ГЄГ®Г­ГІГ°Г ГЄГІГ®Гў Г¤Г«Гї Г®ГІГ·ВёГІГ ?')
 							wait(110)
-							sampAddChatMessage('{ffcc00}3 контракта',-1)
+							sampAddChatMessage('{ffcc00}3 ГЄГ®Г­ГІГ°Г ГЄГІГ ',-1)
 						end)
 					end imgui.SameLine()
-					if imgui.Button(u8'От скольких минут должен длиться набор для отчёта') then
+					if imgui.Button(u8'ГЋГІ Г±ГЄГ®Г«ГјГЄГЁГµ Г¬ГЁГ­ГіГІ Г¤Г®Г«Г¦ГҐГ­ Г¤Г«ГЁГІГјГ±Гї Г­Г ГЎГ®Г° Г¤Г«Гї Г®ГІГ·ВёГІГ ') then
 						lua_thread.create(function()
-							sampSendChat('/m От скольких минут должен длиться набор для отчёта?')
+							sampSendChat('/m ГЋГІ Г±ГЄГ®Г«ГјГЄГЁГµ Г¬ГЁГ­ГіГІ Г¤Г®Г«Г¦ГҐГ­ Г¤Г«ГЁГІГјГ±Гї Г­Г ГЎГ®Г° Г¤Г«Гї Г®ГІГ·ВёГІГ ?')
 							wait(110)
-							sampAddChatMessage('{ffcc00}15 минут',-1)
+							sampAddChatMessage('{ffcc00}15 Г¬ГЁГ­ГіГІ',-1)
 						end)
 					end
-					if imgui.Button(u8'От скольких минут должен длиться промежуток между первым и вторым набором для отчёта') then
+					if imgui.Button(u8'ГЋГІ Г±ГЄГ®Г«ГјГЄГЁГµ Г¬ГЁГ­ГіГІ Г¤Г®Г«Г¦ГҐГ­ Г¤Г«ГЁГІГјГ±Гї ГЇГ°Г®Г¬ГҐГ¦ГіГІГ®ГЄ Г¬ГҐГ¦Г¤Гі ГЇГҐГ°ГўГ»Г¬ ГЁ ГўГІГ®Г°Г»Г¬ Г­Г ГЎГ®Г°Г®Г¬ Г¤Г«Гї Г®ГІГ·ВёГІГ ') then
 						lua_thread.create(function()
-							sampSendChat('/m От скольких минут должен длиться промежуток между первым и вторым набором для отчёта?')
+							sampSendChat('/m ГЋГІ Г±ГЄГ®Г«ГјГЄГЁГµ Г¬ГЁГ­ГіГІ Г¤Г®Г«Г¦ГҐГ­ Г¤Г«ГЁГІГјГ±Гї ГЇГ°Г®Г¬ГҐГ¦ГіГІГ®ГЄ Г¬ГҐГ¦Г¤Гі ГЇГҐГ°ГўГ»Г¬ ГЁ ГўГІГ®Г°Г»Г¬ Г­Г ГЎГ®Г°Г®Г¬ Г¤Г«Гї Г®ГІГ·ВёГІГ ?')
 							wait(110)
-							sampAddChatMessage('{ffcc00}10 минут',-1)
+							sampAddChatMessage('{ffcc00}10 Г¬ГЁГ­ГіГІ',-1)
 						end)
 					end
-					if imgui.Button(u8'Как одеть маскировку') then
+					if imgui.Button(u8'ГЉГ ГЄ Г®Г¤ГҐГІГј Г¬Г Г±ГЄГЁГ°Г®ГўГЄГі') then
 						lua_thread.create(function()
-							sampSendChat('/m Как одеть маскировку?')
+							sampSendChat('/m ГЉГ ГЄ Г®Г¤ГҐГІГј Г¬Г Г±ГЄГЁГ°Г®ГўГЄГі?')
 							wait(110)
 							sampAddChatMessage('{ffcc00}/spy (/hmask)',-1)
 						end)
@@ -1084,7 +1084,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 		imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(485, 255))
 		imgui.PushFont(myFont)
-		imgui.Begin(u8'Проведение МП', menu, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+		imgui.Begin(u8'ГЏГ°Г®ГўГҐГ¤ГҐГ­ГЁГҐ ГЊГЏ', menu, imgui.WindowFlags.AlwaysAutoResize + imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
 		if mp_navigation.current == 1 then -- Home
 			if imgui.BeginChild('child##1', imgui.ImVec2(470,215), 0) then
 				for i, title in ipairs(mp_navigation.list) do
@@ -1097,79 +1097,79 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 				end
 				imgui.Separator()
 				imgui.Combo('', present, ImPresent, #presentlist)
-				imgui.InputTextWithHint(u8'##4', u8'Название мероприятия', set_namemp, sizeof(set_namemp))
+				imgui.InputTextWithHint(u8'##4', u8'ГЌГ Г§ГўГ Г­ГЁГҐ Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГї', set_namemp, sizeof(set_namemp))
 				imgui.SameLine()
 				if imgui.Button(faicons('trash')..u8'##5'..faicons('trash')) then 
 					imgui.StrCopy(set_namemp,'')
 				end
-				imgui.TextQuestionMp(u8'Тип: название\nИспользуется для обычного оповещения в /msg')
-				imgui.InputTextWithHint(u8'##5', u8'Сумма приза', set_priz, sizeof(set_priz), imgui.InputTextFlags.CharsDecimal)
+				imgui.TextQuestionMp(u8'Г’ГЁГЇ: Г­Г Г§ГўГ Г­ГЁГҐ\nГ€Г±ГЇГ®Г«ГјГ§ГіГҐГІГ±Гї Г¤Г«Гї Г®ГЎГ»Г·Г­Г®ГЈГ® Г®ГЇГ®ГўГҐГ№ГҐГ­ГЁГї Гў /msg')
+				imgui.InputTextWithHint(u8'##5', u8'Г‘ГіГ¬Г¬Г  ГЇГ°ГЁГ§Г ', set_priz, sizeof(set_priz), imgui.InputTextFlags.CharsDecimal)
 				imgui.SameLine()
 				if imgui.Button(faicons('trash')..u8'##6'..faicons('trash')) then 
 					imgui.StrCopy(set_priz,'')
 				end
-				imgui.TextQuestionMp(u8'Тип: сумма\nИспользуется для обычного оповещения в /msg')
-				imgui.InputTextWithHint(u8'##1', u8'Nickname победителя мероприятия', input_name, sizeof(input_name))
+				imgui.TextQuestionMp(u8'Г’ГЁГЇ: Г±ГіГ¬Г¬Г \nГ€Г±ГЇГ®Г«ГјГ§ГіГҐГІГ±Гї Г¤Г«Гї Г®ГЎГ»Г·Г­Г®ГЈГ® Г®ГЇГ®ГўГҐГ№ГҐГ­ГЁГї Гў /msg')
+				imgui.InputTextWithHint(u8'##1', u8'Nickname ГЇГ®ГЎГҐГ¤ГЁГІГҐГ«Гї Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГї', input_name, sizeof(input_name))
 				imgui.SameLine()
 				if imgui.Button(faicons('trash')..u8'##7'..faicons('trash')) then 
 					imgui.StrCopy(input_name,'')
 				end
-				imgui.TextQuestionMp(u8'Тип: никнейм\nИспользуется для обычного оповещения в /msg')
-				imgui.InputTextWithHint(u8'##2', u8'ID победителя мероприятия', input_id, sizeof(input_id), imgui.InputTextFlags.CharsDecimal)
+				imgui.TextQuestionMp(u8'Г’ГЁГЇ: Г­ГЁГЄГ­ГҐГ©Г¬\nГ€Г±ГЇГ®Г«ГјГ§ГіГҐГІГ±Гї Г¤Г«Гї Г®ГЎГ»Г·Г­Г®ГЈГ® Г®ГЇГ®ГўГҐГ№ГҐГ­ГЁГї Гў /msg')
+				imgui.InputTextWithHint(u8'##2', u8'ID ГЇГ®ГЎГҐГ¤ГЁГІГҐГ«Гї Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГї', input_id, sizeof(input_id), imgui.InputTextFlags.CharsDecimal)
 				imgui.SameLine()
 				if imgui.Button(faicons('trash')..u8'##8'..faicons('trash')) then 
 					imgui.StrCopy(input_id,'')
 				end
-				imgui.TextQuestionMp(u8'Для должности "Организатор мероприятий"\nИсключительно на Real Money (/rdonate)')
+				imgui.TextQuestionMp(u8'Г„Г«Гї Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ "ГЋГ°ГЈГ Г­ГЁГ§Г ГІГ®Г° Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГ©"\nГ€Г±ГЄГ«ГѕГ·ГЁГІГҐГ«ГјГ­Г® Г­Г  Real Money (/rdonate)')
 				imgui.Separator()
 				imgui.Text('')
 				-- imgui.SameLine(100)
-				if imgui.Button(faicons('play')..u8'  Начать', imgui.ImVec2(145,0)) then
+				if imgui.Button(faicons('play')..u8'  ГЌГ Г·Г ГІГј', imgui.ImVec2(145,0)) then
 					local set_namemp = str(set_namemp)
 					local set_priz = str(set_priz)
 					local selected_prize = u8:decode(ffi.string(presentlist[present[0] + 1]))
 					if u8:decode(ffi.string(set_namemp)) ~= '' and u8:decode(ffi.string(set_priz)) ~= '' and selected_prize ~= 0 then
-						sampSendChat('/msg Проходит мероприятие "'..u8:decode(ffi.string(set_namemp))..'" на '..u8:decode(ffi.string(set_priz))..' '..selected_prize..'. Желающие - /gotp.')
+						sampSendChat('/msg ГЏГ°Г®ГµГ®Г¤ГЁГІ Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГҐ "'..u8:decode(ffi.string(set_namemp))..'" Г­Г  '..u8:decode(ffi.string(set_priz))..' '..selected_prize..'. Г†ГҐГ«Г ГѕГ№ГЁГҐ - /gotp.')
 					else
-						sampAddChatMessage('[Ошибка] {ffffff}Значения выбраны неверно', 0x696969)
+						sampAddChatMessage('[ГЋГёГЁГЎГЄГ ] {ffffff}Г‡Г­Г Г·ГҐГ­ГЁГї ГўГ»ГЎГ°Г Г­Г» Г­ГҐГўГҐГ°Г­Г®', 0x696969)
 					end
 				end  
 				if imgui.IsItemHovered() then
 					imgui.BeginTooltip()
-					imgui.Text(u8'Оповещает о начале мероприятия')
+					imgui.Text(u8'ГЋГЇГ®ГўГҐГ№Г ГҐГІ Г® Г­Г Г·Г Г«ГҐ Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГї')
 					imgui.EndTooltip()
 				end
 				imgui.SameLine()
-				if imgui.Button(faicons('pause')..u8'  Закончить', imgui.ImVec2(145,0)) then
+				if imgui.Button(faicons('pause')..u8'  Г‡Г ГЄГ®Г­Г·ГЁГІГј', imgui.ImVec2(145,0)) then
 					local input_name = str(input_name)
 					local set_namemp = str(set_namemp)
 					local set_priz = str(set_priz)
 					local selected_prize = u8:decode(ffi.string(presentlist[present[0] + 1]))
 					if u8:decode(ffi.string(set_namemp)) ~= '' and u8:decode(ffi.string(set_priz)) ~= '' and u8:decode(ffi.string(input_name)) ~= '' and selected_prize ~= 0 then
-						sampSendChat('/msg Победитель мероприятия "'..u8:decode(ffi.string(set_namemp))..'" на '..u8:decode(ffi.string(set_priz))..' '..selected_prize..' — '..u8:decode(ffi.string(input_name))..'. Поздравляем!')
+						sampSendChat('/msg ГЏГ®ГЎГҐГ¤ГЁГІГҐГ«Гј Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГї "'..u8:decode(ffi.string(set_namemp))..'" Г­Г  '..u8:decode(ffi.string(set_priz))..' '..selected_prize..' В— '..u8:decode(ffi.string(input_name))..'. ГЏГ®Г§Г¤Г°Г ГўГ«ГїГҐГ¬!')
 					else
-						sampAddChatMessage('[Ошибка] {ffffff}Значения выбраны неверно', 0x696969)
+						sampAddChatMessage('[ГЋГёГЁГЎГЄГ ] {ffffff}Г‡Г­Г Г·ГҐГ­ГЁГї ГўГ»ГЎГ°Г Г­Г» Г­ГҐГўГҐГ°Г­Г®', 0x696969)
 					end
 				end
 				if imgui.IsItemHovered() then
 					imgui.BeginTooltip()
-					imgui.Text(u8'Оповещает о завершении мероприятия')
+					imgui.Text(u8'ГЋГЇГ®ГўГҐГ№Г ГҐГІ Г® Г§Г ГўГҐГ°ГёГҐГ­ГЁГЁ Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГї')
 					imgui.EndTooltip()
 				end
 				imgui.SameLine()
-				if imgui.Button(faicons('star')..u8'  Выдать', imgui.ImVec2(145,0)) then
+				if imgui.Button(faicons('star')..u8'  Г‚Г»Г¤Г ГІГј', imgui.ImVec2(145,0)) then
 					local set_namemp = str(set_namemp)
 					local input_id = str(input_id)
 					local selected_prize = u8:decode(ffi.string(presentlist[present[0] + 1]))
 					if u8:decode(ffi.string(set_namemp)) ~= '' and u8:decode(ffi.string(input_id)) ~= '' and selected_prize ~= 1 then
 						sampSendChat('/winner '..u8:decode(ffi.string(input_id))..' '..u8:decode(ffi.string(set_namemp))..'')
 					else
-						sampAddChatMessage('[Ошибка] {ffffff}Значения выбраны неверно', 0x696969)
+						sampAddChatMessage('[ГЋГёГЁГЎГЄГ ] {ffffff}Г‡Г­Г Г·ГҐГ­ГЁГї ГўГ»ГЎГ°Г Г­Г» Г­ГҐГўГҐГ°Г­Г®', 0x696969)
 					end
 				end
 				if imgui.IsItemHovered() then
 					imgui.BeginTooltip()
-					imgui.Text(u8'Для должности "Организатор мероприятий"\nИсключительно на Real Money (/rdonate)')
+					imgui.Text(u8'Г„Г«Гї Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ "ГЋГ°ГЈГ Г­ГЁГ§Г ГІГ®Г° Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГ©"\nГ€Г±ГЄГ«ГѕГ·ГЁГІГҐГ«ГјГ­Г® Г­Г  Real Money (/rdonate)')
 					imgui.EndTooltip()
 				end
 				imgui.EndChild()
@@ -1185,251 +1185,251 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 					end
 				end
 				imgui.Separator()
-				if imgui.Button(u8'Рулетка (На выстрел)', imgui.ImVec2(151,30)) then
+				if imgui.Button(u8'ГђГіГ«ГҐГІГЄГ  (ГЌГ  ГўГ»Г±ГІГ°ГҐГ«)', imgui.ImVec2(151,30)) then
 					lua_thread.create(function()
-						sampSendChat('/m Правила МП:')
+						sampSendChat('/m ГЏГ°Г ГўГЁГ«Г  ГЊГЏ:')
 						wait(1000)
-						sampSendChat('/m Запрещено: изменять клист/скин, перебегать с места на место, использовать /me, /do, /todo и /try и т.д')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЁГ§Г¬ГҐГ­ГїГІГј ГЄГ«ГЁГ±ГІ/Г±ГЄГЁГ­, ГЇГҐГ°ГҐГЎГҐГЈГ ГІГј Г± Г¬ГҐГ±ГІГ  Г­Г  Г¬ГҐГ±ГІГ®, ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј /me, /do, /todo ГЁ /try ГЁ ГІ.Г¤')
 						wait(1000)
-						sampSendChat('/m Запрещено: как либо нарушать правила проекта')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЄГ ГЄ Г«ГЁГЎГ® Г­Г Г°ГіГёГ ГІГј ГЇГ°Г ГўГЁГ«Г  ГЇГ°Г®ГҐГЄГІГ ')
 						wait(1000)
-						sampSendChat('/m Запрещено: выбегать из строя и мешать другим')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГўГ»ГЎГҐГЈГ ГІГј ГЁГ§ Г±ГІГ°Г®Гї ГЁ Г¬ГҐГёГ ГІГј Г¤Г°ГіГЈГЁГ¬')
 						wait(1000)
-						sampSendChat('/m Помеха = кик. Для адм. выговор + кик. За повторную помеху + бан.')
+						sampSendChat('/m ГЏГ®Г¬ГҐГµГ  = ГЄГЁГЄ. Г„Г«Гї Г Г¤Г¬. ГўГ»ГЈГ®ГўГ®Г° + ГЄГЁГЄ. Г‡Г  ГЇГ®ГўГІГ®Г°Г­ГіГѕ ГЇГ®Г¬ГҐГµГі + ГЎГ Г­.')
 						wait(1000)
-						sampSendChat('/m Начнём! Игра будет на выстрел')
+						sampSendChat('/m ГЌГ Г·Г­ВёГ¬! Г€ГЈГ°Г  ГЎГіГ¤ГҐГІ Г­Г  ГўГ»Г±ГІГ°ГҐГ«')
 					end)
 				end
 				if imgui.IsItemHovered() then
 					imgui.BeginTooltip()
-					imgui.CenterText(u8'Для должности обычного администратора')
+					imgui.CenterText(u8'Г„Г«Гї Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ Г®ГЎГ»Г·Г­Г®ГЈГ® Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г ')
 					imgui.Separator()
-					imgui.CenterText(u8'Русская рулетка (На выстрел)')
+					imgui.CenterText(u8'ГђГіГ±Г±ГЄГ Гї Г°ГіГ«ГҐГІГЄГ  (ГЌГ  ГўГ»Г±ГІГ°ГҐГ«)')
 					imgui.Separator()
-					imgui.Text(u8'Правила МП:\nЗапрещено: изменять клист/скин, перебегать с места на место, использовать /me, /do, /todo и /try и т.д\nЗапрещено: как либо нарушать правила проекта\nЗапрещено: выбегать из строя и мешать другим\nНачнём! Игра будет на выстрел')
+					imgui.Text(u8'ГЏГ°Г ГўГЁГ«Г  ГЊГЏ:\nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЁГ§Г¬ГҐГ­ГїГІГј ГЄГ«ГЁГ±ГІ/Г±ГЄГЁГ­, ГЇГҐГ°ГҐГЎГҐГЈГ ГІГј Г± Г¬ГҐГ±ГІГ  Г­Г  Г¬ГҐГ±ГІГ®, ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј /me, /do, /todo ГЁ /try ГЁ ГІ.Г¤\nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЄГ ГЄ Г«ГЁГЎГ® Г­Г Г°ГіГёГ ГІГј ГЇГ°Г ГўГЁГ«Г  ГЇГ°Г®ГҐГЄГІГ \nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГўГ»ГЎГҐГЈГ ГІГј ГЁГ§ Г±ГІГ°Г®Гї ГЁ Г¬ГҐГёГ ГІГј Г¤Г°ГіГЈГЁГ¬\nГЌГ Г·Г­ВёГ¬! Г€ГЈГ°Г  ГЎГіГ¤ГҐГІ Г­Г  ГўГ»Г±ГІГ°ГҐГ«')
 					imgui.EndTooltip()
 				end
 					imgui.SameLine()
-				if imgui.Button(u8'Рулетка (На смерть)', imgui.ImVec2(151,30)) then
+				if imgui.Button(u8'ГђГіГ«ГҐГІГЄГ  (ГЌГ  Г±Г¬ГҐГ°ГІГј)', imgui.ImVec2(151,30)) then
 					lua_thread.create(function()
-						sampSendChat('/m Правила МП:')
+						sampSendChat('/m ГЏГ°Г ГўГЁГ«Г  ГЊГЏ:')
 						wait(1000)
-						sampSendChat('/m Запрещено: изменять клист/скин, перебегать с места на место, использовать /me, /do, /todo и /try и т.д')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЁГ§Г¬ГҐГ­ГїГІГј ГЄГ«ГЁГ±ГІ/Г±ГЄГЁГ­, ГЇГҐГ°ГҐГЎГҐГЈГ ГІГј Г± Г¬ГҐГ±ГІГ  Г­Г  Г¬ГҐГ±ГІГ®, ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј /me, /do, /todo ГЁ /try ГЁ ГІ.Г¤')
 						wait(1000)
-						sampSendChat('/m Запрещено: как либо нарушать правила проекта')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЄГ ГЄ Г«ГЁГЎГ® Г­Г Г°ГіГёГ ГІГј ГЇГ°Г ГўГЁГ«Г  ГЇГ°Г®ГҐГЄГІГ ')
 						wait(1000)
-						sampSendChat('/m Запрещено: выбегать из строя и мешать другим')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГўГ»ГЎГҐГЈГ ГІГј ГЁГ§ Г±ГІГ°Г®Гї ГЁ Г¬ГҐГёГ ГІГј Г¤Г°ГіГЈГЁГ¬')
 						wait(1000)
-						sampSendChat('/m Помеха = кик. Для адм. выговор + кик. За повторную помеху + бан.')
+						sampSendChat('/m ГЏГ®Г¬ГҐГµГ  = ГЄГЁГЄ. Г„Г«Гї Г Г¤Г¬. ГўГ»ГЈГ®ГўГ®Г° + ГЄГЁГЄ. Г‡Г  ГЇГ®ГўГІГ®Г°Г­ГіГѕ ГЇГ®Г¬ГҐГµГі + ГЎГ Г­.')
 						wait(1000)
-						sampSendChat('/m Начнём! Игра будет на смерть')
+						sampSendChat('/m ГЌГ Г·Г­ВёГ¬! Г€ГЈГ°Г  ГЎГіГ¤ГҐГІ Г­Г  Г±Г¬ГҐГ°ГІГј')
 					end)
 				end
 				if imgui.IsItemHovered() then
 					imgui.BeginTooltip()
-					imgui.CenterText(u8'Для должности обычного администратора')
+					imgui.CenterText(u8'Г„Г«Гї Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ Г®ГЎГ»Г·Г­Г®ГЈГ® Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г ')
 					imgui.Separator()
-					imgui.CenterText(u8'Русская рулетка (На смерть/spawn)')
+					imgui.CenterText(u8'ГђГіГ±Г±ГЄГ Гї Г°ГіГ«ГҐГІГЄГ  (ГЌГ  Г±Г¬ГҐГ°ГІГј/spawn)')
 					imgui.Separator()
-					imgui.Text(u8'Правила МП:\nЗапрещено: изменять клист/скин, перебегать с места на место, использовать /me, /do, /todo и /try и т.д\nЗапрещено: как либо нарушать правила проекта\nЗапрещено: выбегать из строя и мешать другим\nНачнём! Игра будет на смерть')
+					imgui.Text(u8'ГЏГ°Г ГўГЁГ«Г  ГЊГЏ:\nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЁГ§Г¬ГҐГ­ГїГІГј ГЄГ«ГЁГ±ГІ/Г±ГЄГЁГ­, ГЇГҐГ°ГҐГЎГҐГЈГ ГІГј Г± Г¬ГҐГ±ГІГ  Г­Г  Г¬ГҐГ±ГІГ®, ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј /me, /do, /todo ГЁ /try ГЁ ГІ.Г¤\nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЄГ ГЄ Г«ГЁГЎГ® Г­Г Г°ГіГёГ ГІГј ГЇГ°Г ГўГЁГ«Г  ГЇГ°Г®ГҐГЄГІГ \nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГўГ»ГЎГҐГЈГ ГІГј ГЁГ§ Г±ГІГ°Г®Гї ГЁ Г¬ГҐГёГ ГІГј Г¤Г°ГіГЈГЁГ¬\nГЌГ Г·Г­ВёГ¬! Г€ГЈГ°Г  ГЎГіГ¤ГҐГІ Г­Г  Г±Г¬ГҐГ°ГІГј')
 					imgui.EndTooltip()
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Крыша смерти', imgui.ImVec2(151,30)) then 
+				if imgui.Button(u8'ГЉГ°Г»ГёГ  Г±Г¬ГҐГ°ГІГЁ', imgui.ImVec2(151,30)) then 
 					lua_thread.create(function()
-						sampSendChat('/m Правила МП:')                        
+						sampSendChat('/m ГЏГ°Г ГўГЁГ«Г  ГЊГЏ:')                        
 						wait(1000)
-						sampSendChat('/m Запрещено: изменять клист/скин и использовать анимации')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЁГ§Г¬ГҐГ­ГїГІГј ГЄГ«ГЁГ±ГІ/Г±ГЄГЁГ­ ГЁ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј Г Г­ГЁГ¬Г Г¶ГЁГЁ')
 						wait(1000)
-						sampSendChat('/m Запрещено: AFK более чем 10 секунд, пополнять любыми способами себе ХП, администраторам использовать их возможности')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г®: AFK ГЎГ®Г«ГҐГҐ Г·ГҐГ¬ 10 Г±ГҐГЄГіГ­Г¤, ГЇГ®ГЇГ®Г«Г­ГїГІГј Г«ГѕГЎГ»Г¬ГЁ Г±ГЇГ®Г±Г®ГЎГ Г¬ГЁ Г±ГҐГЎГҐ Г•ГЏ, Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г Г¬ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј ГЁГµ ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ')
 						wait(1000)
-						sampSendChat('/m Запрещено: как либо нарушать правила проекта')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЄГ ГЄ Г«ГЁГЎГ® Г­Г Г°ГіГёГ ГІГј ГЇГ°Г ГўГЁГ«Г  ГЇГ°Г®ГҐГЄГІГ ')
 						wait(1000)
-						sampSendChat('/m Внимание! Проводящие МП имеют право по вам стрелять.')
+						sampSendChat('/m Г‚Г­ГЁГ¬Г Г­ГЁГҐ! ГЏГ°Г®ГўГ®Г¤ГїГ№ГЁГҐ ГЊГЏ ГЁГ¬ГҐГѕГІ ГЇГ°Г ГўГ® ГЇГ® ГўГ Г¬ Г±ГІГ°ГҐГ«ГїГІГј.')
 						wait(1000)
-						sampSendChat('/m Помеха = кик. Для адм. выговор + кик. За повторную помеху + бан.')
+						sampSendChat('/m ГЏГ®Г¬ГҐГµГ  = ГЄГЁГЄ. Г„Г«Гї Г Г¤Г¬. ГўГ»ГЈГ®ГўГ®Г° + ГЄГЁГЄ. Г‡Г  ГЇГ®ГўГІГ®Г°Г­ГіГѕ ГЇГ®Г¬ГҐГµГі + ГЎГ Г­.')
 						wait(1000)
-						sampSendChat('/m Бегите!')
+						sampSendChat('/m ГЃГҐГЈГЁГІГҐ!')
 					end)
 				end
 				if imgui.IsItemHovered() then
 					imgui.BeginTooltip()
-					imgui.CenterText(u8'Для должности обычного администратора')
+					imgui.CenterText(u8'Г„Г«Гї Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ Г®ГЎГ»Г·Г­Г®ГЈГ® Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г ')
 					imgui.Separator()
-					imgui.CenterText(u8'Крыша смерти')
+					imgui.CenterText(u8'ГЉГ°Г»ГёГ  Г±Г¬ГҐГ°ГІГЁ')
 					imgui.Separator()
-					imgui.Text(u8'Правила МП:\nЗапрещено: изменять клист/скин и использовать анимации\nЗапрещено: AFK более чем 10 секунд, пополнять любыми способами себе ХП, администраторам использовать их возможности\nЗапрещено: как либо нарушать правила проекта\n/m Внимание! Проводящий МП имеют право по вам стрелять\nБегите!')
+					imgui.Text(u8'ГЏГ°Г ГўГЁГ«Г  ГЊГЏ:\nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЁГ§Г¬ГҐГ­ГїГІГј ГЄГ«ГЁГ±ГІ/Г±ГЄГЁГ­ ГЁ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј Г Г­ГЁГ¬Г Г¶ГЁГЁ\nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г®: AFK ГЎГ®Г«ГҐГҐ Г·ГҐГ¬ 10 Г±ГҐГЄГіГ­Г¤, ГЇГ®ГЇГ®Г«Г­ГїГІГј Г«ГѕГЎГ»Г¬ГЁ Г±ГЇГ®Г±Г®ГЎГ Г¬ГЁ Г±ГҐГЎГҐ Г•ГЏ, Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г Г¬ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј ГЁГµ ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ\nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЄГ ГЄ Г«ГЁГЎГ® Г­Г Г°ГіГёГ ГІГј ГЇГ°Г ГўГЁГ«Г  ГЇГ°Г®ГҐГЄГІГ \n/m Г‚Г­ГЁГ¬Г Г­ГЁГҐ! ГЏГ°Г®ГўГ®Г¤ГїГ№ГЁГ© ГЊГЏ ГЁГ¬ГҐГѕГІ ГЇГ°Г ГўГ® ГЇГ® ГўГ Г¬ Г±ГІГ°ГҐГ«ГїГІГј\nГЃГҐГЈГЁГІГҐ!')
 					imgui.EndTooltip()
 				end
-				if imgui.Button(u8'Король дигла', imgui.ImVec2(151,30)) then
+				if imgui.Button(u8'ГЉГ®Г°Г®Г«Гј Г¤ГЁГЈГ«Г ', imgui.ImVec2(151,30)) then
 					lua_thread.create(function()
-						sampSendChat('/m Правила МП:')
+						sampSendChat('/m ГЏГ°Г ГўГЁГ«Г  ГЊГЏ:')
 						wait(1000)
-						sampSendChat('/m Запрещено: изменять клист/скин, стрелять в участников/воздух/проводящего мероприятия без причины')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЁГ§Г¬ГҐГ­ГїГІГј ГЄГ«ГЁГ±ГІ/Г±ГЄГЁГ­, Г±ГІГ°ГҐГ«ГїГІГј Гў ГіГ·Г Г±ГІГ­ГЁГЄГ®Гў/ГўГ®Г§Г¤ГіГµ/ГЇГ°Г®ГўГ®Г¤ГїГ№ГҐГЈГ® Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГї ГЎГҐГ§ ГЇГ°ГЁГ·ГЁГ­Г»')
 						wait(1000)
-						sampSendChat('/m Запрещено: как либо нарушать правила проекта')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЄГ ГЄ Г«ГЁГЎГ® Г­Г Г°ГіГёГ ГІГј ГЇГ°Г ГўГЁГ«Г  ГЇГ°Г®ГҐГЄГІГ ')
 						wait(1000)
-						sampSendChat('/m Запрещено: выбегать из строя и мешать другим')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГўГ»ГЎГҐГЈГ ГІГј ГЁГ§ Г±ГІГ°Г®Гї ГЁ Г¬ГҐГёГ ГІГј Г¤Г°ГіГЈГЁГ¬')
 						wait(1000)
-						sampSendChat('/m Помеха = кик. Для адм. выговор + кик. За повторную помеху + бан.')
+						sampSendChat('/m ГЏГ®Г¬ГҐГµГ  = ГЄГЁГЄ. Г„Г«Гї Г Г¤Г¬. ГўГ»ГЈГ®ГўГ®Г° + ГЄГЁГЄ. Г‡Г  ГЇГ®ГўГІГ®Г°Г­ГіГѕ ГЇГ®Г¬ГҐГµГі + ГЎГ Г­.')
 						wait(1000)
-						sampSendChat('/m Буду оповещать Вас, кто встанет в следущий раунд')
+						sampSendChat('/m ГЃГіГ¤Гі Г®ГЇГ®ГўГҐГ№Г ГІГј Г‚Г Г±, ГЄГІГ® ГўГ±ГІГ Г­ГҐГІ Гў Г±Г«ГҐГ¤ГіГ№ГЁГ© Г°Г ГіГ­Г¤')
 					end)
 				end 
 				if imgui.IsItemHovered() then
 					imgui.BeginTooltip()
-					imgui.CenterText(u8'Для должности обычного администратора')
+					imgui.CenterText(u8'Г„Г«Гї Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ Г®ГЎГ»Г·Г­Г®ГЈГ® Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г ')
 					imgui.Separator()
-					imgui.CenterText(u8'Король дигла')
+					imgui.CenterText(u8'ГЉГ®Г°Г®Г«Гј Г¤ГЁГЈГ«Г ')
 					imgui.Separator()
-					imgui.Text(u8'Правила МП:\nЗапрещено: изменять клист/скин, стрелять в участников/воздух/проводящего мероприятия без причины\nЗапрещено: как либо нарушать правила проекта\nЗапрещено: выбегать из строя и мешать другим\nБуду оповещать Вас, кто встанет в следущий раунд')
+					imgui.Text(u8'ГЏГ°Г ГўГЁГ«Г  ГЊГЏ:\nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЁГ§Г¬ГҐГ­ГїГІГј ГЄГ«ГЁГ±ГІ/Г±ГЄГЁГ­, Г±ГІГ°ГҐГ«ГїГІГј Гў ГіГ·Г Г±ГІГ­ГЁГЄГ®Гў/ГўГ®Г§Г¤ГіГµ/ГЇГ°Г®ГўГ®Г¤ГїГ№ГҐГЈГ® Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГї ГЎГҐГ§ ГЇГ°ГЁГ·ГЁГ­Г»\nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЄГ ГЄ Г«ГЁГЎГ® Г­Г Г°ГіГёГ ГІГј ГЇГ°Г ГўГЁГ«Г  ГЇГ°Г®ГҐГЄГІГ \nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГўГ»ГЎГҐГЈГ ГІГј ГЁГ§ Г±ГІГ°Г®Гї ГЁ Г¬ГҐГёГ ГІГј Г¤Г°ГіГЈГЁГ¬\nГЃГіГ¤Гі Г®ГЇГ®ГўГҐГ№Г ГІГј Г‚Г Г±, ГЄГІГ® ГўГ±ГІГ Г­ГҐГІ Гў Г±Г«ГҐГ¤ГіГ№ГЁГ© Г°Г ГіГ­Г¤')
 					imgui.EndTooltip()
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Прятки', imgui.ImVec2(151,30)) then
+				if imgui.Button(u8'ГЏГ°ГїГІГЄГЁ', imgui.ImVec2(151,30)) then
 					lua_thread.create(function()
-						sampSendChat('/m Правила МП:')
+						sampSendChat('/m ГЏГ°Г ГўГЁГ«Г  ГЊГЏ:')
 						wait(1000)
-						sampSendChat('/m Запрещено: изменять клист/скин, одевать маску и использовать анимации')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЁГ§Г¬ГҐГ­ГїГІГј ГЄГ«ГЁГ±ГІ/Г±ГЄГЁГ­, Г®Г¤ГҐГўГ ГІГј Г¬Г Г±ГЄГі ГЁ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј Г Г­ГЁГ¬Г Г¶ГЁГЁ')
 						wait(1000)
-						sampSendChat('/m Запрещено: как либо нарушать правила проекта')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЄГ ГЄ Г«ГЁГЎГ® Г­Г Г°ГіГёГ ГІГј ГЇГ°Г ГўГЁГ«Г  ГЇГ°Г®ГҐГЄГІГ ')
 						wait(1000)
-						sampSendChat('/m Запрещено: использовать админ-возможности и багоюзерство')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј Г Г¤Г¬ГЁГ­-ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ ГЁ ГЎГ ГЈГ®ГѕГ§ГҐГ°Г±ГІГўГ®')
 						wait(1000)
-						sampSendChat('/m Помеха = кик. Для адм. выговор + кик. За повторную помеху + бан.')
+						sampSendChat('/m ГЏГ®Г¬ГҐГµГ  = ГЄГЁГЄ. Г„Г«Гї Г Г¤Г¬. ГўГ»ГЈГ®ГўГ®Г° + ГЄГЁГЄ. Г‡Г  ГЇГ®ГўГІГ®Г°Г­ГіГѕ ГЇГ®Г¬ГҐГµГі + ГЎГ Г­.')
 						wait(1000)
-						sampSendChat('/m У Вас есть минута, после чего идём искать')
+						sampSendChat('/m Г“ Г‚Г Г± ГҐГ±ГІГј Г¬ГЁГ­ГіГІГ , ГЇГ®Г±Г«ГҐ Г·ГҐГЈГ® ГЁГ¤ВёГ¬ ГЁГ±ГЄГ ГІГј')
 						wait(1000)
-						sampSendChat('/m Бегите!')
+						sampSendChat('/m ГЃГҐГЈГЁГІГҐ!')
 					end)
 				end 
 				if imgui.IsItemHovered() then
 					imgui.BeginTooltip()
-					imgui.CenterText(u8'Для должности обычного администратора')
+					imgui.CenterText(u8'Г„Г«Гї Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ Г®ГЎГ»Г·Г­Г®ГЈГ® Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г ')
 					imgui.Separator()
-					imgui.CenterText(u8'Прятки')
+					imgui.CenterText(u8'ГЏГ°ГїГІГЄГЁ')
 					imgui.Separator()
-					imgui.Text(u8'Правила МП:\nЗапрещено: изменять клист/скин, одевать маску и использовать анимации\nЗапрещено: как либо нарушать правила проекта\nЗапрещено: использовать админ-возможности и багоюзерство\nУ Вас есть минута, после чего идём искать\nБегите!')
+					imgui.Text(u8'ГЏГ°Г ГўГЁГ«Г  ГЊГЏ:\nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЁГ§Г¬ГҐГ­ГїГІГј ГЄГ«ГЁГ±ГІ/Г±ГЄГЁГ­, Г®Г¤ГҐГўГ ГІГј Г¬Г Г±ГЄГі ГЁ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј Г Г­ГЁГ¬Г Г¶ГЁГЁ\nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЄГ ГЄ Г«ГЁГЎГ® Г­Г Г°ГіГёГ ГІГј ГЇГ°Г ГўГЁГ«Г  ГЇГ°Г®ГҐГЄГІГ \nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г®: ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј Г Г¤Г¬ГЁГ­-ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ ГЁ ГЎГ ГЈГ®ГѕГ§ГҐГ°Г±ГІГўГ®\nГ“ Г‚Г Г± ГҐГ±ГІГј Г¬ГЁГ­ГіГІГ , ГЇГ®Г±Г«ГҐ Г·ГҐГЈГ® ГЁГ¤ВёГ¬ ГЁГ±ГЄГ ГІГј\nГЃГҐГЈГЁГІГҐ!')
 					imgui.EndTooltip()
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Арена смерти', imgui.ImVec2(151,30)) then
+				if imgui.Button(u8'ГЂГ°ГҐГ­Г  Г±Г¬ГҐГ°ГІГЁ', imgui.ImVec2(151,30)) then
 					lua_thread.create(function()
-						sampSendChat('/m Правила МП:')
+						sampSendChat('/m ГЏГ°Г ГўГЁГ«Г  ГЊГЏ:')
 						wait(1000)
-						sampSendChat('/m Ваша задача остаться последним в живых')
+						sampSendChat('/m Г‚Г ГёГ  Г§Г Г¤Г Г·Г  Г®Г±ГІГ ГІГјГ±Гї ГЇГ®Г±Г«ГҐГ¤Г­ГЁГ¬ Гў Г¦ГЁГўГ»Гµ')
 						wait(1000)
-						sampSendChat('/m Я буду по вам стрелять из оружия')
+						sampSendChat('/m Гџ ГЎГіГ¤Гі ГЇГ® ГўГ Г¬ Г±ГІГ°ГҐГ«ГїГІГј ГЁГ§ Г®Г°ГіГ¦ГЁГї')
 						wait(1000)
-						sampSendChat('/m Запрещено:')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г®:')
 						wait(1000)
-						sampSendChat('/m Стоять AFK более чем 5 секунд')
+						sampSendChat('/m Г‘ГІГ®ГїГІГј AFK ГЎГ®Г«ГҐГҐ Г·ГҐГ¬ 5 Г±ГҐГЄГіГ­Г¤')
 						wait(1000)
-						sampSendChat('/m Использовать любые читы, пополения ХП, менять клист/скин')
+						sampSendChat('/m Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј Г«ГѕГЎГ»ГҐ Г·ГЁГІГ», ГЇГ®ГЇГ®Г«ГҐГ­ГЁГї Г•ГЏ, Г¬ГҐГ­ГїГІГј ГЄГ«ГЁГ±ГІ/Г±ГЄГЁГ­')
 						wait(1000)
-						sampSendChat('/m как либо нарушать правила сервера, администрации использовать их возможности')
+						sampSendChat('/m ГЄГ ГЄ Г«ГЁГЎГ® Г­Г Г°ГіГёГ ГІГј ГЇГ°Г ГўГЁГ«Г  Г±ГҐГ°ГўГҐГ°Г , Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГЁ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј ГЁГµ ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ')
 						wait(1000)
-						sampSendChat('/m Помеха = кик. Для адм. выговор + кик. За повторную помеху + бан.')
+						sampSendChat('/m ГЏГ®Г¬ГҐГµГ  = ГЄГЁГЄ. Г„Г«Гї Г Г¤Г¬. ГўГ»ГЈГ®ГўГ®Г° + ГЄГЁГЄ. Г‡Г  ГЇГ®ГўГІГ®Г°Г­ГіГѕ ГЇГ®Г¬ГҐГµГі + ГЎГ Г­.')
 					end)
 				end 
 				if imgui.IsItemHovered() then
 					imgui.BeginTooltip()
-					imgui.CenterText(u8'Для должности обычного администратора')
+					imgui.CenterText(u8'Г„Г«Гї Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ Г®ГЎГ»Г·Г­Г®ГЈГ® Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г ')
 					imgui.Separator()
-					imgui.CenterText(u8'Арена смерти')
+					imgui.CenterText(u8'ГЂГ°ГҐГ­Г  Г±Г¬ГҐГ°ГІГЁ')
 					imgui.Separator()
-					imgui.Text(u8'Правила МП:\nВаша задача остаться последним в живых\nЯ буду по вам стрелять из оружия\nЗапрещено:\nСтоять AFK более чем 5 секунд\nИспользовать любые читы, пополения ХП, менять клист/скин\nкак либо нарушать правила сервера, администрации использовать их возможности')
+					imgui.Text(u8'ГЏГ°Г ГўГЁГ«Г  ГЊГЏ:\nГ‚Г ГёГ  Г§Г Г¤Г Г·Г  Г®Г±ГІГ ГІГјГ±Гї ГЇГ®Г±Г«ГҐГ¤Г­ГЁГ¬ Гў Г¦ГЁГўГ»Гµ\nГџ ГЎГіГ¤Гі ГЇГ® ГўГ Г¬ Г±ГІГ°ГҐГ«ГїГІГј ГЁГ§ Г®Г°ГіГ¦ГЁГї\nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г®:\nГ‘ГІГ®ГїГІГј AFK ГЎГ®Г«ГҐГҐ Г·ГҐГ¬ 5 Г±ГҐГЄГіГ­Г¤\nГ€Г±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј Г«ГѕГЎГ»ГҐ Г·ГЁГІГ», ГЇГ®ГЇГ®Г«ГҐГ­ГЁГї Г•ГЏ, Г¬ГҐГ­ГїГІГј ГЄГ«ГЁГ±ГІ/Г±ГЄГЁГ­\nГЄГ ГЄ Г«ГЁГЎГ® Г­Г Г°ГіГёГ ГІГј ГЇГ°Г ГўГЁГ«Г  Г±ГҐГ°ГўГҐГ°Г , Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГЁ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј ГЁГµ ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ')
 					imgui.EndTooltip()
 				end
-				if imgui.Button(u8'Мясорубка', imgui.ImVec2(151,30)) then
+				if imgui.Button(u8'ГЊГїГ±Г®Г°ГіГЎГЄГ ', imgui.ImVec2(151,30)) then
 					lua_thread.create(function()
-						sampSendChat('/m Правила МП:')
+						sampSendChat('/m ГЏГ°Г ГўГЁГ«Г  ГЊГЏ:')
 						wait(1000)
-						sampSendChat('/m Вы забегаете в комнату и я выдаю всем оружие')
+						sampSendChat('/m Г‚Г» Г§Г ГЎГҐГЈГ ГҐГІГҐ Гў ГЄГ®Г¬Г­Г ГІГі ГЁ Гї ГўГ»Г¤Г Гѕ ГўГ±ГҐГ¬ Г®Г°ГіГ¦ГЁГҐ')
 						wait(1000)
-						sampSendChat('/m Ваша задача остаться последним в живых')
+						sampSendChat('/m Г‚Г ГёГ  Г§Г Г¤Г Г·Г  Г®Г±ГІГ ГІГјГ±Гї ГЇГ®Г±Г«ГҐГ¤Г­ГЁГ¬ Гў Г¦ГЁГўГ»Гµ')
 						wait(1000)
-						sampSendChat('/m Запрещены пополнения ХП, адм. возможности и нарушения любых правил сервера')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г» ГЇГ®ГЇГ®Г«Г­ГҐГ­ГЁГї Г•ГЏ, Г Г¤Г¬. ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ ГЁ Г­Г Г°ГіГёГҐГ­ГЁГї Г«ГѕГЎГ»Гµ ГЇГ°Г ГўГЁГ« Г±ГҐГ°ГўГҐГ°Г ')
 						wait(1000)
-						sampSendChat('/m Помеха = кик. Для адм. выговор + кик. За повторную помеху + бан.')
+						sampSendChat('/m ГЏГ®Г¬ГҐГµГ  = ГЄГЁГЄ. Г„Г«Гї Г Г¤Г¬. ГўГ»ГЈГ®ГўГ®Г° + ГЄГЁГЄ. Г‡Г  ГЇГ®ГўГІГ®Г°Г­ГіГѕ ГЇГ®Г¬ГҐГµГі + ГЎГ Г­.')
 						wait(1000)
-						sampSendChat('/m Бегите!') 
+						sampSendChat('/m ГЃГҐГЈГЁГІГҐ!') 
 					end)
 				end
 				if imgui.IsItemHovered() then
 					imgui.BeginTooltip()
-					imgui.CenterText(u8'Для должности обычного администратора')
+					imgui.CenterText(u8'Г„Г«Гї Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ Г®ГЎГ»Г·Г­Г®ГЈГ® Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г ')
 					imgui.Separator()
-					imgui.CenterText(u8'Мясорубка')
+					imgui.CenterText(u8'ГЊГїГ±Г®Г°ГіГЎГЄГ ')
 					imgui.Separator()
-					imgui.Text(u8'Правила МП:\nВы забегаете в комнату и я выдаю всем оружие\nВаша задача остаться последним в живых\nЗапрещены пополнения ХП, адм. возможности и нарушения любых правил сервера\nБегите!')
+					imgui.Text(u8'ГЏГ°Г ГўГЁГ«Г  ГЊГЏ:\nГ‚Г» Г§Г ГЎГҐГЈГ ГҐГІГҐ Гў ГЄГ®Г¬Г­Г ГІГі ГЁ Гї ГўГ»Г¤Г Гѕ ГўГ±ГҐГ¬ Г®Г°ГіГ¦ГЁГҐ\nГ‚Г ГёГ  Г§Г Г¤Г Г·Г  Г®Г±ГІГ ГІГјГ±Гї ГЇГ®Г±Г«ГҐГ¤Г­ГЁГ¬ Гў Г¦ГЁГўГ»Гµ\nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г» ГЇГ®ГЇГ®Г«Г­ГҐГ­ГЁГї Г•ГЏ, Г Г¤Г¬. ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ ГЁ Г­Г Г°ГіГёГҐГ­ГЁГї Г«ГѕГЎГ»Гµ ГЇГ°Г ГўГЁГ« Г±ГҐГ°ГўГҐГ°Г \nГЃГҐГЈГЁГІГҐ!')
 					imgui.EndTooltip()
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Последн. заберёт всё', imgui.ImVec2(151,30)) then
+				if imgui.Button(u8'ГЏГ®Г±Г«ГҐГ¤Г­. Г§Г ГЎГҐГ°ВёГІ ГўГ±Вё', imgui.ImVec2(151,30)) then
 					lua_thread.create(function()
-						sampSendChat('/m Суть МП:')
+						sampSendChat('/m Г‘ГіГІГј ГЊГЏ:')
 						wait(1000)
-						sampSendChat('/m Я вызываю людей и они встают во внутрь четырёх стен.')
+						sampSendChat('/m Гџ ГўГ»Г§Г»ГўГ Гѕ Г«ГѕГ¤ГҐГ© ГЁ Г®Г­ГЁ ГўГ±ГІГ ГѕГІ ГўГ® ГўГ­ГіГІГ°Гј Г·ГҐГІГ»Г°ВёГµ Г±ГІГҐГ­.')
 						wait(1000)
-						sampSendChat('/m Вы должны там бегать.')
+						sampSendChat('/m Г‚Г» Г¤Г®Г«Г¦Г­Г» ГІГ Г¬ ГЎГҐГЈГ ГІГј.')
 						wait(1000)
-						sampSendChat('/m Я беру гранаты и начинаю их туда кидать.')
+						sampSendChat('/m Гџ ГЎГҐГ°Гі ГЈГ°Г Г­Г ГІГ» ГЁ Г­Г Г·ГЁГ­Г Гѕ ГЁГµ ГІГіГ¤Г  ГЄГЁГ¤Г ГІГј.')
 						wait(1000)
-						sampSendChat('/m Последний кто умрёт в этих стенах или останется живым проходит в следущий раунд.')
+						sampSendChat('/m ГЏГ®Г±Г«ГҐГ¤Г­ГЁГ© ГЄГІГ® ГіГ¬Г°ВёГІ Гў ГЅГІГЁГµ Г±ГІГҐГ­Г Гµ ГЁГ«ГЁ Г®Г±ГІГ Г­ГҐГІГ±Гї Г¦ГЁГўГ»Г¬ ГЇГ°Г®ГµГ®Г¤ГЁГІ Гў Г±Г«ГҐГ¤ГіГ№ГЁГ© Г°Г ГіГ­Г¤.')
 						wait(1000)
-						sampSendChat('/m Правила МП:')
+						sampSendChat('/m ГЏГ°Г ГўГЁГ«Г  ГЊГЏ:')
 						wait(1000)
-						sampSendChat('/m Запрещены пополнения ХП, адм. возможности и нарушения любых правил сервера.')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г» ГЇГ®ГЇГ®Г«Г­ГҐГ­ГЁГї Г•ГЏ, Г Г¤Г¬. ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ ГЁ Г­Г Г°ГіГёГҐГ­ГЁГї Г«ГѕГЎГ»Гµ ГЇГ°Г ГўГЁГ« Г±ГҐГ°ГўГҐГ°Г .')
 						wait(1000)
-						sampSendChat('/m Смена скина/клиста, ВЫЛАЗИТЬ из стен.')
+						sampSendChat('/m Г‘Г¬ГҐГ­Г  Г±ГЄГЁГ­Г /ГЄГ«ГЁГ±ГІГ , Г‚Г›Г‹ГЂГ‡Г€Г’Гњ ГЁГ§ Г±ГІГҐГ­.')
 						wait(1000)
-						sampSendChat('/m Помеха = кик. Для адм. выговор + кик. За повторную помеху + бан.')
+						sampSendChat('/m ГЏГ®Г¬ГҐГµГ  = ГЄГЁГЄ. Г„Г«Гї Г Г¤Г¬. ГўГ»ГЈГ®ГўГ®Г° + ГЄГЁГЄ. Г‡Г  ГЇГ®ГўГІГ®Г°Г­ГіГѕ ГЇГ®Г¬ГҐГµГі + ГЎГ Г­.')
 						wait(1000)
-						sampSendChat('/m Начнём!') 
+						sampSendChat('/m ГЌГ Г·Г­ВёГ¬!') 
 					end)
 				end
 				if imgui.IsItemHovered() then
 					imgui.BeginTooltip()
-					imgui.CenterText(u8'Для должности "Организатор мероприятий"')
+					imgui.CenterText(u8'Г„Г«Гї Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ "ГЋГ°ГЈГ Г­ГЁГ§Г ГІГ®Г° Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГ©"')
 					imgui.Separator()
-					imgui.CenterText(u8'Последний заберёт всё')
+					imgui.CenterText(u8'ГЏГ®Г±Г«ГҐГ¤Г­ГЁГ© Г§Г ГЎГҐГ°ВёГІ ГўГ±Вё')
 					imgui.Separator()
-					imgui.Text(u8'Суть МП:\nЯ вызываю людей и они встают во внутрь четырёх стен.\nВы должны там бегать.\nЯ беру гранаты и начинаю их туда кидать.\nПоследний кто умрёт в этих стенах или останется живым проходит в следущий раунд.\nПравила МП:\nЗапрещены пополнения ХП, адм. возможности и нарушения любых правил сервера.\nСмена скина/клиста, ВЫЛАЗИТЬ из стен.\nНачнём!')
+					imgui.Text(u8'Г‘ГіГІГј ГЊГЏ:\nГџ ГўГ»Г§Г»ГўГ Гѕ Г«ГѕГ¤ГҐГ© ГЁ Г®Г­ГЁ ГўГ±ГІГ ГѕГІ ГўГ® ГўГ­ГіГІГ°Гј Г·ГҐГІГ»Г°ВёГµ Г±ГІГҐГ­.\nГ‚Г» Г¤Г®Г«Г¦Г­Г» ГІГ Г¬ ГЎГҐГЈГ ГІГј.\nГџ ГЎГҐГ°Гі ГЈГ°Г Г­Г ГІГ» ГЁ Г­Г Г·ГЁГ­Г Гѕ ГЁГµ ГІГіГ¤Г  ГЄГЁГ¤Г ГІГј.\nГЏГ®Г±Г«ГҐГ¤Г­ГЁГ© ГЄГІГ® ГіГ¬Г°ВёГІ Гў ГЅГІГЁГµ Г±ГІГҐГ­Г Гµ ГЁГ«ГЁ Г®Г±ГІГ Г­ГҐГІГ±Гї Г¦ГЁГўГ»Г¬ ГЇГ°Г®ГµГ®Г¤ГЁГІ Гў Г±Г«ГҐГ¤ГіГ№ГЁГ© Г°Г ГіГ­Г¤.\nГЏГ°Г ГўГЁГ«Г  ГЊГЏ:\nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г» ГЇГ®ГЇГ®Г«Г­ГҐГ­ГЁГї Г•ГЏ, Г Г¤Г¬. ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ ГЁ Г­Г Г°ГіГёГҐГ­ГЁГї Г«ГѕГЎГ»Гµ ГЇГ°Г ГўГЁГ« Г±ГҐГ°ГўГҐГ°Г .\nГ‘Г¬ГҐГ­Г  Г±ГЄГЁГ­Г /ГЄГ«ГЁГ±ГІГ , Г‚Г›Г‹ГЂГ‡Г€Г’Гњ ГЁГ§ Г±ГІГҐГ­.\nГЌГ Г·Г­ВёГ¬!')
 					imgui.EndTooltip()
 				end
 				imgui.SameLine()
-				if imgui.Button(u8'Поиск предмета', imgui.ImVec2(151,30)) then
+				if imgui.Button(u8'ГЏГ®ГЁГ±ГЄ ГЇГ°ГҐГ¤Г¬ГҐГІГ ', imgui.ImVec2(151,30)) then
 					local myID = select(2, sampGetPlayerIdByCharHandle(PLAYER_PED))
 					lua_thread.create(function()
-						sampSendChat('/m Суть МП:')
+						sampSendChat('/m Г‘ГіГІГј ГЊГЏ:')
 						wait(1000)
-						sampSendChat('/m Где-то в LS расположен предмет, который вы должны найти.')
+						sampSendChat('/m ГѓГ¤ГҐ-ГІГ® Гў LS Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­ ГЇГ°ГҐГ¤Г¬ГҐГІ, ГЄГ®ГІГ®Г°Г»Г© ГўГ» Г¤Г®Г«Г¦Г­Г» Г­Г Г©ГІГЁ.')
 						wait(1000)
-						sampSendChat('/m Если Вы нашли данный предмет - пишите мне в /sms [ID: '..myID..']')
+						sampSendChat('/m Г…Г±Г«ГЁ Г‚Г» Г­Г ГёГ«ГЁ Г¤Г Г­Г­Г»Г© ГЇГ°ГҐГ¤Г¬ГҐГІ - ГЇГЁГёГЁГІГҐ Г¬Г­ГҐ Гў /sms [ID: '..myID..']')
 						wait(1000)
-						sampSendChat('/m Вы можете брать любой ТС и искать данный предмет.')
+						sampSendChat('/m Г‚Г» Г¬Г®Г¦ГҐГІГҐ ГЎГ°Г ГІГј Г«ГѕГЎГ®Г© Г’Г‘ ГЁ ГЁГ±ГЄГ ГІГј Г¤Г Г­Г­Г»Г© ГЇГ°ГҐГ¤Г¬ГҐГІ.')
 						wait(1000)
-						sampSendChat('/m Правила МП:')
+						sampSendChat('/m ГЏГ°Г ГўГЁГ«Г  ГЊГЏ:')
 						wait(1000)
-						sampSendChat('/m Запрещены читы, адм. возможности и нарушения любых правил сервера.')
+						sampSendChat('/m Г‡Г ГЇГ°ГҐГ№ГҐГ­Г» Г·ГЁГІГ», Г Г¤Г¬. ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ ГЁ Г­Г Г°ГіГёГҐГ­ГЁГї Г«ГѕГЎГ»Гµ ГЇГ°Г ГўГЁГ« Г±ГҐГ°ГўГҐГ°Г .')
 						wait(1000)
-						sampSendChat('/m Смена скина/клиста.')
+						sampSendChat('/m Г‘Г¬ГҐГ­Г  Г±ГЄГЁГ­Г /ГЄГ«ГЁГ±ГІГ .')
 						wait(1000)
-						sampSendChat('/m Помеха = кик. Для адм. выговор + кик. За повторную помеху + бан.')
+						sampSendChat('/m ГЏГ®Г¬ГҐГµГ  = ГЄГЁГЄ. Г„Г«Гї Г Г¤Г¬. ГўГ»ГЈГ®ГўГ®Г° + ГЄГЁГЄ. Г‡Г  ГЇГ®ГўГІГ®Г°Г­ГіГѕ ГЇГ®Г¬ГҐГµГі + ГЎГ Г­.')
 						wait(1000)
-						sampSendChat('/m Сейчас я вам покажу этот предмет.') 
+						sampSendChat('/m Г‘ГҐГ©Г·Г Г± Гї ГўГ Г¬ ГЇГ®ГЄГ Г¦Гі ГЅГІГ®ГІ ГЇГ°ГҐГ¤Г¬ГҐГІ.') 
 					end)
 				end
 				if imgui.IsItemHovered() then
 					local myID = select(2, sampGetPlayerIdByCharHandle(PLAYER_PED))
 					imgui.BeginTooltip()
-					imgui.CenterText(u8'Для должности "Организатор мероприятий"')
+					imgui.CenterText(u8'Г„Г«Гї Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ "ГЋГ°ГЈГ Г­ГЁГ§Г ГІГ®Г° Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГ©"')
 					imgui.Separator()
-					imgui.CenterText(u8'Поиск предмета')
+					imgui.CenterText(u8'ГЏГ®ГЁГ±ГЄ ГЇГ°ГҐГ¤Г¬ГҐГІГ ')
 					imgui.Separator()
-					imgui.Text(u8'Суть МП:\nГде-то в LS расположен предмет, который вы должны найти.\nЕсли Вы нашли данный предмет - пишите мне в /sms [ID: '..myID..']')
-					imgui.Text(u8'Вы можете брать любой ТС и искать данный предмет.\nПравила МП:\nЗапрещены читы, адм. возможности и нарушения любых правил сервера.\nСмена скина/клиста.\nСейчас я вам покажу этот предмет.')
+					imgui.Text(u8'Г‘ГіГІГј ГЊГЏ:\nГѓГ¤ГҐ-ГІГ® Гў LS Г°Г Г±ГЇГ®Г«Г®Г¦ГҐГ­ ГЇГ°ГҐГ¤Г¬ГҐГІ, ГЄГ®ГІГ®Г°Г»Г© ГўГ» Г¤Г®Г«Г¦Г­Г» Г­Г Г©ГІГЁ.\nГ…Г±Г«ГЁ Г‚Г» Г­Г ГёГ«ГЁ Г¤Г Г­Г­Г»Г© ГЇГ°ГҐГ¤Г¬ГҐГІ - ГЇГЁГёГЁГІГҐ Г¬Г­ГҐ Гў /sms [ID: '..myID..']')
+					imgui.Text(u8'Г‚Г» Г¬Г®Г¦ГҐГІГҐ ГЎГ°Г ГІГј Г«ГѕГЎГ®Г© Г’Г‘ ГЁ ГЁГ±ГЄГ ГІГј Г¤Г Г­Г­Г»Г© ГЇГ°ГҐГ¤Г¬ГҐГІ.\nГЏГ°Г ГўГЁГ«Г  ГЊГЏ:\nГ‡Г ГЇГ°ГҐГ№ГҐГ­Г» Г·ГЁГІГ», Г Г¤Г¬. ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ ГЁ Г­Г Г°ГіГёГҐГ­ГЁГї Г«ГѕГЎГ»Гµ ГЇГ°Г ГўГЁГ« Г±ГҐГ°ГўГҐГ°Г .\nГ‘Г¬ГҐГ­Г  Г±ГЄГЁГ­Г /ГЄГ«ГЁГ±ГІГ .\nГ‘ГҐГ©Г·Г Г± Гї ГўГ Г¬ ГЇГ®ГЄГ Г¦Гі ГЅГІГ®ГІ ГЇГ°ГҐГ¤Г¬ГҐГІ.')
 					imgui.EndTooltip()
 				end
 				imgui.EndChild()
@@ -1442,37 +1442,37 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 		imgui.PushFont(myFont) 
 		imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(sizeX, sizeY), imgui.Cond.FirstUseEver)
-		imgui.Begin(u8'Настройки', menu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+		imgui.Begin(u8'ГЌГ Г±ГІГ°Г®Г©ГЄГЁ', menu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
 		imgui.BeginChild('##settings1', imgui.ImVec2(300,195), 0)
 		if ad.ToggleButton(u8'Login', elements.value.autologin) then
 			config['settings']['autologin'] = elements.value.autologin[0]
 			saveConfig()
-		end imgui.TextQuestion(u8'Автоматический вход под аккаунт')
+		end imgui.TextQuestion(u8'ГЂГўГІГ®Г¬Г ГІГЁГ·ГҐГ±ГЄГЁГ© ГўГµГ®Г¤ ГЇГ®Г¤ Г ГЄГЄГ ГіГ­ГІ')
 		if ad.ToggleButton(u8'Alogin', elements.value.autoalogin) then
 			config['settings']['autoalogin'] = elements.value.autoalogin[0]
 			saveConfig()
-		end imgui.TextQuestion(u8'Автоматический вход под админку')
-		if ad.ToggleButton(u8'TEMPLEADER при входе', elements.value.autoleader) then
+		end imgui.TextQuestion(u8'ГЂГўГІГ®Г¬Г ГІГЁГ·ГҐГ±ГЄГЁГ© ГўГµГ®Г¤ ГЇГ®Г¤ Г Г¤Г¬ГЁГ­ГЄГі')
+		if ad.ToggleButton(u8'TEMPLEADER ГЇГ°ГЁ ГўГµГ®Г¤ГҐ', elements.value.autoleader) then
 			config['settings']['autoleader'] = elements.value.autoleader[0]
 			saveConfig()
-		end imgui.TextQuestion(u8'После входа под админку заходите под временную лидерку')
-		if ad.ToggleButton(u8'AGM при входе', elements.value.autogm) then
+		end imgui.TextQuestion(u8'ГЏГ®Г±Г«ГҐ ГўГµГ®Г¤Г  ГЇГ®Г¤ Г Г¤Г¬ГЁГ­ГЄГі Г§Г ГµГ®Г¤ГЁГІГҐ ГЇГ®Г¤ ГўГ°ГҐГ¬ГҐГ­Г­ГіГѕ Г«ГЁГ¤ГҐГ°ГЄГі')
+		if ad.ToggleButton(u8'AGM ГЇГ°ГЁ ГўГµГ®Г¤ГҐ', elements.value.autogm) then
 			config['settings']['autogm'] = elements.value.autogm[0]
 			saveConfig()
-		end imgui.TextQuestion(u8'После входа под админку включается /agm')
-		if ad.ToggleButton(u8'CONNECT при входе', elements.value.autoconnect) then
+		end imgui.TextQuestion(u8'ГЏГ®Г±Г«ГҐ ГўГµГ®Г¤Г  ГЇГ®Г¤ Г Г¤Г¬ГЁГ­ГЄГі ГўГЄГ«ГѕГ·Г ГҐГІГ±Гї /agm')
+		if ad.ToggleButton(u8'CONNECT ГЇГ°ГЁ ГўГµГ®Г¤ГҐ', elements.value.autoconnect) then
 			config['settings']['autoconnect'] = elements.value.autoconnect[0]
 			saveConfig()
-		end imgui.TextQuestion(u8'После входа под админку включается /connect')
-		if ad.ToggleButton(u8'Приветствие при входе под админку', elements.value.ahi) then 
+		end imgui.TextQuestion(u8'ГЏГ®Г±Г«ГҐ ГўГµГ®Г¤Г  ГЇГ®Г¤ Г Г¤Г¬ГЁГ­ГЄГі ГўГЄГ«ГѕГ·Г ГҐГІГ±Гї /connect')
+		if ad.ToggleButton(u8'ГЏГ°ГЁГўГҐГІГ±ГІГўГЁГҐ ГЇГ°ГЁ ГўГµГ®Г¤ГҐ ГЇГ®Г¤ Г Г¤Г¬ГЁГ­ГЄГі', elements.value.ahi) then 
 			config['settings']['ahi'] = elements.value.ahi[0]
 			saveConfig()
-		end imgui.TextQuestion(u8'После входа под админку воспроизводиться звук приветствия')
-		if ad.ToggleButton(u8'Укороченный чат', elements.value.shortadm) then 
+		end imgui.TextQuestion(u8'ГЏГ®Г±Г«ГҐ ГўГµГ®Г¤Г  ГЇГ®Г¤ Г Г¤Г¬ГЁГ­ГЄГі ГўГ®Г±ГЇГ°Г®ГЁГ§ГўГ®Г¤ГЁГІГјГ±Гї Г§ГўГіГЄ ГЇГ°ГЁГўГҐГІГ±ГІГўГЁГї')
+		if ad.ToggleButton(u8'Г“ГЄГ®Г°Г®Г·ГҐГ­Г­Г»Г© Г·Г ГІ', elements.value.shortadm) then 
 			config['settings']['shortadm'] = elements.value.shortadm[0]
 			saveConfig()
-		end imgui.TextQuestion(u8'Заменяет "Администратор" на "A:" и укорачивает префиксы')
-		if ad.ToggleButton(u8'Авто-пробитие pgetip по getip', elements.value.pgetip) then
+		end imgui.TextQuestion(u8'Г‡Г Г¬ГҐГ­ГїГҐГІ "ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°" Г­Г  "A:" ГЁ ГіГЄГ®Г°Г Г·ГЁГўГ ГҐГІ ГЇГ°ГҐГґГЁГЄГ±Г»')
+		if ad.ToggleButton(u8'ГЂГўГІГ®-ГЇГ°Г®ГЎГЁГІГЁГҐ pgetip ГЇГ® getip', elements.value.pgetip) then
 			config['settings']['pgetip'] = elements.value.pgetip[0]
 			saveConfig()
 		end
@@ -1492,22 +1492,22 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 			config['settings']['leaderid'] = elements.value.leaderid[0]+1
 	        saveConfig()
 		end
-		if ad.ToggleButton(u8'EARS при входе', elements.value.autoears) then
+		if ad.ToggleButton(u8'EARS ГЇГ°ГЁ ГўГµГ®Г¤ГҐ', elements.value.autoears) then
 			config['settings']['autoears'] = elements.value.autoears[0]
 			saveConfig()
-		end imgui.TextQuestion(u8'После вход под админку включается /ears')
-		if ad.ToggleButton(u8'AINFO при входе', elements.value.autoainfo) then
+		end imgui.TextQuestion(u8'ГЏГ®Г±Г«ГҐ ГўГµГ®Г¤ ГЇГ®Г¤ Г Г¤Г¬ГЁГ­ГЄГі ГўГЄГ«ГѕГ·Г ГҐГІГ±Гї /ears')
+		if ad.ToggleButton(u8'AINFO ГЇГ°ГЁ ГўГµГ®Г¤ГҐ', elements.value.autoainfo) then
 			config['settings']['autoainfo'] = elements.value.autoainfo[0]
 			saveConfig()
-		end imgui.TextQuestion(u8'После входа под админку выключается /ainfo')
-		if ad.ToggleButton(u8'Автоматический ТП в место для AFK', elements.value.akv) then
+		end imgui.TextQuestion(u8'ГЏГ®Г±Г«ГҐ ГўГµГ®Г¤Г  ГЇГ®Г¤ Г Г¤Г¬ГЁГ­ГЄГі ГўГ»ГЄГ«ГѕГ·Г ГҐГІГ±Гї /ainfo')
+		if ad.ToggleButton(u8'ГЂГўГІГ®Г¬Г ГІГЁГ·ГҐГ±ГЄГЁГ© Г’ГЏ Гў Г¬ГҐГ±ГІГ® Г¤Г«Гї AFK', elements.value.akv) then
 			config['settings']['akv'] = elements.value.akv[0]
 			saveConfig()
-		end imgui.TextQuestion(u8'После входа под админку телепортируетесь в /inter 72') 
-		if ad.ToggleButton(u8'MSG-сообщения', elements.value.msginfo) then
+		end imgui.TextQuestion(u8'ГЏГ®Г±Г«ГҐ ГўГµГ®Г¤Г  ГЇГ®Г¤ Г Г¤Г¬ГЁГ­ГЄГі ГІГҐГ«ГҐГЇГ®Г°ГІГЁГ°ГіГҐГІГҐГ±Гј Гў /inter 72') 
+		if ad.ToggleButton(u8'MSG-Г±Г®Г®ГЎГ№ГҐГ­ГЁГї', elements.value.msginfo) then
 			config['settings']['msginfo'] = elements.value.msginfo[0]
 			saveConfig()
-		end imgui.TextQuestion(u8'Используйте: /amsg [1-2]')
+		end imgui.TextQuestion(u8'Г€Г±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ: /amsg [1-2]')
 		imgui.PopItemWidth()
 		imgui.EndChild()
 		imgui.PopFont()
@@ -1517,7 +1517,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 		imgui.PushFont(myFont)
 		imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(sizeX, sizeY), imgui.Cond.FirstUseEver)
-		imgui.Begin(u8'Выдача выговоров', menu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+		imgui.Begin(u8'Г‚Г»Г¤Г Г·Г  ГўГ»ГЈГ®ГўГ®Г°Г®Гў', menu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
 		imgui.SetCursorPos(imgui.ImVec2(10, 30))
 		imgui.BeginChild('Nakaz##1'..warn_navigation.current, imgui.ImVec2(140,105), false)
 		for i, title in ipairs(warn_navigation.list) do
@@ -1529,14 +1529,14 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 		imgui.SameLine(145)
 		imgui.BeginChild('Nakaz##2', imgui.ImVec2(540,200), 0)
 		if warn_navigation.current == 1 then
-			imgui.InputTextWithHint(u8'##333', u8'Введите nickname', input_nameawarn, sizeof(input_nameawarn))
-			imgui.TextQuestionMp(u8'Введите ник и выберите ниже причину')
-			if imgui.CollapsingHeader(u8'Список наказаний') then
-				if imgui.Button(u8'1. Ненормативная лексика в чат, в сторону игроков/администраторов — 1 выговор') then
+			imgui.InputTextWithHint(u8'##333', u8'Г‚ГўГҐГ¤ГЁГІГҐ nickname', input_nameawarn, sizeof(input_nameawarn))
+			imgui.TextQuestionMp(u8'Г‚ГўГҐГ¤ГЁГІГҐ Г­ГЁГЄ ГЁ ГўГ»ГЎГҐГ°ГЁГІГҐ Г­ГЁГ¦ГҐ ГЇГ°ГЁГ·ГЁГ­Гі')
+			if imgui.CollapsingHeader(u8'Г‘ГЇГЁГ±Г®ГЄ Г­Г ГЄГ Г§Г Г­ГЁГ©') then
+				if imgui.Button(u8'1. ГЌГҐГ­Г®Г°Г¬Г ГІГЁГўГ­Г Гї Г«ГҐГЄГ±ГЁГЄГ  Гў Г·Г ГІ, Гў Г±ГІГ®Г°Г®Г­Гі ГЁГЈГ°Г®ГЄГ®Гў/Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Гў В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 1')
 				end
-				if imgui.Button(u8'2. DM игроков — 2 выговора') then
+				if imgui.Button(u8'2. DM ГЁГЈГ°Г®ГЄГ®Гў В— 2 ГўГ»ГЈГ®ГўГ®Г°Г ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 2')
@@ -1544,7 +1544,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 2')
 					end)
 				end
-				if imgui.Button(u8'3. Выдавать наказание не имея доказательств нарушения — 2 выговора') then
+				if imgui.Button(u8'3. Г‚Г»Г¤Г ГўГ ГІГј Г­Г ГЄГ Г§Г Г­ГЁГҐ Г­ГҐ ГЁГ¬ГҐГї Г¤Г®ГЄГ Г§Г ГІГҐГ«ГјГ±ГІГў Г­Г Г°ГіГёГҐГ­ГЁГї В— 2 ГўГ»ГЈГ®ГўГ®Г°Г ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 3')
@@ -1552,23 +1552,23 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 3')
 					end)
 				end
-				if imgui.Button(u8'4. Засорение репорта — 1 выговор') then
+				if imgui.Button(u8'4. Г‡Г Г±Г®Г°ГҐГ­ГЁГҐ Г°ГҐГЇГ®Г°ГІГ  В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 4')
 				end
-				if imgui.Button(u8'5. Оскорбление администраторов/игроков — 1 выговор') then
+				if imgui.Button(u8'5. ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Гў/ГЁГЈГ°Г®ГЄГ®Гў В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 5')
 				end
-				if imgui.Button(u8'6. Покупка/Продажа чего-либо в /a — 1 выговор') then
+				if imgui.Button(u8'6. ГЏГ®ГЄГіГЇГЄГ /ГЏГ°Г®Г¤Г Г¦Г  Г·ГҐГЈГ®-Г«ГЁГЎГ® Гў /a В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 6')
 				end
-				if imgui.Button(u8'7. Помеха другим администраторам — 1 выговор') then
+				if imgui.Button(u8'7. ГЏГ®Г¬ГҐГµГ  Г¤Г°ГіГЈГЁГ¬ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г Г¬ В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 7')
 				end
-				if imgui.Button(u8'8. Реклама/Реклама с твинков — снятие') then
+				if imgui.Button(u8'8. ГђГҐГЄГ«Г Г¬Г /ГђГҐГЄГ«Г Г¬Г  Г± ГІГўГЁГ­ГЄГ®Гў В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 8')
@@ -1578,11 +1578,11 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 8')
 					end)
 				end
-				if imgui.Button(u8'9. Оффтоп в /msg — 1 выговор') then
+				if imgui.Button(u8'9. ГЋГґГґГІГ®ГЇ Гў /msg В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 9')
 				end
-				if imgui.Button(u8'10. Блат кого-либо из игроков/администраторов — 2 выговора') then
+				if imgui.Button(u8'10. ГЃГ«Г ГІ ГЄГ®ГЈГ®-Г«ГЁГЎГ® ГЁГ§ ГЁГЈГ°Г®ГЄГ®Гў/Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Гў В— 2 ГўГ»ГЈГ®ГўГ®Г°Г ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 10')
@@ -1590,11 +1590,11 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 10')
 					end)
 				end
-				if imgui.Button(u8'11. Помеха/Влезание в РП процесс — 1 выговор') then
+				if imgui.Button(u8'11. ГЏГ®Г¬ГҐГµГ /Г‚Г«ГҐГ§Г Г­ГЁГҐ Гў ГђГЏ ГЇГ°Г®Г¶ГҐГ±Г± В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 11')
 				end
-				if imgui.Button(u8'12. Проверка игроков на читы через скайп или дискорд — 2 выговора') then
+				if imgui.Button(u8'12. ГЏГ°Г®ГўГҐГ°ГЄГ  ГЁГЈГ°Г®ГЄГ®Гў Г­Г  Г·ГЁГІГ» Г·ГҐГ°ГҐГ§ Г±ГЄГ Г©ГЇ ГЁГ«ГЁ Г¤ГЁГ±ГЄГ®Г°Г¤ В— 2 ГўГ»ГЈГ®ГўГ®Г°Г ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 12')
@@ -1602,11 +1602,11 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 12')
 					end)
 				end
-				if imgui.Button(u8'13. Попрошайничество — 1 выговор') then
+				if imgui.Button(u8'13. ГЏГ®ГЇГ°Г®ГёГ Г©Г­ГЁГ·ГҐГ±ГІГўГ® В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 13')
 				end
-				if imgui.Button(u8'14. Использование читов против игроков — снятие') then
+				if imgui.Button(u8'14. Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Г·ГЁГІГ®Гў ГЇГ°Г®ГІГЁГў ГЁГЈГ°Г®ГЄГ®Гў В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 14')
@@ -1616,11 +1616,11 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 14')
 					end)
 				end
-				if imgui.Button(u8'15. Выдача наказаний по просьбе другого администратора — 1 выговор') then
+				if imgui.Button(u8'15. Г‚Г»Г¤Г Г·Г  Г­Г ГЄГ Г§Г Г­ГЁГ© ГЇГ® ГЇГ°Г®Г±ГјГЎГҐ Г¤Г°ГіГЈГ®ГЈГ® Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г  В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 15')
 				end
-				if imgui.Button(u8'16. Наличие более 1 админ аккаунта — снятие') then
+				if imgui.Button(u8'16. ГЌГ Г«ГЁГ·ГЁГҐ ГЎГ®Г«ГҐГҐ 1 Г Г¤Г¬ГЁГ­ Г ГЄГЄГ ГіГ­ГІГ  В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 16')
@@ -1630,15 +1630,15 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 16')
 					end)
 				end
-				if imgui.Button(u8'17. Выдача наказаний за SMS администрации — 1 выговор') then
+				if imgui.Button(u8'17. Г‚Г»Г¤Г Г·Г  Г­Г ГЄГ Г§Г Г­ГЁГ© Г§Г  SMS Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГЁ В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 17')
 				end
-				if imgui.Button(u8'18. Выдача наказаний за ДМ администрации — 1 выговор') then
+				if imgui.Button(u8'18. Г‚Г»Г¤Г Г·Г  Г­Г ГЄГ Г§Г Г­ГЁГ© Г§Г  Г„ГЊ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГЁ В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 18')
 				end
-				if imgui.Button(u8'19. Накрутка репутации — снятие') then 
+				if imgui.Button(u8'19. ГЌГ ГЄГ°ГіГІГЄГ  Г°ГҐГЇГіГІГ Г¶ГЁГЁ В— Г±Г­ГїГІГЁГҐ') then 
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 19')
@@ -1648,11 +1648,11 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 19')
 					end)
 				end
-				if imgui.Button(u8'20. Выпрашивание оценки ответа на репорт — 1 выговор') then
+				if imgui.Button(u8'20. Г‚Г»ГЇГ°Г ГёГЁГўГ Г­ГЁГҐ Г®Г¶ГҐГ­ГЄГЁ Г®ГІГўГҐГІГ  Г­Г  Г°ГҐГЇГ®Г°ГІ В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 20', -1)
 				end
-				if imgui.Button(u8'21. Выдача выговора в ответ — снятие') then
+				if imgui.Button(u8'21. Г‚Г»Г¤Г Г·Г  ГўГ»ГЈГ®ГўГ®Г°Г  Гў Г®ГІГўГҐГІ В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 21', -1)
@@ -1662,7 +1662,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 21', -1)
 					end)
 				end
-				if imgui.Button(u8'22. Подставные действия на снятие — снятие') then
+				if imgui.Button(u8'22. ГЏГ®Г¤Г±ГІГ ГўГ­Г»ГҐ Г¤ГҐГ©Г±ГІГўГЁГї Г­Г  Г±Г­ГїГІГЁГҐ В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 22', -1)
@@ -1672,7 +1672,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 22', -1)
 					end)
 				end
-				if imgui.Button(u8'23. Розжиг конфликта — 2 выговора') then
+				if imgui.Button(u8'23. ГђГ®Г§Г¦ГЁГЈ ГЄГ®Г­ГґГ«ГЁГЄГІГ  В— 2 ГўГ»ГЈГ®ГўГ®Г°Г ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 23', -1)
@@ -1680,7 +1680,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 23', -1)
 					end)
 				end
-				if imgui.Button(u8'24. Нарушение правил администрации 3+ раз — снятие') then
+				if imgui.Button(u8'24. ГЌГ Г°ГіГёГҐГ­ГЁГҐ ГЇГ°Г ГўГЁГ« Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГЁ 3+ Г°Г Г§ В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 24', -1)
@@ -1690,7 +1690,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 24', -1)
 					end)
 				end
-				if imgui.Button(u8'25. Оск. красной администрации и упоминание/оск. их родни — снятие') then
+				if imgui.Button(u8'25. ГЋГ±ГЄ. ГЄГ°Г Г±Г­Г®Г© Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГЁ ГЁ ГіГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ/Г®Г±ГЄ. ГЁГµ Г°Г®Г¤Г­ГЁ В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 25', -1)
@@ -1700,11 +1700,11 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 25', -1)
 					end)
 				end
-				if imgui.Button(u8'26. Суммирование наказаний — 1 выговор') then
+				if imgui.Button(u8'26. Г‘ГіГ¬Г¬ГЁГ°Г®ГўГ Г­ГЁГҐ Г­Г ГЄГ Г§Г Г­ГЁГ© В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 26', -1)
 				end
-				if imgui.Button(u8'27. Розжиг межнациональной розни — 2 выговора') then
+				if imgui.Button(u8'27. ГђГ®Г§Г¦ГЁГЈ Г¬ГҐГ¦Г­Г Г¶ГЁГ®Г­Г Г«ГјГ­Г®Г© Г°Г®Г§Г­ГЁ В— 2 ГўГ»ГЈГ®ГўГ®Г°Г ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 27', -1)
@@ -1712,15 +1712,15 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 27', -1)
 					end)
 				end
-				if imgui.Button(u8'28. Распространение сторонних скриптов — 1 выговор') then
+				if imgui.Button(u8'28. ГђГ Г±ГЇГ°Г®Г±ГІГ°Г Г­ГҐГ­ГЁГҐ Г±ГІГ®Г°Г®Г­Г­ГЁГµ Г±ГЄГ°ГЁГЇГІГ®Гў В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 28', -1)
 				end
-				if imgui.Button(u8'29. Злоупотребление капсом в /a /v — 1 выговор') then
+				if imgui.Button(u8'29. Г‡Г«Г®ГіГЇГ®ГІГ°ГҐГЎГ«ГҐГ­ГЁГҐ ГЄГ ГЇГ±Г®Г¬ Гў /a /v В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 29', -1)
 				end
-				if imgui.Button(u8'30. Помощь на капте/бизваре — 2 выговора') then
+				if imgui.Button(u8'30. ГЏГ®Г¬Г®Г№Гј Г­Г  ГЄГ ГЇГІГҐ/ГЎГЁГ§ГўГ Г°ГҐ В— 2 ГўГ»ГЈГ®ГўГ®Г°Г ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 30', -1)
@@ -1728,7 +1728,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 30', -1)
 					end)
 				end
-				if imgui.Button(u8'31. Слив территорий/бизнесов — снятие') then
+				if imgui.Button(u8'31. Г‘Г«ГЁГў ГІГҐГ°Г°ГЁГІГ®Г°ГЁГ©/ГЎГЁГ§Г­ГҐГ±Г®Гў В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 31', -1)
@@ -1738,7 +1738,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 32', -1)
 					end)
 				end
-				if imgui.Button(u8'32. Разглашение цен платных команд — снятие') then
+				if imgui.Button(u8'32. ГђГ Г§ГЈГ«Г ГёГҐГ­ГЁГҐ Г¶ГҐГ­ ГЇГ«Г ГІГ­Г»Гµ ГЄГ®Г¬Г Г­Г¤ В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 32', -1)
@@ -1748,7 +1748,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 32', -1)
 					end)
 				end
-				if imgui.Button(u8'33. Баловство командами — 2 выговора') then
+				if imgui.Button(u8'33. ГЃГ Г«Г®ГўГ±ГІГўГ® ГЄГ®Г¬Г Г­Г¤Г Г¬ГЁ В— 2 ГўГ»ГЈГ®ГўГ®Г°Г ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 33', -1)
@@ -1756,7 +1756,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 33', -1)
 					end)
 				end
-				if imgui.Button(u8'34. Использование багов сервера для получения материальной выгоды — снятие') then
+				if imgui.Button(u8'34. Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГЎГ ГЈГ®Гў Г±ГҐГ°ГўГҐГ°Г  Г¤Г«Гї ГЇГ®Г«ГіГ·ГҐГ­ГЁГї Г¬Г ГІГҐГ°ГЁГ Г«ГјГ­Г®Г© ГўГ»ГЈГ®Г¤Г» В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 34', -1)
@@ -1766,11 +1766,11 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 34', -1)
 					end)
 				end
-				if imgui.Button(u8'35. Нарушение правил проверки жалоб — 1 выговор') then
+				if imgui.Button(u8'35. ГЌГ Г°ГіГёГҐГ­ГЁГҐ ГЇГ°Г ГўГЁГ« ГЇГ°Г®ГўГҐГ°ГЄГЁ Г¦Г Г«Г®ГЎ В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 35', -1)
 				end
-				if imgui.Button(u8'36. Оскорбление сервера — снятие') then
+				if imgui.Button(u8'36. ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г±ГҐГ°ГўГҐГ°Г  В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 36', -1)
@@ -1780,15 +1780,15 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 36', -1)
 					end)
 				end
-				if imgui.Button(u8'37. Использование /pm в личных целях — 1 выговор') then
+				if imgui.Button(u8'37. Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ /pm Гў Г«ГЁГ·Г­Г»Гµ Г¶ГҐГ«ГїГµ В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 37', -1)
 				end
-				if imgui.Button(u8'38. Флуд админ-командами — 1 выговор') then
+				if imgui.Button(u8'38. Г”Г«ГіГ¤ Г Г¤Г¬ГЁГ­-ГЄГ®Г¬Г Г­Г¤Г Г¬ГЁ В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 38', -1)
 				end
-				if imgui.Button(u8'39. Исп. вред.читов/вред.читы с твинков против игроков/адм — снятие') then
+				if imgui.Button(u8'39. Г€Г±ГЇ. ГўГ°ГҐГ¤.Г·ГЁГІГ®Гў/ГўГ°ГҐГ¤.Г·ГЁГІГ» Г± ГІГўГЁГ­ГЄГ®Гў ГЇГ°Г®ГІГЁГў ГЁГЈГ°Г®ГЄГ®Гў/Г Г¤Г¬ В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 39', -1)
@@ -1798,7 +1798,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 39', -1)
 					end)
 				end
-				if imgui.Button(u8'40. Оскорбление/упоминание родственников или ответ взаимностью — снятие') then
+				if imgui.Button(u8'40. ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ/ГіГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г°Г®Г¤Г±ГІГўГҐГ­Г­ГЁГЄГ®Гў ГЁГ«ГЁ Г®ГІГўГҐГІ ГўГ§Г ГЁГ¬Г­Г®Г±ГІГјГѕ В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 40', -1)
@@ -1808,19 +1808,19 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 40', -1)
 					end)
 				end
-				if imgui.Button(u8'41. Капс/флуд в чат, в сторону игроков/администраторов — 1 выговор') then
+				if imgui.Button(u8'41. ГЉГ ГЇГ±/ГґГ«ГіГ¤ Гў Г·Г ГІ, Гў Г±ГІГ®Г°Г®Г­Гі ГЁГЈГ°Г®ГЄГ®Гў/Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Гў В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 41', -1)
 				end
-				if imgui.Button(u8'42. Неверная выдача наказания игроку/администратору — 1 выговор') then
+				if imgui.Button(u8'42. ГЌГҐГўГҐГ°Г­Г Гї ГўГ»Г¤Г Г·Г  Г­Г ГЄГ Г§Г Г­ГЁГї ГЁГЈГ°Г®ГЄГі/Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Гі В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 42', -1)
 				end
-				if imgui.Button(u8'43. Неверное рассмотрение жалобы на форуме — 1 выговор') then
+				if imgui.Button(u8'43. ГЌГҐГўГҐГ°Г­Г®ГҐ Г°Г Г±Г±Г¬Г®ГІГ°ГҐГ­ГЁГҐ Г¦Г Г«Г®ГЎГ» Г­Г  ГґГ®Г°ГіГ¬ГҐ В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 43', -1)
 				end
-				if imgui.Button(u8'44. Продажа имущества за реальную валюту — снятие') then
+				if imgui.Button(u8'44. ГЏГ°Г®Г¤Г Г¦Г  ГЁГ¬ГіГ№ГҐГ±ГІГўГ  Г§Г  Г°ГҐГ Г«ГјГ­ГіГѕ ГўГ Г«ГѕГІГі В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 44', -1)
@@ -1830,7 +1830,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 44', -1)
 					end)
 				end
-				if imgui.Button(u8'45. Слив продуктов бизнеса — снятие') then
+				if imgui.Button(u8'45. Г‘Г«ГЁГў ГЇГ°Г®Г¤ГіГЄГІГ®Гў ГЎГЁГ§Г­ГҐГ±Г  В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 45', -1)
@@ -1840,7 +1840,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 45', -1)
 					end)
 				end
-				if imgui.Button(u8'46. Продажа/Передача/Взлом аккаунта — снятие') then
+				if imgui.Button(u8'46. ГЏГ°Г®Г¤Г Г¦Г /ГЏГҐГ°ГҐГ¤Г Г·Г /Г‚Г§Г«Г®Г¬ Г ГЄГЄГ ГіГ­ГІГ  В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 46', -1)
@@ -1850,7 +1850,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 46', -1)
 					end)
 				end
-				if imgui.Button(u8'47. NonRP развод | Подкид | Развод /try — снятие') then
+				if imgui.Button(u8'47. NonRP Г°Г Г§ГўГ®Г¤ | ГЏГ®Г¤ГЄГЁГ¤ | ГђГ Г§ГўГ®Г¤ /try В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 47', -1)
@@ -1860,7 +1860,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 47', -1)
 					end)
 				end
-				if imgui.Button(u8'48. NonRP NickName — 2 выговора') then
+				if imgui.Button(u8'48. NonRP NickName В— 2 ГўГ»ГЈГ®ГўГ®Г°Г ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 48', -1)
@@ -1868,7 +1868,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 48', -1)
 					end)
 				end
-				if imgui.Button(u8'49. Слив прав — снятие') then
+				if imgui.Button(u8'49. Г‘Г«ГЁГў ГЇГ°Г Гў В— Г±Г­ГїГІГЁГҐ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 49', -1)
@@ -1878,7 +1878,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 49', -1)
 					end)
 				end
-				if imgui.Button(u8'50. Неуважительный ответ игроку — 2 выговора') then
+				if imgui.Button(u8'50. ГЌГҐГіГўГ Г¦ГЁГІГҐГ«ГјГ­Г»Г© Г®ГІГўГҐГІ ГЁГЈГ°Г®ГЄГі В— 2 ГўГ»ГЈГ®ГўГ®Г°Г ') then
 					local aname = str(input_nameawarn)
 					lua_thread.create(function()
 						sampSendChat('/awarn '..aname..' /regulations > 50', -1)
@@ -1886,166 +1886,166 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 						sampSendChat('/awarn '..aname..' /regulations > 50', -1)
 					end)
 				end
-				if imgui.Button(u8'51. Выдача наказания с неполной причиной — 1 выговор') then
+				if imgui.Button(u8'51. Г‚Г»Г¤Г Г·Г  Г­Г ГЄГ Г§Г Г­ГЁГї Г± Г­ГҐГЇГ®Г«Г­Г®Г© ГЇГ°ГЁГ·ГЁГ­Г®Г© В— 1 ГўГ»ГЈГ®ГўГ®Г°') then
 					local aname = str(input_nameawarn)
 					sampSendChat('/awarn '..aname..' /regulations > 51', -1)
 				end				
 			end
 		elseif warn_navigation.current == 2 then
-			imgui.InputTextWithHint(u8'##444', u8'Введите nickname', input_namelwarn, sizeof(input_namelwarn))
-			imgui.TextQuestionMp(u8'Введите ник и выберите ниже причину')
-			if imgui.CollapsingHeader(u8'Частые причины') then
-				if imgui.Button(u8'Неактив 24+ часов') then
+			imgui.InputTextWithHint(u8'##444', u8'Г‚ГўГҐГ¤ГЁГІГҐ nickname', input_namelwarn, sizeof(input_namelwarn))
+			imgui.TextQuestionMp(u8'Г‚ГўГҐГ¤ГЁГІГҐ Г­ГЁГЄ ГЁ ГўГ»ГЎГҐГ°ГЁГІГҐ Г­ГЁГ¦ГҐ ГЇГ°ГЁГ·ГЁГ­Гі')
+			if imgui.CollapsingHeader(u8'Г—Г Г±ГІГ»ГҐ ГЇГ°ГЁГ·ГЁГ­Г»') then
+				if imgui.Button(u8'ГЌГҐГ ГЄГІГЁГў 24+ Г·Г Г±Г®Гў') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Неактив 24+ часов', -1)
+						sampSendChat('/lwarn '..lname..' ГЌГҐГ ГЄГІГЁГў 24+ Г·Г Г±Г®Гў', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Неактив 24+ часов', -1)
+						sampSendChat('/lwarn '..lname..' ГЌГҐГ ГЄГІГЁГў 24+ Г·Г Г±Г®Гў', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Неактив 24+ часов', -1)
+						sampSendChat('/lwarn '..lname..' ГЌГҐГ ГЄГІГЁГў 24+ Г·Г Г±Г®Гў', -1)
 					end)
 				end
-				if imgui.Button(u8'Норма онлайна отыгровки за день 1 час.') then
+				if imgui.Button(u8'ГЌГ®Г°Г¬Г  Г®Г­Г«Г Г©Г­Г  Г®ГІГ»ГЈГ°Г®ГўГЄГЁ Г§Г  Г¤ГҐГ­Гј 1 Г·Г Г±.') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Нет нормы онлайна 1 час.', -1)
+						sampSendChat('/lwarn '..lname..' ГЌГҐГІ Г­Г®Г°Г¬Г» Г®Г­Г«Г Г©Г­Г  1 Г·Г Г±.', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Нет нормы онлайна 1 час.', -1)
+						sampSendChat('/lwarn '..lname..' ГЌГҐГІ Г­Г®Г°Г¬Г» Г®Г­Г«Г Г©Г­Г  1 Г·Г Г±.', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Нет нормы онлайна 1 час.', -1)
+						sampSendChat('/lwarn '..lname..' ГЌГҐГІ Г­Г®Г°Г¬Г» Г®Г­Г«Г Г©Г­Г  1 Г·Г Г±.', -1)
 					end)
 				end
-				if imgui.Button(u8'Упоминание родных') then
+				if imgui.Button(u8'Г“ГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г°Г®Г¤Г­Г»Гµ') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Упоминание родных', -1)
+						sampSendChat('/lwarn '..lname..' Г“ГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г°Г®Г¤Г­Г»Гµ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Упоминание родных', -1)
+						sampSendChat('/lwarn '..lname..' Г“ГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г°Г®Г¤Г­Г»Гµ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Упоминание родных', -1)
+						sampSendChat('/lwarn '..lname..' Г“ГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г°Г®Г¤Г­Г»Гµ', -1)
 					end)
 				end
-				if imgui.Button(u8'Неадекват') then
+				if imgui.Button(u8'ГЌГҐГ Г¤ГҐГЄГўГ ГІ') then
 				local lname = str(input_namelwarn)
-				sampSendChat('/lwarn '..lname..' Неадекват')
+				sampSendChat('/lwarn '..lname..' ГЌГҐГ Г¤ГҐГЄГўГ ГІ')
 				end
 			end
-			if imgui.CollapsingHeader(u8'Для ГС/ЗГС') then
-				if imgui.Button(u8'[Гос. структуры] Отсутствие отчёта 1/3') then
+			if imgui.CollapsingHeader(u8'Г„Г«Гї ГѓГ‘/Г‡ГѓГ‘') then
+				if imgui.Button(u8'[ГѓГ®Г±. Г±ГІГ°ГіГЄГІГіГ°Г»] ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г®ГІГ·ВёГІГ  1/3') then
 					local lname = str(input_namelwarn)
 						lua_thread.create(function()
-							sampSendChat('/lwarn '..lname..' Отсутствие отчёта 1/3', -1)
+							sampSendChat('/lwarn '..lname..' ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г®ГІГ·ВёГІГ  1/3', -1)
 							wait(1300)
-							sampSendChat('/lwarn '..lname..' Отсутствие отчёта 1/3', -1)
+							sampSendChat('/lwarn '..lname..' ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г®ГІГ·ВёГІГ  1/3', -1)
 						end)
 					end
 					imgui.SameLine()
-					if imgui.Button(u8'[Гос. структуры] Неверный отчёт 1/4') then
+					if imgui.Button(u8'[ГѓГ®Г±. Г±ГІГ°ГіГЄГІГіГ°Г»] ГЌГҐГўГҐГ°Г­Г»Г© Г®ГІГ·ВёГІ 1/4') then
 					local lname = str(input_namelwarn)
 						lua_thread.create(function()
-							sampSendChat('/lwarn '..lname..' Неверный отчёт 1/4', -1)
+							sampSendChat('/lwarn '..lname..' ГЌГҐГўГҐГ°Г­Г»Г© Г®ГІГ·ВёГІ 1/4', -1)
 							wait(1300)
-							sampSendChat('/lwarn '..lname..' Неверный отчёт 1/4', -1)
+							sampSendChat('/lwarn '..lname..' ГЌГҐГўГҐГ°Г­Г»Г© Г®ГІГ·ВёГІ 1/4', -1)
 						end)
 					end
-					if imgui.Button(u8'[Гос. структуры] Отсутствие отчёта 2/3') then
+					if imgui.Button(u8'[ГѓГ®Г±. Г±ГІГ°ГіГЄГІГіГ°Г»] ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г®ГІГ·ВёГІГ  2/3') then
 					local lname = str(input_namelwarn)
 						lua_thread.create(function()
-							sampSendChat('/lwarn '..lname..' Отсутствие отчёта 2/3', -1)
+							sampSendChat('/lwarn '..lname..' ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г®ГІГ·ВёГІГ  2/3', -1)
 							wait(1300)
-							sampSendChat('/lwarn '..lname..' Отсутствие отчёта 2/3', -1)
-						end)
-					end
-					imgui.SameLine()
-					if imgui.Button(u8'[Гос. структуры] Неверный отчёт 2/4') then
-					local lname = str(input_namelwarn)
-						lua_thread.create(function()
-							sampSendChat('/lwarn '..lname..' Неверный отчёт 2/4', -1)
-							wait(1300)
-							sampSendChat('/lwarn '..lname..' Неверный отчёт 2/4', -1)
-						end)
-					end
-					if imgui.Button(u8'[Гос. структуры] Отсутствие отчёта 3/3') then
-					local lname = str(input_namelwarn)
-						lua_thread.create(function()
-							sampSendChat('/lwarn '..lname..' Отсутствие отчёта 3/3', -1)
-							wait(1300)
-							sampSendChat('/lwarn '..lname..' Отсутствие отчёта 3/3', -1)
-							wait(1300)
-							sampSendChat('/lwarn '..lname..' Отсутствие отчёта 3/3', -1)
+							sampSendChat('/lwarn '..lname..' ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г®ГІГ·ВёГІГ  2/3', -1)
 						end)
 					end
 					imgui.SameLine()
-					if imgui.Button(u8'[Гос. структуры] Неверный отчёт 3/4') then
+					if imgui.Button(u8'[ГѓГ®Г±. Г±ГІГ°ГіГЄГІГіГ°Г»] ГЌГҐГўГҐГ°Г­Г»Г© Г®ГІГ·ВёГІ 2/4') then
 					local lname = str(input_namelwarn)
 						lua_thread.create(function()
-							sampSendChat('/lwarn '..lname..' Неверный отчёт 3/4', -1)
+							sampSendChat('/lwarn '..lname..' ГЌГҐГўГҐГ°Г­Г»Г© Г®ГІГ·ВёГІ 2/4', -1)
 							wait(1300)
-							sampSendChat('/lwarn '..lname..' Неверный отчёт 3/4', -1)
+							sampSendChat('/lwarn '..lname..' ГЌГҐГўГҐГ°Г­Г»Г© Г®ГІГ·ВёГІ 2/4', -1)
 						end)
 					end
-					if imgui.Button(u8'[Гос. структуры] Неверный отчёт 4/4') then
+					if imgui.Button(u8'[ГѓГ®Г±. Г±ГІГ°ГіГЄГІГіГ°Г»] ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г®ГІГ·ВёГІГ  3/3') then
 					local lname = str(input_namelwarn)
 						lua_thread.create(function()
-							sampSendChat('/lwarn '..lname..' Неверный отчёт 4/4', -1)
+							sampSendChat('/lwarn '..lname..' ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г®ГІГ·ВёГІГ  3/3', -1)
 							wait(1300)
-							sampSendChat('/lwarn '..lname..' Неверный отчёт 4/4', -1)
+							sampSendChat('/lwarn '..lname..' ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г®ГІГ·ВёГІГ  3/3', -1)
 							wait(1300)
-							sampSendChat('/lwarn '..lname..' Неверный отчёт 4/4', -1)
+							sampSendChat('/lwarn '..lname..' ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г®ГІГ·ВёГІГ  3/3', -1)
 						end)
 					end
-					if imgui.Button(u8'[Гос. структуры] Отказ от принятия участия в глобальных мероприятиях') then
+					imgui.SameLine()
+					if imgui.Button(u8'[ГѓГ®Г±. Г±ГІГ°ГіГЄГІГіГ°Г»] ГЌГҐГўГҐГ°Г­Г»Г© Г®ГІГ·ВёГІ 3/4') then
 					local lname = str(input_namelwarn)
 						lua_thread.create(function()
-							sampSendChat('/lwarn '..lname..' Отказ от принятия участия в глобальных мероприятиях', -1)
+							sampSendChat('/lwarn '..lname..' ГЌГҐГўГҐГ°Г­Г»Г© Г®ГІГ·ВёГІ 3/4', -1)
 							wait(1300)
-							sampSendChat('/lwarn '..lname..' Отказ от принятия участия в глобальных мероприятиях', -1)
+							sampSendChat('/lwarn '..lname..' ГЌГҐГўГҐГ°Г­Г»Г© Г®ГІГ·ВёГІ 3/4', -1)
 						end)
 					end
-					if imgui.Button(u8'[Гетто | Мафии] Менее двух захватов за день 1/3') then
+					if imgui.Button(u8'[ГѓГ®Г±. Г±ГІГ°ГіГЄГІГіГ°Г»] ГЌГҐГўГҐГ°Г­Г»Г© Г®ГІГ·ВёГІ 4/4') then
 					local lname = str(input_namelwarn)
 						lua_thread.create(function()
-							sampSendChat('/lwarn '..lname..' Менее двух захватов за день 1/3', -1)
+							sampSendChat('/lwarn '..lname..' ГЌГҐГўГҐГ°Г­Г»Г© Г®ГІГ·ВёГІ 4/4', -1)
 							wait(1300)
-							sampSendChat('/lwarn '..lname..' Менее двух захватов за день 1/3', -1)
+							sampSendChat('/lwarn '..lname..' ГЌГҐГўГҐГ°Г­Г»Г© Г®ГІГ·ВёГІ 4/4', -1)
+							wait(1300)
+							sampSendChat('/lwarn '..lname..' ГЌГҐГўГҐГ°Г­Г»Г© Г®ГІГ·ВёГІ 4/4', -1)
 						end)
 					end
-					if imgui.Button(u8'[Гетто | Мафии] Менее двух захватов за день 2/3') then
+					if imgui.Button(u8'[ГѓГ®Г±. Г±ГІГ°ГіГЄГІГіГ°Г»] ГЋГІГЄГ Г§ Г®ГІ ГЇГ°ГЁГ­ГїГІГЁГї ГіГ·Г Г±ГІГЁГї Гў ГЈГ«Г®ГЎГ Г«ГјГ­Г»Гµ Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГїГµ') then
 					local lname = str(input_namelwarn)
 						lua_thread.create(function()
-							sampSendChat('/lwarn '..lname..' Менее двух захватов за день 2/3', -1)
+							sampSendChat('/lwarn '..lname..' ГЋГІГЄГ Г§ Г®ГІ ГЇГ°ГЁГ­ГїГІГЁГї ГіГ·Г Г±ГІГЁГї Гў ГЈГ«Г®ГЎГ Г«ГјГ­Г»Гµ Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГїГµ', -1)
 							wait(1300)
-							sampSendChat('/lwarn '..lname..' Менее двух захватов за день 2/3', -1)
+							sampSendChat('/lwarn '..lname..' ГЋГІГЄГ Г§ Г®ГІ ГЇГ°ГЁГ­ГїГІГЁГї ГіГ·Г Г±ГІГЁГї Гў ГЈГ«Г®ГЎГ Г«ГјГ­Г»Гµ Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГїГµ', -1)
 						end)
 					end
-					if imgui.Button(u8'[Гетто | Мафии] Менее двух захватов за день 3/3') then
+					if imgui.Button(u8'[ГѓГҐГІГІГ® | ГЊГ ГґГЁГЁ] ГЊГҐГ­ГҐГҐ Г¤ГўГіГµ Г§Г ГµГўГ ГІГ®Гў Г§Г  Г¤ГҐГ­Гј 1/3') then
 					local lname = str(input_namelwarn)
 						lua_thread.create(function()
-							sampSendChat('/lwarn '..lname..' Менее двух захватов за день 3/3', -1)
+							sampSendChat('/lwarn '..lname..' ГЊГҐГ­ГҐГҐ Г¤ГўГіГµ Г§Г ГµГўГ ГІГ®Гў Г§Г  Г¤ГҐГ­Гј 1/3', -1)
 							wait(1300)
-							sampSendChat('/lwarn '..lname..' Менее двух захватов за день 3/3', -1)
+							sampSendChat('/lwarn '..lname..' ГЊГҐГ­ГҐГҐ Г¤ГўГіГµ Г§Г ГµГўГ ГІГ®Гў Г§Г  Г¤ГҐГ­Гј 1/3', -1)
+						end)
+					end
+					if imgui.Button(u8'[ГѓГҐГІГІГ® | ГЊГ ГґГЁГЁ] ГЊГҐГ­ГҐГҐ Г¤ГўГіГµ Г§Г ГµГўГ ГІГ®Гў Г§Г  Г¤ГҐГ­Гј 2/3') then
+					local lname = str(input_namelwarn)
+						lua_thread.create(function()
+							sampSendChat('/lwarn '..lname..' ГЊГҐГ­ГҐГҐ Г¤ГўГіГµ Г§Г ГµГўГ ГІГ®Гў Г§Г  Г¤ГҐГ­Гј 2/3', -1)
 							wait(1300)
-							sampSendChat('/lwarn '..lname..' Менее двух захватов за день 3/3', -1)
+							sampSendChat('/lwarn '..lname..' ГЊГҐГ­ГҐГҐ Г¤ГўГіГµ Г§Г ГµГўГ ГІГ®Гў Г§Г  Г¤ГҐГ­Гј 2/3', -1)
+						end)
+					end
+					if imgui.Button(u8'[ГѓГҐГІГІГ® | ГЊГ ГґГЁГЁ] ГЊГҐГ­ГҐГҐ Г¤ГўГіГµ Г§Г ГµГўГ ГІГ®Гў Г§Г  Г¤ГҐГ­Гј 3/3') then
+					local lname = str(input_namelwarn)
+						lua_thread.create(function()
+							sampSendChat('/lwarn '..lname..' ГЊГҐГ­ГҐГҐ Г¤ГўГіГµ Г§Г ГµГўГ ГІГ®Гў Г§Г  Г¤ГҐГ­Гј 3/3', -1)
+							wait(1300)
+							sampSendChat('/lwarn '..lname..' ГЊГҐГ­ГҐГҐ Г¤ГўГіГµ Г§Г ГµГўГ ГІГ®Гў Г§Г  Г¤ГҐГ­Гј 3/3', -1)
+							wait(1300)
+							sampSendChat('/lwarn '..lname..' ГЊГҐГ­ГҐГҐ Г¤ГўГіГµ Г§Г ГµГўГ ГІГ®Гў Г§Г  Г¤ГҐГ­Гј 3/3', -1)
 						end)
 					end
 				end
-			if imgui.CollapsingHeader(u8'Список наказаний') then
-				if imgui.Button(u8'Неадекват') then
+			if imgui.CollapsingHeader(u8'Г‘ГЇГЁГ±Г®ГЄ Г­Г ГЄГ Г§Г Г­ГЁГ©') then
+				if imgui.Button(u8'ГЌГҐГ Г¤ГҐГЄГўГ ГІ') then
 				local lname = str(input_namelwarn)
-				sampSendChat('/lwarn '..lname..' Неадекват')
+				sampSendChat('/lwarn '..lname..' ГЌГҐГ Г¤ГҐГЄГўГ ГІ')
 				end
-				if imgui.Button(u8'Неадекватное поведение на форуме') then
+				if imgui.Button(u8'ГЌГҐГ Г¤ГҐГЄГўГ ГІГ­Г®ГҐ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ Г­Г  ГґГ®Г°ГіГ¬ГҐ') then
 				local lname = str(input_namelwarn)
-				sampSendChat('/lwarn '..lname..' Неадекватное поведение на форуме')
+				sampSendChat('/lwarn '..lname..' ГЌГҐГ Г¤ГҐГЄГўГ ГІГ­Г®ГҐ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ Г­Г  ГґГ®Г°ГіГ¬ГҐ')
 				end
-				if imgui.Button(u8'Упоминание родных') then
+				if imgui.Button(u8'Г“ГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г°Г®Г¤Г­Г»Гµ') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Упоминание родных', -1)
+						sampSendChat('/lwarn '..lname..' Г“ГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г°Г®Г¤Г­Г»Гµ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Упоминание родных', -1)
+						sampSendChat('/lwarn '..lname..' Г“ГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г°Г®Г¤Г­Г»Гµ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Упоминание родных', -1)
+						sampSendChat('/lwarn '..lname..' Г“ГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г°Г®Г¤Г­Г»Гµ', -1)
 					end)
 				end
 				if imgui.Button(u8'DeathMatch') then
@@ -2064,384 +2064,384 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 				local lname = str(input_namelwarn)
 				sampSendChat('/lwarn '..lname..' SpawnKill')
 				end
-				if imgui.Button(u8'Увольнение без причин') then
+				if imgui.Button(u8'Г“ГўГ®Г«ГјГ­ГҐГ­ГЁГҐ ГЎГҐГ§ ГЇГ°ГЁГ·ГЁГ­') then
 				local lname = str(input_namelwarn)
-				sampSendChat('/lwarn '..lname..' Увольнение без причин')
+				sampSendChat('/lwarn '..lname..' Г“ГўГ®Г«ГјГ­ГҐГ­ГЁГҐ ГЎГҐГ§ ГЇГ°ГЁГ·ГЁГ­')
 				end
-				if imgui.Button(u8'Принятие игрока с NonRP ником в организацию') then
+				if imgui.Button(u8'ГЏГ°ГЁГ­ГїГІГЁГҐ ГЁГЈГ°Г®ГЄГ  Г± NonRP Г­ГЁГЄГ®Г¬ Гў Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГѕ') then
 				local lname = str(input_namelwarn)
-				sampSendChat('/lwarn '..lname..' Принятие игрока с NonRP ником в организацию')
+				sampSendChat('/lwarn '..lname..' ГЏГ°ГЁГ­ГїГІГЁГҐ ГЁГЈГ°Г®ГЄГ  Г± NonRP Г­ГЁГЄГ®Г¬ Гў Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГѕ')
 				end
 				if imgui.Button(u8'NonRP') then
 				local lname = str(input_namelwarn)
 				sampSendChat('/lwarn '..lname..' NonRP')
 				end
-				if imgui.Button(u8'Реклама') then
+				if imgui.Button(u8'ГђГҐГЄГ«Г Г¬Г ') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Реклама', -1)
+						sampSendChat('/lwarn '..lname..' ГђГҐГЄГ«Г Г¬Г ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Реклама', -1)
+						sampSendChat('/lwarn '..lname..' ГђГҐГЄГ«Г Г¬Г ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Реклама', -1)
+						sampSendChat('/lwarn '..lname..' ГђГҐГЄГ«Г Г¬Г ', -1)
 					end)
 				end
-				if imgui.Button(u8'Расформ (от 5+ человек)') then
+				if imgui.Button(u8'ГђГ Г±ГґГ®Г°Г¬ (Г®ГІ 5+ Г·ГҐГ«Г®ГўГҐГЄ)') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Расформ', -1)
+						sampSendChat('/lwarn '..lname..' ГђГ Г±ГґГ®Г°Г¬', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Расформ', -1)
+						sampSendChat('/lwarn '..lname..' ГђГ Г±ГґГ®Г°Г¬', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Расформ', -1)
+						sampSendChat('/lwarn '..lname..' ГђГ Г±ГґГ®Г°Г¬', -1)
 					end)
 				end
-				if imgui.Button(u8'Читы') then
+				if imgui.Button(u8'Г—ГЁГІГ»') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Читы', -1)
+						sampSendChat('/lwarn '..lname..' Г—ГЁГІГ»', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Читы', -1)
+						sampSendChat('/lwarn '..lname..' Г—ГЁГІГ»', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Читы', -1)
+						sampSendChat('/lwarn '..lname..' Г—ГЁГІГ»', -1)
 					end)
 				end
-				if imgui.Button(u8'Читы с твинков') then
+				if imgui.Button(u8'Г—ГЁГІГ» Г± ГІГўГЁГ­ГЄГ®Гў') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Читы с твинков', -1)
+						sampSendChat('/lwarn '..lname..' Г—ГЁГІГ» Г± ГІГўГЁГ­ГЄГ®Гў', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Читы с твинков', -1)
+						sampSendChat('/lwarn '..lname..' Г—ГЁГІГ» Г± ГІГўГЁГ­ГЄГ®Гў', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Читы с твинков', -1)
+						sampSendChat('/lwarn '..lname..' Г—ГЁГІГ» Г± ГІГўГЁГ­ГЄГ®Гў', -1)
 					end)
 				end
-				if imgui.Button(u8'Блат') then
+				if imgui.Button(u8'ГЃГ«Г ГІ') then
 				local lname = str(input_namelwarn)
-				sampSendChat('/lwarn '..lname..' Блат')
+				sampSendChat('/lwarn '..lname..' ГЃГ«Г ГІ')
 				end
-				if imgui.Button(u8'Норма онлайна отыгровки за день 1 час.') then
+				if imgui.Button(u8'ГЌГ®Г°Г¬Г  Г®Г­Г«Г Г©Г­Г  Г®ГІГ»ГЈГ°Г®ГўГЄГЁ Г§Г  Г¤ГҐГ­Гј 1 Г·Г Г±.') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Нет нормы онлайна 1 час.', -1)
+						sampSendChat('/lwarn '..lname..' ГЌГҐГІ Г­Г®Г°Г¬Г» Г®Г­Г«Г Г©Г­Г  1 Г·Г Г±.', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Нет нормы онлайна 1 час.', -1)
+						sampSendChat('/lwarn '..lname..' ГЌГҐГІ Г­Г®Г°Г¬Г» Г®Г­Г«Г Г©Г­Г  1 Г·Г Г±.', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Нет нормы онлайна 1 час.', -1)
+						sampSendChat('/lwarn '..lname..' ГЌГҐГІ Г­Г®Г°Г¬Г» Г®Г­Г«Г Г©Г­Г  1 Г·Г Г±.', -1)
 					end)
 				end
-				if imgui.Button(u8'Неактив 24+ часов') then
+				if imgui.Button(u8'ГЌГҐГ ГЄГІГЁГў 24+ Г·Г Г±Г®Гў') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Неактив 24+ часов', -1)
+						sampSendChat('/lwarn '..lname..' ГЌГҐГ ГЄГІГЁГў 24+ Г·Г Г±Г®Гў', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Неактив 24+ часов', -1)
+						sampSendChat('/lwarn '..lname..' ГЌГҐГ ГЄГІГЁГў 24+ Г·Г Г±Г®Гў', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Неактив 24+ часов', -1)
+						sampSendChat('/lwarn '..lname..' ГЌГҐГ ГЄГІГЁГў 24+ Г·Г Г±Г®Гў', -1)
 					end)
 				end
-				if imgui.Button(u8'NonRP названия рангов') then
+				if imgui.Button(u8'NonRP Г­Г Г§ГўГ Г­ГЁГї Г°Г Г­ГЈГ®Гў') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' NonRP названия рангов', -1)
+						sampSendChat('/lwarn '..lname..' NonRP Г­Г Г§ГўГ Г­ГЁГї Г°Г Г­ГЈГ®Гў', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' NonRP названия рангов', -1)
+						sampSendChat('/lwarn '..lname..' NonRP Г­Г Г§ГўГ Г­ГЁГї Г°Г Г­ГЈГ®Гў', -1)
 					end)
 				end
-				if imgui.Button(u8'Слив территорий/бизнесов') then
+				if imgui.Button(u8'Г‘Г«ГЁГў ГІГҐГ°Г°ГЁГІГ®Г°ГЁГ©/ГЎГЁГ§Г­ГҐГ±Г®Гў') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Слив территорий/бизнесов', -1)
+						sampSendChat('/lwarn '..lname..' Г‘Г«ГЁГў ГІГҐГ°Г°ГЁГІГ®Г°ГЁГ©/ГЎГЁГ§Г­ГҐГ±Г®Гў', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Слив территорий/бизнесов', -1)
+						sampSendChat('/lwarn '..lname..' Г‘Г«ГЁГў ГІГҐГ°Г°ГЁГІГ®Г°ГЁГ©/ГЎГЁГ§Г­ГҐГ±Г®Гў', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Слив территорий/бизнесов', -1)
+						sampSendChat('/lwarn '..lname..' Г‘Г«ГЁГў ГІГҐГ°Г°ГЁГІГ®Г°ГЁГ©/ГЎГЁГ§Г­ГҐГ±Г®Гў', -1)
 					end)
 				end
-				if imgui.Button(u8'Наличие более одной лидерки') then
+				if imgui.Button(u8'ГЌГ Г«ГЁГ·ГЁГҐ ГЎГ®Г«ГҐГҐ Г®Г¤Г­Г®Г© Г«ГЁГ¤ГҐГ°ГЄГЁ') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Наличие более одной лидерки', -1)
+						sampSendChat('/lwarn '..lname..' ГЌГ Г«ГЁГ·ГЁГҐ ГЎГ®Г«ГҐГҐ Г®Г¤Г­Г®Г© Г«ГЁГ¤ГҐГ°ГЄГЁ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Наличие более одной лидерки', -1)
+						sampSendChat('/lwarn '..lname..' ГЌГ Г«ГЁГ·ГЁГҐ ГЎГ®Г«ГҐГҐ Г®Г¤Г­Г®Г© Г«ГЁГ¤ГҐГ°ГЄГЁ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Наличие более одной лидерки', -1)
+						sampSendChat('/lwarn '..lname..' ГЌГ Г«ГЁГ·ГЁГҐ ГЎГ®Г«ГҐГҐ Г®Г¤Г­Г®Г© Г«ГЁГ¤ГҐГ°ГЄГЁ', -1)
 					end)
 				end
-				if imgui.Button(u8'Продажа/покупка лидерки') then
+				if imgui.Button(u8'ГЏГ°Г®Г¤Г Г¦Г /ГЇГ®ГЄГіГЇГЄГ  Г«ГЁГ¤ГҐГ°ГЄГЁ') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Продажа/покупка лидерки', -1)
+						sampSendChat('/lwarn '..lname..' ГЏГ°Г®Г¤Г Г¦Г /ГЇГ®ГЄГіГЇГЄГ  Г«ГЁГ¤ГҐГ°ГЄГЁ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Продажа/покупка лидерки', -1)
+						sampSendChat('/lwarn '..lname..' ГЏГ°Г®Г¤Г Г¦Г /ГЇГ®ГЄГіГЇГЄГ  Г«ГЁГ¤ГҐГ°ГЄГЁ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Продажа/покупка лидерки', -1)
+						sampSendChat('/lwarn '..lname..' ГЏГ°Г®Г¤Г Г¦Г /ГЇГ®ГЄГіГЇГЄГ  Г«ГЁГ¤ГҐГ°ГЄГЁ', -1)
 					end)
 				end
-				if imgui.Button(u8'Продажа ранга') then
+				if imgui.Button(u8'ГЏГ°Г®Г¤Г Г¦Г  Г°Г Г­ГЈГ ') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Продажа ранга', -1)
+						sampSendChat('/lwarn '..lname..' ГЏГ°Г®Г¤Г Г¦Г  Г°Г Г­ГЈГ ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Продажа ранга', -1)
+						sampSendChat('/lwarn '..lname..' ГЏГ°Г®Г¤Г Г¦Г  Г°Г Г­ГЈГ ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Продажа ранга', -1)
+						sampSendChat('/lwarn '..lname..' ГЏГ°Г®Г¤Г Г¦Г  Г°Г Г­ГЈГ ', -1)
 					end)
 				end
-				if imgui.Button(u8'Игра с твинков за противоположную банду/мафию') then
+				if imgui.Button(u8'Г€ГЈГ°Г  Г± ГІГўГЁГ­ГЄГ®Гў Г§Г  ГЇГ°Г®ГІГЁГўГ®ГЇГ®Г«Г®Г¦Г­ГіГѕ ГЎГ Г­Г¤Гі/Г¬Г ГґГЁГѕ') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Игра с твинков за противоположную банду/мафию', -1)
+						sampSendChat('/lwarn '..lname..' Г€ГЈГ°Г  Г± ГІГўГЁГ­ГЄГ®Гў Г§Г  ГЇГ°Г®ГІГЁГўГ®ГЇГ®Г«Г®Г¦Г­ГіГѕ ГЎГ Г­Г¤Гі/Г¬Г ГґГЁГѕ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Игра с твинков за противоположную банду/мафию', -1)
+						sampSendChat('/lwarn '..lname..' Г€ГЈГ°Г  Г± ГІГўГЁГ­ГЄГ®Гў Г§Г  ГЇГ°Г®ГІГЁГўГ®ГЇГ®Г«Г®Г¦Г­ГіГѕ ГЎГ Г­Г¤Гі/Г¬Г ГґГЁГѕ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Игра с твинков за противоположную банду/мафию', -1)
+						sampSendChat('/lwarn '..lname..' Г€ГЈГ°Г  Г± ГІГўГЁГ­ГЄГ®Гў Г§Г  ГЇГ°Г®ГІГЁГўГ®ГЇГ®Г«Г®Г¦Г­ГіГѕ ГЎГ Г­Г¤Гі/Г¬Г ГґГЁГѕ', -1)
 					end)
 				end
-				if imgui.Button(u8'Передача лидерского поста на твинк аккаунт') then
+				if imgui.Button(u8'ГЏГҐГ°ГҐГ¤Г Г·Г  Г«ГЁГ¤ГҐГ°Г±ГЄГ®ГЈГ® ГЇГ®Г±ГІГ  Г­Г  ГІГўГЁГ­ГЄ Г ГЄГЄГ ГіГ­ГІ') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Передача лидерского поста на твинк аккаунт', -1)
+						sampSendChat('/lwarn '..lname..' ГЏГҐГ°ГҐГ¤Г Г·Г  Г«ГЁГ¤ГҐГ°Г±ГЄГ®ГЈГ® ГЇГ®Г±ГІГ  Г­Г  ГІГўГЁГ­ГЄ Г ГЄГЄГ ГіГ­ГІ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Передача лидерского поста на твинк аккаунт', -1)
+						sampSendChat('/lwarn '..lname..' ГЏГҐГ°ГҐГ¤Г Г·Г  Г«ГЁГ¤ГҐГ°Г±ГЄГ®ГЈГ® ГЇГ®Г±ГІГ  Г­Г  ГІГўГЁГ­ГЄ Г ГЄГЄГ ГіГ­ГІ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Передача лидерского поста на твинк аккаунт', -1)
+						sampSendChat('/lwarn '..lname..' ГЏГҐГ°ГҐГ¤Г Г·Г  Г«ГЁГ¤ГҐГ°Г±ГЄГ®ГЈГ® ГЇГ®Г±ГІГ  Г­Г  ГІГўГЁГ­ГЄ Г ГЄГЄГ ГіГ­ГІ', -1)
 					end)
 				end
-				if imgui.Button(u8'Розжиг межнациональной розни, в том числе названия рангов') then
+				if imgui.Button(u8'ГђГ®Г§Г¦ГЁГЈ Г¬ГҐГ¦Г­Г Г¶ГЁГ®Г­Г Г«ГјГ­Г®Г© Г°Г®Г§Г­ГЁ, Гў ГІГ®Г¬ Г·ГЁГ±Г«ГҐ Г­Г Г§ГўГ Г­ГЁГї Г°Г Г­ГЈГ®Гў') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Розжиг', -1)
+						sampSendChat('/lwarn '..lname..' ГђГ®Г§Г¦ГЁГЈ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Розжиг', -1)
+						sampSendChat('/lwarn '..lname..' ГђГ®Г§Г¦ГЁГЈ', -1)
 					end)
 				end
-				if imgui.Button(u8'Слив поста/лидеров') then
+				if imgui.Button(u8'Г‘Г«ГЁГў ГЇГ®Г±ГІГ /Г«ГЁГ¤ГҐГ°Г®Гў') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Слив поста/лидеров', -1)
+						sampSendChat('/lwarn '..lname..' Г‘Г«ГЁГў ГЇГ®Г±ГІГ /Г«ГЁГ¤ГҐГ°Г®Гў', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Слив поста/лидеров', -1)
+						sampSendChat('/lwarn '..lname..' Г‘Г«ГЁГў ГЇГ®Г±ГІГ /Г«ГЁГ¤ГҐГ°Г®Гў', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Слив поста/лидеров', -1)
+						sampSendChat('/lwarn '..lname..' Г‘Г«ГЁГў ГЇГ®Г±ГІГ /Г«ГЁГ¤ГҐГ°Г®Гў', -1)
 					end)
 				end
-				if imgui.Button(u8'Оскорбление проекта') then
+				if imgui.Button(u8'ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ ГЇГ°Г®ГҐГЄГІГ ') then
 				local lname = str(input_namelwarn)
 					lua_thread.create(function()
-						sampSendChat('/lwarn '..lname..' Оскорбление проекта', -1)
+						sampSendChat('/lwarn '..lname..' ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ ГЇГ°Г®ГҐГЄГІГ ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Оскорбление проекта', -1)
+						sampSendChat('/lwarn '..lname..' ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ ГЇГ°Г®ГҐГЄГІГ ', -1)
 						wait(1300)
-						sampSendChat('/lwarn '..lname..' Оскорбление проекта', -1)
+						sampSendChat('/lwarn '..lname..' ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ ГЇГ°Г®ГҐГЄГІГ ', -1)
 					end)
 				end
 			end
 		elseif warn_navigation.current == 3 then
-			imgui.InputTextWithHint(u8'##555', u8'Введите nickname', input_nameswarn, sizeof(input_nameswarn))
-			if imgui.CollapsingHeader(u8'Для ГС/ЗГС') then
-			if imgui.Button(u8'Наличие 0 ответов на посту саппорта') then
+			imgui.InputTextWithHint(u8'##555', u8'Г‚ГўГҐГ¤ГЁГІГҐ nickname', input_nameswarn, sizeof(input_nameswarn))
+			if imgui.CollapsingHeader(u8'Г„Г«Гї ГѓГ‘/Г‡ГѓГ‘') then
+			if imgui.Button(u8'ГЌГ Г«ГЁГ·ГЁГҐ 0 Г®ГІГўГҐГІГ®Гў Г­Г  ГЇГ®Г±ГІГі Г±Г ГЇГЇГ®Г°ГІГ ') then
 				local sname = str(input_nameswarn)
 				lua_thread.create(function()
-					sampSendChat('/swarn '..sname..' Наличие 0 ответов на посту саппорта')
+					sampSendChat('/swarn '..sname..' ГЌГ Г«ГЁГ·ГЁГҐ 0 Г®ГІГўГҐГІГ®Гў Г­Г  ГЇГ®Г±ГІГі Г±Г ГЇГЇГ®Г°ГІГ ')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Наличие 0 ответов на посту саппорта')
+					sampSendChat('/swarn '..sname..' ГЌГ Г«ГЁГ·ГЁГҐ 0 Г®ГІГўГҐГІГ®Гў Г­Г  ГЇГ®Г±ГІГі Г±Г ГЇГЇГ®Г°ГІГ ')
 				end)
 				end
 			end
-			if imgui.CollapsingHeader(u8'Список наказаний') then
-				if imgui.Button(u8'Неверный ответ игроку') then
+			if imgui.CollapsingHeader(u8'Г‘ГЇГЁГ±Г®ГЄ Г­Г ГЄГ Г§Г Г­ГЁГ©') then
+				if imgui.Button(u8'ГЌГҐГўГҐГ°Г­Г»Г© Г®ГІГўГҐГІ ГЁГЈГ°Г®ГЄГі') then
 				local sname = str(input_nameswarn)
-				sampSendChat('/swarn '..sname..' Неверный ответ игроку')
+				sampSendChat('/swarn '..sname..' ГЌГҐГўГҐГ°Г­Г»Г© Г®ГІГўГҐГІ ГЁГЈГ°Г®ГЄГі')
 				end
-				if imgui.Button(u8'Использование команды для ответов в личных целях') then
+				if imgui.Button(u8'Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГЄГ®Г¬Г Г­Г¤Г» Г¤Г«Гї Г®ГІГўГҐГІГ®Гў Гў Г«ГЁГ·Г­Г»Гµ Г¶ГҐГ«ГїГµ') then
 				local sname = str(input_nameswarn)
-				sampSendChat('/swarn '..sname..' Использование команды для ответов в личных целях')
+				sampSendChat('/swarn '..sname..' Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГЄГ®Г¬Г Г­Г¤Г» Г¤Г«Гї Г®ГІГўГҐГІГ®Гў Гў Г«ГЁГ·Г­Г»Гµ Г¶ГҐГ«ГїГµ')
 				end
-				if imgui.Button(u8'Любые нарушения правил сервера со стороны игрового процесса (DM/Оскорбления/Неадекват)') then
+				if imgui.Button(u8'Г‹ГѕГЎГ»ГҐ Г­Г Г°ГіГёГҐГ­ГЁГї ГЇГ°Г ГўГЁГ« Г±ГҐГ°ГўГҐГ°Г  Г±Г® Г±ГІГ®Г°Г®Г­Г» ГЁГЈГ°Г®ГўГ®ГЈГ® ГЇГ°Г®Г¶ГҐГ±Г±Г  (DM/ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГї/ГЌГҐГ Г¤ГҐГЄГўГ ГІ)') then
 				local sname = str(input_nameswarn)
-				sampSendChat('/swarn '..sname..' Нарушение правил сервера со стороны игровоко процесса')
+				sampSendChat('/swarn '..sname..' ГЌГ Г°ГіГёГҐГ­ГЁГҐ ГЇГ°Г ГўГЁГ« Г±ГҐГ°ГўГҐГ°Г  Г±Г® Г±ГІГ®Г°Г®Г­Г» ГЁГЈГ°Г®ГўГ®ГЄГ® ГЇГ°Г®Г¶ГҐГ±Г±Г ')
 				end
-				if imgui.Button(u8'Засорение чата саппортов (Покупка/Продажа/Флуд)') then
+				if imgui.Button(u8'Г‡Г Г±Г®Г°ГҐГ­ГЁГҐ Г·Г ГІГ  Г±Г ГЇГЇГ®Г°ГІГ®Гў (ГЏГ®ГЄГіГЇГЄГ /ГЏГ°Г®Г¤Г Г¦Г /Г”Г«ГіГ¤)') then
 				local sname = str(input_nameswarn)
-				sampSendChat('/swarn '..sname..' Засорение чата саппортов')
+				sampSendChat('/swarn '..sname..' Г‡Г Г±Г®Г°ГҐГ­ГЁГҐ Г·Г ГІГ  Г±Г ГЇГЇГ®Г°ГІГ®Гў')
 				end
-				if imgui.Button(u8'Игнорирование просьбы главного следящего за саппортами') then
+				if imgui.Button(u8'Г€ГЈГ­Г®Г°ГЁГ°Г®ГўГ Г­ГЁГҐ ГЇГ°Г®Г±ГјГЎГ» ГЈГ«Г ГўГ­Г®ГЈГ® Г±Г«ГҐГ¤ГїГ№ГҐГЈГ® Г§Г  Г±Г ГЇГЇГ®Г°ГІГ Г¬ГЁ') then
 				local sname = str(input_nameswarn)
-				sampSendChat('/swarn '..sname..' Игнорирование просьбы главного следящего за саппортами')
+				sampSendChat('/swarn '..sname..' Г€ГЈГ­Г®Г°ГЁГ°Г®ГўГ Г­ГЁГҐ ГЇГ°Г®Г±ГјГЎГ» ГЈГ«Г ГўГ­Г®ГЈГ® Г±Г«ГҐГ¤ГїГ№ГҐГЈГ® Г§Г  Г±Г ГЇГЇГ®Г°ГІГ Г¬ГЁ')
 				end
-				if imgui.Button(u8'Выдача блокировки репорта, не имея доказательств нарушения') then
+				if imgui.Button(u8'Г‚Г»Г¤Г Г·Г  ГЎГ«Г®ГЄГЁГ°Г®ГўГЄГЁ Г°ГҐГЇГ®Г°ГІГ , Г­ГҐ ГЁГ¬ГҐГї Г¤Г®ГЄГ Г§Г ГІГҐГ«ГјГ±ГІГў Г­Г Г°ГіГёГҐГ­ГЁГї') then
 				local sname = str(input_nameswarn)
-				sampSendChat('/swarn '..sname..' Выдача блокировки репорта, не имея доказательств нарушения')
+				sampSendChat('/swarn '..sname..' Г‚Г»Г¤Г Г·Г  ГЎГ«Г®ГЄГЁГ°Г®ГўГЄГЁ Г°ГҐГЇГ®Г°ГІГ , Г­ГҐ ГЁГ¬ГҐГї Г¤Г®ГЄГ Г§Г ГІГҐГ«ГјГ±ГІГў Г­Г Г°ГіГёГҐГ­ГЁГї')
 				end
-				if imgui.Button(u8'Наличие ошибок в ответе') then
+				if imgui.Button(u8'ГЌГ Г«ГЁГ·ГЁГҐ Г®ГёГЁГЎГ®ГЄ Гў Г®ГІГўГҐГІГҐ') then
 				local sname = str(input_nameswarn)
-				sampSendChat('/swarn '..sname..' Наличие ошибок в ответе')
+				sampSendChat('/swarn '..sname..' ГЌГ Г«ГЁГ·ГЁГҐ Г®ГёГЁГЎГ®ГЄ Гў Г®ГІГўГҐГІГҐ')
 				end
-				if imgui.Button(u8'Проявление неграмотности при ответе') then
+				if imgui.Button(u8'ГЏГ°Г®ГїГўГ«ГҐГ­ГЁГҐ Г­ГҐГЈГ°Г Г¬Г®ГІГ­Г®Г±ГІГЁ ГЇГ°ГЁ Г®ГІГўГҐГІГҐ') then
 				local sname = str(input_nameswarn)
-				sampSendChat('/swarn '..sname..' Проявление неграмотности при ответе')
+				sampSendChat('/swarn '..sname..' ГЏГ°Г®ГїГўГ«ГҐГ­ГЁГҐ Г­ГҐГЈГ°Г Г¬Г®ГІГ­Г®Г±ГІГЁ ГЇГ°ГЁ Г®ГІГўГҐГІГҐ')
 				end
-				if imgui.Button(u8'Неполноценные ответы') then
+				if imgui.Button(u8'ГЌГҐГЇГ®Г«Г­Г®Г¶ГҐГ­Г­Г»ГҐ Г®ГІГўГҐГІГ»') then
 				local sname = str(input_nameswarn)
-				sampSendChat('/swarn '..sname..' Неполноценные ответы')
+				sampSendChat('/swarn '..sname..' ГЌГҐГЇГ®Г«Г­Г®Г¶ГҐГ­Г­Г»ГҐ Г®ГІГўГҐГІГ»')
 				end
-				if imgui.Button(u8'Транслит в ответе игроку в ответе') then
+				if imgui.Button(u8'Г’Г°Г Г­Г±Г«ГЁГІ Гў Г®ГІГўГҐГІГҐ ГЁГЈГ°Г®ГЄГі Гў Г®ГІГўГҐГІГҐ') then
 				local sname = str(input_nameswarn)
-				sampSendChat('/swarn '..sname..' Транслит в ответе игроку в ответе')
+				sampSendChat('/swarn '..sname..' Г’Г°Г Г­Г±Г«ГЁГІ Гў Г®ГІГўГҐГІГҐ ГЁГЈГ°Г®ГЄГі Гў Г®ГІГўГҐГІГҐ')
 				end
-				if imgui.Button(u8'Попрошайничество в чате саппортову') then
+				if imgui.Button(u8'ГЏГ®ГЇГ°Г®ГёГ Г©Г­ГЁГ·ГҐГ±ГІГўГ® Гў Г·Г ГІГҐ Г±Г ГЇГЇГ®Г°ГІГ®ГўГі') then
 				local sname = str(input_nameswarn)
 				lua_thread.create(function()
-					sampSendChat('/swarn '..sname..' Попрошайничество в чате саппортову')
+					sampSendChat('/swarn '..sname..' ГЏГ®ГЇГ°Г®ГёГ Г©Г­ГЁГ·ГҐГ±ГІГўГ® Гў Г·Г ГІГҐ Г±Г ГЇГЇГ®Г°ГІГ®ГўГі')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Попрошайничество в чате саппортову')
+					sampSendChat('/swarn '..sname..' ГЏГ®ГЇГ°Г®ГёГ Г©Г­ГЁГ·ГҐГ±ГІГўГ® Гў Г·Г ГІГҐ Г±Г ГЇГЇГ®Г°ГІГ®ГўГі')
 				end)
 				end
-				if imgui.Button(u8'Попрошайничество в ответе игроку') then
+				if imgui.Button(u8'ГЏГ®ГЇГ°Г®ГёГ Г©Г­ГЁГ·ГҐГ±ГІГўГ® Гў Г®ГІГўГҐГІГҐ ГЁГЈГ°Г®ГЄГі') then
 				local sname = str(input_nameswarn)
 				lua_thread.create(function()
-					sampSendChat('/swarn '..sname..' Попрошайничество в ответе игроку')
+					sampSendChat('/swarn '..sname..' ГЏГ®ГЇГ°Г®ГёГ Г©Г­ГЁГ·ГҐГ±ГІГўГ® Гў Г®ГІГўГҐГІГҐ ГЁГЈГ°Г®ГЄГі')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Попрошайничество в ответе игроку')
+					sampSendChat('/swarn '..sname..' ГЏГ®ГЇГ°Г®ГёГ Г©Г­ГЁГ·ГҐГ±ГІГўГ® Гў Г®ГІГўГҐГІГҐ ГЁГЈГ°Г®ГЄГі')
 				end)
 				end
-				if imgui.Button(u8'Неуважительный ответ игроку') then
+				if imgui.Button(u8'ГЌГҐГіГўГ Г¦ГЁГІГҐГ«ГјГ­Г»Г© Г®ГІГўГҐГІ ГЁГЈГ°Г®ГЄГі') then
 				local sname = str(input_nameswarn)
 				lua_thread.create(function()
-					sampSendChat('/swarn '..sname..' Неуважительный ответ игроку')
+					sampSendChat('/swarn '..sname..' ГЌГҐГіГўГ Г¦ГЁГІГҐГ«ГјГ­Г»Г© Г®ГІГўГҐГІ ГЁГЈГ°Г®ГЄГі')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Неуважительный ответ игроку')
+					sampSendChat('/swarn '..sname..' ГЌГҐГіГўГ Г¦ГЁГІГҐГ«ГјГ­Г»Г© Г®ГІГўГҐГІ ГЁГЈГ°Г®ГЄГі')
 				end)
 				end
-				if imgui.Button(u8'Отсутствие нормы отыгранного времени за сутки (1 час)') then
+				if imgui.Button(u8'ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г­Г®Г°Г¬Г» Г®ГІГ»ГЈГ°Г Г­Г­Г®ГЈГ® ГўГ°ГҐГ¬ГҐГ­ГЁ Г§Г  Г±ГіГІГЄГЁ (1 Г·Г Г±)') then
 				local sname = str(input_nameswarn)
 				lua_thread.create(function()
-					sampSendChat('/swarn '..sname..' Отсутствие нормы отыгранного времени за сутки (1 час)')
+					sampSendChat('/swarn '..sname..' ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г­Г®Г°Г¬Г» Г®ГІГ»ГЈГ°Г Г­Г­Г®ГЈГ® ГўГ°ГҐГ¬ГҐГ­ГЁ Г§Г  Г±ГіГІГЄГЁ (1 Г·Г Г±)')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Отсутствие нормы отыгранного времени за сутки (1 час)')
+					sampSendChat('/swarn '..sname..' ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г­Г®Г°Г¬Г» Г®ГІГ»ГЈГ°Г Г­Г­Г®ГЈГ® ГўГ°ГҐГ¬ГҐГ­ГЁ Г§Г  Г±ГіГІГЄГЁ (1 Г·Г Г±)')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Отсутствие нормы отыгранного времени за сутки (1 час)')
+					sampSendChat('/swarn '..sname..' ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г­Г®Г°Г¬Г» Г®ГІГ»ГЈГ°Г Г­Г­Г®ГЈГ® ГўГ°ГҐГ¬ГҐГ­ГЁ Г§Г  Г±ГіГІГЄГЁ (1 Г·Г Г±)')
 				end)
 				end
-				if imgui.Button(u8'Неактивность в течение 24 часов') then
+				if imgui.Button(u8'ГЌГҐГ ГЄГІГЁГўГ­Г®Г±ГІГј Гў ГІГҐГ·ГҐГ­ГЁГҐ 24 Г·Г Г±Г®Гў') then
 				local sname = str(input_nameswarn)
 				lua_thread.create(function()
-					sampSendChat('/swarn '..sname..' Неактивность в течение 24 часов')
+					sampSendChat('/swarn '..sname..' ГЌГҐГ ГЄГІГЁГўГ­Г®Г±ГІГј Гў ГІГҐГ·ГҐГ­ГЁГҐ 24 Г·Г Г±Г®Гў')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Неактивность в течение 24 часов')
+					sampSendChat('/swarn '..sname..' ГЌГҐГ ГЄГІГЁГўГ­Г®Г±ГІГј Гў ГІГҐГ·ГҐГ­ГЁГҐ 24 Г·Г Г±Г®Гў')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Неактивность в течение 24 часов')
+					sampSendChat('/swarn '..sname..' ГЌГҐГ ГЄГІГЁГўГ­Г®Г±ГІГј Гў ГІГҐГ·ГҐГ­ГЁГҐ 24 Г·Г Г±Г®Гў')
 				end)
 				end
-				if imgui.Button(u8'Оскорбление родных в ответе') then
+				if imgui.Button(u8'ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г°Г®Г¤Г­Г»Гµ Гў Г®ГІГўГҐГІГҐ') then
 				local sname = str(input_nameswarn)
 				lua_thread.create(function()
-					sampSendChat('/swarn '..sname..' Оскорбление родных в ответе')
+					sampSendChat('/swarn '..sname..' ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г°Г®Г¤Г­Г»Гµ Гў Г®ГІГўГҐГІГҐ')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Оскорбление родных в ответе')
+					sampSendChat('/swarn '..sname..' ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г°Г®Г¤Г­Г»Гµ Гў Г®ГІГўГҐГІГҐ')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Оскорбление родных в ответе')
+					sampSendChat('/swarn '..sname..' ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г°Г®Г¤Г­Г»Гµ Гў Г®ГІГўГҐГІГҐ')
 				end)
 				end
-				if imgui.Button(u8'Оскорбление родных в чате саппортов') then
+				if imgui.Button(u8'ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г°Г®Г¤Г­Г»Гµ Гў Г·Г ГІГҐ Г±Г ГЇГЇГ®Г°ГІГ®Гў') then
 				local sname = str(input_nameswarn)
 				lua_thread.create(function()
-					sampSendChat('/swarn '..sname..' Оскорбление родных в чате саппортов')
+					sampSendChat('/swarn '..sname..' ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г°Г®Г¤Г­Г»Гµ Гў Г·Г ГІГҐ Г±Г ГЇГЇГ®Г°ГІГ®Гў')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Оскорбление родных в чате саппортов')
+					sampSendChat('/swarn '..sname..' ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г°Г®Г¤Г­Г»Гµ Гў Г·Г ГІГҐ Г±Г ГЇГЇГ®Г°ГІГ®Гў')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Оскорбление родных в чате саппортов')
+					sampSendChat('/swarn '..sname..' ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г°Г®Г¤Г­Г»Гµ Гў Г·Г ГІГҐ Г±Г ГЇГЇГ®Г°ГІГ®Гў')
 				end)
 				end
-				if imgui.Button(u8'Накрутка ответов') then
+				if imgui.Button(u8'ГЌГ ГЄГ°ГіГІГЄГ  Г®ГІГўГҐГІГ®Гў') then
 				local sname = str(input_nameswarn)
 				lua_thread.create(function()
-					sampSendChat('/swarn '..sname..' Накрутка ответов')
+					sampSendChat('/swarn '..sname..' ГЌГ ГЄГ°ГіГІГЄГ  Г®ГІГўГҐГІГ®Гў')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Накрутка ответов')
+					sampSendChat('/swarn '..sname..' ГЌГ ГЄГ°ГіГІГЄГ  Г®ГІГўГҐГІГ®Гў')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Накрутка ответов')
+					sampSendChat('/swarn '..sname..' ГЌГ ГЄГ°ГіГІГЄГ  Г®ГІГўГҐГІГ®Гў')
 				end)
 				end
-				if imgui.Button(u8'Разглашение команд и возможностей саппорта') then
+				if imgui.Button(u8'ГђГ Г§ГЈГ«Г ГёГҐГ­ГЁГҐ ГЄГ®Г¬Г Г­Г¤ ГЁ ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГҐГ© Г±Г ГЇГЇГ®Г°ГІГ ') then
 				local sname = str(input_nameswarn)
 				lua_thread.create(function()
-					sampSendChat('/swarn '..sname..' Разглашение команд и возможностей саппорта')
+					sampSendChat('/swarn '..sname..' ГђГ Г§ГЈГ«Г ГёГҐГ­ГЁГҐ ГЄГ®Г¬Г Г­Г¤ ГЁ ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГҐГ© Г±Г ГЇГЇГ®Г°ГІГ ')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Разглашение команд и возможностей саппорта')
+					sampSendChat('/swarn '..sname..' ГђГ Г§ГЈГ«Г ГёГҐГ­ГЁГҐ ГЄГ®Г¬Г Г­Г¤ ГЁ ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГҐГ© Г±Г ГЇГЇГ®Г°ГІГ ')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Разглашение команд и возможностей саппорта')
+					sampSendChat('/swarn '..sname..' ГђГ Г§ГЈГ«Г ГёГҐГ­ГЁГҐ ГЄГ®Г¬Г Г­Г¤ ГЁ ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГҐГ© Г±Г ГЇГЇГ®Г°ГІГ ')
 				end)
 				end
-				if imgui.Button(u8'Неадекватное поведение в ответе (Оскорбления/Капс/Мат)') then
+				if imgui.Button(u8'ГЌГҐГ Г¤ГҐГЄГўГ ГІГ­Г®ГҐ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ Гў Г®ГІГўГҐГІГҐ (ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГї/ГЉГ ГЇГ±/ГЊГ ГІ)') then
 				local sname = str(input_nameswarn)
 				lua_thread.create(function()
-					sampSendChat('/swarn '..sname..' Неадекватное поведение в ответе')
+					sampSendChat('/swarn '..sname..' ГЌГҐГ Г¤ГҐГЄГўГ ГІГ­Г®ГҐ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ Гў Г®ГІГўГҐГІГҐ')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Неадекватное поведение в ответе')
+					sampSendChat('/swarn '..sname..' ГЌГҐГ Г¤ГҐГЄГўГ ГІГ­Г®ГҐ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ Гў Г®ГІГўГҐГІГҐ')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Неадекватное поведение в ответе')
+					sampSendChat('/swarn '..sname..' ГЌГҐГ Г¤ГҐГЄГўГ ГІГ­Г®ГҐ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ Гў Г®ГІГўГҐГІГҐ')
 				end)
 				end
-				if imgui.Button(u8'Неадекватное поведение в чате саппортов (Оскорбления/Капс/Мат)') then
+				if imgui.Button(u8'ГЌГҐГ Г¤ГҐГЄГўГ ГІГ­Г®ГҐ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ Гў Г·Г ГІГҐ Г±Г ГЇГЇГ®Г°ГІГ®Гў (ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГї/ГЉГ ГЇГ±/ГЊГ ГІ)') then
 				local sname = str(input_nameswarn)
 				lua_thread.create(function()
-					sampSendChat('/swarn '..sname..' Неадекватное поведение в чате саппортов')
+					sampSendChat('/swarn '..sname..' ГЌГҐГ Г¤ГҐГЄГўГ ГІГ­Г®ГҐ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ Гў Г·Г ГІГҐ Г±Г ГЇГЇГ®Г°ГІГ®Гў')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Неадекватное поведение в чате саппортов')
+					sampSendChat('/swarn '..sname..' ГЌГҐГ Г¤ГҐГЄГўГ ГІГ­Г®ГҐ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ Гў Г·Г ГІГҐ Г±Г ГЇГЇГ®Г°ГІГ®Гў')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Неадекватное поведение в чате саппортов')
+					sampSendChat('/swarn '..sname..' ГЌГҐГ Г¤ГҐГЄГўГ ГІГ­Г®ГҐ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ Гў Г·Г ГІГҐ Г±Г ГЇГЇГ®Г°ГІГ®Гў')
 				end)
 				end
-				if imgui.Button(u8'Оскорбление следящих за саппортами') then
+				if imgui.Button(u8'ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г±Г«ГҐГ¤ГїГ№ГЁГµ Г§Г  Г±Г ГЇГЇГ®Г°ГІГ Г¬ГЁ') then
 				local sname = str(input_nameswarn)
 				lua_thread.create(function()
-					sampSendChat('/swarn '..sname..' Оскорбление следящих за саппортами')
+					sampSendChat('/swarn '..sname..' ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г±Г«ГҐГ¤ГїГ№ГЁГµ Г§Г  Г±Г ГЇГЇГ®Г°ГІГ Г¬ГЁ')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Оскорбление следящих за саппортами')
+					sampSendChat('/swarn '..sname..' ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г±Г«ГҐГ¤ГїГ№ГЁГµ Г§Г  Г±Г ГЇГЇГ®Г°ГІГ Г¬ГЁ')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Оскорбление следящих за саппортами')
+					sampSendChat('/swarn '..sname..' ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г±Г«ГҐГ¤ГїГ№ГЁГµ Г§Г  Г±Г ГЇГЇГ®Г°ГІГ Г¬ГЁ')
 				end)
 				end
-				if imgui.Button(u8'NonRP ник') then
+				if imgui.Button(u8'NonRP Г­ГЁГЄ') then
 				local sname = str(input_nameswarn)
 				lua_thread.create(function()
-					sampSendChat('/swarn '..sname..' NonRP ник')
+					sampSendChat('/swarn '..sname..' NonRP Г­ГЁГЄ')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' NonRP ник')
+					sampSendChat('/swarn '..sname..' NonRP Г­ГЁГЄ')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' NonRP ник')
+					sampSendChat('/swarn '..sname..' NonRP Г­ГЁГЄ')
 				end)
 				end
-				if imgui.Button(u8'Использование читов на посту саппорта') then
+				if imgui.Button(u8'Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Г·ГЁГІГ®Гў Г­Г  ГЇГ®Г±ГІГі Г±Г ГЇГЇГ®Г°ГІГ ') then
 				local sname = str(input_nameswarn)
 				lua_thread.create(function()
-					sampSendChat('/swarn '..sname..' Использование читов на посту саппорта')
+					sampSendChat('/swarn '..sname..' Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Г·ГЁГІГ®Гў Г­Г  ГЇГ®Г±ГІГі Г±Г ГЇГЇГ®Г°ГІГ ')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Использование читов на посту саппорта')
+					sampSendChat('/swarn '..sname..' Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Г·ГЁГІГ®Гў Г­Г  ГЇГ®Г±ГІГі Г±Г ГЇГЇГ®Г°ГІГ ')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Использование читов на посту саппорта')
+					sampSendChat('/swarn '..sname..' Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Г·ГЁГІГ®Гў Г­Г  ГЇГ®Г±ГІГі Г±Г ГЇГЇГ®Г°ГІГ ')
 				end)
 				end
-				if imgui.Button(u8'Провокационные вопросы (Команды/Возможности саппорта)') then
+				if imgui.Button(u8'ГЏГ°Г®ГўГ®ГЄГ Г¶ГЁГ®Г­Г­Г»ГҐ ГўГ®ГЇГ°Г®Г±Г» (ГЉГ®Г¬Г Г­Г¤Г»/Г‚Г®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ Г±Г ГЇГЇГ®Г°ГІГ )') then
 				local sname = str(input_nameswarn)
 				lua_thread.create(function()
-					sampSendChat('/swarn '..sname..' Провокационные вопросы (Команды/Возможности саппорта)')
+					sampSendChat('/swarn '..sname..' ГЏГ°Г®ГўГ®ГЄГ Г¶ГЁГ®Г­Г­Г»ГҐ ГўГ®ГЇГ°Г®Г±Г» (ГЉГ®Г¬Г Г­Г¤Г»/Г‚Г®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ Г±Г ГЇГЇГ®Г°ГІГ )')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Провокационные вопросы (Команды/Возможности саппорта)')
+					sampSendChat('/swarn '..sname..' ГЏГ°Г®ГўГ®ГЄГ Г¶ГЁГ®Г­Г­Г»ГҐ ГўГ®ГЇГ°Г®Г±Г» (ГЉГ®Г¬Г Г­Г¤Г»/Г‚Г®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ Г±Г ГЇГЇГ®Г°ГІГ )')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Провокационные вопросы (Команды/Возможности саппорта)')
+					sampSendChat('/swarn '..sname..' ГЏГ°Г®ГўГ®ГЄГ Г¶ГЁГ®Г­Г­Г»ГҐ ГўГ®ГЇГ°Г®Г±Г» (ГЉГ®Г¬Г Г­Г¤Г»/Г‚Г®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ Г±Г ГЇГЇГ®Г°ГІГ )')
 				end)
 				end
-				if imgui.Button(u8'Слив поста саппорта') then
+				if imgui.Button(u8'Г‘Г«ГЁГў ГЇГ®Г±ГІГ  Г±Г ГЇГЇГ®Г°ГІГ ') then
 				local sname = str(input_nameswarn)
 				lua_thread.create(function()
-					sampSendChat('/swarn '..sname..' Слив поста саппорта')
+					sampSendChat('/swarn '..sname..' Г‘Г«ГЁГў ГЇГ®Г±ГІГ  Г±Г ГЇГЇГ®Г°ГІГ ')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Слив поста саппорта')
+					sampSendChat('/swarn '..sname..' Г‘Г«ГЁГў ГЇГ®Г±ГІГ  Г±Г ГЇГЇГ®Г°ГІГ ')
 					wait(1300)
-					sampSendChat('/swarn '..sname..' Слив поста саппорта')
+					sampSendChat('/swarn '..sname..' Г‘Г«ГЁГў ГЇГ®Г±ГІГ  Г±Г ГЇГЇГ®Г°ГІГ ')
 				end)
 				end
 			end
@@ -2453,22 +2453,22 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 			local sizeX, sizeY = 505, 200
 			imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(sizeX, sizeY))
-			imgui.Begin(u8'Флудер', menu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+			imgui.Begin(u8'Г”Г«ГіГ¤ГҐГ°', menu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
 			for i = 1, 5 do
 				imgui.BeginChild('##flooderChild1', imgui.ImVec2(350, 135), 0)
 				imgui.PushItemWidth(350)
-				if imgui.InputTextWithHint(u8('##Текст'.. i), u8'Текст', inputTexts[i], sizeof(inputTexts[i])) then end
+				if imgui.InputTextWithHint(u8('##Г’ГҐГЄГ±ГІ'.. i), u8'Г’ГҐГЄГ±ГІ', inputTexts[i], sizeof(inputTexts[i])) then end
 				imgui.PopItemWidth()
 				imgui.EndChild()
 				imgui.SameLine()
 				imgui.BeginChild('##flooderChild2', imgui.ImVec2(80, 135), 0)
 				imgui.PushItemWidth(75)
-				if imgui.InputTextWithHint(u8('##Задержка'.. i), u8'Задержка', inputDelays[i], sizeof(inputDelays[i]), imgui.InputTextFlags.CharsDecimal) then end
+				if imgui.InputTextWithHint(u8('##Г‡Г Г¤ГҐГ°Г¦ГЄГ '.. i), u8'Г‡Г Г¤ГҐГ°Г¦ГЄГ ', inputDelays[i], sizeof(inputDelays[i]), imgui.InputTextFlags.CharsDecimal) then end
 				imgui.PopItemWidth()
 				imgui.EndChild()
 				imgui.SameLine()
 				imgui.BeginChild('##FlooderChild3', imgui.ImVec2(40, 135), 0)
-				if ad.ToggleButton(u8('##Чекбокс'.. i), inputButtons[i]) then 
+				if ad.ToggleButton(u8('##Г—ГҐГЄГЎГ®ГЄГ±'.. i), inputButtons[i]) then 
 					floodActive[i] = inputButtons[i][0]
 					if floodActive[i] then
 						lua_thread.create(function() floodLogic(i) end)
@@ -2477,7 +2477,7 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 				imgui.EndChild()
 			end
 			imgui.NewLine()
-			if imgui.Button(u8'Сохранить текст', imgui.ImVec2(470, 0)) then
+			if imgui.Button(u8'Г‘Г®ГµГ°Г Г­ГЁГІГј ГІГҐГЄГ±ГІ', imgui.ImVec2(470, 0)) then
 				saveTextToJson()
 			end
 		elseif menuSwitch == 6 then
@@ -2486,21 +2486,21 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 			imgui.PushFont(myFont) 
 			imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 			imgui.SetNextWindowSize(imgui.ImVec2(sizeX, sizeY), imgui.Cond.FirstUseEver)
-			imgui.Begin(u8'Другое', menu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+			imgui.Begin(u8'Г„Г°ГіГЈГ®ГҐ', menu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
 			imgui.BeginChild('##otherSettings1', imgui.ImVec2(300,195), 0)
 			if ad.ToggleButton(u8'ChatID', elements.value.chatID) then
 				config['settings']['chatID'] = elements.value.chatID[0]
 				saveConfig()
-			end imgui.TextQuestion(u8'Около никнейма отображается ID')
+			end imgui.TextQuestion(u8'ГЋГЄГ®Г«Г® Г­ГЁГЄГ­ГҐГ©Г¬Г  Г®ГІГ®ГЎГ°Г Г¦Г ГҐГІГ±Гї ID')
 			if ad.ToggleButton(u8'Anti-AFK', elements.value.antiafk) then
 			afk = not afk
 			config['settings']['antiafk'] = elements.value.antiafk[0]
 			saveConfig()
 			end
-			if ad.ToggleButton(u8'Быстрый ввод ников', elements.value.fastnicks) then
+			if ad.ToggleButton(u8'ГЃГ»Г±ГІГ°Г»Г© ГўГўГ®Г¤ Г­ГЁГЄГ®Гў', elements.value.fastnicks) then
 				config['settings']['fastnicks'] = elements.value.fastnicks[0]
 				saveConfig()
-			end imgui.TextQuestion(u8'@id = ник')
+			end imgui.TextQuestion(u8'@id = Г­ГЁГЄ')
 			imgui.PushItemWidth(275)
 			if imgui.Combo(u8'',colorListNumber,colorListBuffer, #colorList) then
 				theme[colorListNumber[0]+1].change()
@@ -2511,15 +2511,15 @@ local AllWindows = imgui.OnFrame(function() return menu[0] end, function()
 			imgui.EndChild()
 			imgui.SameLine()
 			imgui.BeginChild('##settings2', imgui.ImVec2(350,195), 0)
-			if ad.ToggleButton(u8'Моментальный телепорт', elements.value.ftp) then
+			if ad.ToggleButton(u8'ГЊГ®Г¬ГҐГ­ГІГ Г«ГјГ­Г»Г© ГІГҐГ«ГҐГЇГ®Г°ГІ', elements.value.ftp) then
 				config['settings']['ftp'] = elements.value.ftp[0]
 				saveConfig()
-			end imgui.TextQuestion(u8'Моментально телепортирует на метку')
-			if ad.ToggleButton(u8'Удаление серверного флуда', elements.value.dellServerMessages) then
+			end imgui.TextQuestion(u8'ГЊГ®Г¬ГҐГ­ГІГ Г«ГјГ­Г® ГІГҐГ«ГҐГЇГ®Г°ГІГЁГ°ГіГҐГІ Г­Г  Г¬ГҐГІГЄГі')
+			if ad.ToggleButton(u8'Г“Г¤Г Г«ГҐГ­ГЁГҐ Г±ГҐГ°ГўГҐГ°Г­Г®ГЈГ® ГґГ«ГіГ¤Г ', elements.value.dellServerMessages) then
 				config['settings']['dellServerMessages'] = elements.value.dellServerMessages[0]
 				saveConfig()
-			end imgui.TextQuestion(u8'Удаление Ace_Will, SAN и т.п')
-			if ad.ToggleButton(u8'Визуальное удаление аксессуаров', elements.value.dellacces) then
+			end imgui.TextQuestion(u8'Г“Г¤Г Г«ГҐГ­ГЁГҐ Ace_Will, SAN ГЁ ГІ.ГЇ')
+			if ad.ToggleButton(u8'Г‚ГЁГ§ГіГ Г«ГјГ­Г®ГҐ ГіГ¤Г Г«ГҐГ­ГЁГҐ Г ГЄГ±ГҐГ±Г±ГіГ Г°Г®Гў', elements.value.dellacces) then
 				config['settings']['dellacces'] = elements.value.dellacces[0]
 				saveConfig()
 			end
@@ -2535,39 +2535,39 @@ local setFrame = imgui.OnFrame(function() return setWindow[0] and not isGamePaus
 	local sizeX, sizeY = 415, 275
 	imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 	imgui.SetNextWindowSize(imgui.ImVec2(sizeX, sizeY))
-    imgui.Begin(u8'Выдача/снятие должности', setWindow, imgui.WindowFlags.NoResize)
+    imgui.Begin(u8'Г‚Г»Г¤Г Г·Г /Г±Г­ГїГІГЁГҐ Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ', setWindow, imgui.WindowFlags.NoResize)
 	imgui.BeginChild('lName##', imgui.ImVec2(399,235), true)
 	imgui.PushItemWidth(155) 
-	imgui.CenterText(u8'Лидерство')
+	imgui.CenterText(u8'Г‹ГЁГ¤ГҐГ°Г±ГІГўГ®')
 	imgui.Separator()
-	imgui.Text(u8'Введите ID игрока:')
+	imgui.Text(u8'Г‚ГўГҐГ¤ГЁГІГҐ ID ГЁГЈГ°Г®ГЄГ :')
 	imgui.SameLine()
-	imgui.InputTextWithHint(u8'Пример: 0', u8'Введите значение', input_setleader, sizeof(input_setleader), imgui.InputTextFlags.CharsDecimal)
+	imgui.InputTextWithHint(u8'ГЏГ°ГЁГ¬ГҐГ°: 0', u8'Г‚ГўГҐГ¤ГЁГІГҐ Г§Г­Г Г·ГҐГ­ГЁГҐ', input_setleader, sizeof(input_setleader), imgui.InputTextFlags.CharsDecimal)
 	if imgui.ComboStr(u8'', selected, comboStr .. '\0', -1) then
         print('Selected frac name', fracNames[selected[0] + 1][2]);
     end
-    imgui.SliderInt(u8'Выберите скин', SliderOne, 1, 311)
+    imgui.SliderInt(u8'Г‚Г»ГЎГҐГ°ГЁГІГҐ Г±ГЄГЁГ­', SliderOne, 1, 311)
     imgui.PopItemWidth()
-    if imgui.Button(u8"Назначить на должность лидера##1") then
+    if imgui.Button(u8"ГЌГ Г§Г­Г Г·ГЁГІГј Г­Г  Г¤Г®Г«Г¦Г­Г®Г±ГІГј Г«ГЁГ¤ГҐГ°Г ##1") then
         local lead = str(input_setleader)
         if selected[0] ~= 0 and lead ~= '' and tonumber(lead) > 0 then
             local fracID = fracNames[selected[0] + 1][1] 
             sampSendChat('/setleader '..lead..' '..fracID..' '..SliderOne[0])
         else
-            sampAddChatMessage('[Ошибка]: {ffffff}Выберите все данные для выдачи должности', 0xFF6600)
+            sampAddChatMessage('[ГЋГёГЁГЎГЄГ ]: {ffffff}Г‚Г»ГЎГҐГ°ГЁГІГҐ ГўГ±ГҐ Г¤Г Г­Г­Г»ГҐ Г¤Г«Гї ГўГ»Г¤Г Г·ГЁ Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ', 0xFF6600)
         end
     end
 	imgui.Separator()
-	imgui.CenterText(u8'Саппорт')
+	imgui.CenterText(u8'Г‘Г ГЇГЇГ®Г°ГІ')
 	imgui.Separator()
-	imgui.Text(u8'Введите ID (+ | -)')
+	imgui.Text(u8'Г‚ГўГҐГ¤ГЁГІГҐ ID (+ | -)')
 	imgui.SameLine()
 	imgui.PushItemWidth(155)
-	imgui.InputTextWithHint(u8'##2', u8'Введите значение', input_setsupport, sizeof(input_setsupport), imgui.InputTextFlags.CharsDecimal)
+	imgui.InputTextWithHint(u8'##2', u8'Г‚ГўГҐГ¤ГЁГІГҐ Г§Г­Г Г·ГҐГ­ГЁГҐ', input_setsupport, sizeof(input_setsupport), imgui.InputTextFlags.CharsDecimal)
 	imgui.PopItemWidth()
 	imgui.SameLine()
-	imgui.Text(u8'Пример: 303 +')
-	if imgui.Button(u8"Назначить/изменить должность саппорта##2") then
+	imgui.Text(u8'ГЏГ°ГЁГ¬ГҐГ°: 303 +')
+	if imgui.Button(u8"ГЌГ Г§Г­Г Г·ГЁГІГј/ГЁГ§Г¬ГҐГ­ГЁГІГј Г¤Г®Г«Г¦Г­Г®Г±ГІГј Г±Г ГЇГЇГ®Г°ГІГ ##2") then
 		sampSendChat('/setsupport '..u8:decode(str(input_setsupport)))
 	end
 	imgui.EndChild()
@@ -2607,36 +2607,36 @@ end
 ----------------- ONSERVERMESSAGE -----------------
 
 -- sampRegisterChatCommand('banipid', function(text)
---     -- Разбиваем введенную строку на аргументы (ID, дни и причина)
+--     -- ГђГ Г§ГЎГЁГўГ ГҐГ¬ ГўГўГҐГ¤ГҐГ­Г­ГіГѕ Г±ГІГ°Г®ГЄГі Г­Г  Г Г°ГЈГіГ¬ГҐГ­ГІГ» (ID, Г¤Г­ГЁ ГЁ ГЇГ°ГЁГ·ГЁГ­Г )
 --     local id, days, reason = text:match("^(%d+)%s+(%d+)%s+(.+)$")
     
---     -- Проверка на корректность аргументов
+--     -- ГЏГ°Г®ГўГҐГ°ГЄГ  Г­Г  ГЄГ®Г°Г°ГҐГЄГІГ­Г®Г±ГІГј Г Г°ГЈГіГ¬ГҐГ­ГІГ®Гў
 --     if not id or not days or not reason then
---         sampAddChatMessage("Неверный формат команды! Использование: /banipid [ID игрока] [Срок] [Причина]", -1)
+--         sampAddChatMessage("ГЌГҐГўГҐГ°Г­Г»Г© ГґГ®Г°Г¬Г ГІ ГЄГ®Г¬Г Г­Г¤Г»! Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ: /banipid [ID ГЁГЈГ°Г®ГЄГ ] [Г‘Г°Г®ГЄ] [ГЏГ°ГЁГ·ГЁГ­Г ]", -1)
 --         return
 --     end
 
---     -- Отправляем команду на получение IP игрока
+--     -- ГЋГІГЇГ°Г ГўГ«ГїГҐГ¬ ГЄГ®Г¬Г Г­Г¤Гі Г­Г  ГЇГ®Г«ГіГ·ГҐГ­ГЁГҐ IP ГЁГЈГ°Г®ГЄГ 
 --     sampSendChat('/getip ' .. id)
 
---     -- Создаем переменную для хранения IP
+--     -- Г‘Г®Г§Г¤Г ГҐГ¬ ГЇГҐГ°ГҐГ¬ГҐГ­Г­ГіГѕ Г¤Г«Гї ГµГ°Г Г­ГҐГ­ГЁГї IP
 --     local ip = nil
 
---     -- Создаем поток для задержки перед выполнением бан-операции
+--     -- Г‘Г®Г§Г¤Г ГҐГ¬ ГЇГ®ГІГ®ГЄ Г¤Г«Гї Г§Г Г¤ГҐГ°Г¦ГЄГЁ ГЇГҐГ°ГҐГ¤ ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГҐГ¬ ГЎГ Г­-Г®ГЇГҐГ°Г Г¶ГЁГЁ
 --     lua_thread.create(function()
---         local timeout = 5000  -- Максимальное время ожидания в миллисекундах (5 секунд)
+--         local timeout = 5000  -- ГЊГ ГЄГ±ГЁГ¬Г Г«ГјГ­Г®ГҐ ГўГ°ГҐГ¬Гї Г®Г¦ГЁГ¤Г Г­ГЁГї Гў Г¬ГЁГ«Г«ГЁГ±ГҐГЄГіГ­Г¤Г Гµ (5 Г±ГҐГЄГіГ­Г¤)
 --         local startTime = os.clock()
 
---         -- Ожидаем ответ на команду /getip
+--         -- ГЋГ¦ГЁГ¤Г ГҐГ¬ Г®ГІГўГҐГІ Г­Г  ГЄГ®Г¬Г Г­Г¤Гі /getip
 --         while os.clock() - startTime < timeout do
---             wait(100)  -- Пауза перед следующим циклом проверки
+--             wait(100)  -- ГЏГ ГіГ§Г  ГЇГҐГ°ГҐГ¤ Г±Г«ГҐГ¤ГіГѕГ№ГЁГ¬ Г¶ГЁГЄГ«Г®Г¬ ГЇГ°Г®ГўГҐГ°ГЄГЁ
 --         end
 
---         -- Если IP найден, выполняем команду бан
+--         -- Г…Г±Г«ГЁ IP Г­Г Г©Г¤ГҐГ­, ГўГ»ГЇГ®Г«Г­ГїГҐГ¬ ГЄГ®Г¬Г Г­Г¤Гі ГЎГ Г­
 --         if ip then
 --             sampAddChatMessage(string.format('/banip %s %s %s', ip, days, reason), -1)
 --         else
---             sampAddChatMessage("Не удалось получить IP для игрока с ID " .. id, -1)
+--             sampAddChatMessage("ГЌГҐ ГіГ¤Г Г«Г®Г±Гј ГЇГ®Г«ГіГ·ГЁГІГј IP Г¤Г«Гї ГЁГЈГ°Г®ГЄГ  Г± ID " .. id, -1)
 --         end
 --     end)
 -- end)
@@ -2667,7 +2667,7 @@ function event.onServerMessage(color, text)
 			end
 		end
 	end
-	if text:find('^Вы вошли как .*') and not text:find('блогер') then
+	if text:find('^Г‚Г» ГўГ®ГёГ«ГЁ ГЄГ ГЄ .*') and not text:find('ГЎГ«Г®ГЈГҐГ°') then
 		lua_thread.create(function()
 			wait(1100)
 
@@ -2685,42 +2685,42 @@ function event.onServerMessage(color, text)
 		end)
 	end
 	if elements.value.shortadm[0] then
-		if text:find("^Администратор (%w+_%w+) для") or text:find("^Администратор (%w+_%w+)%[(%d+)%] для") then
-			local pmtext = text:gsub("Администратор", "A:")
+		if text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+) Г¤Г«Гї") or text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+)%[(%d+)%] Г¤Г«Гї") then
+			local pmtext = text:gsub("ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°", "A:")
 			sampAddChatMessage(pmtext, 0xFF9945)
 			return false
 		end
-		if text:find("^Администратор (%w+_%w+) посадил") or text:find("^Администратор (%w+_%w+) заблокировал репорт") or text:find("^Администратор (%w+_%w+) кикнул") or text:find("^Администратор (%w+_%w+) выдал предупреждение") or text:find("^Администратор (%w+_%w+) выдал выговор") or text:find("^Администратор (%w+_%w+) поставил") or text:find("^Администратор (%w+_%w+) снял") or text:find("^Администратор (%w+_%w+) забанил .*") or text:find("^Администратор (%w+_%w+)%[(%d+)%] посадил") or text:find("^Администратор (%w+_%w+)%[(%d+)%] заблокировал репорт") or text:find("^Администратор (%w+_%w+)%[(%d+)%] кикнул") or text:find("^Администратор (%w+_%w+)%[(%d+)%] выдал предупреждение") or text:find("^Администратор (%w+_%w+)%[(%d+)%] выдал выговор") or text:find("^Администратор (%w+_%w+)%[(%d+)%] поставил") or text:find("^Администратор (%w+_%w+)%[(%d+)%] снял") or text:find("^Администратор (%w+_%w+)%[(%d+)%] забанил .*") then
-			local ttext = text:gsub("Администратор", "A:")
+		if text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+) ГЇГ®Г±Г Г¤ГЁГ«") or text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+) Г§Г ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г« Г°ГҐГЇГ®Г°ГІ") or text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+) ГЄГЁГЄГ­ГіГ«") or text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+) ГўГ»Г¤Г Г« ГЇГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГҐ") or text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+) ГўГ»Г¤Г Г« ГўГ»ГЈГ®ГўГ®Г°") or text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+) ГЇГ®Г±ГІГ ГўГЁГ«") or text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+) Г±Г­ГїГ«") or text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+) Г§Г ГЎГ Г­ГЁГ« .*") or text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+)%[(%d+)%] ГЇГ®Г±Г Г¤ГЁГ«") or text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+)%[(%d+)%] Г§Г ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г« Г°ГҐГЇГ®Г°ГІ") or text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+)%[(%d+)%] ГЄГЁГЄГ­ГіГ«") or text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+)%[(%d+)%] ГўГ»Г¤Г Г« ГЇГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГҐ") or text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+)%[(%d+)%] ГўГ»Г¤Г Г« ГўГ»ГЈГ®ГўГ®Г°") or text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+)%[(%d+)%] ГЇГ®Г±ГІГ ГўГЁГ«") or text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+)%[(%d+)%] Г±Г­ГїГ«") or text:find("^ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (%w+_%w+)%[(%d+)%] Г§Г ГЎГ Г­ГЁГ« .*") then
+			local ttext = text:gsub("ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°", "A:")
 			sampAddChatMessage(ttext, 0xff5030)
 			return false
 		end
-		if text:find("^Организатор мероприятий .*") then 
-			local omptext = text:gsub("Организатор мероприятий", "ОМП")
+		if text:find("^ГЋГ°ГЈГ Г­ГЁГ§Г ГІГ®Г° Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГ© .*") then 
+			local omptext = text:gsub("ГЋГ°ГЈГ Г­ГЁГ§Г ГІГ®Г° Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГ©", "ГЋГЊГЏ")
 			sampAddChatMessage(omptext, 0xffcc00)
 			return false
 		end
-		if text:find("^Главный администратор .*") then 
-			local gatext = text:gsub("Главный администратор", "ГА")
+		if text:find("^ГѓГ«Г ГўГ­Г»Г© Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° .*") then 
+			local gatext = text:gsub("ГѓГ«Г ГўГ­Г»Г© Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°", "ГѓГЂ")
 			sampAddChatMessage(gatext, 0xffcc00)
 			return false
 		end
-		if text:find("^Помощник Г.А .*") then 
-			local gatext = text:gsub("Помощник Г.А", "ПГА")
+		if text:find("^ГЏГ®Г¬Г®Г№Г­ГЁГЄ Гѓ.ГЂ .*") then 
+			local gatext = text:gsub("ГЏГ®Г¬Г®Г№Г­ГЁГЄ Гѓ.ГЂ", "ГЏГѓГЂ")
 			sampAddChatMessage(gatext, 0xffcc00)
 			return false
 		end
 	end
 	if elements.value.getblock[0] then 
-		if text:find('^%Ваши админ действия временно заблокированы') then
+		if text:find('^%Г‚Г ГёГЁ Г Г¤Г¬ГЁГ­ Г¤ГҐГ©Г±ГІГўГЁГї ГўГ°ГҐГ¬ГҐГ­Г­Г® Г§Г ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г­Г»') then
 			lua_thread.create(function()
 				wait(100)
-				sampSendChat('/a [Отбор]: Я провожу отбор. ПГА/ЗГА/ГА/основатель, выдайте мне пожалуйста разблок действий.')
+				sampSendChat('/a [ГЋГІГЎГ®Г°]: Гџ ГЇГ°Г®ГўГ®Г¦Гі Г®ГІГЎГ®Г°. ГЏГѓГЂ/Г‡ГѓГЂ/ГѓГЂ/Г®Г±Г­Г®ГўГ ГІГҐГ«Гј, ГўГ»Г¤Г Г©ГІГҐ Г¬Г­ГҐ ГЇГ®Г¦Г Г«ГіГ©Г±ГІГ  Г°Г Г§ГЎГ«Г®ГЄ Г¤ГҐГ©Г±ГІГўГЁГ©.')
 			end)
 		end
 	end
 	if elements.value.reloginblock[0] then
-		if text:find('^%Ваши админ действия временно заблокированы') then
+		if text:find('^%Г‚Г ГёГЁ Г Г¤Г¬ГЁГ­ Г¤ГҐГ©Г±ГІГўГЁГї ГўГ°ГҐГ¬ГҐГ­Г­Г® Г§Г ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г­Г»') then
 			local ip, port = sampGetCurrentServerAddress()
 			if ip and port then
 				sampConnectToServer(ip, port)
@@ -2728,7 +2728,7 @@ function event.onServerMessage(color, text)
 		end
 	end
     if elements.value.atp[0] then
-        if text:find('^Вы вошли как .*') and not text:find('^Вы вошли как блогер') then
+        if text:find('^Г‚Г» ГўГ®ГёГ«ГЁ ГЄГ ГЄ .*') and not text:find('^Г‚Г» ГўГ®ГёГ«ГЁ ГЄГ ГЄ ГЎГ«Г®ГЈГҐГ°') then
 			local t = math.random(123456, 654321)
 			lua_thread.create(function()
 				wait(3500)
@@ -2740,7 +2740,7 @@ function event.onServerMessage(color, text)
 		end
     end
     if elements.value.ahi[0] then
-        if text:find('^Вы вошли как .*') and not text:find('^Вы вошли как блогер') then
+        if text:find('^Г‚Г» ГўГ®ГёГ«ГЁ ГЄГ ГЄ .*') and not text:find('^Г‚Г» ГўГ®ГёГ«ГЁ ГЄГ ГЄ ГЎГ«Г®ГЈГҐГ°') then
 			local audio = loadAudioStream('https://github.com/DeffoMansory/dungeon-master/raw/refs/heads/main/winDownload.mp3')
 			setAudioStreamState(audio, 1)
         end    
@@ -2786,11 +2786,11 @@ end
 ----------------- ONSENDCHAT -----------------
 function event.onSendChat(message)
     if message:sub(1, 1) == '!' then
-        local command = message:sub(2) -- Убираем символ "!"
+        local command = message:sub(2) -- Г“ГЎГЁГ°Г ГҐГ¬ Г±ГЁГ¬ГўГ®Г« "!"
         if command == 'alh' then
-            -- sampAddChatMessage('Команда была отправлена через !text')
+            -- sampAddChatMessage('ГЉГ®Г¬Г Г­Г¤Г  ГЎГ»Г«Г  Г®ГІГЇГ°Г ГўГ«ГҐГ­Г  Г·ГҐГ°ГҐГ§ !text')
 			menu[0] = not menu[0]
-            return false -- Отменяем отправку оригинального текста в чат
+            return false -- ГЋГІГ¬ГҐГ­ГїГҐГ¬ Г®ГІГЇГ°Г ГўГЄГі Г®Г°ГЁГЈГЁГ­Г Г«ГјГ­Г®ГЈГ® ГІГҐГЄГ±ГІГ  Гў Г·Г ГІ
         end
     end
 	if elements.value.fastnicks[0] then
@@ -2806,21 +2806,21 @@ end
 sampRegisterChatCommand('amsg', function(param)
 	if elements.value.msginfo[0] then
 		if param == '' then
-			sampAddChatMessage('[All Helper]: {ffffff}Используйте /amsg [1-3]', 0x696969)
+			sampAddChatMessage('[All Helper]: {ffffff}Г€Г±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ /amsg [1-3]', 0x696969)
 		end
 		if param == '1' then
 			lua_thread.create(function()
 				for i, line in ipairs(amsg1) do
-					sampSendChat(line[1])  -- Выводим сообщение
-					wait(1200)  -- Задержка в 1500 миллисекунд (1.5 секунды)
+					sampSendChat(line[1])  -- Г‚Г»ГўГ®Г¤ГЁГ¬ Г±Г®Г®ГЎГ№ГҐГ­ГЁГҐ
+					wait(1200)  -- Г‡Г Г¤ГҐГ°Г¦ГЄГ  Гў 1500 Г¬ГЁГ«Г«ГЁГ±ГҐГЄГіГ­Г¤ (1.5 Г±ГҐГЄГіГ­Г¤Г»)
 				end
 			end)
 		end
 		if param == '2' then
 			lua_thread.create(function()
 				for i, line in ipairs(amsg2) do
-					sampSendChat(line[1])  -- Выводим сообщение
-					wait(1200)  -- Задержка в 1500 миллисекунд (1.5 секунды)
+					sampSendChat(line[1])  -- Г‚Г»ГўГ®Г¤ГЁГ¬ Г±Г®Г®ГЎГ№ГҐГ­ГЁГҐ
+					wait(1200)  -- Г‡Г Г¤ГҐГ°Г¦ГЄГ  Гў 1500 Г¬ГЁГ«Г«ГЁГ±ГҐГЄГіГ­Г¤ (1.5 Г±ГҐГЄГіГ­Г¤Г»)
 				end
 			end)
 		end
@@ -2894,9 +2894,9 @@ function main()
     end
 
     -- if not res() then
-    --     sampAddChatMessage('[All Helper]: {ffffff}Ошибка: Ваш ник отсутствует в списке! Скрипт выгружен.', 0x696969)
-    --     sampAddChatMessage('[All Helper]: {ffffff}Ошибка: Чтобы использовать скрипт - станьте красным администратором или купите пользовательскую версию.', 0x696969)
-    --     sampAddChatMessage('[All Helper]: {ffffff}Ошибка: Купить скрипт можно у vk.com/number1241. Цена: договорная.', 0x696969)
+    --     sampAddChatMessage('[All Helper]: {ffffff}ГЋГёГЁГЎГЄГ : Г‚Г Гё Г­ГЁГЄ Г®ГІГ±ГіГІГ±ГІГўГіГҐГІ Гў Г±ГЇГЁГ±ГЄГҐ! Г‘ГЄГ°ГЁГЇГІ ГўГ»ГЈГ°ГіГ¦ГҐГ­.', 0x696969)
+    --     sampAddChatMessage('[All Helper]: {ffffff}ГЋГёГЁГЎГЄГ : Г—ГІГ®ГЎГ» ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј Г±ГЄГ°ГЁГЇГІ - Г±ГІГ Г­ГјГІГҐ ГЄГ°Г Г±Г­Г»Г¬ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Г¬ ГЁГ«ГЁ ГЄГіГЇГЁГІГҐ ГЇГ®Г«ГјГ§Г®ГўГ ГІГҐГ«ГјГ±ГЄГіГѕ ГўГҐГ°Г±ГЁГѕ.', 0x696969)
+    --     sampAddChatMessage('[All Helper]: {ffffff}ГЋГёГЁГЎГЄГ : ГЉГіГЇГЁГІГј Г±ГЄГ°ГЁГЇГІ Г¬Г®Г¦Г­Г® Гі vk.com/number1241. Г–ГҐГ­Г : Г¤Г®ГЈГ®ГўГ®Г°Г­Г Гї.', 0x696969)
     --     thisScript():unload()
     --     return
     -- end
@@ -2904,15 +2904,15 @@ function main()
     local ip, port = sampGetCurrentServerAddress()
     local ipport = ip .. ':' .. port
     if ipport ~= '62.122.213.231:7777' then
-        sampAddChatMessage('[All Helper]: {ffffff}Ошибка: Данный скрипт работает только на Attractive RP и не работает на других серверах!', 0x696969)
-        sampAddChatMessage('[All Helper]: {ffffff}Ошибка: IP Attractive RP: {00aaff}Именной - a.attractive-rp.ru:7777 || Цифровой - 62.122.213.231:7777', 0x696969)
-        sampAddChatMessage('[All Helper]: {ffffff}Ошибка: Скрипт выгружен.', 0x696969)
+        sampAddChatMessage('[All Helper]: {ffffff}ГЋГёГЁГЎГЄГ : Г„Г Г­Г­Г»Г© Г±ГЄГ°ГЁГЇГІ Г°Г ГЎГ®ГІГ ГҐГІ ГІГ®Г«ГјГЄГ® Г­Г  Attractive RP ГЁ Г­ГҐ Г°Г ГЎГ®ГІГ ГҐГІ Г­Г  Г¤Г°ГіГЈГЁГµ Г±ГҐГ°ГўГҐГ°Г Гµ!', 0x696969)
+        sampAddChatMessage('[All Helper]: {ffffff}ГЋГёГЁГЎГЄГ : IP Attractive RP: {00aaff}Г€Г¬ГҐГ­Г­Г®Г© - a.attractive-rp.ru:7777 || Г–ГЁГґГ°Г®ГўГ®Г© - 62.122.213.231:7777', 0x696969)
+        sampAddChatMessage('[All Helper]: {ffffff}ГЋГёГЁГЎГЄГ : Г‘ГЄГ°ГЁГЇГІ ГўГ»ГЈГ°ГіГ¦ГҐГ­.', 0x696969)
         thisScript():unload()
         return
     end
 
-    sampAddChatMessage('[All Helper]: {ffffff}Мини-помощник администратора загружен.', 0x696969)
-	sampAddChatMessage(string.format('[All Helper]: {ffffff}Для его активации используйте: /alh (версия: %.2f от %s).', script_version, thisScript().version), 0x696969)
+    sampAddChatMessage('[All Helper]: {ffffff}ГЊГЁГ­ГЁ-ГЇГ®Г¬Г®Г№Г­ГЁГЄ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г  Г§Г ГЈГ°ГіГ¦ГҐГ­.', 0x696969)
+	sampAddChatMessage(string.format('[All Helper]: {ffffff}Г„Г«Гї ГҐГЈГ® Г ГЄГІГЁГўГ Г¶ГЁГЁ ГЁГ±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ: /alh (ГўГҐГ°Г±ГЁГї: %.2f Г®ГІ %s).', script_version, thisScript().version), 0x696969)
     sampRegisterChatCommand('amp', function() sampSendChat('/mp') end)
 	sampRegisterChatCommand('alh', function() menu[0] = not menu[0] end)
 	sampRegisterChatCommand('punish', function() punishMenu[0] = not punishMenu[0] end)
@@ -2971,7 +2971,7 @@ function rec_command(param)
 end
 function recname_command(param)
     if param == '' then
-        sampAddChatMessage('[AllHelper]: {ffffff}Используйте /recname [ник]', 0x696969)
+        sampAddChatMessage('[AllHelper]: {ffffff}Г€Г±ГЇГ®Г«ГјГ§ГіГ©ГІГҐ /recname [Г­ГЁГЄ]', 0x696969)
     else
         sampSetLocalPlayerName(param)
         printStringNow(param, 1000, 0x00FF00)
@@ -3135,7 +3135,7 @@ end
 ----------------- MPTEXTQUESTION -----------------
 function imgui.TextQuestionMp(text)
 	imgui.SameLine()
-	imgui.TextDisabled(u8'—  Описание')
+	imgui.TextDisabled(u8'В—  ГЋГЇГЁГ±Г Г­ГЁГҐ')
 	if imgui.IsItemHovered() then
 		imgui.BeginTooltip()
 		imgui.PushTextWrapPos(450)
@@ -3249,489 +3249,489 @@ end
 -- end
 
 
-local punish = {'Общие правила',
+local punish = {'ГЋГЎГ№ГЁГҐ ГЇГ°Г ГўГЁГ«Г ',
 '',
-'- Читы - /warn /jail (От 1 до 30 минут)',
-'- Вред. читы - Снятие с постов + /ban (1 день) /banip (До 7 дней)',
-'- DM/DB/SK/TK - /jail (От 1 до 15 минут)',
-'Исключение: разрешен DM на территории гетто',
-'- NonRP (Или NonRP cop) - /warn /jail (От 1 до 15 минут)',
-'- Помеха/AFK без Esc/ПГ - /kick /jail (От 1 до 5 минут)',
-'Пример: помеха капту не находясь в банде',
-'- NRP NickName - /kick | Увольнение с организации',
-'- Повторение одного и того же нарушения (5+ раз) - /ban (1 день)',
-'Примечание: наказание выдается в том случае, если интервал между каждым нарушением менее 15-ти минут.',
-'- NonRP развод/Подкид обмена или покупки/Развод /try - /ban (От 14 дней)',
-'Примечание: С каждой блокировкой по этому правилу, срок следующей блокировки увеличивается на 2 дня (Второй бан на 16 дней, третий > на 18 и так далее)',
-'- Слив продуктов бизнеса - Снятие с постов + /ban (От 1 до 3 дней)',
-'Пример: намеренная скупка товаров с целью уменьшения количества продуктов и последующим слётом бизнеса в гос.',
-'- Попытка/Продажа имущества за реальную валюту - Удаление всех аккаунтов',
-'- Продажа/Передача/Взлом аккаунта - /ban (30 дней)',
-'- Использование бота на шахту - /ban (От 1 до 3 дней)',
-'- Использование багов сервера с целью получения материальной выгоды - Снятие с постов + /ban с обнулением имущества, вплоть до удаления аккаунта',
-'Пример: багоюз/дюп золотых монет, редких скинов и т.д.',
+'- Г—ГЁГІГ» - /warn /jail (ГЋГІ 1 Г¤Г® 30 Г¬ГЁГ­ГіГІ)',
+'- Г‚Г°ГҐГ¤. Г·ГЁГІГ» - Г‘Г­ГїГІГЁГҐ Г± ГЇГ®Г±ГІГ®Гў + /ban (1 Г¤ГҐГ­Гј) /banip (Г„Г® 7 Г¤Г­ГҐГ©)',
+'- DM/DB/SK/TK - /jail (ГЋГІ 1 Г¤Г® 15 Г¬ГЁГ­ГіГІ)',
+'Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ: Г°Г Г§Г°ГҐГёГҐГ­ DM Г­Г  ГІГҐГ°Г°ГЁГІГ®Г°ГЁГЁ ГЈГҐГІГІГ®',
+'- NonRP (Г€Г«ГЁ NonRP cop) - /warn /jail (ГЋГІ 1 Г¤Г® 15 Г¬ГЁГ­ГіГІ)',
+'- ГЏГ®Г¬ГҐГµГ /AFK ГЎГҐГ§ Esc/ГЏГѓ - /kick /jail (ГЋГІ 1 Г¤Г® 5 Г¬ГЁГ­ГіГІ)',
+'ГЏГ°ГЁГ¬ГҐГ°: ГЇГ®Г¬ГҐГµГ  ГЄГ ГЇГІГі Г­ГҐ Г­Г ГµГ®Г¤ГїГ±Гј Гў ГЎГ Г­Г¤ГҐ',
+'- NRP NickName - /kick | Г“ГўГ®Г«ГјГ­ГҐГ­ГЁГҐ Г± Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГЁ',
+'- ГЏГ®ГўГІГ®Г°ГҐГ­ГЁГҐ Г®Г¤Г­Г®ГЈГ® ГЁ ГІГ®ГЈГ® Г¦ГҐ Г­Г Г°ГіГёГҐГ­ГЁГї (5+ Г°Г Г§) - /ban (1 Г¤ГҐГ­Гј)',
+'ГЏГ°ГЁГ¬ГҐГ·Г Г­ГЁГҐ: Г­Г ГЄГ Г§Г Г­ГЁГҐ ГўГ»Г¤Г ГҐГІГ±Гї Гў ГІГ®Г¬ Г±Г«ГіГ·Г ГҐ, ГҐГ±Г«ГЁ ГЁГ­ГІГҐГ°ГўГ Г« Г¬ГҐГ¦Г¤Гі ГЄГ Г¦Г¤Г»Г¬ Г­Г Г°ГіГёГҐГ­ГЁГҐГ¬ Г¬ГҐГ­ГҐГҐ 15-ГІГЁ Г¬ГЁГ­ГіГІ.',
+'- NonRP Г°Г Г§ГўГ®Г¤/ГЏГ®Г¤ГЄГЁГ¤ Г®ГЎГ¬ГҐГ­Г  ГЁГ«ГЁ ГЇГ®ГЄГіГЇГЄГЁ/ГђГ Г§ГўГ®Г¤ /try - /ban (ГЋГІ 14 Г¤Г­ГҐГ©)',
+'ГЏГ°ГЁГ¬ГҐГ·Г Г­ГЁГҐ: Г‘ ГЄГ Г¦Г¤Г®Г© ГЎГ«Г®ГЄГЁГ°Г®ГўГЄГ®Г© ГЇГ® ГЅГІГ®Г¬Гі ГЇГ°Г ГўГЁГ«Гі, Г±Г°Г®ГЄ Г±Г«ГҐГ¤ГіГѕГ№ГҐГ© ГЎГ«Г®ГЄГЁГ°Г®ГўГЄГЁ ГіГўГҐГ«ГЁГ·ГЁГўГ ГҐГІГ±Гї Г­Г  2 Г¤Г­Гї (Г‚ГІГ®Г°Г®Г© ГЎГ Г­ Г­Г  16 Г¤Г­ГҐГ©, ГІГ°ГҐГІГЁГ© > Г­Г  18 ГЁ ГІГ ГЄ Г¤Г Г«ГҐГҐ)',
+'- Г‘Г«ГЁГў ГЇГ°Г®Г¤ГіГЄГІГ®Гў ГЎГЁГ§Г­ГҐГ±Г  - Г‘Г­ГїГІГЁГҐ Г± ГЇГ®Г±ГІГ®Гў + /ban (ГЋГІ 1 Г¤Г® 3 Г¤Г­ГҐГ©)',
+'ГЏГ°ГЁГ¬ГҐГ°: Г­Г Г¬ГҐГ°ГҐГ­Г­Г Гї Г±ГЄГіГЇГЄГ  ГІГ®ГўГ Г°Г®Гў Г± Г¶ГҐГ«ГјГѕ ГіГ¬ГҐГ­ГјГёГҐГ­ГЁГї ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ  ГЇГ°Г®Г¤ГіГЄГІГ®Гў ГЁ ГЇГ®Г±Г«ГҐГ¤ГіГѕГ№ГЁГ¬ Г±Г«ВёГІГ®Г¬ ГЎГЁГ§Г­ГҐГ±Г  Гў ГЈГ®Г±.',
+'- ГЏГ®ГЇГ»ГІГЄГ /ГЏГ°Г®Г¤Г Г¦Г  ГЁГ¬ГіГ№ГҐГ±ГІГўГ  Г§Г  Г°ГҐГ Г«ГјГ­ГіГѕ ГўГ Г«ГѕГІГі - Г“Г¤Г Г«ГҐГ­ГЁГҐ ГўГ±ГҐГµ Г ГЄГЄГ ГіГ­ГІГ®Гў',
+'- ГЏГ°Г®Г¤Г Г¦Г /ГЏГҐГ°ГҐГ¤Г Г·Г /Г‚Г§Г«Г®Г¬ Г ГЄГЄГ ГіГ­ГІГ  - /ban (30 Г¤Г­ГҐГ©)',
+'- Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГЎГ®ГІГ  Г­Г  ГёГ ГµГІГі - /ban (ГЋГІ 1 Г¤Г® 3 Г¤Г­ГҐГ©)',
+'- Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГЎГ ГЈГ®Гў Г±ГҐГ°ГўГҐГ°Г  Г± Г¶ГҐГ«ГјГѕ ГЇГ®Г«ГіГ·ГҐГ­ГЁГї Г¬Г ГІГҐГ°ГЁГ Г«ГјГ­Г®Г© ГўГ»ГЈГ®Г¤Г» - Г‘Г­ГїГІГЁГҐ Г± ГЇГ®Г±ГІГ®Гў + /ban Г± Г®ГЎГ­ГіГ«ГҐГ­ГЁГҐГ¬ ГЁГ¬ГіГ№ГҐГ±ГІГўГ , ГўГЇГ«Г®ГІГј Г¤Г® ГіГ¤Г Г«ГҐГ­ГЁГї Г ГЄГЄГ ГіГ­ГІГ ',
+'ГЏГ°ГЁГ¬ГҐГ°: ГЎГ ГЈГ®ГѕГ§/Г¤ГѕГЇ Г§Г®Г«Г®ГІГ»Гµ Г¬Г®Г­ГҐГІ, Г°ГҐГ¤ГЄГЁГµ Г±ГЄГЁГ­Г®Гў ГЁ ГІ.Г¤.',
 '',
-'Правила чата:',
+'ГЏГ°Г ГўГЁГ«Г  Г·Г ГІГ :',
 '',
-'- Оффтоп в репорт - /rmute (На усмотрение администратора)',
-'- Flood/MG/транслит - /mute (От 1 до 10 минут)',
-'- Реклама - /ban /banip /mute (На усмотрение администратора)',
-'- Оскорбление игроков/угрозы - /mute (От 1 до 15 минут)',
-'- Оскорбление администраторов - /mute (На усмотрение администратора)',
-'- Упоминание родных - /mute (На усмотрение администратора)',
-'Исключение: упоминание своих родственников',
-'- Оскорбление красной администрации - /mute (30 минут)',
-'- Упоминание родных красной администрации - /mute (30 минут)',
-'- Caps/Мат в /ad, /vad, /r, /d и т.д - /mute (От 1 до 10 минут)',
-'Исключение: мат в РП чат, /f /gc /mc /sms',
-'- Розжиг межнациональной розни - /mute (От 1 до 30 минут)',
-'- Распространение сторонних файлов - /mute (От 1 до 30 минут)',
-'- Оскорбление проекта - /mute (От 1 до 30 минут)',
-'- Игра анти-рекламой - /mute (От 1 до 15 минут)',
+'- ГЋГґГґГІГ®ГЇ Гў Г°ГҐГЇГ®Г°ГІ - /rmute (ГЌГ  ГіГ±Г¬Г®ГІГ°ГҐГ­ГЁГҐ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г )',
+'- Flood/MG/ГІГ°Г Г­Г±Г«ГЁГІ - /mute (ГЋГІ 1 Г¤Г® 10 Г¬ГЁГ­ГіГІ)',
+'- ГђГҐГЄГ«Г Г¬Г  - /ban /banip /mute (ГЌГ  ГіГ±Г¬Г®ГІГ°ГҐГ­ГЁГҐ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г )',
+'- ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ ГЁГЈГ°Г®ГЄГ®Гў/ГіГЈГ°Г®Г§Г» - /mute (ГЋГІ 1 Г¤Г® 15 Г¬ГЁГ­ГіГІ)',
+'- ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Гў - /mute (ГЌГ  ГіГ±Г¬Г®ГІГ°ГҐГ­ГЁГҐ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г )',
+'- Г“ГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г°Г®Г¤Г­Г»Гµ - /mute (ГЌГ  ГіГ±Г¬Г®ГІГ°ГҐГ­ГЁГҐ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г )',
+'Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ: ГіГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г±ГўГ®ГЁГµ Г°Г®Г¤Г±ГІГўГҐГ­Г­ГЁГЄГ®Гў',
+'- ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ ГЄГ°Г Г±Г­Г®Г© Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГЁ - /mute (30 Г¬ГЁГ­ГіГІ)',
+'- Г“ГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г°Г®Г¤Г­Г»Гµ ГЄГ°Г Г±Г­Г®Г© Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГЁ - /mute (30 Г¬ГЁГ­ГіГІ)',
+'- Caps/ГЊГ ГІ Гў /ad, /vad, /r, /d ГЁ ГІ.Г¤ - /mute (ГЋГІ 1 Г¤Г® 10 Г¬ГЁГ­ГіГІ)',
+'Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ: Г¬Г ГІ Гў ГђГЏ Г·Г ГІ, /f /gc /mc /sms',
+'- ГђГ®Г§Г¦ГЁГЈ Г¬ГҐГ¦Г­Г Г¶ГЁГ®Г­Г Г«ГјГ­Г®Г© Г°Г®Г§Г­ГЁ - /mute (ГЋГІ 1 Г¤Г® 30 Г¬ГЁГ­ГіГІ)',
+'- ГђГ Г±ГЇГ°Г®Г±ГІГ°Г Г­ГҐГ­ГЁГҐ Г±ГІГ®Г°Г®Г­Г­ГЁГµ ГґГ Г©Г«Г®Гў - /mute (ГЋГІ 1 Г¤Г® 30 Г¬ГЁГ­ГіГІ)',
+'- ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ ГЇГ°Г®ГҐГЄГІГ  - /mute (ГЋГІ 1 Г¤Г® 30 Г¬ГЁГ­ГіГІ)',
+'- Г€ГЈГ°Г  Г Г­ГІГЁ-Г°ГҐГЄГ«Г Г¬Г®Г© - /mute (ГЋГІ 1 Г¤Г® 15 Г¬ГЁГ­ГіГІ)',
 '',
-'Форум:',
+'Г”Г®Г°ГіГ¬:',
 '',
-'- Форумные аватары/публикации разжигающие межнациональную рознь (Представители стран, военные и политические деятели, любые государственные символы и прочее)',
-'Наказание: блокировка игрового аккаунта (1 день), блокировка форумного аккаунта (30 дней), снятие с хелперки, лидерского/админ-поста.',
-'- Форумные аватары/публикации разжигающие конфликт, имеющие порнографический смысл. Наказание: блокировка форумного аккаунта (30 дней), снятие с хелперки, лидерского/админ-поста.'}
-local arules = {'1. Ненормативная лексика в чат, в сторону игроков/администраторов | Выговор',
-'- Запрещено написание матерных слов в присутствии игроков рядом',
-'- Разрешено использовать мат рядом с администраторами с целью описать ситуацию, не используя его в сторону человека',
-'2. DM игроков | Два выговора',
-'- Разрешён случайный единичный удар рукой/оружием ближнего боя/транспортом, если те нанесли мало урона',
-'3. Выдавать наказание, не имея доказательств нарушения | Два выговора',
-'4. Засорение репорта | Выговор',
-'- Запрещено устраивать мероприятия/викторины, чья суть заключается в написании ответа в репорт',
-'- Игрокам, находящимся на отборе на лидера/саппорта, разрешено писать ответы в репорт',
-'5. Оскорбление администраторов/игроков/угрозы | Выговор',
-'- Правило не распространяется на семейный чат (/t)',
-'6. Покупка/продажа чего-либо в /a | Выговор',
-'7. Помеха другим администраторам | Выговор',
-'8. Реклама/Реклама с твинков | Снятие',
-'- Запрещено упоминание названий сторонних SAMP/CRMP/GTA V серверов, IP адресов, приглашение игроков поиграть на другом сервере',
-'9. Оффтоп в /msg | Выговор',
-'- Разрешено использовать команду для оповещения игроков об отборах, мероприятиях, слежке за каптами/бизварами и т.д',
-'10. Блат кого-либо из игроков/администраторов | Два выговора',
-'- Запрещено выдавать оружие/броню/хп персонажа и хп транспорта по просьбе в репорт или напрямую администратору',
-'- Разрешена починка транспорта вне РП процесса',
-'- Запрещено осуществлять помеху на семейном ограблении с целью помочь определённым игрокам',
-'- Запрещено без причины выдавать донат очки',
-'- Запрещено игнорирование нарушений игроков/администраторов',
-'- Запрещено без причины аннулировать наказания | Исключение: получение неверного наказания по вашей вине',
-'- Запрещено фиксирование нарушения с игрока (твинк-аккаунта) и выдача наказания с админ-аккаунта | Требуется писать жалобу на форуме',
-'- Запрещено телепортировать игроков на мероприятие. Посещение мероприятий должно быть строго через /gotp | Исключение: если была ошибочная дисквалификация с мероприятия',
-'11. Помеха RP/Влезание в RP процесс | Выговор',
-'12. Проверка игрока на читы через скайп или дискорд | Два выговора',
-'- Запрещено просить игроков пройти в скайп/дискорд для проверки сборки на наличие читов',
-'13. Попрошайничество | Выговор',
-'- Запрещено просить валюту/аксессуары и другие вещи, снять выговор, повысить уровень админ-прав в /a, /v, а также в /sms, если собеседник против попрошайничества',
-'- Попрошайничество разрешено в /t и у друзей, если стоите рядом друг с другом и они не против',
-'14. Использование читов против игроков | Снятие',
-'- Запрещены любые читы, которые могут помешать игре других игроков',
-'Примечание: Использование читов на DM арене против игроков, которые не влияют на стрельбу | Два выговора',
-'15. Выдача наказаний по просьбе другого администратора | Выговор',
-'- Администратор, чья просьба была выполнена, наказания не несёт',
-'16. Наличие более 1 админ аккаунта | Снятие всех аккаунтов с админки',
-'- Разрешено в случае игры двух людей на одном IP, если на это есть доказательства',
-'17. Выдача наказаний за SMS администраторам | Выговор',
-'- Разрешён сам факт написания SMS для связи с администраторами, все правила чата продолжают действовать',
-'18. Выдача наказаний за DM администраторов | Выговор',
-'- Администраторов сервера разрешено ранить/убивать',
-'19. Накрутка репутации | Снятие',
-'- Запрещена накрутка репутации с помощью твинк-аккаунтов и друзей, что пишут в репорт, а вы отвечаете и получаете положительные оценки',
-'20. Выпрашивание оценки ответа на репорт | Выговор',
-'21. Выдача выговора(-ов) в ответ | Снятие/Изъятие команды',
-'- Если вас наказал администратор (на основном аккаунте или твинке), запрещено в ответ выдавать выговор(-ы) за неверную выдачу данного наказания',
-'- Если вам выдали выговор(-ы) в ответ, запрещено самолично наказывать такого администратора',
-'- При получении выговора(-ов) от администратора вы всё так же можете выдавать ему наказания за нарушение правил, если на то имеются доказательства',
-'22. Подставные действия на снятие | Два выговора/Снятие',
-'- Запрещено просить другого администратора сказать/сделать то, за что он может получить снятие',
-'- Запрещено пытаться подставить игроков/администраторов с помощью программ/читов',
-'23. Розжиг конфликта | Два выговора',
-'- Запрещено словами/действиями провоцировать на конфликт игроков/администраторов',
-'Пример: попытка заткнуть человека, заставлять его молчать, унижение человека',
-'24. Нарушение правил администрации 3+ раз | Снятие',
-'Пример: получение 3 выговора за оскорбление администратора/игрока',
-'Примечание: наказание выдается в том случае, если интервал между каждым нарушением менее 15-ти минут',
-'25. Оскорбление красных администраторов, а также упоминание/оскорбление их родни | Снятие + mute на 30 минут',
-'- Правило распространяется на соц.сети, видеохостинги, форум, игру, дискорд (мут не выдаётся, если нарушение было не в игре)',
-'26. Суммирование наказаний | Выговор',
-'- Запрещено суммировать наказания друг с другом и последующая выдача их с увеличенным временем/количеством',
-'Пример с игроком: игрок 2 раза нарушил правило "Капс в чат - mute 10 минут" и вы выдали ему 20 минут мута вместо положенных по правилу 10 минут',
-'Пример с админом: администратор 2 раза нарушил правило "DM игроков - выговор" и вы выдали ему сразу 2 выговора вместо положенного по правилу одного выговора',
-'- Любое наказание должно выдаваться сразу после нарушения. Если выдать наказание администратору/игроку и он продолжает нарушать, разрешено выдавать наказание за последующее нарушение',
-'27. Розжиг межнациональной розни | Два выговора',
-'28. Распространение сторонних скриптов | Выговор',
-'29. Злоупотребление капсом в /a /v | Выговор',
-'- Разрешен капс до 2-х (включительно) слов в 2 минуты',
-'- Запрещено отправление длинных слов, написанных преимущественно капсом',
-'30. Помощь на капте/бизваре | Два выговора',
-'- Запрещено назначать себя временным лидером и помогать в увеличении счёта убитых/находящихся на территории той или иной банде/мафии, тем самым помогая выиграть',
-'- Запрещена помощь в перемещении на капт/бизвар, а также по оспариваемой территории',
-'- Запрещёно телепортировать соперников друг к другу',
-'- Запрещена выдача оружия/транспорта/хп/брони/масок',
-'31. Слив территорий/бизнесов | Снятие',
-'- Запрещена выдача территорий/бизнесов без доказательств и причины',
-'32. Разглашение цен платных команд | Снятие',
-'Исключение: Информирование о платных командах администратору 12 уровня.',
-'Администраторам не имеющим доступ в раздел "Платных команд" - запрещено любое информирование.',
-'33. Баловство командами | Два выговора',
-'- Запрещена намеренная беспричинная выдача и последующее снятие наказаний игроку',
-'Пример: выдача /ban по причине "релог" игроку, если тот не нуждался в этом в связи с багом и невозможностью выйти с сервера самостоятельно',
-'- Запрещена намеренная выдача спавна/слапа, изменение здоровья/скина, телепорт с целью навредить/помешать/посмеяться над игроком',
-'Пример: слап игрока в грузовике семейного ограбления, спавн с целью забрать лавку на центральном рынке',
-'За исключением если администратор ошибся ID и сможет это доказать',
-'- Запрещён телепорт игроков без их разрешения',
-'Пример: телепорт по просьбе другого игрока в репорт | Чтобы не получить жалобу, нужно спросить разрешения у того, кого/к кому Вы телепортируете',
-'- Запрещена выдача наказаний самому себе',
-'Если вы должны получить какое-либо наказание и решили выдать его себе сами, это не отменяет выдачу выговоров от других администраторов',
-'Пример: увидев жалобу на форуме, вы решили наказать сами себя; получите выговор за баловство командами и наказание по жалобе',
-'34. Использование багов сервера для получения материальной выгоды | Снятие + бан',
-'Пример: багоюз/дюп золотых монет, редких скинов и т.д.',
-'35. Нарушение правил проверки жалоб | Выговор',
-'36. Оскорбление сервера | Снятие + бан',
-'37. /pm в личных целях | Выговор',
-'- Запрещена беспричинная связь через /pm с игроком, который не писал в репорт',
-'- Разрешено использовать /pm "Вы тут?" с целью убедиться, не афк ли игрок',
-'38. Флуд админ-командами | Выговор',
-'- Запрещено засорять чат админ-действиями, например выдача оружия/хп/брони, телепорт игроков к себе и т.д',
-'39. Использование вред.читов/использование вред.читов с твинков против игроков/администраторов | Снятие + бан',
-'40. Оскорбление/упоминание родственников или ответ взаимностью | Снятие',
-'- Разрешено упоминание своих родственников',
-'41. Капс/флуд в чат, в сторону игроков/администраторов | Выговор',
-'- Разрешен капс до 2-х (включительно) слов в 2 минуты',
-'- Запрещено отправление длинных слов, написанных преимущественно капсом',
-'42. Неверная выдача наказания игроку/администратору | Выговор',
-'43. Неверное рассмотрение жалобы на форуме | Выговор',
-'44. Попытка/Продажа внутриигрового имущества за реальную валюту | Бан + удаление аккаунта',
-'45. Слив продуктов бизнеса | Снятие + бан до 3 дней',
-'- Запрещена намеренная скупка товаров с целью уменьшения количества продуктов и последующим слётом бизнеса в гос.',
-'46. Продажа/Передача/Взлом аккаунта | Снятие + бан до 30 дней',
-'47. NonRP развод | Подкид | Развод /try | Снятие + бан на 14 дней',
-'- Развод с твинк-аккаунтов | Снятие',
-'48. NonRP NickName | Два выговора',
-'- Запрещено использовать nRP ник/ник написанный капсом, пример - EVGENY_CREATOR | iVan_pUPpKin | Evgeny_Creatorrr',
-'- Ник должен быть написан в формате Имя_Фамилия, пример - Evgeny_Creator',
-'- Запрещено использовать две и более заглавные буквы в имени, пример - EvGeny_Creator',
-'49. Слив административных прав | Снятие + бан до 30 дней | Снятие твинков (При наличии)',
-'50. Неуважительный ответ игроку | Два выговора',
-'51. Выдача наказания с неполной причиной | Выговор',
-'- Запрещено указывать причину, не поясняющую за что именно было выдано наказание',
-'Пример: выдача наказаний по причинам: "Нарушение правил чата", "Нарушение правил сервера" и тому подобным (необходимо указывать чёткую причину, например "Оскорбление игрока")',
-'- Запрещены непонятные сокращения причин, причина должна быть понятна абсолютно всем игрокам'}
-local lrules = {'- Неадекват | Наказание - два выговора лидеру + mute',
-'- Оскорбление красной администрации | Наказание - Снятие + mute',
-'- Неадекватное поведение на форуме | Наказание - выговор лидеру',
-'- Упоминание родных | Наказание - снятие + mute',
-'- DM, DB, TK, SK | Наказание - выговор лидеру + jail',
-'- Увольнение без причин | Исключение - гетто/мафии | Наказание - выговор лидеру',
-'- Принятие игрока с NonRP ником в организацию | Наказание - выговор лидеру',
-'- NonRP | Наказание - выговор лидеру + jail/warn',
-'- Реклама | Наказание - снятие с лидерки + ban',
-'- Расформ (от 5+ человек) | Исключение - гетто/мафии/неактив более 1 мес. | Наказание - снятие с лидерки + warn',
-'Примечание: наказание выдается в том случае, если интервал между каждым увольнением менее 7-ми минут.',
-'- Читы | Наказание - снятие с лидерки + warn',
-'- Читы с твинков | Наказание - снятие с лидерки + warn',
-'- Блат | Исключение - гетто/мафии | Наказание - выговор лидеру',
-'- Норма онлайна отыгровки за день от 1 часа | Исключение - если лидер назначен за час до проверки нормы | Наказание - снятие с лидерки',
-'- Неактив 24+ часов | Наказание - снятие с лидерки',
-'- NonRP названия рангов | Исключение - гетто (Кроме неадекватных и оскорбительных) | Наказание - 2 выговора лидеру',
-'- Менее двух наборов за день | Исключение - нелегальные организации | Наказание - 2 выговора лидеру',
-'- Менее двух захватов за день | Исключение - гос.структуры | Наказание - 2 выговора лидеру',
-'- Отсутствие стрел за день | Исключение - гос.структуры, гетто | Наказание - 2 выговора лидеру',
-'- Слив территорий/бизнесов | Наказание - снятие с лидерки + warn',
-'- Наличие более одной лидерки | Наказание - снятие всех лидерок',
-'- Отсутствие нормы захватов в течении 3-х дней | Исключение - гос.структуры/отсутствие лидеров противоположных организаций | Наказание - снятие с лидерки',
-'- Продажа/покупка лидерки | Наказание - снятие с лидерки + warn (Продажа за реальную валюту - удаление аккаунта)',
-'- Продажа ранга | Наказание - снятие с лидерки + warn (Продажа за реальную валюту - удаление аккаунта)',
-'- Игра с твинков за противоположную банду/мафию | Наказание - снятие с лидерки + warn',
-'- Передача лидерского поста на твинк аккаунт (Пример: уход с лидерки и покупка с твинка) | Наказание - снятие с лидерки + warn',
-'- Розжиг межнациональной розни, в том числе названия рангов | Наказание - 2 выговора лидеру',
-'- Отказ от принятия участия в глобальных мероприятиях | Исключение - нелегальные организации | Наказание - 2 выговора лидеру',
-'- Слив поста/лидеров | Наказание - снятие с лидерки + ban',
-'- Оскорбление проекта | Наказание - снятие с лидерки + ban',
-'- NonRP ник | Наказание - 2 выговора лидеру',
-'Примечание: Если лидер не изменил ник на допустимый в течение 10-ти минут после наказания, он СНИМАЕТСЯ с поста',
-'Администратор обязан оповестить лидера в (/pm) о том что, у него имеется 10 минут для смены никнейма',
-'Важно: Предупреждения выносятся только тогда, когда лидер находится в Сети'}
-local srules = {'- Отсутствие нормы отыгранного времени за сутки (1 час). | Наказание - снятие с поста саппорта.',
-'- Неактивность в течение 24 часов. | Наказание - снятие с поста саппорта.',
-'- Оскорбление родных в ответе / чате саппортов. | Наказание - снятие с поста саппорта + затычка на 30 минут + чёрный список саппортов сроком на 10 дней.',
-'- Неверный ответ игроку. | Наказание - выговор.',
-'- Накрутка ответов. | Наказание - снятие с поста саппорта + чёрный список саппортов сроком на 5 дней.',
-'- Разглашение команд и возможностей саппорта. | Наказание - снятие с поста саппорта + чёрный список саппортов сроком на 10 дней.',
-'- Использование команды для ответов в личных целях. | Наказание - 1 выговор.',
-'- Неадекватное поведение в ответе / чате саппортов (Оскорбления/Капс/Мат). | Наказание - снятие с поста саппорта (при повторном нарушении чёрный список саппортов на 5 дней).',
-'- Любые нарушения правил сервера со стороны игрового процесса (DM/Оскорбления/Неадекват). | Наказание - выговор + наказание по правилам сервера.',
-'- Наличие 0 ответов на посту саппорта. | Наказание - 2 выговора.',
-'- Оскорбление следящих за саппортами. | Наказание - снятие с поста саппорта + чёрный список саппортов сроком на 5 дней.',
-'- Засорение чата саппортов (Покупка/Продажа/Флуд). | Наказание - выговор + затычка на 10 минут.',
-'- NonRP ник. | Наказание - снятие с поста саппорта.',
-'- Попрошайничество в чате саппортов или в ответе игроку. | Наказание - 2 выговора.',
-'- Использование читов на посту саппорта. | Наказание - снятие с поста саппорта + jail/warn.',
-'- Провокационные вопросы (Команды/Возможности саппорта). | Наказание - снятие с поста саппорта + чёрный список саппортов сроком на 5 дней.',
-'- Игнорирование просьбы главного следящего за саппортами. | Наказание - выговор.',
-'- Выдача блокировки репорта, не имея доказательств нарушения. | Наказание - выговор (по жалобе выдаётся 2 выговора).',
-'- Наличие ошибок, проявление неграмотности при ответе, неполноценные ответы. | Наказание - выговор.',
-'- Транслит в ответе игроку. | Наказание - выговор.',
-'- Неуважительный ответ игроку. | Наказание - 2 выговора.',
-'- Слив поста саппорта. | Наказание - снятие с поста саппорта + блокировка на 30 дней + чёрный список саппортов навсегда.'}
-local gosrules = {'- 1. Всякое общение в департаменте без использования тега: [Тег вашей организации] - [all/другая организация] - /mute (от 1 до 10 минут).',
-'- 2. Использование фраз, содержащие капс, грубые выражения, оскорбления (/d (/db), /r (/rb), /gov и.т.п) . - /mute (от 1 до 10 минут).',
-'- 3. Писать в государственные новости, не заняв государственную волну - /mute (от 1 до 10 минут).',
-'- 4. NonRP Cop - /warn /jail (от 1 до 15 минут).',
-'- 5. Увольнение с неадекватной или без весомой причины - /mute (от 1 до 10 минут).',
-'- 6. Слив должности - /auninvite + /jail (от 1 до 15 минут).',
-'- 7. Нахождение гос. работника в гетто с целью ареста - /jail (от 1 до 10 минут).',
-'- 7.1. Разрешено находиться в маске для простого перемещения (без арестов).',
-'- 8. Несоблюдение правил при выдаче розыска (выдача розыска с NonRP причинами или причинами, которые не указаны в уголовном кодексе: DM, угон, похищение и т.д). - /warn /jail (от 1 до 15 минут).',
-'- 8.1. Разрешено указывать только полное название статьи или её пункт.',
-'- 9. Проявление неграмотности и неадекватного поведения при проведении эфира или при использовании государственной волны - /mute (от 1 до 10 минут).',
-'- 10. Несоблюдение правил проведения проверок - /warn /jail (от 1 до 15 минут).',
-'Примечания:',
-'- 1. Причина для розыска должна соответствовать Уголовному кодексу San Andreas.',
-'- 2. Причина увольнения должна быть на русском языке. Использование причины на другом языке будет наказано.',
-'- 3. При многократном нарушении пункта под номером 9 - вы будете уволены из организации.'}
-local orules = {'- 1. Необходимо установить минимальный онлайн в один час для возможности телепортации (используя команду /mp).',
-'- 2. Активировать функцию записи экрана.',
-'- 3. Огласить участникам правила отбора:',
+'- Г”Г®Г°ГіГ¬Г­Г»ГҐ Г ГўГ ГІГ Г°Г»/ГЇГіГЎГ«ГЁГЄГ Г¶ГЁГЁ Г°Г Г§Г¦ГЁГЈГ ГѕГ№ГЁГҐ Г¬ГҐГ¦Г­Г Г¶ГЁГ®Г­Г Г«ГјГ­ГіГѕ Г°Г®Г§Г­Гј (ГЏГ°ГҐГ¤Г±ГІГ ГўГЁГІГҐГ«ГЁ Г±ГІГ°Г Г­, ГўГ®ГҐГ­Г­Г»ГҐ ГЁ ГЇГ®Г«ГЁГІГЁГ·ГҐГ±ГЄГЁГҐ Г¤ГҐГїГІГҐГ«ГЁ, Г«ГѕГЎГ»ГҐ ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»ГҐ Г±ГЁГ¬ГўГ®Г«Г» ГЁ ГЇГ°Г®Г·ГҐГҐ)',
+'ГЌГ ГЄГ Г§Г Г­ГЁГҐ: ГЎГ«Г®ГЄГЁГ°Г®ГўГЄГ  ГЁГЈГ°Г®ГўГ®ГЈГ® Г ГЄГЄГ ГіГ­ГІГ  (1 Г¤ГҐГ­Гј), ГЎГ«Г®ГЄГЁГ°Г®ГўГЄГ  ГґГ®Г°ГіГ¬Г­Г®ГЈГ® Г ГЄГЄГ ГіГ­ГІГ  (30 Г¤Г­ГҐГ©), Г±Г­ГїГІГЁГҐ Г± ГµГҐГ«ГЇГҐГ°ГЄГЁ, Г«ГЁГ¤ГҐГ°Г±ГЄГ®ГЈГ®/Г Г¤Г¬ГЁГ­-ГЇГ®Г±ГІГ .',
+'- Г”Г®Г°ГіГ¬Г­Г»ГҐ Г ГўГ ГІГ Г°Г»/ГЇГіГЎГ«ГЁГЄГ Г¶ГЁГЁ Г°Г Г§Г¦ГЁГЈГ ГѕГ№ГЁГҐ ГЄГ®Г­ГґГ«ГЁГЄГІ, ГЁГ¬ГҐГѕГ№ГЁГҐ ГЇГ®Г°Г­Г®ГЈГ°Г ГґГЁГ·ГҐГ±ГЄГЁГ© Г±Г¬Г»Г±Г«. ГЌГ ГЄГ Г§Г Г­ГЁГҐ: ГЎГ«Г®ГЄГЁГ°Г®ГўГЄГ  ГґГ®Г°ГіГ¬Г­Г®ГЈГ® Г ГЄГЄГ ГіГ­ГІГ  (30 Г¤Г­ГҐГ©), Г±Г­ГїГІГЁГҐ Г± ГµГҐГ«ГЇГҐГ°ГЄГЁ, Г«ГЁГ¤ГҐГ°Г±ГЄГ®ГЈГ®/Г Г¤Г¬ГЁГ­-ГЇГ®Г±ГІГ .'}
+local arules = {'1. ГЌГҐГ­Г®Г°Г¬Г ГІГЁГўГ­Г Гї Г«ГҐГЄГ±ГЁГЄГ  Гў Г·Г ГІ, Гў Г±ГІГ®Г°Г®Г­Гі ГЁГЈГ°Г®ГЄГ®Гў/Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Гў | Г‚Г»ГЈГ®ГўГ®Г°',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® Г­Г ГЇГЁГ±Г Г­ГЁГҐ Г¬Г ГІГҐГ°Г­Г»Гµ Г±Г«Г®Гў Гў ГЇГ°ГЁГ±ГіГІГ±ГІГўГЁГЁ ГЁГЈГ°Г®ГЄГ®Гў Г°ГїГ¤Г®Г¬',
+'- ГђГ Г§Г°ГҐГёГҐГ­Г® ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј Г¬Г ГІ Г°ГїГ¤Г®Г¬ Г± Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г Г¬ГЁ Г± Г¶ГҐГ«ГјГѕ Г®ГЇГЁГ±Г ГІГј Г±ГЁГІГіГ Г¶ГЁГѕ, Г­ГҐ ГЁГ±ГЇГ®Г«ГјГ§ГіГї ГҐГЈГ® Гў Г±ГІГ®Г°Г®Г­Гі Г·ГҐГ«Г®ГўГҐГЄГ ',
+'2. DM ГЁГЈГ°Г®ГЄГ®Гў | Г„ГўГ  ГўГ»ГЈГ®ГўГ®Г°Г ',
+'- ГђГ Г§Г°ГҐГёВёГ­ Г±Г«ГіГ·Г Г©Г­Г»Г© ГҐГ¤ГЁГ­ГЁГ·Г­Г»Г© ГіГ¤Г Г° Г°ГіГЄГ®Г©/Г®Г°ГіГ¦ГЁГҐГ¬ ГЎГ«ГЁГ¦Г­ГҐГЈГ® ГЎГ®Гї/ГІГ°Г Г­Г±ГЇГ®Г°ГІГ®Г¬, ГҐГ±Г«ГЁ ГІГҐ Г­Г Г­ГҐГ±Г«ГЁ Г¬Г Г«Г® ГіГ°Г®Г­Г ',
+'3. Г‚Г»Г¤Г ГўГ ГІГј Г­Г ГЄГ Г§Г Г­ГЁГҐ, Г­ГҐ ГЁГ¬ГҐГї Г¤Г®ГЄГ Г§Г ГІГҐГ«ГјГ±ГІГў Г­Г Г°ГіГёГҐГ­ГЁГї | Г„ГўГ  ГўГ»ГЈГ®ГўГ®Г°Г ',
+'4. Г‡Г Г±Г®Г°ГҐГ­ГЁГҐ Г°ГҐГЇГ®Г°ГІГ  | Г‚Г»ГЈГ®ГўГ®Г°',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГіГ±ГІГ°Г ГЁГўГ ГІГј Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГї/ГўГЁГЄГІГ®Г°ГЁГ­Г», Г·ГјГї Г±ГіГІГј Г§Г ГЄГ«ГѕГ·Г ГҐГІГ±Гї Гў Г­Г ГЇГЁГ±Г Г­ГЁГЁ Г®ГІГўГҐГІГ  Гў Г°ГҐГЇГ®Г°ГІ',
+'- Г€ГЈГ°Г®ГЄГ Г¬, Г­Г ГµГ®Г¤ГїГ№ГЁГ¬Г±Гї Г­Г  Г®ГІГЎГ®Г°ГҐ Г­Г  Г«ГЁГ¤ГҐГ°Г /Г±Г ГЇГЇГ®Г°ГІГ , Г°Г Г§Г°ГҐГёГҐГ­Г® ГЇГЁГ±Г ГІГј Г®ГІГўГҐГІГ» Гў Г°ГҐГЇГ®Г°ГІ',
+'5. ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Гў/ГЁГЈГ°Г®ГЄГ®Гў/ГіГЈГ°Г®Г§Г» | Г‚Г»ГЈГ®ГўГ®Г°',
+'- ГЏГ°Г ГўГЁГ«Г® Г­ГҐ Г°Г Г±ГЇГ°Г®Г±ГІГ°Г Г­ГїГҐГІГ±Гї Г­Г  Г±ГҐГ¬ГҐГ©Г­Г»Г© Г·Г ГІ (/t)',
+'6. ГЏГ®ГЄГіГЇГЄГ /ГЇГ°Г®Г¤Г Г¦Г  Г·ГҐГЈГ®-Г«ГЁГЎГ® Гў /a | Г‚Г»ГЈГ®ГўГ®Г°',
+'7. ГЏГ®Г¬ГҐГµГ  Г¤Г°ГіГЈГЁГ¬ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г Г¬ | Г‚Г»ГЈГ®ГўГ®Г°',
+'8. ГђГҐГЄГ«Г Г¬Г /ГђГҐГЄГ«Г Г¬Г  Г± ГІГўГЁГ­ГЄГ®Гў | Г‘Г­ГїГІГЁГҐ',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГіГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г­Г Г§ГўГ Г­ГЁГ© Г±ГІГ®Г°Г®Г­Г­ГЁГµ SAMP/CRMP/GTA V Г±ГҐГ°ГўГҐГ°Г®Гў, IP Г Г¤Г°ГҐГ±Г®Гў, ГЇГ°ГЁГЈГ«Г ГёГҐГ­ГЁГҐ ГЁГЈГ°Г®ГЄГ®Гў ГЇГ®ГЁГЈГ°Г ГІГј Г­Г  Г¤Г°ГіГЈГ®Г¬ Г±ГҐГ°ГўГҐГ°ГҐ',
+'9. ГЋГґГґГІГ®ГЇ Гў /msg | Г‚Г»ГЈГ®ГўГ®Г°',
+'- ГђГ Г§Г°ГҐГёГҐГ­Г® ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј ГЄГ®Г¬Г Г­Г¤Гі Г¤Г«Гї Г®ГЇГ®ГўГҐГ№ГҐГ­ГЁГї ГЁГЈГ°Г®ГЄГ®Гў Г®ГЎ Г®ГІГЎГ®Г°Г Гµ, Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГїГµ, Г±Г«ГҐГ¦ГЄГҐ Г§Г  ГЄГ ГЇГІГ Г¬ГЁ/ГЎГЁГ§ГўГ Г°Г Г¬ГЁ ГЁ ГІ.Г¤',
+'10. ГЃГ«Г ГІ ГЄГ®ГЈГ®-Г«ГЁГЎГ® ГЁГ§ ГЁГЈГ°Г®ГЄГ®Гў/Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Гў | Г„ГўГ  ГўГ»ГЈГ®ГўГ®Г°Г ',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГўГ»Г¤Г ГўГ ГІГј Г®Г°ГіГ¦ГЁГҐ/ГЎГ°Г®Г­Гѕ/ГµГЇ ГЇГҐГ°Г±Г®Г­Г Г¦Г  ГЁ ГµГЇ ГІГ°Г Г­Г±ГЇГ®Г°ГІГ  ГЇГ® ГЇГ°Г®Г±ГјГЎГҐ Гў Г°ГҐГЇГ®Г°ГІ ГЁГ«ГЁ Г­Г ГЇГ°ГїГ¬ГіГѕ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Гі',
+'- ГђГ Г§Г°ГҐГёГҐГ­Г  ГЇГ®Г·ГЁГ­ГЄГ  ГІГ°Г Г­Г±ГЇГ®Г°ГІГ  ГўГ­ГҐ ГђГЏ ГЇГ°Г®Г¶ГҐГ±Г±Г ',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® Г®Г±ГіГ№ГҐГ±ГІГўГ«ГїГІГј ГЇГ®Г¬ГҐГµГі Г­Г  Г±ГҐГ¬ГҐГ©Г­Г®Г¬ Г®ГЈГ°Г ГЎГ«ГҐГ­ГЁГЁ Г± Г¶ГҐГ«ГјГѕ ГЇГ®Г¬Г®Г·Гј Г®ГЇГ°ГҐГ¤ГҐГ«ВёГ­Г­Г»Г¬ ГЁГЈГ°Г®ГЄГ Г¬',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГЎГҐГ§ ГЇГ°ГЁГ·ГЁГ­Г» ГўГ»Г¤Г ГўГ ГІГј Г¤Г®Г­Г ГІ Г®Г·ГЄГЁ',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГЁГЈГ­Г®Г°ГЁГ°Г®ГўГ Г­ГЁГҐ Г­Г Г°ГіГёГҐГ­ГЁГ© ГЁГЈГ°Г®ГЄГ®Гў/Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Гў',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГЎГҐГ§ ГЇГ°ГЁГ·ГЁГ­Г» Г Г­Г­ГіГ«ГЁГ°Г®ГўГ ГІГј Г­Г ГЄГ Г§Г Г­ГЁГї | Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ: ГЇГ®Г«ГіГ·ГҐГ­ГЁГҐ Г­ГҐГўГҐГ°Г­Г®ГЈГ® Г­Г ГЄГ Г§Г Г­ГЁГї ГЇГ® ГўГ ГёГҐГ© ГўГЁГ­ГҐ',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГґГЁГЄГ±ГЁГ°Г®ГўГ Г­ГЁГҐ Г­Г Г°ГіГёГҐГ­ГЁГї Г± ГЁГЈГ°Г®ГЄГ  (ГІГўГЁГ­ГЄ-Г ГЄГЄГ ГіГ­ГІГ ) ГЁ ГўГ»Г¤Г Г·Г  Г­Г ГЄГ Г§Г Г­ГЁГї Г± Г Г¤Г¬ГЁГ­-Г ГЄГЄГ ГіГ­ГІГ  | Г’Г°ГҐГЎГіГҐГІГ±Гї ГЇГЁГ±Г ГІГј Г¦Г Г«Г®ГЎГі Г­Г  ГґГ®Г°ГіГ¬ГҐ',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГІГҐГ«ГҐГЇГ®Г°ГІГЁГ°Г®ГўГ ГІГј ГЁГЈГ°Г®ГЄГ®Гў Г­Г  Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГҐ. ГЏГ®Г±ГҐГ№ГҐГ­ГЁГҐ Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГ© Г¤Г®Г«Г¦Г­Г® ГЎГ»ГІГј Г±ГІГ°Г®ГЈГ® Г·ГҐГ°ГҐГ§ /gotp | Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ: ГҐГ±Г«ГЁ ГЎГ»Г«Г  Г®ГёГЁГЎГ®Г·Г­Г Гї Г¤ГЁГ±ГЄГўГ Г«ГЁГґГЁГЄГ Г¶ГЁГї Г± Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГї',
+'11. ГЏГ®Г¬ГҐГµГ  RP/Г‚Г«ГҐГ§Г Г­ГЁГҐ Гў RP ГЇГ°Г®Г¶ГҐГ±Г± | Г‚Г»ГЈГ®ГўГ®Г°',
+'12. ГЏГ°Г®ГўГҐГ°ГЄГ  ГЁГЈГ°Г®ГЄГ  Г­Г  Г·ГЁГІГ» Г·ГҐГ°ГҐГ§ Г±ГЄГ Г©ГЇ ГЁГ«ГЁ Г¤ГЁГ±ГЄГ®Г°Г¤ | Г„ГўГ  ГўГ»ГЈГ®ГўГ®Г°Г ',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГЇГ°Г®Г±ГЁГІГј ГЁГЈГ°Г®ГЄГ®Гў ГЇГ°Г®Г©ГІГЁ Гў Г±ГЄГ Г©ГЇ/Г¤ГЁГ±ГЄГ®Г°Г¤ Г¤Г«Гї ГЇГ°Г®ГўГҐГ°ГЄГЁ Г±ГЎГ®Г°ГЄГЁ Г­Г  Г­Г Г«ГЁГ·ГЁГҐ Г·ГЁГІГ®Гў',
+'13. ГЏГ®ГЇГ°Г®ГёГ Г©Г­ГЁГ·ГҐГ±ГІГўГ® | Г‚Г»ГЈГ®ГўГ®Г°',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГЇГ°Г®Г±ГЁГІГј ГўГ Г«ГѕГІГі/Г ГЄГ±ГҐГ±Г±ГіГ Г°Г» ГЁ Г¤Г°ГіГЈГЁГҐ ГўГҐГ№ГЁ, Г±Г­ГїГІГј ГўГ»ГЈГ®ГўГ®Г°, ГЇГ®ГўГ»Г±ГЁГІГј ГіГ°Г®ГўГҐГ­Гј Г Г¤Г¬ГЁГ­-ГЇГ°Г Гў Гў /a, /v, Г  ГІГ ГЄГ¦ГҐ Гў /sms, ГҐГ±Г«ГЁ Г±Г®ГЎГҐГ±ГҐГ¤Г­ГЁГЄ ГЇГ°Г®ГІГЁГў ГЇГ®ГЇГ°Г®ГёГ Г©Г­ГЁГ·ГҐГ±ГІГўГ ',
+'- ГЏГ®ГЇГ°Г®ГёГ Г©Г­ГЁГ·ГҐГ±ГІГўГ® Г°Г Г§Г°ГҐГёГҐГ­Г® Гў /t ГЁ Гі Г¤Г°ГіГ§ГҐГ©, ГҐГ±Г«ГЁ Г±ГІГ®ГЁГІГҐ Г°ГїГ¤Г®Г¬ Г¤Г°ГіГЈ Г± Г¤Г°ГіГЈГ®Г¬ ГЁ Г®Г­ГЁ Г­ГҐ ГЇГ°Г®ГІГЁГў',
+'14. Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Г·ГЁГІГ®Гў ГЇГ°Г®ГІГЁГў ГЁГЈГ°Г®ГЄГ®Гў | Г‘Г­ГїГІГЁГҐ',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г» Г«ГѕГЎГ»ГҐ Г·ГЁГІГ», ГЄГ®ГІГ®Г°Г»ГҐ Г¬Г®ГЈГіГІ ГЇГ®Г¬ГҐГёГ ГІГј ГЁГЈГ°ГҐ Г¤Г°ГіГЈГЁГµ ГЁГЈГ°Г®ГЄГ®Гў',
+'ГЏГ°ГЁГ¬ГҐГ·Г Г­ГЁГҐ: Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Г·ГЁГІГ®Гў Г­Г  DM Г Г°ГҐГ­ГҐ ГЇГ°Г®ГІГЁГў ГЁГЈГ°Г®ГЄГ®Гў, ГЄГ®ГІГ®Г°Г»ГҐ Г­ГҐ ГўГ«ГЁГїГѕГІ Г­Г  Г±ГІГ°ГҐГ«ГјГЎГі | Г„ГўГ  ГўГ»ГЈГ®ГўГ®Г°Г ',
+'15. Г‚Г»Г¤Г Г·Г  Г­Г ГЄГ Г§Г Г­ГЁГ© ГЇГ® ГЇГ°Г®Г±ГјГЎГҐ Г¤Г°ГіГЈГ®ГЈГ® Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г  | Г‚Г»ГЈГ®ГўГ®Г°',
+'- ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°, Г·ГјГї ГЇГ°Г®Г±ГјГЎГ  ГЎГ»Г«Г  ГўГ»ГЇГ®Г«Г­ГҐГ­Г , Г­Г ГЄГ Г§Г Г­ГЁГї Г­ГҐ Г­ГҐГ±ВёГІ',
+'16. ГЌГ Г«ГЁГ·ГЁГҐ ГЎГ®Г«ГҐГҐ 1 Г Г¤Г¬ГЁГ­ Г ГЄГЄГ ГіГ­ГІГ  | Г‘Г­ГїГІГЁГҐ ГўГ±ГҐГµ Г ГЄГЄГ ГіГ­ГІГ®Гў Г± Г Г¤Г¬ГЁГ­ГЄГЁ',
+'- ГђГ Г§Г°ГҐГёГҐГ­Г® Гў Г±Г«ГіГ·Г ГҐ ГЁГЈГ°Г» Г¤ГўГіГµ Г«ГѕГ¤ГҐГ© Г­Г  Г®Г¤Г­Г®Г¬ IP, ГҐГ±Г«ГЁ Г­Г  ГЅГІГ® ГҐГ±ГІГј Г¤Г®ГЄГ Г§Г ГІГҐГ«ГјГ±ГІГўГ ',
+'17. Г‚Г»Г¤Г Г·Г  Г­Г ГЄГ Г§Г Г­ГЁГ© Г§Г  SMS Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г Г¬ | Г‚Г»ГЈГ®ГўГ®Г°',
+'- ГђГ Г§Г°ГҐГёВёГ­ Г±Г Г¬ ГґГ ГЄГІ Г­Г ГЇГЁГ±Г Г­ГЁГї SMS Г¤Г«Гї Г±ГўГїГ§ГЁ Г± Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г Г¬ГЁ, ГўГ±ГҐ ГЇГ°Г ГўГЁГ«Г  Г·Г ГІГ  ГЇГ°Г®Г¤Г®Г«Г¦Г ГѕГІ Г¤ГҐГ©Г±ГІГўГ®ГўГ ГІГј',
+'18. Г‚Г»Г¤Г Г·Г  Г­Г ГЄГ Г§Г Г­ГЁГ© Г§Г  DM Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Гў | Г‚Г»ГЈГ®ГўГ®Г°',
+'- ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Гў Г±ГҐГ°ГўГҐГ°Г  Г°Г Г§Г°ГҐГёГҐГ­Г® Г°Г Г­ГЁГІГј/ГіГЎГЁГўГ ГІГј',
+'19. ГЌГ ГЄГ°ГіГІГЄГ  Г°ГҐГЇГіГІГ Г¶ГЁГЁ | Г‘Г­ГїГІГЁГҐ',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г  Г­Г ГЄГ°ГіГІГЄГ  Г°ГҐГЇГіГІГ Г¶ГЁГЁ Г± ГЇГ®Г¬Г®Г№ГјГѕ ГІГўГЁГ­ГЄ-Г ГЄГЄГ ГіГ­ГІГ®Гў ГЁ Г¤Г°ГіГ§ГҐГ©, Г·ГІГ® ГЇГЁГёГіГІ Гў Г°ГҐГЇГ®Г°ГІ, Г  ГўГ» Г®ГІГўГҐГ·Г ГҐГІГҐ ГЁ ГЇГ®Г«ГіГ·Г ГҐГІГҐ ГЇГ®Г«Г®Г¦ГЁГІГҐГ«ГјГ­Г»ГҐ Г®Г¶ГҐГ­ГЄГЁ',
+'20. Г‚Г»ГЇГ°Г ГёГЁГўГ Г­ГЁГҐ Г®Г¶ГҐГ­ГЄГЁ Г®ГІГўГҐГІГ  Г­Г  Г°ГҐГЇГ®Г°ГІ | Г‚Г»ГЈГ®ГўГ®Г°',
+'21. Г‚Г»Г¤Г Г·Г  ГўГ»ГЈГ®ГўГ®Г°Г (-Г®Гў) Гў Г®ГІГўГҐГІ | Г‘Г­ГїГІГЁГҐ/Г€Г§ГєГїГІГЁГҐ ГЄГ®Г¬Г Г­Г¤Г»',
+'- Г…Г±Г«ГЁ ГўГ Г± Г­Г ГЄГ Г§Г Г« Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° (Г­Г  Г®Г±Г­Г®ГўГ­Г®Г¬ Г ГЄГЄГ ГіГ­ГІГҐ ГЁГ«ГЁ ГІГўГЁГ­ГЄГҐ), Г§Г ГЇГ°ГҐГ№ГҐГ­Г® Гў Г®ГІГўГҐГІ ГўГ»Г¤Г ГўГ ГІГј ГўГ»ГЈГ®ГўГ®Г°(-Г») Г§Г  Г­ГҐГўГҐГ°Г­ГіГѕ ГўГ»Г¤Г Г·Гі Г¤Г Г­Г­Г®ГЈГ® Г­Г ГЄГ Г§Г Г­ГЁГї',
+'- Г…Г±Г«ГЁ ГўГ Г¬ ГўГ»Г¤Г Г«ГЁ ГўГ»ГЈГ®ГўГ®Г°(-Г») Гў Г®ГІГўГҐГІ, Г§Г ГЇГ°ГҐГ№ГҐГ­Г® Г±Г Г¬Г®Г«ГЁГ·Г­Г® Г­Г ГЄГ Г§Г»ГўГ ГІГј ГІГ ГЄГ®ГЈГ® Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г ',
+'- ГЏГ°ГЁ ГЇГ®Г«ГіГ·ГҐГ­ГЁГЁ ГўГ»ГЈГ®ГўГ®Г°Г (-Г®Гў) Г®ГІ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г  ГўГ» ГўГ±Вё ГІГ ГЄ Г¦ГҐ Г¬Г®Г¦ГҐГІГҐ ГўГ»Г¤Г ГўГ ГІГј ГҐГ¬Гі Г­Г ГЄГ Г§Г Г­ГЁГї Г§Г  Г­Г Г°ГіГёГҐГ­ГЁГҐ ГЇГ°Г ГўГЁГ«, ГҐГ±Г«ГЁ Г­Г  ГІГ® ГЁГ¬ГҐГѕГІГ±Гї Г¤Г®ГЄГ Г§Г ГІГҐГ«ГјГ±ГІГўГ ',
+'22. ГЏГ®Г¤Г±ГІГ ГўГ­Г»ГҐ Г¤ГҐГ©Г±ГІГўГЁГї Г­Г  Г±Г­ГїГІГЁГҐ | Г„ГўГ  ГўГ»ГЈГ®ГўГ®Г°Г /Г‘Г­ГїГІГЁГҐ',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГЇГ°Г®Г±ГЁГІГј Г¤Г°ГіГЈГ®ГЈГ® Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г  Г±ГЄГ Г§Г ГІГј/Г±Г¤ГҐГ«Г ГІГј ГІГ®, Г§Г  Г·ГІГ® Г®Г­ Г¬Г®Г¦ГҐГІ ГЇГ®Г«ГіГ·ГЁГІГј Г±Г­ГїГІГЁГҐ',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГЇГ»ГІГ ГІГјГ±Гї ГЇГ®Г¤Г±ГІГ ГўГЁГІГј ГЁГЈГ°Г®ГЄГ®Гў/Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Гў Г± ГЇГ®Г¬Г®Г№ГјГѕ ГЇГ°Г®ГЈГ°Г Г¬Г¬/Г·ГЁГІГ®Гў',
+'23. ГђГ®Г§Г¦ГЁГЈ ГЄГ®Г­ГґГ«ГЁГЄГІГ  | Г„ГўГ  ГўГ»ГЈГ®ГўГ®Г°Г ',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® Г±Г«Г®ГўГ Г¬ГЁ/Г¤ГҐГ©Г±ГІГўГЁГїГ¬ГЁ ГЇГ°Г®ГўГ®Г¶ГЁГ°Г®ГўГ ГІГј Г­Г  ГЄГ®Г­ГґГ«ГЁГЄГІ ГЁГЈГ°Г®ГЄГ®Гў/Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Гў',
+'ГЏГ°ГЁГ¬ГҐГ°: ГЇГ®ГЇГ»ГІГЄГ  Г§Г ГІГЄГ­ГіГІГј Г·ГҐГ«Г®ГўГҐГЄГ , Г§Г Г±ГІГ ГўГ«ГїГІГј ГҐГЈГ® Г¬Г®Г«Г·Г ГІГј, ГіГ­ГЁГ¦ГҐГ­ГЁГҐ Г·ГҐГ«Г®ГўГҐГЄГ ',
+'24. ГЌГ Г°ГіГёГҐГ­ГЁГҐ ГЇГ°Г ГўГЁГ« Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГЁ 3+ Г°Г Г§ | Г‘Г­ГїГІГЁГҐ',
+'ГЏГ°ГЁГ¬ГҐГ°: ГЇГ®Г«ГіГ·ГҐГ­ГЁГҐ 3 ГўГ»ГЈГ®ГўГ®Г°Г  Г§Г  Г®Г±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г /ГЁГЈГ°Г®ГЄГ ',
+'ГЏГ°ГЁГ¬ГҐГ·Г Г­ГЁГҐ: Г­Г ГЄГ Г§Г Г­ГЁГҐ ГўГ»Г¤Г ГҐГІГ±Гї Гў ГІГ®Г¬ Г±Г«ГіГ·Г ГҐ, ГҐГ±Г«ГЁ ГЁГ­ГІГҐГ°ГўГ Г« Г¬ГҐГ¦Г¤Гі ГЄГ Г¦Г¤Г»Г¬ Г­Г Г°ГіГёГҐГ­ГЁГҐГ¬ Г¬ГҐГ­ГҐГҐ 15-ГІГЁ Г¬ГЁГ­ГіГІ',
+'25. ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ ГЄГ°Г Г±Г­Г»Гµ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Гў, Г  ГІГ ГЄГ¦ГҐ ГіГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ/Г®Г±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ ГЁГµ Г°Г®Г¤Г­ГЁ | Г‘Г­ГїГІГЁГҐ + mute Г­Г  30 Г¬ГЁГ­ГіГІ',
+'- ГЏГ°Г ГўГЁГ«Г® Г°Г Г±ГЇГ°Г®Г±ГІГ°Г Г­ГїГҐГІГ±Гї Г­Г  Г±Г®Г¶.Г±ГҐГІГЁ, ГўГЁГ¤ГҐГ®ГµГ®Г±ГІГЁГ­ГЈГЁ, ГґГ®Г°ГіГ¬, ГЁГЈГ°Гі, Г¤ГЁГ±ГЄГ®Г°Г¤ (Г¬ГіГІ Г­ГҐ ГўГ»Г¤Г ВёГІГ±Гї, ГҐГ±Г«ГЁ Г­Г Г°ГіГёГҐГ­ГЁГҐ ГЎГ»Г«Г® Г­ГҐ Гў ГЁГЈГ°ГҐ)',
+'26. Г‘ГіГ¬Г¬ГЁГ°Г®ГўГ Г­ГЁГҐ Г­Г ГЄГ Г§Г Г­ГЁГ© | Г‚Г»ГЈГ®ГўГ®Г°',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® Г±ГіГ¬Г¬ГЁГ°Г®ГўГ ГІГј Г­Г ГЄГ Г§Г Г­ГЁГї Г¤Г°ГіГЈ Г± Г¤Г°ГіГЈГ®Г¬ ГЁ ГЇГ®Г±Г«ГҐГ¤ГіГѕГ№Г Гї ГўГ»Г¤Г Г·Г  ГЁГµ Г± ГіГўГҐГ«ГЁГ·ГҐГ­Г­Г»Г¬ ГўГ°ГҐГ¬ГҐГ­ГҐГ¬/ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ®Г¬',
+'ГЏГ°ГЁГ¬ГҐГ° Г± ГЁГЈГ°Г®ГЄГ®Г¬: ГЁГЈГ°Г®ГЄ 2 Г°Г Г§Г  Г­Г Г°ГіГёГЁГ« ГЇГ°Г ГўГЁГ«Г® "ГЉГ ГЇГ± Гў Г·Г ГІ - mute 10 Г¬ГЁГ­ГіГІ" ГЁ ГўГ» ГўГ»Г¤Г Г«ГЁ ГҐГ¬Гі 20 Г¬ГЁГ­ГіГІ Г¬ГіГІГ  ГўГ¬ГҐГ±ГІГ® ГЇГ®Г«Г®Г¦ГҐГ­Г­Г»Гµ ГЇГ® ГЇГ°Г ГўГЁГ«Гі 10 Г¬ГЁГ­ГіГІ',
+'ГЏГ°ГЁГ¬ГҐГ° Г± Г Г¤Г¬ГЁГ­Г®Г¬: Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° 2 Г°Г Г§Г  Г­Г Г°ГіГёГЁГ« ГЇГ°Г ГўГЁГ«Г® "DM ГЁГЈГ°Г®ГЄГ®Гў - ГўГ»ГЈГ®ГўГ®Г°" ГЁ ГўГ» ГўГ»Г¤Г Г«ГЁ ГҐГ¬Гі Г±Г°Г Г§Гі 2 ГўГ»ГЈГ®ГўГ®Г°Г  ГўГ¬ГҐГ±ГІГ® ГЇГ®Г«Г®Г¦ГҐГ­Г­Г®ГЈГ® ГЇГ® ГЇГ°Г ГўГЁГ«Гі Г®Г¤Г­Г®ГЈГ® ГўГ»ГЈГ®ГўГ®Г°Г ',
+'- Г‹ГѕГЎГ®ГҐ Г­Г ГЄГ Г§Г Г­ГЁГҐ Г¤Г®Г«Г¦Г­Г® ГўГ»Г¤Г ГўГ ГІГјГ±Гї Г±Г°Г Г§Гі ГЇГ®Г±Г«ГҐ Г­Г Г°ГіГёГҐГ­ГЁГї. Г…Г±Г«ГЁ ГўГ»Г¤Г ГІГј Г­Г ГЄГ Г§Г Г­ГЁГҐ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Гі/ГЁГЈГ°Г®ГЄГі ГЁ Г®Г­ ГЇГ°Г®Г¤Г®Г«Г¦Г ГҐГІ Г­Г Г°ГіГёГ ГІГј, Г°Г Г§Г°ГҐГёГҐГ­Г® ГўГ»Г¤Г ГўГ ГІГј Г­Г ГЄГ Г§Г Г­ГЁГҐ Г§Г  ГЇГ®Г±Г«ГҐГ¤ГіГѕГ№ГҐГҐ Г­Г Г°ГіГёГҐГ­ГЁГҐ',
+'27. ГђГ®Г§Г¦ГЁГЈ Г¬ГҐГ¦Г­Г Г¶ГЁГ®Г­Г Г«ГјГ­Г®Г© Г°Г®Г§Г­ГЁ | Г„ГўГ  ГўГ»ГЈГ®ГўГ®Г°Г ',
+'28. ГђГ Г±ГЇГ°Г®Г±ГІГ°Г Г­ГҐГ­ГЁГҐ Г±ГІГ®Г°Г®Г­Г­ГЁГµ Г±ГЄГ°ГЁГЇГІГ®Гў | Г‚Г»ГЈГ®ГўГ®Г°',
+'29. Г‡Г«Г®ГіГЇГ®ГІГ°ГҐГЎГ«ГҐГ­ГЁГҐ ГЄГ ГЇГ±Г®Г¬ Гў /a /v | Г‚Г»ГЈГ®ГўГ®Г°',
+'- ГђГ Г§Г°ГҐГёГҐГ­ ГЄГ ГЇГ± Г¤Г® 2-Гµ (ГўГЄГ«ГѕГ·ГЁГІГҐГ«ГјГ­Г®) Г±Г«Г®Гў Гў 2 Г¬ГЁГ­ГіГІГ»',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® Г®ГІГЇГ°Г ГўГ«ГҐГ­ГЁГҐ Г¤Г«ГЁГ­Г­Г»Гµ Г±Г«Г®Гў, Г­Г ГЇГЁГ±Г Г­Г­Г»Гµ ГЇГ°ГҐГЁГ¬ГіГ№ГҐГ±ГІГўГҐГ­Г­Г® ГЄГ ГЇГ±Г®Г¬',
+'30. ГЏГ®Г¬Г®Г№Гј Г­Г  ГЄГ ГЇГІГҐ/ГЎГЁГ§ГўГ Г°ГҐ | Г„ГўГ  ГўГ»ГЈГ®ГўГ®Г°Г ',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® Г­Г Г§Г­Г Г·Г ГІГј Г±ГҐГЎГї ГўГ°ГҐГ¬ГҐГ­Г­Г»Г¬ Г«ГЁГ¤ГҐГ°Г®Г¬ ГЁ ГЇГ®Г¬Г®ГЈГ ГІГј Гў ГіГўГҐГ«ГЁГ·ГҐГ­ГЁГЁ Г±Г·ВёГІГ  ГіГЎГЁГІГ»Гµ/Г­Г ГµГ®Г¤ГїГ№ГЁГµГ±Гї Г­Г  ГІГҐГ°Г°ГЁГІГ®Г°ГЁГЁ ГІГ®Г© ГЁГ«ГЁ ГЁГ­Г®Г© ГЎГ Г­Г¤ГҐ/Г¬Г ГґГЁГЁ, ГІГҐГ¬ Г±Г Г¬Г»Г¬ ГЇГ®Г¬Г®ГЈГ Гї ГўГ»ГЁГЈГ°Г ГІГј',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г  ГЇГ®Г¬Г®Г№Гј Гў ГЇГҐГ°ГҐГ¬ГҐГ№ГҐГ­ГЁГЁ Г­Г  ГЄГ ГЇГІ/ГЎГЁГ§ГўГ Г°, Г  ГІГ ГЄГ¦ГҐ ГЇГ® Г®Г±ГЇГ Г°ГЁГўГ ГҐГ¬Г®Г© ГІГҐГ°Г°ГЁГІГ®Г°ГЁГЁ',
+'- Г‡Г ГЇГ°ГҐГ№ВёГ­Г® ГІГҐГ«ГҐГЇГ®Г°ГІГЁГ°Г®ГўГ ГІГј Г±Г®ГЇГҐГ°Г­ГЁГЄГ®Гў Г¤Г°ГіГЈ ГЄ Г¤Г°ГіГЈГі',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г  ГўГ»Г¤Г Г·Г  Г®Г°ГіГ¦ГЁГї/ГІГ°Г Г­Г±ГЇГ®Г°ГІГ /ГµГЇ/ГЎГ°Г®Г­ГЁ/Г¬Г Г±Г®ГЄ',
+'31. Г‘Г«ГЁГў ГІГҐГ°Г°ГЁГІГ®Г°ГЁГ©/ГЎГЁГ§Г­ГҐГ±Г®Гў | Г‘Г­ГїГІГЁГҐ',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г  ГўГ»Г¤Г Г·Г  ГІГҐГ°Г°ГЁГІГ®Г°ГЁГ©/ГЎГЁГ§Г­ГҐГ±Г®Гў ГЎГҐГ§ Г¤Г®ГЄГ Г§Г ГІГҐГ«ГјГ±ГІГў ГЁ ГЇГ°ГЁГ·ГЁГ­Г»',
+'32. ГђГ Г§ГЈГ«Г ГёГҐГ­ГЁГҐ Г¶ГҐГ­ ГЇГ«Г ГІГ­Г»Гµ ГЄГ®Г¬Г Г­Г¤ | Г‘Г­ГїГІГЁГҐ',
+'Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ: Г€Г­ГґГ®Г°Г¬ГЁГ°Г®ГўГ Г­ГЁГҐ Г® ГЇГ«Г ГІГ­Г»Гµ ГЄГ®Г¬Г Г­Г¤Г Гµ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Гі 12 ГіГ°Г®ГўГ­Гї.',
+'ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г Г¬ Г­ГҐ ГЁГ¬ГҐГѕГ№ГЁГ¬ Г¤Г®Г±ГІГіГЇ Гў Г°Г Г§Г¤ГҐГ« "ГЏГ«Г ГІГ­Г»Гµ ГЄГ®Г¬Г Г­Г¤" - Г§Г ГЇГ°ГҐГ№ГҐГ­Г® Г«ГѕГЎГ®ГҐ ГЁГ­ГґГ®Г°Г¬ГЁГ°Г®ГўГ Г­ГЁГҐ.',
+'33. ГЃГ Г«Г®ГўГ±ГІГўГ® ГЄГ®Г¬Г Г­Г¤Г Г¬ГЁ | Г„ГўГ  ГўГ»ГЈГ®ГўГ®Г°Г ',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г  Г­Г Г¬ГҐГ°ГҐГ­Г­Г Гї ГЎГҐГ±ГЇГ°ГЁГ·ГЁГ­Г­Г Гї ГўГ»Г¤Г Г·Г  ГЁ ГЇГ®Г±Г«ГҐГ¤ГіГѕГ№ГҐГҐ Г±Г­ГїГІГЁГҐ Г­Г ГЄГ Г§Г Г­ГЁГ© ГЁГЈГ°Г®ГЄГі',
+'ГЏГ°ГЁГ¬ГҐГ°: ГўГ»Г¤Г Г·Г  /ban ГЇГ® ГЇГ°ГЁГ·ГЁГ­ГҐ "Г°ГҐГ«Г®ГЈ" ГЁГЈГ°Г®ГЄГі, ГҐГ±Г«ГЁ ГІГ®ГІ Г­ГҐ Г­ГіГ¦Г¤Г Г«Г±Гї Гў ГЅГІГ®Г¬ Гў Г±ГўГїГ§ГЁ Г± ГЎГ ГЈГ®Г¬ ГЁ Г­ГҐГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГјГѕ ГўГ»Г©ГІГЁ Г± Г±ГҐГ°ГўГҐГ°Г  Г±Г Г¬Г®Г±ГІГ®ГїГІГҐГ«ГјГ­Г®',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г  Г­Г Г¬ГҐГ°ГҐГ­Г­Г Гї ГўГ»Г¤Г Г·Г  Г±ГЇГ ГўГ­Г /Г±Г«Г ГЇГ , ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГҐ Г§Г¤Г®Г°Г®ГўГјГї/Г±ГЄГЁГ­Г , ГІГҐГ«ГҐГЇГ®Г°ГІ Г± Г¶ГҐГ«ГјГѕ Г­Г ГўГ°ГҐГ¤ГЁГІГј/ГЇГ®Г¬ГҐГёГ ГІГј/ГЇГ®Г±Г¬ГҐГїГІГјГ±Гї Г­Г Г¤ ГЁГЈГ°Г®ГЄГ®Г¬',
+'ГЏГ°ГЁГ¬ГҐГ°: Г±Г«Г ГЇ ГЁГЈГ°Г®ГЄГ  Гў ГЈГ°ГіГ§Г®ГўГЁГЄГҐ Г±ГҐГ¬ГҐГ©Г­Г®ГЈГ® Г®ГЈГ°Г ГЎГ«ГҐГ­ГЁГї, Г±ГЇГ ГўГ­ Г± Г¶ГҐГ«ГјГѕ Г§Г ГЎГ°Г ГІГј Г«Г ГўГЄГі Г­Г  Г¶ГҐГ­ГІГ°Г Г«ГјГ­Г®Г¬ Г°Г»Г­ГЄГҐ',
+'Г‡Г  ГЁГ±ГЄГ«ГѕГ·ГҐГ­ГЁГҐГ¬ ГҐГ±Г«ГЁ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° Г®ГёГЁГЎГ±Гї ID ГЁ Г±Г¬Г®Г¦ГҐГІ ГЅГІГ® Г¤Г®ГЄГ Г§Г ГІГј',
+'- Г‡Г ГЇГ°ГҐГ№ВёГ­ ГІГҐГ«ГҐГЇГ®Г°ГІ ГЁГЈГ°Г®ГЄГ®Гў ГЎГҐГ§ ГЁГµ Г°Г Г§Г°ГҐГёГҐГ­ГЁГї',
+'ГЏГ°ГЁГ¬ГҐГ°: ГІГҐГ«ГҐГЇГ®Г°ГІ ГЇГ® ГЇГ°Г®Г±ГјГЎГҐ Г¤Г°ГіГЈГ®ГЈГ® ГЁГЈГ°Г®ГЄГ  Гў Г°ГҐГЇГ®Г°ГІ | Г—ГІГ®ГЎГ» Г­ГҐ ГЇГ®Г«ГіГ·ГЁГІГј Г¦Г Г«Г®ГЎГі, Г­ГіГ¦Г­Г® Г±ГЇГ°Г®Г±ГЁГІГј Г°Г Г§Г°ГҐГёГҐГ­ГЁГї Гі ГІГ®ГЈГ®, ГЄГ®ГЈГ®/ГЄ ГЄГ®Г¬Гі Г‚Г» ГІГҐГ«ГҐГЇГ®Г°ГІГЁГ°ГіГҐГІГҐ',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г  ГўГ»Г¤Г Г·Г  Г­Г ГЄГ Г§Г Г­ГЁГ© Г±Г Г¬Г®Г¬Гі Г±ГҐГЎГҐ',
+'Г…Г±Г«ГЁ ГўГ» Г¤Г®Г«Г¦Г­Г» ГЇГ®Г«ГіГ·ГЁГІГј ГЄГ ГЄГ®ГҐ-Г«ГЁГЎГ® Г­Г ГЄГ Г§Г Г­ГЁГҐ ГЁ Г°ГҐГёГЁГ«ГЁ ГўГ»Г¤Г ГІГј ГҐГЈГ® Г±ГҐГЎГҐ Г±Г Г¬ГЁ, ГЅГІГ® Г­ГҐ Г®ГІГ¬ГҐГ­ГїГҐГІ ГўГ»Г¤Г Г·Гі ГўГ»ГЈГ®ГўГ®Г°Г®Гў Г®ГІ Г¤Г°ГіГЈГЁГµ Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Гў',
+'ГЏГ°ГЁГ¬ГҐГ°: ГіГўГЁГ¤ГҐГў Г¦Г Г«Г®ГЎГі Г­Г  ГґГ®Г°ГіГ¬ГҐ, ГўГ» Г°ГҐГёГЁГ«ГЁ Г­Г ГЄГ Г§Г ГІГј Г±Г Г¬ГЁ Г±ГҐГЎГї; ГЇГ®Г«ГіГ·ГЁГІГҐ ГўГ»ГЈГ®ГўГ®Г° Г§Г  ГЎГ Г«Г®ГўГ±ГІГўГ® ГЄГ®Г¬Г Г­Г¤Г Г¬ГЁ ГЁ Г­Г ГЄГ Г§Г Г­ГЁГҐ ГЇГ® Г¦Г Г«Г®ГЎГҐ',
+'34. Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГЎГ ГЈГ®Гў Г±ГҐГ°ГўГҐГ°Г  Г¤Г«Гї ГЇГ®Г«ГіГ·ГҐГ­ГЁГї Г¬Г ГІГҐГ°ГЁГ Г«ГјГ­Г®Г© ГўГ»ГЈГ®Г¤Г» | Г‘Г­ГїГІГЁГҐ + ГЎГ Г­',
+'ГЏГ°ГЁГ¬ГҐГ°: ГЎГ ГЈГ®ГѕГ§/Г¤ГѕГЇ Г§Г®Г«Г®ГІГ»Гµ Г¬Г®Г­ГҐГІ, Г°ГҐГ¤ГЄГЁГµ Г±ГЄГЁГ­Г®Гў ГЁ ГІ.Г¤.',
+'35. ГЌГ Г°ГіГёГҐГ­ГЁГҐ ГЇГ°Г ГўГЁГ« ГЇГ°Г®ГўГҐГ°ГЄГЁ Г¦Г Г«Г®ГЎ | Г‚Г»ГЈГ®ГўГ®Г°',
+'36. ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г±ГҐГ°ГўГҐГ°Г  | Г‘Г­ГїГІГЁГҐ + ГЎГ Г­',
+'37. /pm Гў Г«ГЁГ·Г­Г»Гµ Г¶ГҐГ«ГїГµ | Г‚Г»ГЈГ®ГўГ®Г°',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г  ГЎГҐГ±ГЇГ°ГЁГ·ГЁГ­Г­Г Гї Г±ГўГїГ§Гј Г·ГҐГ°ГҐГ§ /pm Г± ГЁГЈГ°Г®ГЄГ®Г¬, ГЄГ®ГІГ®Г°Г»Г© Г­ГҐ ГЇГЁГ±Г Г« Гў Г°ГҐГЇГ®Г°ГІ',
+'- ГђГ Г§Г°ГҐГёГҐГ­Г® ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј /pm "Г‚Г» ГІГіГІ?" Г± Г¶ГҐГ«ГјГѕ ГіГЎГҐГ¤ГЁГІГјГ±Гї, Г­ГҐ Г ГґГЄ Г«ГЁ ГЁГЈГ°Г®ГЄ',
+'38. Г”Г«ГіГ¤ Г Г¤Г¬ГЁГ­-ГЄГ®Г¬Г Г­Г¤Г Г¬ГЁ | Г‚Г»ГЈГ®ГўГ®Г°',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® Г§Г Г±Г®Г°ГїГІГј Г·Г ГІ Г Г¤Г¬ГЁГ­-Г¤ГҐГ©Г±ГІГўГЁГїГ¬ГЁ, Г­Г ГЇГ°ГЁГ¬ГҐГ° ГўГ»Г¤Г Г·Г  Г®Г°ГіГ¦ГЁГї/ГµГЇ/ГЎГ°Г®Г­ГЁ, ГІГҐГ«ГҐГЇГ®Г°ГІ ГЁГЈГ°Г®ГЄГ®Гў ГЄ Г±ГҐГЎГҐ ГЁ ГІ.Г¤',
+'39. Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГўГ°ГҐГ¤.Г·ГЁГІГ®Гў/ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГўГ°ГҐГ¤.Г·ГЁГІГ®Гў Г± ГІГўГЁГ­ГЄГ®Гў ГЇГ°Г®ГІГЁГў ГЁГЈГ°Г®ГЄГ®Гў/Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Гў | Г‘Г­ГїГІГЁГҐ + ГЎГ Г­',
+'40. ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ/ГіГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г°Г®Г¤Г±ГІГўГҐГ­Г­ГЁГЄГ®Гў ГЁГ«ГЁ Г®ГІГўГҐГІ ГўГ§Г ГЁГ¬Г­Г®Г±ГІГјГѕ | Г‘Г­ГїГІГЁГҐ',
+'- ГђГ Г§Г°ГҐГёГҐГ­Г® ГіГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г±ГўГ®ГЁГµ Г°Г®Г¤Г±ГІГўГҐГ­Г­ГЁГЄГ®Гў',
+'41. ГЉГ ГЇГ±/ГґГ«ГіГ¤ Гў Г·Г ГІ, Гў Г±ГІГ®Г°Г®Г­Гі ГЁГЈГ°Г®ГЄГ®Гў/Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Г®Гў | Г‚Г»ГЈГ®ГўГ®Г°',
+'- ГђГ Г§Г°ГҐГёГҐГ­ ГЄГ ГЇГ± Г¤Г® 2-Гµ (ГўГЄГ«ГѕГ·ГЁГІГҐГ«ГјГ­Г®) Г±Г«Г®Гў Гў 2 Г¬ГЁГ­ГіГІГ»',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® Г®ГІГЇГ°Г ГўГ«ГҐГ­ГЁГҐ Г¤Г«ГЁГ­Г­Г»Гµ Г±Г«Г®Гў, Г­Г ГЇГЁГ±Г Г­Г­Г»Гµ ГЇГ°ГҐГЁГ¬ГіГ№ГҐГ±ГІГўГҐГ­Г­Г® ГЄГ ГЇГ±Г®Г¬',
+'42. ГЌГҐГўГҐГ°Г­Г Гї ГўГ»Г¤Г Г·Г  Г­Г ГЄГ Г§Г Г­ГЁГї ГЁГЈГ°Г®ГЄГі/Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г°Гі | Г‚Г»ГЈГ®ГўГ®Г°',
+'43. ГЌГҐГўГҐГ°Г­Г®ГҐ Г°Г Г±Г±Г¬Г®ГІГ°ГҐГ­ГЁГҐ Г¦Г Г«Г®ГЎГ» Г­Г  ГґГ®Г°ГіГ¬ГҐ | Г‚Г»ГЈГ®ГўГ®Г°',
+'44. ГЏГ®ГЇГ»ГІГЄГ /ГЏГ°Г®Г¤Г Г¦Г  ГўГ­ГіГІГ°ГЁГЁГЈГ°Г®ГўГ®ГЈГ® ГЁГ¬ГіГ№ГҐГ±ГІГўГ  Г§Г  Г°ГҐГ Г«ГјГ­ГіГѕ ГўГ Г«ГѕГІГі | ГЃГ Г­ + ГіГ¤Г Г«ГҐГ­ГЁГҐ Г ГЄГЄГ ГіГ­ГІГ ',
+'45. Г‘Г«ГЁГў ГЇГ°Г®Г¤ГіГЄГІГ®Гў ГЎГЁГ§Г­ГҐГ±Г  | Г‘Г­ГїГІГЁГҐ + ГЎГ Г­ Г¤Г® 3 Г¤Г­ГҐГ©',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г  Г­Г Г¬ГҐГ°ГҐГ­Г­Г Гї Г±ГЄГіГЇГЄГ  ГІГ®ГўГ Г°Г®Гў Г± Г¶ГҐГ«ГјГѕ ГіГ¬ГҐГ­ГјГёГҐГ­ГЁГї ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ  ГЇГ°Г®Г¤ГіГЄГІГ®Гў ГЁ ГЇГ®Г±Г«ГҐГ¤ГіГѕГ№ГЁГ¬ Г±Г«ВёГІГ®Г¬ ГЎГЁГ§Г­ГҐГ±Г  Гў ГЈГ®Г±.',
+'46. ГЏГ°Г®Г¤Г Г¦Г /ГЏГҐГ°ГҐГ¤Г Г·Г /Г‚Г§Г«Г®Г¬ Г ГЄГЄГ ГіГ­ГІГ  | Г‘Г­ГїГІГЁГҐ + ГЎГ Г­ Г¤Г® 30 Г¤Г­ГҐГ©',
+'47. NonRP Г°Г Г§ГўГ®Г¤ | ГЏГ®Г¤ГЄГЁГ¤ | ГђГ Г§ГўГ®Г¤ /try | Г‘Г­ГїГІГЁГҐ + ГЎГ Г­ Г­Г  14 Г¤Г­ГҐГ©',
+'- ГђГ Г§ГўГ®Г¤ Г± ГІГўГЁГ­ГЄ-Г ГЄГЄГ ГіГ­ГІГ®Гў | Г‘Г­ГїГІГЁГҐ',
+'48. NonRP NickName | Г„ГўГ  ГўГ»ГЈГ®ГўГ®Г°Г ',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј nRP Г­ГЁГЄ/Г­ГЁГЄ Г­Г ГЇГЁГ±Г Г­Г­Г»Г© ГЄГ ГЇГ±Г®Г¬, ГЇГ°ГЁГ¬ГҐГ° - EVGENY_CREATOR | iVan_pUPpKin | Evgeny_Creatorrr',
+'- ГЌГЁГЄ Г¤Г®Г«Г¦ГҐГ­ ГЎГ»ГІГј Г­Г ГЇГЁГ±Г Г­ Гў ГґГ®Г°Г¬Г ГІГҐ Г€Г¬Гї_Г”Г Г¬ГЁГ«ГЁГї, ГЇГ°ГЁГ¬ГҐГ° - Evgeny_Creator',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј Г¤ГўГҐ ГЁ ГЎГ®Г«ГҐГҐ Г§Г ГЈГ«Г ГўГ­Г»ГҐ ГЎГіГЄГўГ» Гў ГЁГ¬ГҐГ­ГЁ, ГЇГ°ГЁГ¬ГҐГ° - EvGeny_Creator',
+'49. Г‘Г«ГЁГў Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГЁГўГ­Г»Гµ ГЇГ°Г Гў | Г‘Г­ГїГІГЁГҐ + ГЎГ Г­ Г¤Г® 30 Г¤Г­ГҐГ© | Г‘Г­ГїГІГЁГҐ ГІГўГЁГ­ГЄГ®Гў (ГЏГ°ГЁ Г­Г Г«ГЁГ·ГЁГЁ)',
+'50. ГЌГҐГіГўГ Г¦ГЁГІГҐГ«ГјГ­Г»Г© Г®ГІГўГҐГІ ГЁГЈГ°Г®ГЄГі | Г„ГўГ  ГўГ»ГЈГ®ГўГ®Г°Г ',
+'51. Г‚Г»Г¤Г Г·Г  Г­Г ГЄГ Г§Г Г­ГЁГї Г± Г­ГҐГЇГ®Г«Г­Г®Г© ГЇГ°ГЁГ·ГЁГ­Г®Г© | Г‚Г»ГЈГ®ГўГ®Г°',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГіГЄГ Г§Г»ГўГ ГІГј ГЇГ°ГЁГ·ГЁГ­Гі, Г­ГҐ ГЇГ®ГїГ±Г­ГїГѕГ№ГіГѕ Г§Г  Г·ГІГ® ГЁГ¬ГҐГ­Г­Г® ГЎГ»Г«Г® ГўГ»Г¤Г Г­Г® Г­Г ГЄГ Г§Г Г­ГЁГҐ',
+'ГЏГ°ГЁГ¬ГҐГ°: ГўГ»Г¤Г Г·Г  Г­Г ГЄГ Г§Г Г­ГЁГ© ГЇГ® ГЇГ°ГЁГ·ГЁГ­Г Г¬: "ГЌГ Г°ГіГёГҐГ­ГЁГҐ ГЇГ°Г ГўГЁГ« Г·Г ГІГ ", "ГЌГ Г°ГіГёГҐГ­ГЁГҐ ГЇГ°Г ГўГЁГ« Г±ГҐГ°ГўГҐГ°Г " ГЁ ГІГ®Г¬Гі ГЇГ®Г¤Г®ГЎГ­Г»Г¬ (Г­ГҐГ®ГЎГµГ®Г¤ГЁГ¬Г® ГіГЄГ Г§Г»ГўГ ГІГј Г·ВёГІГЄГіГѕ ГЇГ°ГЁГ·ГЁГ­Гі, Г­Г ГЇГ°ГЁГ¬ГҐГ° "ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ ГЁГЈГ°Г®ГЄГ ")',
+'- Г‡Г ГЇГ°ГҐГ№ГҐГ­Г» Г­ГҐГЇГ®Г­ГїГІГ­Г»ГҐ Г±Г®ГЄГ°Г Г№ГҐГ­ГЁГї ГЇГ°ГЁГ·ГЁГ­, ГЇГ°ГЁГ·ГЁГ­Г  Г¤Г®Г«Г¦Г­Г  ГЎГ»ГІГј ГЇГ®Г­ГїГІГ­Г  Г ГЎГ±Г®Г«ГѕГІГ­Г® ГўГ±ГҐГ¬ ГЁГЈГ°Г®ГЄГ Г¬'}
+local lrules = {'- ГЌГҐГ Г¤ГҐГЄГўГ ГІ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г¤ГўГ  ГўГ»ГЈГ®ГўГ®Г°Г  Г«ГЁГ¤ГҐГ°Гі + mute',
+'- ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ ГЄГ°Г Г±Г­Г®Г© Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГЁ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г‘Г­ГїГІГЁГҐ + mute',
+'- ГЌГҐГ Г¤ГҐГЄГўГ ГІГ­Г®ГҐ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ Г­Г  ГґГ®Г°ГіГ¬ГҐ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - ГўГ»ГЈГ®ГўГ®Г° Г«ГЁГ¤ГҐГ°Гі',
+'- Г“ГЇГ®Г¬ГЁГ­Г Г­ГЁГҐ Г°Г®Г¤Г­Г»Гµ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ + mute',
+'- DM, DB, TK, SK | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - ГўГ»ГЈГ®ГўГ®Г° Г«ГЁГ¤ГҐГ°Гі + jail',
+'- Г“ГўГ®Г«ГјГ­ГҐГ­ГЁГҐ ГЎГҐГ§ ГЇГ°ГЁГ·ГЁГ­ | Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ - ГЈГҐГІГІГ®/Г¬Г ГґГЁГЁ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - ГўГ»ГЈГ®ГўГ®Г° Г«ГЁГ¤ГҐГ°Гі',
+'- ГЏГ°ГЁГ­ГїГІГЁГҐ ГЁГЈГ°Г®ГЄГ  Г± NonRP Г­ГЁГЄГ®Г¬ Гў Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГѕ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - ГўГ»ГЈГ®ГўГ®Г° Г«ГЁГ¤ГҐГ°Гі',
+'- NonRP | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - ГўГ»ГЈГ®ГўГ®Г° Г«ГЁГ¤ГҐГ°Гі + jail/warn',
+'- ГђГҐГЄГ«Г Г¬Г  | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± Г«ГЁГ¤ГҐГ°ГЄГЁ + ban',
+'- ГђГ Г±ГґГ®Г°Г¬ (Г®ГІ 5+ Г·ГҐГ«Г®ГўГҐГЄ) | Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ - ГЈГҐГІГІГ®/Г¬Г ГґГЁГЁ/Г­ГҐГ ГЄГІГЁГў ГЎГ®Г«ГҐГҐ 1 Г¬ГҐГ±. | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± Г«ГЁГ¤ГҐГ°ГЄГЁ + warn',
+'ГЏГ°ГЁГ¬ГҐГ·Г Г­ГЁГҐ: Г­Г ГЄГ Г§Г Г­ГЁГҐ ГўГ»Г¤Г ГҐГІГ±Гї Гў ГІГ®Г¬ Г±Г«ГіГ·Г ГҐ, ГҐГ±Г«ГЁ ГЁГ­ГІГҐГ°ГўГ Г« Г¬ГҐГ¦Г¤Гі ГЄГ Г¦Г¤Г»Г¬ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГҐГ¬ Г¬ГҐГ­ГҐГҐ 7-Г¬ГЁ Г¬ГЁГ­ГіГІ.',
+'- Г—ГЁГІГ» | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± Г«ГЁГ¤ГҐГ°ГЄГЁ + warn',
+'- Г—ГЁГІГ» Г± ГІГўГЁГ­ГЄГ®Гў | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± Г«ГЁГ¤ГҐГ°ГЄГЁ + warn',
+'- ГЃГ«Г ГІ | Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ - ГЈГҐГІГІГ®/Г¬Г ГґГЁГЁ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - ГўГ»ГЈГ®ГўГ®Г° Г«ГЁГ¤ГҐГ°Гі',
+'- ГЌГ®Г°Г¬Г  Г®Г­Г«Г Г©Г­Г  Г®ГІГ»ГЈГ°Г®ГўГЄГЁ Г§Г  Г¤ГҐГ­Гј Г®ГІ 1 Г·Г Г±Г  | Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ - ГҐГ±Г«ГЁ Г«ГЁГ¤ГҐГ° Г­Г Г§Г­Г Г·ГҐГ­ Г§Г  Г·Г Г± Г¤Г® ГЇГ°Г®ГўГҐГ°ГЄГЁ Г­Г®Г°Г¬Г» | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± Г«ГЁГ¤ГҐГ°ГЄГЁ',
+'- ГЌГҐГ ГЄГІГЁГў 24+ Г·Г Г±Г®Гў | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± Г«ГЁГ¤ГҐГ°ГЄГЁ',
+'- NonRP Г­Г Г§ГўГ Г­ГЁГї Г°Г Г­ГЈГ®Гў | Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ - ГЈГҐГІГІГ® (ГЉГ°Г®Г¬ГҐ Г­ГҐГ Г¤ГҐГЄГўГ ГІГ­Г»Гµ ГЁ Г®Г±ГЄГ®Г°ГЎГЁГІГҐГ«ГјГ­Г»Гµ) | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - 2 ГўГ»ГЈГ®ГўГ®Г°Г  Г«ГЁГ¤ГҐГ°Гі',
+'- ГЊГҐГ­ГҐГҐ Г¤ГўГіГµ Г­Г ГЎГ®Г°Г®Гў Г§Г  Г¤ГҐГ­Гј | Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ - Г­ГҐГ«ГҐГЈГ Г«ГјГ­Г»ГҐ Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГЁ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - 2 ГўГ»ГЈГ®ГўГ®Г°Г  Г«ГЁГ¤ГҐГ°Гі',
+'- ГЊГҐГ­ГҐГҐ Г¤ГўГіГµ Г§Г ГµГўГ ГІГ®Гў Г§Г  Г¤ГҐГ­Гј | Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ - ГЈГ®Г±.Г±ГІГ°ГіГЄГІГіГ°Г» | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - 2 ГўГ»ГЈГ®ГўГ®Г°Г  Г«ГЁГ¤ГҐГ°Гі',
+'- ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г±ГІГ°ГҐГ« Г§Г  Г¤ГҐГ­Гј | Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ - ГЈГ®Г±.Г±ГІГ°ГіГЄГІГіГ°Г», ГЈГҐГІГІГ® | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - 2 ГўГ»ГЈГ®ГўГ®Г°Г  Г«ГЁГ¤ГҐГ°Гі',
+'- Г‘Г«ГЁГў ГІГҐГ°Г°ГЁГІГ®Г°ГЁГ©/ГЎГЁГ§Г­ГҐГ±Г®Гў | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± Г«ГЁГ¤ГҐГ°ГЄГЁ + warn',
+'- ГЌГ Г«ГЁГ·ГЁГҐ ГЎГ®Г«ГҐГҐ Г®Г¤Г­Г®Г© Г«ГЁГ¤ГҐГ°ГЄГЁ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ ГўГ±ГҐГµ Г«ГЁГ¤ГҐГ°Г®ГЄ',
+'- ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г­Г®Г°Г¬Г» Г§Г ГµГўГ ГІГ®Гў Гў ГІГҐГ·ГҐГ­ГЁГЁ 3-Гµ Г¤Г­ГҐГ© | Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ - ГЈГ®Г±.Г±ГІГ°ГіГЄГІГіГ°Г»/Г®ГІГ±ГіГІГ±ГІГўГЁГҐ Г«ГЁГ¤ГҐГ°Г®Гў ГЇГ°Г®ГІГЁГўГ®ГЇГ®Г«Г®Г¦Г­Г»Гµ Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГ© | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± Г«ГЁГ¤ГҐГ°ГЄГЁ',
+'- ГЏГ°Г®Г¤Г Г¦Г /ГЇГ®ГЄГіГЇГЄГ  Г«ГЁГ¤ГҐГ°ГЄГЁ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± Г«ГЁГ¤ГҐГ°ГЄГЁ + warn (ГЏГ°Г®Г¤Г Г¦Г  Г§Г  Г°ГҐГ Г«ГјГ­ГіГѕ ГўГ Г«ГѕГІГі - ГіГ¤Г Г«ГҐГ­ГЁГҐ Г ГЄГЄГ ГіГ­ГІГ )',
+'- ГЏГ°Г®Г¤Г Г¦Г  Г°Г Г­ГЈГ  | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± Г«ГЁГ¤ГҐГ°ГЄГЁ + warn (ГЏГ°Г®Г¤Г Г¦Г  Г§Г  Г°ГҐГ Г«ГјГ­ГіГѕ ГўГ Г«ГѕГІГі - ГіГ¤Г Г«ГҐГ­ГЁГҐ Г ГЄГЄГ ГіГ­ГІГ )',
+'- Г€ГЈГ°Г  Г± ГІГўГЁГ­ГЄГ®Гў Г§Г  ГЇГ°Г®ГІГЁГўГ®ГЇГ®Г«Г®Г¦Г­ГіГѕ ГЎГ Г­Г¤Гі/Г¬Г ГґГЁГѕ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± Г«ГЁГ¤ГҐГ°ГЄГЁ + warn',
+'- ГЏГҐГ°ГҐГ¤Г Г·Г  Г«ГЁГ¤ГҐГ°Г±ГЄГ®ГЈГ® ГЇГ®Г±ГІГ  Г­Г  ГІГўГЁГ­ГЄ Г ГЄГЄГ ГіГ­ГІ (ГЏГ°ГЁГ¬ГҐГ°: ГіГµГ®Г¤ Г± Г«ГЁГ¤ГҐГ°ГЄГЁ ГЁ ГЇГ®ГЄГіГЇГЄГ  Г± ГІГўГЁГ­ГЄГ ) | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± Г«ГЁГ¤ГҐГ°ГЄГЁ + warn',
+'- ГђГ®Г§Г¦ГЁГЈ Г¬ГҐГ¦Г­Г Г¶ГЁГ®Г­Г Г«ГјГ­Г®Г© Г°Г®Г§Г­ГЁ, Гў ГІГ®Г¬ Г·ГЁГ±Г«ГҐ Г­Г Г§ГўГ Г­ГЁГї Г°Г Г­ГЈГ®Гў | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - 2 ГўГ»ГЈГ®ГўГ®Г°Г  Г«ГЁГ¤ГҐГ°Гі',
+'- ГЋГІГЄГ Г§ Г®ГІ ГЇГ°ГЁГ­ГїГІГЁГї ГіГ·Г Г±ГІГЁГї Гў ГЈГ«Г®ГЎГ Г«ГјГ­Г»Гµ Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГїГµ | Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ - Г­ГҐГ«ГҐГЈГ Г«ГјГ­Г»ГҐ Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГЁ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - 2 ГўГ»ГЈГ®ГўГ®Г°Г  Г«ГЁГ¤ГҐГ°Гі',
+'- Г‘Г«ГЁГў ГЇГ®Г±ГІГ /Г«ГЁГ¤ГҐГ°Г®Гў | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± Г«ГЁГ¤ГҐГ°ГЄГЁ + ban',
+'- ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ ГЇГ°Г®ГҐГЄГІГ  | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± Г«ГЁГ¤ГҐГ°ГЄГЁ + ban',
+'- NonRP Г­ГЁГЄ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - 2 ГўГ»ГЈГ®ГўГ®Г°Г  Г«ГЁГ¤ГҐГ°Гі',
+'ГЏГ°ГЁГ¬ГҐГ·Г Г­ГЁГҐ: Г…Г±Г«ГЁ Г«ГЁГ¤ГҐГ° Г­ГҐ ГЁГ§Г¬ГҐГ­ГЁГ« Г­ГЁГЄ Г­Г  Г¤Г®ГЇГіГ±ГІГЁГ¬Г»Г© Гў ГІГҐГ·ГҐГ­ГЁГҐ 10-ГІГЁ Г¬ГЁГ­ГіГІ ГЇГ®Г±Г«ГҐ Г­Г ГЄГ Г§Г Г­ГЁГї, Г®Г­ Г‘ГЌГ€ГЊГЂГ…Г’Г‘Гџ Г± ГЇГ®Г±ГІГ ',
+'ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° Г®ГЎГїГ§Г Г­ Г®ГЇГ®ГўГҐГ±ГІГЁГІГј Г«ГЁГ¤ГҐГ°Г  Гў (/pm) Г® ГІГ®Г¬ Г·ГІГ®, Гі Г­ГҐГЈГ® ГЁГ¬ГҐГҐГІГ±Гї 10 Г¬ГЁГ­ГіГІ Г¤Г«Гї Г±Г¬ГҐГ­Г» Г­ГЁГЄГ­ГҐГ©Г¬Г ',
+'Г‚Г Г¦Г­Г®: ГЏГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГї ГўГ»Г­Г®Г±ГїГІГ±Гї ГІГ®Г«ГјГЄГ® ГІГ®ГЈГ¤Г , ГЄГ®ГЈГ¤Г  Г«ГЁГ¤ГҐГ° Г­Г ГµГ®Г¤ГЁГІГ±Гї Гў Г‘ГҐГІГЁ'}
+local srules = {'- ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г­Г®Г°Г¬Г» Г®ГІГ»ГЈГ°Г Г­Г­Г®ГЈГ® ГўГ°ГҐГ¬ГҐГ­ГЁ Г§Г  Г±ГіГІГЄГЁ (1 Г·Г Г±). | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± ГЇГ®Г±ГІГ  Г±Г ГЇГЇГ®Г°ГІГ .',
+'- ГЌГҐГ ГЄГІГЁГўГ­Г®Г±ГІГј Гў ГІГҐГ·ГҐГ­ГЁГҐ 24 Г·Г Г±Г®Гў. | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± ГЇГ®Г±ГІГ  Г±Г ГЇГЇГ®Г°ГІГ .',
+'- ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г°Г®Г¤Г­Г»Гµ Гў Г®ГІГўГҐГІГҐ / Г·Г ГІГҐ Г±Г ГЇГЇГ®Г°ГІГ®Гў. | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± ГЇГ®Г±ГІГ  Г±Г ГЇГЇГ®Г°ГІГ  + Г§Г ГІГ»Г·ГЄГ  Г­Г  30 Г¬ГЁГ­ГіГІ + Г·ВёГ°Г­Г»Г© Г±ГЇГЁГ±Г®ГЄ Г±Г ГЇГЇГ®Г°ГІГ®Гў Г±Г°Г®ГЄГ®Г¬ Г­Г  10 Г¤Г­ГҐГ©.',
+'- ГЌГҐГўГҐГ°Г­Г»Г© Г®ГІГўГҐГІ ГЁГЈГ°Г®ГЄГі. | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - ГўГ»ГЈГ®ГўГ®Г°.',
+'- ГЌГ ГЄГ°ГіГІГЄГ  Г®ГІГўГҐГІГ®Гў. | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± ГЇГ®Г±ГІГ  Г±Г ГЇГЇГ®Г°ГІГ  + Г·ВёГ°Г­Г»Г© Г±ГЇГЁГ±Г®ГЄ Г±Г ГЇГЇГ®Г°ГІГ®Гў Г±Г°Г®ГЄГ®Г¬ Г­Г  5 Г¤Г­ГҐГ©.',
+'- ГђГ Г§ГЈГ«Г ГёГҐГ­ГЁГҐ ГЄГ®Г¬Г Г­Г¤ ГЁ ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГҐГ© Г±Г ГЇГЇГ®Г°ГІГ . | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± ГЇГ®Г±ГІГ  Г±Г ГЇГЇГ®Г°ГІГ  + Г·ВёГ°Г­Г»Г© Г±ГЇГЁГ±Г®ГЄ Г±Г ГЇГЇГ®Г°ГІГ®Гў Г±Г°Г®ГЄГ®Г¬ Г­Г  10 Г¤Г­ГҐГ©.',
+'- Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГЄГ®Г¬Г Г­Г¤Г» Г¤Г«Гї Г®ГІГўГҐГІГ®Гў Гў Г«ГЁГ·Г­Г»Гµ Г¶ГҐГ«ГїГµ. | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - 1 ГўГ»ГЈГ®ГўГ®Г°.',
+'- ГЌГҐГ Г¤ГҐГЄГўГ ГІГ­Г®ГҐ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ Гў Г®ГІГўГҐГІГҐ / Г·Г ГІГҐ Г±Г ГЇГЇГ®Г°ГІГ®Гў (ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГї/ГЉГ ГЇГ±/ГЊГ ГІ). | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± ГЇГ®Г±ГІГ  Г±Г ГЇГЇГ®Г°ГІГ  (ГЇГ°ГЁ ГЇГ®ГўГІГ®Г°Г­Г®Г¬ Г­Г Г°ГіГёГҐГ­ГЁГЁ Г·ВёГ°Г­Г»Г© Г±ГЇГЁГ±Г®ГЄ Г±Г ГЇГЇГ®Г°ГІГ®Гў Г­Г  5 Г¤Г­ГҐГ©).',
+'- Г‹ГѕГЎГ»ГҐ Г­Г Г°ГіГёГҐГ­ГЁГї ГЇГ°Г ГўГЁГ« Г±ГҐГ°ГўГҐГ°Г  Г±Г® Г±ГІГ®Г°Г®Г­Г» ГЁГЈГ°Г®ГўГ®ГЈГ® ГЇГ°Г®Г¶ГҐГ±Г±Г  (DM/ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГї/ГЌГҐГ Г¤ГҐГЄГўГ ГІ). | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - ГўГ»ГЈГ®ГўГ®Г° + Г­Г ГЄГ Г§Г Г­ГЁГҐ ГЇГ® ГЇГ°Г ГўГЁГ«Г Г¬ Г±ГҐГ°ГўГҐГ°Г .',
+'- ГЌГ Г«ГЁГ·ГЁГҐ 0 Г®ГІГўГҐГІГ®Гў Г­Г  ГЇГ®Г±ГІГі Г±Г ГЇГЇГ®Г°ГІГ . | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - 2 ГўГ»ГЈГ®ГўГ®Г°Г .',
+'- ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г±Г«ГҐГ¤ГїГ№ГЁГµ Г§Г  Г±Г ГЇГЇГ®Г°ГІГ Г¬ГЁ. | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± ГЇГ®Г±ГІГ  Г±Г ГЇГЇГ®Г°ГІГ  + Г·ВёГ°Г­Г»Г© Г±ГЇГЁГ±Г®ГЄ Г±Г ГЇГЇГ®Г°ГІГ®Гў Г±Г°Г®ГЄГ®Г¬ Г­Г  5 Г¤Г­ГҐГ©.',
+'- Г‡Г Г±Г®Г°ГҐГ­ГЁГҐ Г·Г ГІГ  Г±Г ГЇГЇГ®Г°ГІГ®Гў (ГЏГ®ГЄГіГЇГЄГ /ГЏГ°Г®Г¤Г Г¦Г /Г”Г«ГіГ¤). | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - ГўГ»ГЈГ®ГўГ®Г° + Г§Г ГІГ»Г·ГЄГ  Г­Г  10 Г¬ГЁГ­ГіГІ.',
+'- NonRP Г­ГЁГЄ. | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± ГЇГ®Г±ГІГ  Г±Г ГЇГЇГ®Г°ГІГ .',
+'- ГЏГ®ГЇГ°Г®ГёГ Г©Г­ГЁГ·ГҐГ±ГІГўГ® Гў Г·Г ГІГҐ Г±Г ГЇГЇГ®Г°ГІГ®Гў ГЁГ«ГЁ Гў Г®ГІГўГҐГІГҐ ГЁГЈГ°Г®ГЄГі. | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - 2 ГўГ»ГЈГ®ГўГ®Г°Г .',
+'- Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Г·ГЁГІГ®Гў Г­Г  ГЇГ®Г±ГІГі Г±Г ГЇГЇГ®Г°ГІГ . | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± ГЇГ®Г±ГІГ  Г±Г ГЇГЇГ®Г°ГІГ  + jail/warn.',
+'- ГЏГ°Г®ГўГ®ГЄГ Г¶ГЁГ®Г­Г­Г»ГҐ ГўГ®ГЇГ°Г®Г±Г» (ГЉГ®Г¬Г Г­Г¤Г»/Г‚Г®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ Г±Г ГЇГЇГ®Г°ГІГ ). | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± ГЇГ®Г±ГІГ  Г±Г ГЇГЇГ®Г°ГІГ  + Г·ВёГ°Г­Г»Г© Г±ГЇГЁГ±Г®ГЄ Г±Г ГЇГЇГ®Г°ГІГ®Гў Г±Г°Г®ГЄГ®Г¬ Г­Г  5 Г¤Г­ГҐГ©.',
+'- Г€ГЈГ­Г®Г°ГЁГ°Г®ГўГ Г­ГЁГҐ ГЇГ°Г®Г±ГјГЎГ» ГЈГ«Г ГўГ­Г®ГЈГ® Г±Г«ГҐГ¤ГїГ№ГҐГЈГ® Г§Г  Г±Г ГЇГЇГ®Г°ГІГ Г¬ГЁ. | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - ГўГ»ГЈГ®ГўГ®Г°.',
+'- Г‚Г»Г¤Г Г·Г  ГЎГ«Г®ГЄГЁГ°Г®ГўГЄГЁ Г°ГҐГЇГ®Г°ГІГ , Г­ГҐ ГЁГ¬ГҐГї Г¤Г®ГЄГ Г§Г ГІГҐГ«ГјГ±ГІГў Г­Г Г°ГіГёГҐГ­ГЁГї. | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - ГўГ»ГЈГ®ГўГ®Г° (ГЇГ® Г¦Г Г«Г®ГЎГҐ ГўГ»Г¤Г ВёГІГ±Гї 2 ГўГ»ГЈГ®ГўГ®Г°Г ).',
+'- ГЌГ Г«ГЁГ·ГЁГҐ Г®ГёГЁГЎГ®ГЄ, ГЇГ°Г®ГїГўГ«ГҐГ­ГЁГҐ Г­ГҐГЈГ°Г Г¬Г®ГІГ­Г®Г±ГІГЁ ГЇГ°ГЁ Г®ГІГўГҐГІГҐ, Г­ГҐГЇГ®Г«Г­Г®Г¶ГҐГ­Г­Г»ГҐ Г®ГІГўГҐГІГ». | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - ГўГ»ГЈГ®ГўГ®Г°.',
+'- Г’Г°Г Г­Г±Г«ГЁГІ Гў Г®ГІГўГҐГІГҐ ГЁГЈГ°Г®ГЄГі. | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - ГўГ»ГЈГ®ГўГ®Г°.',
+'- ГЌГҐГіГўГ Г¦ГЁГІГҐГ«ГјГ­Г»Г© Г®ГІГўГҐГІ ГЁГЈГ°Г®ГЄГі. | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - 2 ГўГ»ГЈГ®ГўГ®Г°Г .',
+'- Г‘Г«ГЁГў ГЇГ®Г±ГІГ  Г±Г ГЇГЇГ®Г°ГІГ . | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Г±Г­ГїГІГЁГҐ Г± ГЇГ®Г±ГІГ  Г±Г ГЇГЇГ®Г°ГІГ  + ГЎГ«Г®ГЄГЁГ°Г®ГўГЄГ  Г­Г  30 Г¤Г­ГҐГ© + Г·ВёГ°Г­Г»Г© Г±ГЇГЁГ±Г®ГЄ Г±Г ГЇГЇГ®Г°ГІГ®Гў Г­Г ГўГ±ГҐГЈГ¤Г .'}
+local gosrules = {'- 1. Г‚Г±ГїГЄГ®ГҐ Г®ГЎГ№ГҐГ­ГЁГҐ Гў Г¤ГҐГЇГ Г°ГІГ Г¬ГҐГ­ГІГҐ ГЎГҐГ§ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГї ГІГҐГЈГ : [Г’ГҐГЈ ГўГ ГёГҐГ© Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГЁ] - [all/Г¤Г°ГіГЈГ Гї Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГї] - /mute (Г®ГІ 1 Г¤Г® 10 Г¬ГЁГ­ГіГІ).',
+'- 2. Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГґГ°Г Г§, Г±Г®Г¤ГҐГ°Г¦Г Г№ГЁГҐ ГЄГ ГЇГ±, ГЈГ°ГіГЎГ»ГҐ ГўГ»Г°Г Г¦ГҐГ­ГЁГї, Г®Г±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГї (/d (/db), /r (/rb), /gov ГЁ.ГІ.ГЇ) . - /mute (Г®ГІ 1 Г¤Г® 10 Г¬ГЁГ­ГіГІ).',
+'- 3. ГЏГЁГ±Г ГІГј Гў ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»ГҐ Г­Г®ГўГ®Г±ГІГЁ, Г­ГҐ Г§Г Г­ГїГў ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­ГіГѕ ГўГ®Г«Г­Гі - /mute (Г®ГІ 1 Г¤Г® 10 Г¬ГЁГ­ГіГІ).',
+'- 4. NonRP Cop - /warn /jail (Г®ГІ 1 Г¤Г® 15 Г¬ГЁГ­ГіГІ).',
+'- 5. Г“ГўГ®Г«ГјГ­ГҐГ­ГЁГҐ Г± Г­ГҐГ Г¤ГҐГЄГўГ ГІГ­Г®Г© ГЁГ«ГЁ ГЎГҐГ§ ГўГҐГ±Г®Г¬Г®Г© ГЇГ°ГЁГ·ГЁГ­Г» - /mute (Г®ГІ 1 Г¤Г® 10 Г¬ГЁГ­ГіГІ).',
+'- 6. Г‘Г«ГЁГў Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ - /auninvite + /jail (Г®ГІ 1 Г¤Г® 15 Г¬ГЁГ­ГіГІ).',
+'- 7. ГЌГ ГµГ®Г¦Г¤ГҐГ­ГЁГҐ ГЈГ®Г±. Г°Г ГЎГ®ГІГ­ГЁГЄГ  Гў ГЈГҐГІГІГ® Г± Г¶ГҐГ«ГјГѕ Г Г°ГҐГ±ГІГ  - /jail (Г®ГІ 1 Г¤Г® 10 Г¬ГЁГ­ГіГІ).',
+'- 7.1. ГђГ Г§Г°ГҐГёГҐГ­Г® Г­Г ГµГ®Г¤ГЁГІГјГ±Гї Гў Г¬Г Г±ГЄГҐ Г¤Г«Гї ГЇГ°Г®Г±ГІГ®ГЈГ® ГЇГҐГ°ГҐГ¬ГҐГ№ГҐГ­ГЁГї (ГЎГҐГ§ Г Г°ГҐГ±ГІГ®Гў).',
+'- 8. ГЌГҐГ±Г®ГЎГ«ГѕГ¤ГҐГ­ГЁГҐ ГЇГ°Г ГўГЁГ« ГЇГ°ГЁ ГўГ»Г¤Г Г·ГҐ Г°Г®Г§Г»Г±ГЄГ  (ГўГ»Г¤Г Г·Г  Г°Г®Г§Г»Г±ГЄГ  Г± NonRP ГЇГ°ГЁГ·ГЁГ­Г Г¬ГЁ ГЁГ«ГЁ ГЇГ°ГЁГ·ГЁГ­Г Г¬ГЁ, ГЄГ®ГІГ®Г°Г»ГҐ Г­ГҐ ГіГЄГ Г§Г Г­Г» Гў ГіГЈГ®Г«Г®ГўГ­Г®Г¬ ГЄГ®Г¤ГҐГЄГ±ГҐ: DM, ГіГЈГ®Г­, ГЇГ®ГµГЁГ№ГҐГ­ГЁГҐ ГЁ ГІ.Г¤). - /warn /jail (Г®ГІ 1 Г¤Г® 15 Г¬ГЁГ­ГіГІ).',
+'- 8.1. ГђГ Г§Г°ГҐГёГҐГ­Г® ГіГЄГ Г§Г»ГўГ ГІГј ГІГ®Г«ГјГЄГ® ГЇГ®Г«Г­Г®ГҐ Г­Г Г§ГўГ Г­ГЁГҐ Г±ГІГ ГІГјГЁ ГЁГ«ГЁ ГҐВё ГЇГіГ­ГЄГІ.',
+'- 9. ГЏГ°Г®ГїГўГ«ГҐГ­ГЁГҐ Г­ГҐГЈГ°Г Г¬Г®ГІГ­Г®Г±ГІГЁ ГЁ Г­ГҐГ Г¤ГҐГЄГўГ ГІГ­Г®ГЈГ® ГЇГ®ГўГҐГ¤ГҐГ­ГЁГї ГЇГ°ГЁ ГЇГ°Г®ГўГҐГ¤ГҐГ­ГЁГЁ ГЅГґГЁГ°Г  ГЁГ«ГЁ ГЇГ°ГЁ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГЁ ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г®Г© ГўГ®Г«Г­Г» - /mute (Г®ГІ 1 Г¤Г® 10 Г¬ГЁГ­ГіГІ).',
+'- 10. ГЌГҐГ±Г®ГЎГ«ГѕГ¤ГҐГ­ГЁГҐ ГЇГ°Г ГўГЁГ« ГЇГ°Г®ГўГҐГ¤ГҐГ­ГЁГї ГЇГ°Г®ГўГҐГ°Г®ГЄ - /warn /jail (Г®ГІ 1 Г¤Г® 15 Г¬ГЁГ­ГіГІ).',
+'ГЏГ°ГЁГ¬ГҐГ·Г Г­ГЁГї:',
+'- 1. ГЏГ°ГЁГ·ГЁГ­Г  Г¤Г«Гї Г°Г®Г§Г»Г±ГЄГ  Г¤Г®Г«Г¦Г­Г  Г±Г®Г®ГІГўГҐГІГ±ГІГўГ®ГўГ ГІГј Г“ГЈГ®Г«Г®ГўГ­Г®Г¬Гі ГЄГ®Г¤ГҐГЄГ±Гі San Andreas.',
+'- 2. ГЏГ°ГЁГ·ГЁГ­Г  ГіГўГ®Г«ГјГ­ГҐГ­ГЁГї Г¤Г®Г«Г¦Г­Г  ГЎГ»ГІГј Г­Г  Г°ГіГ±Г±ГЄГ®Г¬ ГїГ§Г»ГЄГҐ. Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГЇГ°ГЁГ·ГЁГ­Г» Г­Г  Г¤Г°ГіГЈГ®Г¬ ГїГ§Г»ГЄГҐ ГЎГіГ¤ГҐГІ Г­Г ГЄГ Г§Г Г­Г®.',
+'- 3. ГЏГ°ГЁ Г¬Г­Г®ГЈГ®ГЄГ°Г ГІГ­Г®Г¬ Г­Г Г°ГіГёГҐГ­ГЁГЁ ГЇГіГ­ГЄГІГ  ГЇГ®Г¤ Г­Г®Г¬ГҐГ°Г®Г¬ 9 - ГўГ» ГЎГіГ¤ГҐГІГҐ ГіГўГ®Г«ГҐГ­Г» ГЁГ§ Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГЁ.'}
+local orules = {'- 1. ГЌГҐГ®ГЎГµГ®Г¤ГЁГ¬Г® ГіГ±ГІГ Г­Г®ГўГЁГІГј Г¬ГЁГ­ГЁГ¬Г Г«ГјГ­Г»Г© Г®Г­Г«Г Г©Г­ Гў Г®Г¤ГЁГ­ Г·Г Г± Г¤Г«Гї ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГЁ ГІГҐГ«ГҐГЇГ®Г°ГІГ Г¶ГЁГЁ (ГЁГ±ГЇГ®Г«ГјГ§ГіГї ГЄГ®Г¬Г Г­Г¤Гі /mp).',
+'- 2. ГЂГЄГІГЁГўГЁГ°Г®ГўГ ГІГј ГґГіГ­ГЄГ¶ГЁГѕ Г§Г ГЇГЁГ±ГЁ ГЅГЄГ°Г Г­Г .',
+'- 3. ГЋГЈГ«Г Г±ГЁГІГј ГіГ·Г Г±ГІГ­ГЁГЄГ Г¬ ГЇГ°Г ГўГЁГ«Г  Г®ГІГЎГ®Г°Г :',
 '',
-'Первый участник имеет 15 секунд на ответ, остальные - 10.',
-'Запрещено применять ДМ, перебегать, писать сообщения в любой чат, за исключением /rep и /sms.',
+'ГЏГҐГ°ГўГ»Г© ГіГ·Г Г±ГІГ­ГЁГЄ ГЁГ¬ГҐГҐГІ 15 Г±ГҐГЄГіГ­Г¤ Г­Г  Г®ГІГўГҐГІ, Г®Г±ГІГ Г«ГјГ­Г»ГҐ - 10.',
+'Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГЇГ°ГЁГ¬ГҐГ­ГїГІГј Г„ГЊ, ГЇГҐГ°ГҐГЎГҐГЈГ ГІГј, ГЇГЁГ±Г ГІГј Г±Г®Г®ГЎГ№ГҐГ­ГЁГї Гў Г«ГѕГЎГ®Г© Г·Г ГІ, Г§Г  ГЁГ±ГЄГ«ГѕГ·ГҐГ­ГЁГҐГ¬ /rep ГЁ /sms.',
 '',
-'- 4. Переместить на спавн тех игроков, которые были сняты с лидерских должностей за последние 30 минут, они не могут участвовать в отборе.',
-'- 5. Переместить на спавн игроков, являющихся лидерами других фракций.',
-'- 6. Проверить, что на отборе присутствует не менее трёх игроков.'}
-local tryrules = {'- 1. Написать правильные условия и получить согласие для начала игры',
-'> В условиях должно быть написано: сумма, валюта/предмет, кол-во побед, кол-во написанных /try',
-'> Пример: "Играем в /try на 10кк фк, 1 победа, кидаем 3 раза"',
-'> Если валюта не была написана, игра будет на FCoins',
-'> При оглашении условий игры Вы должны иметь обговариваемую сумму на том аккаунте, на котором играете в /try, либо на указанном Вам нике (см. пункт 3.)',
-'> Если обговоренной суммы не имеется, но Вы начали игру, Вы можете получить блокировку за обман в /try.',
-'- 2. В случае написания жалобы на обман, требуется сделать скриншот /mm - 1.',
-'> Доказательства написания условий и согласие на них, а так же сама игра (скриншоты/видеоролик того, как оба игрока прописывают /try нужное количество раз).',
-'> На доказательствах должно быть видно серверное время.',
-'- 3. При написании условий, если кто-то готов оплатить Ваш проигрыш, стоит указать его ник. Если ник не был указан или оплаты не произошло в течение 24ч, то наказание получает тот, кто играл в /try.',
-'- 4. В случае проигрыша и передачи поставленной суммы/предмета на другие аккаунты, они будут заблокированы за участие в обмане.',
-'- 5. В случае проигрыша и нежелания отдавать проигранное, будет выдана блокировка аккаунта.',
-'- 6. При равном выпадении "Удачно" нужно согласовать дальнейшее продолжение игры, подтверждение с обеих сторон.',
-'- 7. Разрешена игра только на внутриигровую валюту/имущество.',
-'- 8. Запрещена игра на желания, выигрыш в долг.',
-'- 9. При обмане возвращается сумма проигрыша с аккаунтов обманщика (при наличии).'}
-local capturerules = {'На захвате территории разрешено:',
+'- 4. ГЏГҐГ°ГҐГ¬ГҐГ±ГІГЁГІГј Г­Г  Г±ГЇГ ГўГ­ ГІГҐГµ ГЁГЈГ°Г®ГЄГ®Гў, ГЄГ®ГІГ®Г°Г»ГҐ ГЎГ»Г«ГЁ Г±Г­ГїГІГ» Г± Г«ГЁГ¤ГҐГ°Г±ГЄГЁГµ Г¤Г®Г«Г¦Г­Г®Г±ГІГҐГ© Г§Г  ГЇГ®Г±Г«ГҐГ¤Г­ГЁГҐ 30 Г¬ГЁГ­ГіГІ, Г®Г­ГЁ Г­ГҐ Г¬Г®ГЈГіГІ ГіГ·Г Г±ГІГўГ®ГўГ ГІГј Гў Г®ГІГЎГ®Г°ГҐ.',
+'- 5. ГЏГҐГ°ГҐГ¬ГҐГ±ГІГЁГІГј Г­Г  Г±ГЇГ ГўГ­ ГЁГЈГ°Г®ГЄГ®Гў, ГїГўГ«ГїГѕГ№ГЁГµГ±Гї Г«ГЁГ¤ГҐГ°Г Г¬ГЁ Г¤Г°ГіГЈГЁГµ ГґГ°Г ГЄГ¶ГЁГ©.',
+'- 6. ГЏГ°Г®ГўГҐГ°ГЁГІГј, Г·ГІГ® Г­Г  Г®ГІГЎГ®Г°ГҐ ГЇГ°ГЁГ±ГіГІГ±ГІГўГіГҐГІ Г­ГҐ Г¬ГҐГ­ГҐГҐ ГІГ°ВёГµ ГЁГЈГ°Г®ГЄГ®Гў.'}
+local tryrules = {'- 1. ГЌГ ГЇГЁГ±Г ГІГј ГЇГ°Г ГўГЁГ«ГјГ­Г»ГҐ ГіГ±Г«Г®ГўГЁГї ГЁ ГЇГ®Г«ГіГ·ГЁГІГј Г±Г®ГЈГ«Г Г±ГЁГҐ Г¤Г«Гї Г­Г Г·Г Г«Г  ГЁГЈГ°Г»',
+'> Г‚ ГіГ±Г«Г®ГўГЁГїГµ Г¤Г®Г«Г¦Г­Г® ГЎГ»ГІГј Г­Г ГЇГЁГ±Г Г­Г®: Г±ГіГ¬Г¬Г , ГўГ Г«ГѕГІГ /ГЇГ°ГҐГ¤Г¬ГҐГІ, ГЄГ®Г«-ГўГ® ГЇГ®ГЎГҐГ¤, ГЄГ®Г«-ГўГ® Г­Г ГЇГЁГ±Г Г­Г­Г»Гµ /try',
+'> ГЏГ°ГЁГ¬ГҐГ°: "Г€ГЈГ°Г ГҐГ¬ Гў /try Г­Г  10ГЄГЄ ГґГЄ, 1 ГЇГ®ГЎГҐГ¤Г , ГЄГЁГ¤Г ГҐГ¬ 3 Г°Г Г§Г "',
+'> Г…Г±Г«ГЁ ГўГ Г«ГѕГІГ  Г­ГҐ ГЎГ»Г«Г  Г­Г ГЇГЁГ±Г Г­Г , ГЁГЈГ°Г  ГЎГіГ¤ГҐГІ Г­Г  FCoins',
+'> ГЏГ°ГЁ Г®ГЈГ«Г ГёГҐГ­ГЁГЁ ГіГ±Г«Г®ГўГЁГ© ГЁГЈГ°Г» Г‚Г» Г¤Г®Г«Г¦Г­Г» ГЁГ¬ГҐГІГј Г®ГЎГЈГ®ГўГ Г°ГЁГўГ ГҐГ¬ГіГѕ Г±ГіГ¬Г¬Гі Г­Г  ГІГ®Г¬ Г ГЄГЄГ ГіГ­ГІГҐ, Г­Г  ГЄГ®ГІГ®Г°Г®Г¬ ГЁГЈГ°Г ГҐГІГҐ Гў /try, Г«ГЁГЎГ® Г­Г  ГіГЄГ Г§Г Г­Г­Г®Г¬ Г‚Г Г¬ Г­ГЁГЄГҐ (Г±Г¬. ГЇГіГ­ГЄГІ 3.)',
+'> Г…Г±Г«ГЁ Г®ГЎГЈГ®ГўГ®Г°ГҐГ­Г­Г®Г© Г±ГіГ¬Г¬Г» Г­ГҐ ГЁГ¬ГҐГҐГІГ±Гї, Г­Г® Г‚Г» Г­Г Г·Г Г«ГЁ ГЁГЈГ°Гі, Г‚Г» Г¬Г®Г¦ГҐГІГҐ ГЇГ®Г«ГіГ·ГЁГІГј ГЎГ«Г®ГЄГЁГ°Г®ГўГЄГі Г§Г  Г®ГЎГ¬Г Г­ Гў /try.',
+'- 2. Г‚ Г±Г«ГіГ·Г ГҐ Г­Г ГЇГЁГ±Г Г­ГЁГї Г¦Г Г«Г®ГЎГ» Г­Г  Г®ГЎГ¬Г Г­, ГІГ°ГҐГЎГіГҐГІГ±Гї Г±Г¤ГҐГ«Г ГІГј Г±ГЄГ°ГЁГ­ГёГ®ГІ /mm - 1.',
+'> Г„Г®ГЄГ Г§Г ГІГҐГ«ГјГ±ГІГўГ  Г­Г ГЇГЁГ±Г Г­ГЁГї ГіГ±Г«Г®ГўГЁГ© ГЁ Г±Г®ГЈГ«Г Г±ГЁГҐ Г­Г  Г­ГЁГµ, Г  ГІГ ГЄ Г¦ГҐ Г±Г Г¬Г  ГЁГЈГ°Г  (Г±ГЄГ°ГЁГ­ГёГ®ГІГ»/ГўГЁГ¤ГҐГ®Г°Г®Г«ГЁГЄ ГІГ®ГЈГ®, ГЄГ ГЄ Г®ГЎГ  ГЁГЈГ°Г®ГЄГ  ГЇГ°Г®ГЇГЁГ±Г»ГўГ ГѕГІ /try Г­ГіГ¦Г­Г®ГҐ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГ® Г°Г Г§).',
+'> ГЌГ  Г¤Г®ГЄГ Г§Г ГІГҐГ«ГјГ±ГІГўГ Гµ Г¤Г®Г«Г¦Г­Г® ГЎГ»ГІГј ГўГЁГ¤Г­Г® Г±ГҐГ°ГўГҐГ°Г­Г®ГҐ ГўГ°ГҐГ¬Гї.',
+'- 3. ГЏГ°ГЁ Г­Г ГЇГЁГ±Г Г­ГЁГЁ ГіГ±Г«Г®ГўГЁГ©, ГҐГ±Г«ГЁ ГЄГІГ®-ГІГ® ГЈГ®ГІГ®Гў Г®ГЇГ«Г ГІГЁГІГј Г‚Г Гё ГЇГ°Г®ГЁГЈГ°Г»Гё, Г±ГІГ®ГЁГІ ГіГЄГ Г§Г ГІГј ГҐГЈГ® Г­ГЁГЄ. Г…Г±Г«ГЁ Г­ГЁГЄ Г­ГҐ ГЎГ»Г« ГіГЄГ Г§Г Г­ ГЁГ«ГЁ Г®ГЇГ«Г ГІГ» Г­ГҐ ГЇГ°Г®ГЁГ§Г®ГёГ«Г® Гў ГІГҐГ·ГҐГ­ГЁГҐ 24Г·, ГІГ® Г­Г ГЄГ Г§Г Г­ГЁГҐ ГЇГ®Г«ГіГ·Г ГҐГІ ГІГ®ГІ, ГЄГІГ® ГЁГЈГ°Г Г« Гў /try.',
+'- 4. Г‚ Г±Г«ГіГ·Г ГҐ ГЇГ°Г®ГЁГЈГ°Г»ГёГ  ГЁ ГЇГҐГ°ГҐГ¤Г Г·ГЁ ГЇГ®Г±ГІГ ГўГ«ГҐГ­Г­Г®Г© Г±ГіГ¬Г¬Г»/ГЇГ°ГҐГ¤Г¬ГҐГІГ  Г­Г  Г¤Г°ГіГЈГЁГҐ Г ГЄГЄГ ГіГ­ГІГ», Г®Г­ГЁ ГЎГіГ¤ГіГІ Г§Г ГЎГ«Г®ГЄГЁГ°Г®ГўГ Г­Г» Г§Г  ГіГ·Г Г±ГІГЁГҐ Гў Г®ГЎГ¬Г Г­ГҐ.',
+'- 5. Г‚ Г±Г«ГіГ·Г ГҐ ГЇГ°Г®ГЁГЈГ°Г»ГёГ  ГЁ Г­ГҐГ¦ГҐГ«Г Г­ГЁГї Г®ГІГ¤Г ГўГ ГІГј ГЇГ°Г®ГЁГЈГ°Г Г­Г­Г®ГҐ, ГЎГіГ¤ГҐГІ ГўГ»Г¤Г Г­Г  ГЎГ«Г®ГЄГЁГ°Г®ГўГЄГ  Г ГЄГЄГ ГіГ­ГІГ .',
+'- 6. ГЏГ°ГЁ Г°Г ГўГ­Г®Г¬ ГўГ»ГЇГ Г¤ГҐГ­ГЁГЁ "Г“Г¤Г Г·Г­Г®" Г­ГіГ¦Г­Г® Г±Г®ГЈГ«Г Г±Г®ГўГ ГІГј Г¤Г Г«ГјГ­ГҐГ©ГёГҐГҐ ГЇГ°Г®Г¤Г®Г«Г¦ГҐГ­ГЁГҐ ГЁГЈГ°Г», ГЇГ®Г¤ГІГўГҐГ°Г¦Г¤ГҐГ­ГЁГҐ Г± Г®ГЎГҐГЁГµ Г±ГІГ®Г°Г®Г­.',
+'- 7. ГђГ Г§Г°ГҐГёГҐГ­Г  ГЁГЈГ°Г  ГІГ®Г«ГјГЄГ® Г­Г  ГўГ­ГіГІГ°ГЁГЁГЈГ°Г®ГўГіГѕ ГўГ Г«ГѕГІГі/ГЁГ¬ГіГ№ГҐГ±ГІГўГ®.',
+'- 8. Г‡Г ГЇГ°ГҐГ№ГҐГ­Г  ГЁГЈГ°Г  Г­Г  Г¦ГҐГ«Г Г­ГЁГї, ГўГ»ГЁГЈГ°Г»Гё Гў Г¤Г®Г«ГЈ.',
+'- 9. ГЏГ°ГЁ Г®ГЎГ¬Г Г­ГҐ ГўГ®Г§ГўГ°Г Г№Г ГҐГІГ±Гї Г±ГіГ¬Г¬Г  ГЇГ°Г®ГЁГЈГ°Г»ГёГ  Г± Г ГЄГЄГ ГіГ­ГІГ®Гў Г®ГЎГ¬Г Г­Г№ГЁГЄГ  (ГЇГ°ГЁ Г­Г Г«ГЁГ·ГЁГЁ).'}
+local capturerules = {'ГЌГ  Г§Г ГµГўГ ГІГҐ ГІГҐГ°Г°ГЁГІГ®Г°ГЁГЁ Г°Г Г§Г°ГҐГёГҐГ­Г®:',
 '',
-'- Маски (/mask)',
-'- Аптечки (/healme)',
-'- Наркотики (/drugs)',
-'- Использование багов стрельбы (Слайды, отводы, сбивы перекатов, +с)',
-'На захвате территории запрещено:',
+'- ГЊГ Г±ГЄГЁ (/mask)',
+'- ГЂГЇГІГҐГ·ГЄГЁ (/healme)',
+'- ГЌГ Г°ГЄГ®ГІГЁГЄГЁ (/drugs)',
+'- Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГЎГ ГЈГ®Гў Г±ГІГ°ГҐГ«ГјГЎГ» (Г‘Г«Г Г©Г¤Г», Г®ГІГўГ®Г¤Г», Г±ГЎГЁГўГ» ГЇГҐГ°ГҐГЄГ ГІГ®Гў, +Г±)',
+'ГЌГ  Г§Г ГµГўГ ГІГҐ ГІГҐГ°Г°ГЁГІГ®Г°ГЁГЁ Г§Г ГЇГ°ГҐГ№ГҐГ­Г®:',
 '',
-'- TK, DB, бронежилет | Наказание - Jail/Warn (1/3)',
-'- Сбив | Наказание: Jail/Warn (1/3)',
-'- Читы: WH, SH, TP, PARKOUR, CLEO ANIM | Наказание - Jail/Warn (1/3)',
-'- Читы: FLY, Клео лаги | Наказание - Jail/Warn (2/3)',
-'- SK (Исключение: если была провокация), Антифраг/офф от килла, проезд мимо | Наказание - Jail/Warn (2/3)',
-'- Вред читы: CARSHOT, DAMAGER, РВАНКА и другие | Наказание - Ban (3/3)',
-'- Не приезжать на захватываемую территорию в течении 3-х минут | (3/3)',
-'- Каптить куском/обрезом | Наказание - Jail/Warn (3/3)',
-'- Стрельба на пассажирском сидении | (3/3)',
-'- Анти-каптить | Наказание - Jail/Warn (3/3)',
-'- AFK на капте от 1+ минут | Наказание - Jail/Warn (1/3)',
-'- Читы, которые дают преимущество в стрельбе: AIM, RAPID, AUTO +C, NO SPREAD, EXTRA W, инвиз | Наказание - Jail/Warn (3/3)',
-'- Труднодоступные крыши (Исключение: крыши, на которые можно залезть с одного прыжка) | Наказание - Jail/Warn (2/3)',
-'- Помощь другой банде (Выдача территории от банды, которая помогала. Выдаётся банде, против которой были две банды) | Наказание - jail/warn (3/3)',
-'- Выход из игры, интерьер в бою на решающем фраге | Наказание - Jail/Warn (3/3)',
-'- Использование запрещенного транспорта (Военная техника: "Hydra", "Hunter" и прочее) | Наказание - Jail/Warn (3/3)',
-'- +C на каптах с Anti +C | Наказание: Jail/Warn (3/3)'}
-local bizwarrules = {'На стреле разрешено:',
+'- TK, DB, ГЎГ°Г®Г­ГҐГ¦ГЁГ«ГҐГІ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (1/3)',
+'- Г‘ГЎГЁГў | ГЌГ ГЄГ Г§Г Г­ГЁГҐ: Jail/Warn (1/3)',
+'- Г—ГЁГІГ»: WH, SH, TP, PARKOUR, CLEO ANIM | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (1/3)',
+'- Г—ГЁГІГ»: FLY, ГЉГ«ГҐГ® Г«Г ГЈГЁ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (2/3)',
+'- SK (Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ: ГҐГ±Г«ГЁ ГЎГ»Г«Г  ГЇГ°Г®ГўГ®ГЄГ Г¶ГЁГї), ГЂГ­ГІГЁГґГ°Г ГЈ/Г®ГґГґ Г®ГІ ГЄГЁГ«Г«Г , ГЇГ°Г®ГҐГ§Г¤ Г¬ГЁГ¬Г® | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (2/3)',
+'- Г‚Г°ГҐГ¤ Г·ГЁГІГ»: CARSHOT, DAMAGER, ГђГ‚ГЂГЌГЉГЂ ГЁ Г¤Г°ГіГЈГЁГҐ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Ban (3/3)',
+'- ГЌГҐ ГЇГ°ГЁГҐГ§Г¦Г ГІГј Г­Г  Г§Г ГµГўГ ГІГ»ГўГ ГҐГ¬ГіГѕ ГІГҐГ°Г°ГЁГІГ®Г°ГЁГѕ Гў ГІГҐГ·ГҐГ­ГЁГЁ 3-Гµ Г¬ГЁГ­ГіГІ | (3/3)',
+'- ГЉГ ГЇГІГЁГІГј ГЄГіГ±ГЄГ®Г¬/Г®ГЎГ°ГҐГ§Г®Г¬ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (3/3)',
+'- Г‘ГІГ°ГҐГ«ГјГЎГ  Г­Г  ГЇГ Г±Г±Г Г¦ГЁГ°Г±ГЄГ®Г¬ Г±ГЁГ¤ГҐГ­ГЁГЁ | (3/3)',
+'- ГЂГ­ГІГЁ-ГЄГ ГЇГІГЁГІГј | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (3/3)',
+'- AFK Г­Г  ГЄГ ГЇГІГҐ Г®ГІ 1+ Г¬ГЁГ­ГіГІ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (1/3)',
+'- Г—ГЁГІГ», ГЄГ®ГІГ®Г°Г»ГҐ Г¤Г ГѕГІ ГЇГ°ГҐГЁГ¬ГіГ№ГҐГ±ГІГўГ® Гў Г±ГІГ°ГҐГ«ГјГЎГҐ: AIM, RAPID, AUTO +C, NO SPREAD, EXTRA W, ГЁГ­ГўГЁГ§ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (3/3)',
+'- Г’Г°ГіГ¤Г­Г®Г¤Г®Г±ГІГіГЇГ­Г»ГҐ ГЄГ°Г»ГёГЁ (Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ: ГЄГ°Г»ГёГЁ, Г­Г  ГЄГ®ГІГ®Г°Г»ГҐ Г¬Г®Г¦Г­Г® Г§Г Г«ГҐГ§ГІГј Г± Г®Г¤Г­Г®ГЈГ® ГЇГ°Г»Г¦ГЄГ ) | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (2/3)',
+'- ГЏГ®Г¬Г®Г№Гј Г¤Г°ГіГЈГ®Г© ГЎГ Г­Г¤ГҐ (Г‚Г»Г¤Г Г·Г  ГІГҐГ°Г°ГЁГІГ®Г°ГЁГЁ Г®ГІ ГЎГ Г­Г¤Г», ГЄГ®ГІГ®Г°Г Гї ГЇГ®Г¬Г®ГЈГ Г«Г . Г‚Г»Г¤Г ВёГІГ±Гї ГЎГ Г­Г¤ГҐ, ГЇГ°Г®ГІГЁГў ГЄГ®ГІГ®Г°Г®Г© ГЎГ»Г«ГЁ Г¤ГўГҐ ГЎГ Г­Г¤Г») | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - jail/warn (3/3)',
+'- Г‚Г»ГµГ®Г¤ ГЁГ§ ГЁГЈГ°Г», ГЁГ­ГІГҐГ°ГјГҐГ° Гў ГЎГ®Гѕ Г­Г  Г°ГҐГёГ ГѕГ№ГҐГ¬ ГґГ°Г ГЈГҐ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (3/3)',
+'- Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Г§Г ГЇГ°ГҐГ№ГҐГ­Г­Г®ГЈГ® ГІГ°Г Г­Г±ГЇГ®Г°ГІГ  (Г‚Г®ГҐГ­Г­Г Гї ГІГҐГµГ­ГЁГЄГ : "Hydra", "Hunter" ГЁ ГЇГ°Г®Г·ГҐГҐ) | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (3/3)',
+'- +C Г­Г  ГЄГ ГЇГІГ Гµ Г± Anti +C | ГЌГ ГЄГ Г§Г Г­ГЁГҐ: Jail/Warn (3/3)'}
+local bizwarrules = {'ГЌГ  Г±ГІГ°ГҐГ«ГҐ Г°Г Г§Г°ГҐГёГҐГ­Г®:',
 '',
-'- Аптечки (/healme)',
-'- Наркотики (/drugs)',
-'- Использование багов стрельбы (Отвод с Desert Eagle после 2-го выстрела, сбивы перекатов)',
-'На стреле запрещено:',
+'- ГЂГЇГІГҐГ·ГЄГЁ (/healme)',
+'- ГЌГ Г°ГЄГ®ГІГЁГЄГЁ (/drugs)',
+'- Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ ГЎГ ГЈГ®Гў Г±ГІГ°ГҐГ«ГјГЎГ» (ГЋГІГўГ®Г¤ Г± Desert Eagle ГЇГ®Г±Г«ГҐ 2-ГЈГ® ГўГ»Г±ГІГ°ГҐГ«Г , Г±ГЎГЁГўГ» ГЇГҐГ°ГҐГЄГ ГІГ®Гў)',
+'ГЌГ  Г±ГІГ°ГҐГ«ГҐ Г§Г ГЇГ°ГҐГ№ГҐГ­Г®:',
 '',
-'- +C, отвод после 1-го выстрела | Наказание: Jail/Warn (1/3)',
-'- Маски (/mask) | Наказание - Jail/Warn (1/3)',
-'- SK, TK, DB, бронежилет | Наказание - Jail/Warn (1/3)',
-'- Читы: SH, TP, FLY, PARKOUR, CLEO ANIM | Наказание - Jail/Warn (1/3)',
-'- AFK на стреле от 1+ минут | Наказание - Jail/Warn (1/3)',
-'- NO SPREAD, EXTRA WS, Антифраг/офф от килла | Наказание - Jail/Warn (2/3)',
-'- Читы, которые дают преимущество в стрельбе: AIM, RAPID, AUTO +C, инвиз, стрельба сквозь объекты | Наказание - Jail/Warn (3/3)',
-'- Вред читы: CARSHOT, DAMAGER, РВАНКА и другие | Наказание - Ban (3/3)',
-'- Не приезжать на bizwar в течении 3-х минут | (3/3)',
-'- Анти-захват бизнеса | Наказание: Jail/Warn (3/3)',
-'- Аптечка/наркотики в бою | Наказание: Jail/Warn (1/3)',
-'- Сбив | Наказание: Jail/Warn (1/3)',
-'- Труднодоступные крыши (Исключение: крыши, на которые можно залезть с одного прыжка) | Наказание - Jail/Warn (2/3)',
-'- Дом на колёсах/спавн в доме, который находит'}
-local codex = {'Административный кодекс (АК)',
-'1. Раздел "Парковка":',
-'1.1. Неправильная парковка в общественном месте: - Сотрудник имеет право эвакуировать транспорт и выписать штраф в размере от 350 000$ до 900 000$. - За неправильную парковку в месте большого скопления людей (8 человек) штраф увеличивается в 2 раза.',
-'1.2. Неправильная парковка за городом: - Сотрудник имеет право эвакуировать машину и выписать штраф в размере от 250 000$ до 500 000$.',
-'1.3. Неправильная парковка в пригороде: - Сотрудник имеет право выписать штраф в размере от 150 000$ до 300 000$.',
-'1.4. Брошенный автомобиль на дороге: - Сотрудник имеет право эвакуировать транспорт и выписать штраф в размере от 350 000$ до 600 000$. - За брошенный автомобиль на скоростных трассах сотрудник имеет право эвакуировать транспорт и выписать штраф в размере от 350 000$ до 500 000$.',
-'1.5. Парковка на крышах зданий: - Сотрудник имеет право эвакуировать транспорт и выписать штраф в размере 500 000$.',
-'1.6. Парковка воздушных транспортных средств или создание помех движению при приземлении на парковочные места для автомобилей или иные нарушения ПДД при управлении воздушными транспортными средствами: - Штраф в размере 50 000$.',
-'2. Раздел "Нарушение общественного порядка":',
-'2.1. Использование нецензурной лексики в общественном месте: - Сотрудник имеет право выписать штраф в размере 50 000$.',
-'2.2. Распитие алкогольных напитков: - Сотрудник имеет право выписать штраф в размере 100 000$.',
-'2.3. Курение в общественном месте: - Сотрудник имеет право выписать штраф в размере 100 000$.',
-'2.4. Нужда в общественном месте: - Штраф в размере 50 000$.',
-'2.5. Пребывание в алкогольном опьянении: - Штраф в размере 100 000$.',
-'2.6. Оскорбление сотрудников государственных организаций: - Штраф в размере 500 000$ при продолжении неподобающего поведения. Уровень розыска: 2.',
-'2.7. Запрещено находиться без защитной маски в общественных местах: - Штраф в размере 40 000$.',
-'• Пункт 3. Нарушение ПДД: Для водителей:',
-'3.1. Грубое нарушение ПДД: - Сотрудник имеет право выписать штраф в размере 300 000$.',
-'3.2. Езда по встречной полосе: - Штраф в размере 150 000$.',
-'3.3. Превышение скорости: - Штраф в размере 100 000$.',
-'3.4. Наезд на пешехода: - Уголовная статья, лишение прав, штраф в размере 400 000$.',
-'3.5. Уход с места ДТП: - Уголовная статья, лишение водительских прав, штраф в размере 450 000$.',
-'3.6. Вождение транспортного средства в нетрезвом состоянии: - Лишение прав, штраф в размере 20 000$.',
-'3.7. Создание аварийной ситуации на дороге: - Уголовная статья, лишение водительских прав, штраф в размере 250 000$.',
-'3.8. Выключенные фары в ночное время: - Штраф в размере 50 000$.',
-'3.9. Выключенные поворотники при совершении поворота: - Штраф в размере 50 000$.',
-'3.10. Движение по обочинам, тротуарам, железнодорожным путям: - Лишение прав, штраф в размере от 150 000$ до 300 000$ (в зависимости от нарушения).',
-'3.11. Проезд на красный свет: - Штраф в размере 500 000$.',
-'3.12. Движение транспортного средства без регистрационного знака: - Штраф в размере 300 000$.',
-'3.13. Невыполнение требования Правил дорожного движения уступить дорогу транспортному средству, пользующемуся преимущественным правом проезда на перекрестке: - Штраф в размере 250 000$.',
-'Для пешеходов:',
-'3.13. Создание аварийной ситуации: - Штраф в размере 200 000$.',
-'3.14. Передвижение по проезжей части: - Штраф в размере 150 000$.',
-'3.15. Переход на красный свет: - Штраф в размере 50 000$.',
-'3.16. Езда со сломанной машиной: - Штраф в размере 170 000$.',
-'3.17. Игнорирование сирены специального транспорта: - Сотрудник вправе выписать штраф в размере 200 000$ и лишить водителя прав.',
-'4. Раздел "Клевета"',
-'4.1. Клевета на жителя штата: - Сотрудник обязан выписать штраф в размере 200 000$.',
-'4.2. Ввод в заблуждение правоохранительных органов: - Штраф в размере 300 000$.',
-'Уголовный кодекс (УК)',
-'1. Раздел "Нападение":',
-'1.1. Нападение на гражданское лицо с целью избиения (Уровень розыска: 4).',
-'1.1.1. Нападение на сотрудника государственной организации с целью избиения (Уровень розыска: 6).',
-'1.2. Нападение на гражданское лицо с целью убийства (Уровень розыска: 6).',
-'1.2.1. Нападение на сотрудника государственной организации с целью убийства (Уровень розыска: 6).',
-'1.3. Содействие в вооруженном нападении на государственного сотрудника или гражданина (Уровень розыска: 6).',
-'1.3.1. Содействие в избиении гражданского лица или государственного сотрудника (Уровень розыска: 4).',
-'1.4. Нападение на колонну государственных служащих (Уровень розыска: 6).',
-'2. Раздел "Нелегальная деятельность/Запрещенные вещи/Оружие":',
-'2.1. Организация несанкционированных митингов (Уровень розыска: 4).',
-'2.1.1. Участие в несанкционированных митингах (Уровень розыска: 2).',
-'2.2. Хищение чужого имущества (Уровень розыска: 3).',
-'2.3. Открытая реклама продажи или покупки наркотиков и материалов для отмычек (Уровень розыска: 4).',
-'2.4. Кража материалов на территории армии (Уровень розыска: 5).',
-'2.5. Хранение и перевозка наркотических веществ и материалов для отмычек (Уровень розыска: 6). Однако, если наркотики находятся в небольшом количестве и используются в медицинских целях, их наличие может быть исключением.',
-'2.6. Сбыт наркотических веществ и материалов: - Продавец (Уровень розыска: 5). - Покупатель (Уровень розыска: 4).',
-'2.7. Употребление наркотических/психотропных веществ (Уровень розыска: 4).',
-'2.8. Рэкет и крышевание бизнесов (Уровень розыска: 5).',
-'2.9. Организация нелегальных азартных игр (Уровень розыска: 5). 2.11. Незаконное приобретение и сбыт оружия (Уровень розыска: 5). В таких случаях производится изъятие оружия и лицензий на него.',
-'2.10. Хранение или ношение оружия без лицензии (Уровень розыска: 3).',
-'2.11. Ношение оружия в открытом виде (Уровень розыска: 3). В таких случаях производится изъятие лицензии на оружие и самого оружия.',
-'2.12. Выращивание и распространение запрещенных веществ (Уровень розыска: 3).',
-'2.13. Принадлежность к уличным группировкам/мафии (Уровень розыска: 6).',
-'2.14. Организация уличных группировок/мафии (Уровень розыска: 6).',
-'2.15. Незаконное представление/незаконное ношение форменной одежды (Уровень розыска: 6)',
-'3. Раздел "Нарушение ПДД":',
-'3.1. Уход с места ДТП (Уровень розыска: 3).',
-'3.2. Создание аварийной ситуации на дороге (Уровень розыска: 2).',
-'3.3. Наезд на пешехода (уровень розыска зависит от тяжести нарушения и может быть от 1 до 3).',
-'4. Раздел "Неподчинение":',
-'4.1. Неподчинение сотруднику правоохранительных органов (Уровень розыска: 4). Перед выдачей розыска обязательно требуется представиться и объяснить причину.',
-'4.2. Отказ выплаты штрафа (Уровень розыска: 5).',
-'4.3. Отказ остановиться при просьбе через мегафон (Уровень розыска: 3). Выдача розыска происходит после установления личности водителя.',
-'4.4. Несоблюдение указов Президента (Уровень розыска: 2).',
-'4.5. Содействие аресту или сопротивление содействию ареста (Уровень розыска: 5).',
-'5. Раздел "Теракты":',
-'5.1. Похищение граждан или государственных сотрудников с целью выкупа (Уровень розыска: 6).',
-'5.2. Ограбление организаций, магазинов или автозаправочных станций (Уровень розыска: 6).',
-'5.3. Планирование теракта (Уровень розыска: 6).',
-'5.4. Организация теракта (Уровень розыска: 6).',
-'5.5. Создание террористических группировок (Уровень розыска: 6).',
-'5.6. Взятие заложников и похищение людей (Уровень розыска: 6).',
-'5.7. Попытка государственного переворота (Уровень розыска: 6 + Черный Список государства + штраф в размере 20 000 000).',
-'5.8. Телефонный терроризм (Уровень розыска: 6).',
-'6. Раздел "Проникновение":',
-'6.1. Проникновение на охраняемую территорию, под охраной правоохранительных органов (Уровень розыска: 6).',
-'6.2. Проникновение на частную территорию без разрешения владельца (Уровень розыска: 4).',
-'6.3. Проникновение на территорию закрытой военной базы (Уровень розыска: 6).',
-'7. Раздел "Проституция":',
-'7.1. Участие в проституции (Уровень розыска: 4).',
-'7.2. Вовлечение в занятие проституцией (Уровень розыска: 5).',
-'7.3. Изнасилование (Уровень розыска: 6).',
-'8. Раздел "Дача ложных показаний":',
-'8.1. Дача заведомо ложных показаний сотрудникам правоохранительных органов (Уровень розыска: 4)',
-'8.2. Ложный вызов сотрудников полиции/ФБР (Уровень розыска: 4)',
-'8.3. Укрывательство преступника (Уровень розыска: 5)',
-'8.4. Дача ложных показаний в суде. (Штраф 5.000.000 долларов и 4 уровень розыска)',
-'9. Раздел "Хулиганство":',
-'9.1. Неуважительное отношение к другим расам/меньшинствам (Уровень розыска: 4).',
-'9.2. Угроза расправой (Уровень розыска: 3).',
-'9.3. Порча имущества государственных организаций (Уровень розыска: 2) или штраф в размере 500 000 долларов.',
-'9.3.1. Порча имущества гражданских лиц (Уровень розыска: 1).',
-'9.4. Попытка угона транспортного средства (Уровень розыска: 3).',
-'9.4.1. Угон транспортного средства (Уровень розыска: 5).',
-'9.5. Ношение гражданскими лицами маски, скрывающей лицо (Уровень розыска: 1). Примечание: Сначала следует попросить снять маску, так как данные лица вызывают подозрения у сотрудников правоохранительных органов.',
-'10. Раздел "Посягательство на собственность":',
-'10.1. Посягательство на частную собственность с применением силы (Штраф до 10 000 000 долларов, Уровень розыска: 5).',
-'10.2. Посягательство на частную собственность путем фабрикации юридических документов (Штраф до 10 000 000 долларов, Уровень розыска: 6).',
-'10.3. Посягательство на государственную собственность в любом виде (Штраф до 30 000 000 долларов, Уровень розыска: 6).',
-'10.4. Незаконная купля/продажа государственной собственности (Снятие с должности, штраф до 5 000 000 долларов, Уровень розыска: 6).',
-'11. Раздел "Превышение должностных полномочий":',
-'11.1. Превышение должностных полномочий с корыстной целью (Снятие с должности + Черный Список организации, Уровень розыска: 6).',
-'Федеральное постановление (ФП)',
-'1. Раздел "Положения к Федеральному Постановлению"',
-'1.1. Федеральное Постановление выпускается Администрацией Президента и Федеральным Бюро Расследований в отношении государственных служащих.',
-'1.2. Изменение Федерального Постановления может быть осуществлено Директором ФБР или Губернатором штата.',
-'1.3. Обязанность соблюдения Федерального Постановления лежит на всем персонале государственных организаций.',
-'1.4. Отсутствие осведомленности о содержании Федерального Постановления не оправдывает обвиняемого и не освобождает его от ответственности.',
-'1.5. В случае, если государственный служащий совершает действие, которое может рассматриваться как косвенное нарушение нормативно-правового акта, применимо к любому из действующих пунктов законодательной базы с ссылкой на Федеральное Постановление.',
-'1.6. Положения, предоставляющие возможность выбора вида наказания, предполагают применение одного из них по усмотрению назначающего наказание, учитывая тяжесть нарушения и наличие предшествующих предупреждений или нарушений в прошлом.',
+'- +C, Г®ГІГўГ®Г¤ ГЇГ®Г±Г«ГҐ 1-ГЈГ® ГўГ»Г±ГІГ°ГҐГ«Г  | ГЌГ ГЄГ Г§Г Г­ГЁГҐ: Jail/Warn (1/3)',
+'- ГЊГ Г±ГЄГЁ (/mask) | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (1/3)',
+'- SK, TK, DB, ГЎГ°Г®Г­ГҐГ¦ГЁГ«ГҐГІ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (1/3)',
+'- Г—ГЁГІГ»: SH, TP, FLY, PARKOUR, CLEO ANIM | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (1/3)',
+'- AFK Г­Г  Г±ГІГ°ГҐГ«ГҐ Г®ГІ 1+ Г¬ГЁГ­ГіГІ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (1/3)',
+'- NO SPREAD, EXTRA WS, ГЂГ­ГІГЁГґГ°Г ГЈ/Г®ГґГґ Г®ГІ ГЄГЁГ«Г«Г  | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (2/3)',
+'- Г—ГЁГІГ», ГЄГ®ГІГ®Г°Г»ГҐ Г¤Г ГѕГІ ГЇГ°ГҐГЁГ¬ГіГ№ГҐГ±ГІГўГ® Гў Г±ГІГ°ГҐГ«ГјГЎГҐ: AIM, RAPID, AUTO +C, ГЁГ­ГўГЁГ§, Г±ГІГ°ГҐГ«ГјГЎГ  Г±ГЄГўГ®Г§Гј Г®ГЎГєГҐГЄГІГ» | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (3/3)',
+'- Г‚Г°ГҐГ¤ Г·ГЁГІГ»: CARSHOT, DAMAGER, ГђГ‚ГЂГЌГЉГЂ ГЁ Г¤Г°ГіГЈГЁГҐ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Ban (3/3)',
+'- ГЌГҐ ГЇГ°ГЁГҐГ§Г¦Г ГІГј Г­Г  bizwar Гў ГІГҐГ·ГҐГ­ГЁГЁ 3-Гµ Г¬ГЁГ­ГіГІ | (3/3)',
+'- ГЂГ­ГІГЁ-Г§Г ГµГўГ ГІ ГЎГЁГ§Г­ГҐГ±Г  | ГЌГ ГЄГ Г§Г Г­ГЁГҐ: Jail/Warn (3/3)',
+'- ГЂГЇГІГҐГ·ГЄГ /Г­Г Г°ГЄГ®ГІГЁГЄГЁ Гў ГЎГ®Гѕ | ГЌГ ГЄГ Г§Г Г­ГЁГҐ: Jail/Warn (1/3)',
+'- Г‘ГЎГЁГў | ГЌГ ГЄГ Г§Г Г­ГЁГҐ: Jail/Warn (1/3)',
+'- Г’Г°ГіГ¤Г­Г®Г¤Г®Г±ГІГіГЇГ­Г»ГҐ ГЄГ°Г»ГёГЁ (Г€Г±ГЄГ«ГѕГ·ГҐГ­ГЁГҐ: ГЄГ°Г»ГёГЁ, Г­Г  ГЄГ®ГІГ®Г°Г»ГҐ Г¬Г®Г¦Г­Г® Г§Г Г«ГҐГ§ГІГј Г± Г®Г¤Г­Г®ГЈГ® ГЇГ°Г»Г¦ГЄГ ) | ГЌГ ГЄГ Г§Г Г­ГЁГҐ - Jail/Warn (2/3)',
+'- Г„Г®Г¬ Г­Г  ГЄГ®Г«ВёГ±Г Гµ/Г±ГЇГ ГўГ­ Гў Г¤Г®Г¬ГҐ, ГЄГ®ГІГ®Г°Г»Г© Г­Г ГµГ®Г¤ГЁГІ'}
+local codex = {'ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГЁГўГ­Г»Г© ГЄГ®Г¤ГҐГЄГ± (ГЂГЉ)',
+'1. ГђГ Г§Г¤ГҐГ« "ГЏГ Г°ГЄГ®ГўГЄГ ":',
+'1.1. ГЌГҐГЇГ°Г ГўГЁГ«ГјГ­Г Гї ГЇГ Г°ГЄГ®ГўГЄГ  Гў Г®ГЎГ№ГҐГ±ГІГўГҐГ­Г­Г®Г¬ Г¬ГҐГ±ГІГҐ: - Г‘Г®ГІГ°ГіГ¤Г­ГЁГЄ ГЁГ¬ГҐГҐГІ ГЇГ°Г ГўГ® ГЅГўГ ГЄГіГЁГ°Г®ГўГ ГІГј ГІГ°Г Г­Г±ГЇГ®Г°ГІ ГЁ ГўГ»ГЇГЁГ±Г ГІГј ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ Г®ГІ 350 000$ Г¤Г® 900 000$. - Г‡Г  Г­ГҐГЇГ°Г ГўГЁГ«ГјГ­ГіГѕ ГЇГ Г°ГЄГ®ГўГЄГі Гў Г¬ГҐГ±ГІГҐ ГЎГ®Г«ГјГёГ®ГЈГ® Г±ГЄГ®ГЇГ«ГҐГ­ГЁГї Г«ГѕГ¤ГҐГ© (8 Г·ГҐГ«Г®ГўГҐГЄ) ГёГІГ°Г Гґ ГіГўГҐГ«ГЁГ·ГЁГўГ ГҐГІГ±Гї Гў 2 Г°Г Г§Г .',
+'1.2. ГЌГҐГЇГ°Г ГўГЁГ«ГјГ­Г Гї ГЇГ Г°ГЄГ®ГўГЄГ  Г§Г  ГЈГ®Г°Г®Г¤Г®Г¬: - Г‘Г®ГІГ°ГіГ¤Г­ГЁГЄ ГЁГ¬ГҐГҐГІ ГЇГ°Г ГўГ® ГЅГўГ ГЄГіГЁГ°Г®ГўГ ГІГј Г¬Г ГёГЁГ­Гі ГЁ ГўГ»ГЇГЁГ±Г ГІГј ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ Г®ГІ 250 000$ Г¤Г® 500 000$.',
+'1.3. ГЌГҐГЇГ°Г ГўГЁГ«ГјГ­Г Гї ГЇГ Г°ГЄГ®ГўГЄГ  Гў ГЇГ°ГЁГЈГ®Г°Г®Г¤ГҐ: - Г‘Г®ГІГ°ГіГ¤Г­ГЁГЄ ГЁГ¬ГҐГҐГІ ГЇГ°Г ГўГ® ГўГ»ГЇГЁГ±Г ГІГј ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ Г®ГІ 150 000$ Г¤Г® 300 000$.',
+'1.4. ГЃГ°Г®ГёГҐГ­Г­Г»Г© Г ГўГІГ®Г¬Г®ГЎГЁГ«Гј Г­Г  Г¤Г®Г°Г®ГЈГҐ: - Г‘Г®ГІГ°ГіГ¤Г­ГЁГЄ ГЁГ¬ГҐГҐГІ ГЇГ°Г ГўГ® ГЅГўГ ГЄГіГЁГ°Г®ГўГ ГІГј ГІГ°Г Г­Г±ГЇГ®Г°ГІ ГЁ ГўГ»ГЇГЁГ±Г ГІГј ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ Г®ГІ 350 000$ Г¤Г® 600 000$. - Г‡Г  ГЎГ°Г®ГёГҐГ­Г­Г»Г© Г ГўГІГ®Г¬Г®ГЎГЁГ«Гј Г­Г  Г±ГЄГ®Г°Г®Г±ГІГ­Г»Гµ ГІГ°Г Г±Г±Г Гµ Г±Г®ГІГ°ГіГ¤Г­ГЁГЄ ГЁГ¬ГҐГҐГІ ГЇГ°Г ГўГ® ГЅГўГ ГЄГіГЁГ°Г®ГўГ ГІГј ГІГ°Г Г­Г±ГЇГ®Г°ГІ ГЁ ГўГ»ГЇГЁГ±Г ГІГј ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ Г®ГІ 350 000$ Г¤Г® 500 000$.',
+'1.5. ГЏГ Г°ГЄГ®ГўГЄГ  Г­Г  ГЄГ°Г»ГёГ Гµ Г§Г¤Г Г­ГЁГ©: - Г‘Г®ГІГ°ГіГ¤Г­ГЁГЄ ГЁГ¬ГҐГҐГІ ГЇГ°Г ГўГ® ГЅГўГ ГЄГіГЁГ°Г®ГўГ ГІГј ГІГ°Г Г­Г±ГЇГ®Г°ГІ ГЁ ГўГ»ГЇГЁГ±Г ГІГј ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 500 000$.',
+'1.6. ГЏГ Г°ГЄГ®ГўГЄГ  ГўГ®Г§Г¤ГіГёГ­Г»Гµ ГІГ°Г Г­Г±ГЇГ®Г°ГІГ­Г»Гµ Г±Г°ГҐГ¤Г±ГІГў ГЁГ«ГЁ Г±Г®Г§Г¤Г Г­ГЁГҐ ГЇГ®Г¬ГҐГµ Г¤ГўГЁГ¦ГҐГ­ГЁГѕ ГЇГ°ГЁ ГЇГ°ГЁГ§ГҐГ¬Г«ГҐГ­ГЁГЁ Г­Г  ГЇГ Г°ГЄГ®ГўГ®Г·Г­Г»ГҐ Г¬ГҐГ±ГІГ  Г¤Г«Гї Г ГўГІГ®Г¬Г®ГЎГЁГ«ГҐГ© ГЁГ«ГЁ ГЁГ­Г»ГҐ Г­Г Г°ГіГёГҐГ­ГЁГї ГЏГ„Г„ ГЇГ°ГЁ ГіГЇГ°Г ГўГ«ГҐГ­ГЁГЁ ГўГ®Г§Г¤ГіГёГ­Г»Г¬ГЁ ГІГ°Г Г­Г±ГЇГ®Г°ГІГ­Г»Г¬ГЁ Г±Г°ГҐГ¤Г±ГІГўГ Г¬ГЁ: - ГГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 50 000$.',
+'2. ГђГ Г§Г¤ГҐГ« "ГЌГ Г°ГіГёГҐГ­ГЁГҐ Г®ГЎГ№ГҐГ±ГІГўГҐГ­Г­Г®ГЈГ® ГЇГ®Г°ГїГ¤ГЄГ ":',
+'2.1. Г€Г±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Г­ГҐГ¶ГҐГ­Г§ГіГ°Г­Г®Г© Г«ГҐГЄГ±ГЁГЄГЁ Гў Г®ГЎГ№ГҐГ±ГІГўГҐГ­Г­Г®Г¬ Г¬ГҐГ±ГІГҐ: - Г‘Г®ГІГ°ГіГ¤Г­ГЁГЄ ГЁГ¬ГҐГҐГІ ГЇГ°Г ГўГ® ГўГ»ГЇГЁГ±Г ГІГј ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 50 000$.',
+'2.2. ГђГ Г±ГЇГЁГІГЁГҐ Г Г«ГЄГ®ГЈГ®Г«ГјГ­Г»Гµ Г­Г ГЇГЁГІГЄГ®Гў: - Г‘Г®ГІГ°ГіГ¤Г­ГЁГЄ ГЁГ¬ГҐГҐГІ ГЇГ°Г ГўГ® ГўГ»ГЇГЁГ±Г ГІГј ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 100 000$.',
+'2.3. ГЉГіГ°ГҐГ­ГЁГҐ Гў Г®ГЎГ№ГҐГ±ГІГўГҐГ­Г­Г®Г¬ Г¬ГҐГ±ГІГҐ: - Г‘Г®ГІГ°ГіГ¤Г­ГЁГЄ ГЁГ¬ГҐГҐГІ ГЇГ°Г ГўГ® ГўГ»ГЇГЁГ±Г ГІГј ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 100 000$.',
+'2.4. ГЌГіГ¦Г¤Г  Гў Г®ГЎГ№ГҐГ±ГІГўГҐГ­Г­Г®Г¬ Г¬ГҐГ±ГІГҐ: - ГГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 50 000$.',
+'2.5. ГЏГ°ГҐГЎГ»ГўГ Г­ГЁГҐ Гў Г Г«ГЄГ®ГЈГ®Г«ГјГ­Г®Г¬ Г®ГЇГјГїГ­ГҐГ­ГЁГЁ: - ГГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 100 000$.',
+'2.6. ГЋГ±ГЄГ®Г°ГЎГ«ГҐГ­ГЁГҐ Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ®Гў ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»Гµ Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГ©: - ГГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 500 000$ ГЇГ°ГЁ ГЇГ°Г®Г¤Г®Г«Г¦ГҐГ­ГЁГЁ Г­ГҐГЇГ®Г¤Г®ГЎГ ГѕГ№ГҐГЈГ® ГЇГ®ГўГҐГ¤ГҐГ­ГЁГї. Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 2.',
+'2.7. Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® Г­Г ГµГ®Г¤ГЁГІГјГ±Гї ГЎГҐГ§ Г§Г Г№ГЁГІГ­Г®Г© Г¬Г Г±ГЄГЁ Гў Г®ГЎГ№ГҐГ±ГІГўГҐГ­Г­Г»Гµ Г¬ГҐГ±ГІГ Гµ: - ГГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 40 000$.',
+'В• ГЏГіГ­ГЄГІ 3. ГЌГ Г°ГіГёГҐГ­ГЁГҐ ГЏГ„Г„: Г„Г«Гї ГўГ®Г¤ГЁГІГҐГ«ГҐГ©:',
+'3.1. ГѓГ°ГіГЎГ®ГҐ Г­Г Г°ГіГёГҐГ­ГЁГҐ ГЏГ„Г„: - Г‘Г®ГІГ°ГіГ¤Г­ГЁГЄ ГЁГ¬ГҐГҐГІ ГЇГ°Г ГўГ® ГўГ»ГЇГЁГ±Г ГІГј ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 300 000$.',
+'3.2. Г…Г§Г¤Г  ГЇГ® ГўГ±ГІГ°ГҐГ·Г­Г®Г© ГЇГ®Г«Г®Г±ГҐ: - ГГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 150 000$.',
+'3.3. ГЏГ°ГҐГўГ»ГёГҐГ­ГЁГҐ Г±ГЄГ®Г°Г®Г±ГІГЁ: - ГГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 100 000$.',
+'3.4. ГЌГ ГҐГ§Г¤ Г­Г  ГЇГҐГёГҐГµГ®Г¤Г : - Г“ГЈГ®Г«Г®ГўГ­Г Гї Г±ГІГ ГІГјГї, Г«ГЁГёГҐГ­ГЁГҐ ГЇГ°Г Гў, ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 400 000$.',
+'3.5. Г“ГµГ®Г¤ Г± Г¬ГҐГ±ГІГ  Г„Г’ГЏ: - Г“ГЈГ®Г«Г®ГўГ­Г Гї Г±ГІГ ГІГјГї, Г«ГЁГёГҐГ­ГЁГҐ ГўГ®Г¤ГЁГІГҐГ«ГјГ±ГЄГЁГµ ГЇГ°Г Гў, ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 450 000$.',
+'3.6. Г‚Г®Г¦Г¤ГҐГ­ГЁГҐ ГІГ°Г Г­Г±ГЇГ®Г°ГІГ­Г®ГЈГ® Г±Г°ГҐГ¤Г±ГІГўГ  Гў Г­ГҐГІГ°ГҐГ§ГўГ®Г¬ Г±Г®Г±ГІГ®ГїГ­ГЁГЁ: - Г‹ГЁГёГҐГ­ГЁГҐ ГЇГ°Г Гў, ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 20 000$.',
+'3.7. Г‘Г®Г§Г¤Г Г­ГЁГҐ Г ГўГ Г°ГЁГ©Г­Г®Г© Г±ГЁГІГіГ Г¶ГЁГЁ Г­Г  Г¤Г®Г°Г®ГЈГҐ: - Г“ГЈГ®Г«Г®ГўГ­Г Гї Г±ГІГ ГІГјГї, Г«ГЁГёГҐГ­ГЁГҐ ГўГ®Г¤ГЁГІГҐГ«ГјГ±ГЄГЁГµ ГЇГ°Г Гў, ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 250 000$.',
+'3.8. Г‚Г»ГЄГ«ГѕГ·ГҐГ­Г­Г»ГҐ ГґГ Г°Г» Гў Г­Г®Г·Г­Г®ГҐ ГўГ°ГҐГ¬Гї: - ГГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 50 000$.',
+'3.9. Г‚Г»ГЄГ«ГѕГ·ГҐГ­Г­Г»ГҐ ГЇГ®ГўГ®Г°Г®ГІГ­ГЁГЄГЁ ГЇГ°ГЁ Г±Г®ГўГҐГ°ГёГҐГ­ГЁГЁ ГЇГ®ГўГ®Г°Г®ГІГ : - ГГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 50 000$.',
+'3.10. Г„ГўГЁГ¦ГҐГ­ГЁГҐ ГЇГ® Г®ГЎГ®Г·ГЁГ­Г Г¬, ГІГ°Г®ГІГіГ Г°Г Г¬, Г¦ГҐГ«ГҐГ§Г­Г®Г¤Г®Г°Г®Г¦Г­Г»Г¬ ГЇГіГІГїГ¬: - Г‹ГЁГёГҐГ­ГЁГҐ ГЇГ°Г Гў, ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ Г®ГІ 150 000$ Г¤Г® 300 000$ (Гў Г§Г ГўГЁГ±ГЁГ¬Г®Г±ГІГЁ Г®ГІ Г­Г Г°ГіГёГҐГ­ГЁГї).',
+'3.11. ГЏГ°Г®ГҐГ§Г¤ Г­Г  ГЄГ°Г Г±Г­Г»Г© Г±ГўГҐГІ: - ГГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 500 000$.',
+'3.12. Г„ГўГЁГ¦ГҐГ­ГЁГҐ ГІГ°Г Г­Г±ГЇГ®Г°ГІГ­Г®ГЈГ® Г±Г°ГҐГ¤Г±ГІГўГ  ГЎГҐГ§ Г°ГҐГЈГЁГ±ГІГ°Г Г¶ГЁГ®Г­Г­Г®ГЈГ® Г§Г­Г ГЄГ : - ГГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 300 000$.',
+'3.13. ГЌГҐГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГҐ ГІГ°ГҐГЎГ®ГўГ Г­ГЁГї ГЏГ°Г ГўГЁГ« Г¤Г®Г°Г®Г¦Г­Г®ГЈГ® Г¤ГўГЁГ¦ГҐГ­ГЁГї ГіГ±ГІГіГЇГЁГІГј Г¤Г®Г°Г®ГЈГі ГІГ°Г Г­Г±ГЇГ®Г°ГІГ­Г®Г¬Гі Г±Г°ГҐГ¤Г±ГІГўГі, ГЇГ®Г«ГјГ§ГіГѕГ№ГҐГ¬ГіГ±Гї ГЇГ°ГҐГЁГ¬ГіГ№ГҐГ±ГІГўГҐГ­Г­Г»Г¬ ГЇГ°Г ГўГ®Г¬ ГЇГ°Г®ГҐГ§Г¤Г  Г­Г  ГЇГҐГ°ГҐГЄГ°ГҐГ±ГІГЄГҐ: - ГГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 250 000$.',
+'Г„Г«Гї ГЇГҐГёГҐГµГ®Г¤Г®Гў:',
+'3.13. Г‘Г®Г§Г¤Г Г­ГЁГҐ Г ГўГ Г°ГЁГ©Г­Г®Г© Г±ГЁГІГіГ Г¶ГЁГЁ: - ГГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 200 000$.',
+'3.14. ГЏГҐГ°ГҐГ¤ГўГЁГ¦ГҐГ­ГЁГҐ ГЇГ® ГЇГ°Г®ГҐГ§Г¦ГҐГ© Г·Г Г±ГІГЁ: - ГГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 150 000$.',
+'3.15. ГЏГҐГ°ГҐГµГ®Г¤ Г­Г  ГЄГ°Г Г±Г­Г»Г© Г±ГўГҐГІ: - ГГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 50 000$.',
+'3.16. Г…Г§Г¤Г  Г±Г® Г±Г«Г®Г¬Г Г­Г­Г®Г© Г¬Г ГёГЁГ­Г®Г©: - ГГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 170 000$.',
+'3.17. Г€ГЈГ­Г®Г°ГЁГ°Г®ГўГ Г­ГЁГҐ Г±ГЁГ°ГҐГ­Г» Г±ГЇГҐГ¶ГЁГ Г«ГјГ­Г®ГЈГ® ГІГ°Г Г­Г±ГЇГ®Г°ГІГ : - Г‘Г®ГІГ°ГіГ¤Г­ГЁГЄ ГўГЇГ°Г ГўГҐ ГўГ»ГЇГЁГ±Г ГІГј ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 200 000$ ГЁ Г«ГЁГёГЁГІГј ГўГ®Г¤ГЁГІГҐГ«Гї ГЇГ°Г Гў.',
+'4. ГђГ Г§Г¤ГҐГ« "ГЉГ«ГҐГўГҐГІГ "',
+'4.1. ГЉГ«ГҐГўГҐГІГ  Г­Г  Г¦ГЁГІГҐГ«Гї ГёГІГ ГІГ : - Г‘Г®ГІГ°ГіГ¤Г­ГЁГЄ Г®ГЎГїГ§Г Г­ ГўГ»ГЇГЁГ±Г ГІГј ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 200 000$.',
+'4.2. Г‚ГўГ®Г¤ Гў Г§Г ГЎГ«ГіГ¦Г¤ГҐГ­ГЁГҐ ГЇГ°Г ГўГ®Г®ГµГ°Г Г­ГЁГІГҐГ«ГјГ­Г»Гµ Г®Г°ГЈГ Г­Г®Гў: - ГГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 300 000$.',
+'Г“ГЈГ®Г«Г®ГўГ­Г»Г© ГЄГ®Г¤ГҐГЄГ± (Г“ГЉ)',
+'1. ГђГ Г§Г¤ГҐГ« "ГЌГ ГЇГ Г¤ГҐГ­ГЁГҐ":',
+'1.1. ГЌГ ГЇГ Г¤ГҐГ­ГЁГҐ Г­Г  ГЈГ°Г Г¦Г¤Г Г­Г±ГЄГ®ГҐ Г«ГЁГ¶Г® Г± Г¶ГҐГ«ГјГѕ ГЁГ§ГЎГЁГҐГ­ГЁГї (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 4).',
+'1.1.1. ГЌГ ГЇГ Г¤ГҐГ­ГЁГҐ Г­Г  Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ  ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г®Г© Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГЁ Г± Г¶ГҐГ«ГјГѕ ГЁГ§ГЎГЁГҐГ­ГЁГї (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'1.2. ГЌГ ГЇГ Г¤ГҐГ­ГЁГҐ Г­Г  ГЈГ°Г Г¦Г¤Г Г­Г±ГЄГ®ГҐ Г«ГЁГ¶Г® Г± Г¶ГҐГ«ГјГѕ ГіГЎГЁГ©Г±ГІГўГ  (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'1.2.1. ГЌГ ГЇГ Г¤ГҐГ­ГЁГҐ Г­Г  Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ  ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г®Г© Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГЁ Г± Г¶ГҐГ«ГјГѕ ГіГЎГЁГ©Г±ГІГўГ  (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'1.3. Г‘Г®Г¤ГҐГ©Г±ГІГўГЁГҐ Гў ГўГ®Г®Г°ГіГ¦ГҐГ­Г­Г®Г¬ Г­Г ГЇГ Г¤ГҐГ­ГЁГЁ Г­Г  ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г®ГЈГ® Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ  ГЁГ«ГЁ ГЈГ°Г Г¦Г¤Г Г­ГЁГ­Г  (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'1.3.1. Г‘Г®Г¤ГҐГ©Г±ГІГўГЁГҐ Гў ГЁГ§ГЎГЁГҐГ­ГЁГЁ ГЈГ°Г Г¦Г¤Г Г­Г±ГЄГ®ГЈГ® Г«ГЁГ¶Г  ГЁГ«ГЁ ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г®ГЈГ® Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ  (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 4).',
+'1.4. ГЌГ ГЇГ Г¤ГҐГ­ГЁГҐ Г­Г  ГЄГ®Г«Г®Г­Г­Гі ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»Гµ Г±Г«ГіГ¦Г Г№ГЁГµ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'2. ГђГ Г§Г¤ГҐГ« "ГЌГҐГ«ГҐГЈГ Г«ГјГ­Г Гї Г¤ГҐГїГІГҐГ«ГјГ­Г®Г±ГІГј/Г‡Г ГЇГ°ГҐГ№ГҐГ­Г­Г»ГҐ ГўГҐГ№ГЁ/ГЋГ°ГіГ¦ГЁГҐ":',
+'2.1. ГЋГ°ГЈГ Г­ГЁГ§Г Г¶ГЁГї Г­ГҐГ±Г Г­ГЄГ¶ГЁГ®Г­ГЁГ°Г®ГўГ Г­Г­Г»Гµ Г¬ГЁГІГЁГ­ГЈГ®Гў (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 4).',
+'2.1.1. Г“Г·Г Г±ГІГЁГҐ Гў Г­ГҐГ±Г Г­ГЄГ¶ГЁГ®Г­ГЁГ°Г®ГўГ Г­Г­Г»Гµ Г¬ГЁГІГЁГ­ГЈГ Гµ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 2).',
+'2.2. Г•ГЁГ№ГҐГ­ГЁГҐ Г·ГіГ¦Г®ГЈГ® ГЁГ¬ГіГ№ГҐГ±ГІГўГ  (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 3).',
+'2.3. ГЋГІГЄГ°Г»ГІГ Гї Г°ГҐГЄГ«Г Г¬Г  ГЇГ°Г®Г¤Г Г¦ГЁ ГЁГ«ГЁ ГЇГ®ГЄГіГЇГЄГЁ Г­Г Г°ГЄГ®ГІГЁГЄГ®Гў ГЁ Г¬Г ГІГҐГ°ГЁГ Г«Г®Гў Г¤Г«Гї Г®ГІГ¬Г»Г·ГҐГЄ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 4).',
+'2.4. ГЉГ°Г Г¦Г  Г¬Г ГІГҐГ°ГЁГ Г«Г®Гў Г­Г  ГІГҐГ°Г°ГЁГІГ®Г°ГЁГЁ Г Г°Г¬ГЁГЁ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 5).',
+'2.5. Г•Г°Г Г­ГҐГ­ГЁГҐ ГЁ ГЇГҐГ°ГҐГўГ®Г§ГЄГ  Г­Г Г°ГЄГ®ГІГЁГ·ГҐГ±ГЄГЁГµ ГўГҐГ№ГҐГ±ГІГў ГЁ Г¬Г ГІГҐГ°ГЁГ Г«Г®Гў Г¤Г«Гї Г®ГІГ¬Г»Г·ГҐГЄ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6). ГЋГ¤Г­Г ГЄГ®, ГҐГ±Г«ГЁ Г­Г Г°ГЄГ®ГІГЁГЄГЁ Г­Г ГµГ®Г¤ГїГІГ±Гї Гў Г­ГҐГЎГ®Г«ГјГёГ®Г¬ ГЄГ®Г«ГЁГ·ГҐГ±ГІГўГҐ ГЁ ГЁГ±ГЇГ®Г«ГјГ§ГіГѕГІГ±Гї Гў Г¬ГҐГ¤ГЁГ¶ГЁГ­Г±ГЄГЁГµ Г¶ГҐГ«ГїГµ, ГЁГµ Г­Г Г«ГЁГ·ГЁГҐ Г¬Г®Г¦ГҐГІ ГЎГ»ГІГј ГЁГ±ГЄГ«ГѕГ·ГҐГ­ГЁГҐГ¬.',
+'2.6. Г‘ГЎГ»ГІ Г­Г Г°ГЄГ®ГІГЁГ·ГҐГ±ГЄГЁГµ ГўГҐГ№ГҐГ±ГІГў ГЁ Г¬Г ГІГҐГ°ГЁГ Г«Г®Гў: - ГЏГ°Г®Г¤Г ГўГҐГ¶ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 5). - ГЏГ®ГЄГіГЇГ ГІГҐГ«Гј (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 4).',
+'2.7. Г“ГЇГ®ГІГ°ГҐГЎГ«ГҐГ­ГЁГҐ Г­Г Г°ГЄГ®ГІГЁГ·ГҐГ±ГЄГЁГµ/ГЇГ±ГЁГµГ®ГІГ°Г®ГЇГ­Г»Гµ ГўГҐГ№ГҐГ±ГІГў (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 4).',
+'2.8. ГђГЅГЄГҐГІ ГЁ ГЄГ°Г»ГёГҐГўГ Г­ГЁГҐ ГЎГЁГ§Г­ГҐГ±Г®Гў (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 5).',
+'2.9. ГЋГ°ГЈГ Г­ГЁГ§Г Г¶ГЁГї Г­ГҐГ«ГҐГЈГ Г«ГјГ­Г»Гµ Г Г§Г Г°ГІГ­Г»Гµ ГЁГЈГ° (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 5). 2.11. ГЌГҐГ§Г ГЄГ®Г­Г­Г®ГҐ ГЇГ°ГЁГ®ГЎГ°ГҐГІГҐГ­ГЁГҐ ГЁ Г±ГЎГ»ГІ Г®Г°ГіГ¦ГЁГї (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 5). Г‚ ГІГ ГЄГЁГµ Г±Г«ГіГ·Г ГїГµ ГЇГ°Г®ГЁГ§ГўГ®Г¤ГЁГІГ±Гї ГЁГ§ГєГїГІГЁГҐ Г®Г°ГіГ¦ГЁГї ГЁ Г«ГЁГ¶ГҐГ­Г§ГЁГ© Г­Г  Г­ГҐГЈГ®.',
+'2.10. Г•Г°Г Г­ГҐГ­ГЁГҐ ГЁГ«ГЁ Г­Г®ГёГҐГ­ГЁГҐ Г®Г°ГіГ¦ГЁГї ГЎГҐГ§ Г«ГЁГ¶ГҐГ­Г§ГЁГЁ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 3).',
+'2.11. ГЌГ®ГёГҐГ­ГЁГҐ Г®Г°ГіГ¦ГЁГї Гў Г®ГІГЄГ°Г»ГІГ®Г¬ ГўГЁГ¤ГҐ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 3). Г‚ ГІГ ГЄГЁГµ Г±Г«ГіГ·Г ГїГµ ГЇГ°Г®ГЁГ§ГўГ®Г¤ГЁГІГ±Гї ГЁГ§ГєГїГІГЁГҐ Г«ГЁГ¶ГҐГ­Г§ГЁГЁ Г­Г  Г®Г°ГіГ¦ГЁГҐ ГЁ Г±Г Г¬Г®ГЈГ® Г®Г°ГіГ¦ГЁГї.',
+'2.12. Г‚Г»Г°Г Г№ГЁГўГ Г­ГЁГҐ ГЁ Г°Г Г±ГЇГ°Г®Г±ГІГ°Г Г­ГҐГ­ГЁГҐ Г§Г ГЇГ°ГҐГ№ГҐГ­Г­Г»Гµ ГўГҐГ№ГҐГ±ГІГў (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 3).',
+'2.13. ГЏГ°ГЁГ­Г Г¤Г«ГҐГ¦Г­Г®Г±ГІГј ГЄ ГіГ«ГЁГ·Г­Г»Г¬ ГЈГ°ГіГЇГЇГЁГ°Г®ГўГЄГ Г¬/Г¬Г ГґГЁГЁ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'2.14. ГЋГ°ГЈГ Г­ГЁГ§Г Г¶ГЁГї ГіГ«ГЁГ·Г­Г»Гµ ГЈГ°ГіГЇГЇГЁГ°Г®ГўГ®ГЄ/Г¬Г ГґГЁГЁ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'2.15. ГЌГҐГ§Г ГЄГ®Г­Г­Г®ГҐ ГЇГ°ГҐГ¤Г±ГІГ ГўГ«ГҐГ­ГЁГҐ/Г­ГҐГ§Г ГЄГ®Г­Г­Г®ГҐ Г­Г®ГёГҐГ­ГЁГҐ ГґГ®Г°Г¬ГҐГ­Г­Г®Г© Г®Г¤ГҐГ¦Г¤Г» (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6)',
+'3. ГђГ Г§Г¤ГҐГ« "ГЌГ Г°ГіГёГҐГ­ГЁГҐ ГЏГ„Г„":',
+'3.1. Г“ГµГ®Г¤ Г± Г¬ГҐГ±ГІГ  Г„Г’ГЏ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 3).',
+'3.2. Г‘Г®Г§Г¤Г Г­ГЁГҐ Г ГўГ Г°ГЁГ©Г­Г®Г© Г±ГЁГІГіГ Г¶ГЁГЁ Г­Г  Г¤Г®Г°Г®ГЈГҐ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 2).',
+'3.3. ГЌГ ГҐГ§Г¤ Г­Г  ГЇГҐГёГҐГµГ®Г¤Г  (ГіГ°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ  Г§Г ГўГЁГ±ГЁГІ Г®ГІ ГІГїГ¦ГҐГ±ГІГЁ Г­Г Г°ГіГёГҐГ­ГЁГї ГЁ Г¬Г®Г¦ГҐГІ ГЎГ»ГІГј Г®ГІ 1 Г¤Г® 3).',
+'4. ГђГ Г§Г¤ГҐГ« "ГЌГҐГЇГ®Г¤Г·ГЁГ­ГҐГ­ГЁГҐ":',
+'4.1. ГЌГҐГЇГ®Г¤Г·ГЁГ­ГҐГ­ГЁГҐ Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГі ГЇГ°Г ГўГ®Г®ГµГ°Г Г­ГЁГІГҐГ«ГјГ­Г»Гµ Г®Г°ГЈГ Г­Г®Гў (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 4). ГЏГҐГ°ГҐГ¤ ГўГ»Г¤Г Г·ГҐГ© Г°Г®Г§Г»Г±ГЄГ  Г®ГЎГїГ§Г ГІГҐГ«ГјГ­Г® ГІГ°ГҐГЎГіГҐГІГ±Гї ГЇГ°ГҐГ¤Г±ГІГ ГўГЁГІГјГ±Гї ГЁ Г®ГЎГєГїГ±Г­ГЁГІГј ГЇГ°ГЁГ·ГЁГ­Гі.',
+'4.2. ГЋГІГЄГ Г§ ГўГ»ГЇГ«Г ГІГ» ГёГІГ°Г ГґГ  (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 5).',
+'4.3. ГЋГІГЄГ Г§ Г®Г±ГІГ Г­Г®ГўГЁГІГјГ±Гї ГЇГ°ГЁ ГЇГ°Г®Г±ГјГЎГҐ Г·ГҐГ°ГҐГ§ Г¬ГҐГЈГ ГґГ®Г­ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 3). Г‚Г»Г¤Г Г·Г  Г°Г®Г§Г»Г±ГЄГ  ГЇГ°Г®ГЁГ±ГµГ®Г¤ГЁГІ ГЇГ®Г±Г«ГҐ ГіГ±ГІГ Г­Г®ГўГ«ГҐГ­ГЁГї Г«ГЁГ·Г­Г®Г±ГІГЁ ГўГ®Г¤ГЁГІГҐГ«Гї.',
+'4.4. ГЌГҐГ±Г®ГЎГ«ГѕГ¤ГҐГ­ГЁГҐ ГіГЄГ Г§Г®Гў ГЏГ°ГҐГ§ГЁГ¤ГҐГ­ГІГ  (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 2).',
+'4.5. Г‘Г®Г¤ГҐГ©Г±ГІГўГЁГҐ Г Г°ГҐГ±ГІГі ГЁГ«ГЁ Г±Г®ГЇГ°Г®ГІГЁГўГ«ГҐГ­ГЁГҐ Г±Г®Г¤ГҐГ©Г±ГІГўГЁГѕ Г Г°ГҐГ±ГІГ  (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 5).',
+'5. ГђГ Г§Г¤ГҐГ« "Г’ГҐГ°Г ГЄГІГ»":',
+'5.1. ГЏГ®ГµГЁГ№ГҐГ­ГЁГҐ ГЈГ°Г Г¦Г¤Г Г­ ГЁГ«ГЁ ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»Гµ Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ®Гў Г± Г¶ГҐГ«ГјГѕ ГўГ»ГЄГіГЇГ  (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'5.2. ГЋГЈГ°Г ГЎГ«ГҐГ­ГЁГҐ Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГ©, Г¬Г ГЈГ Г§ГЁГ­Г®Гў ГЁГ«ГЁ Г ГўГІГ®Г§Г ГЇГ°Г ГўГ®Г·Г­Г»Гµ Г±ГІГ Г­Г¶ГЁГ© (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'5.3. ГЏГ«Г Г­ГЁГ°Г®ГўГ Г­ГЁГҐ ГІГҐГ°Г ГЄГІГ  (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'5.4. ГЋГ°ГЈГ Г­ГЁГ§Г Г¶ГЁГї ГІГҐГ°Г ГЄГІГ  (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'5.5. Г‘Г®Г§Г¤Г Г­ГЁГҐ ГІГҐГ°Г°Г®Г°ГЁГ±ГІГЁГ·ГҐГ±ГЄГЁГµ ГЈГ°ГіГЇГЇГЁГ°Г®ГўГ®ГЄ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'5.6. Г‚Г§ГїГІГЁГҐ Г§Г Г«Г®Г¦Г­ГЁГЄГ®Гў ГЁ ГЇГ®ГµГЁГ№ГҐГ­ГЁГҐ Г«ГѕГ¤ГҐГ© (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'5.7. ГЏГ®ГЇГ»ГІГЄГ  ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г®ГЈГ® ГЇГҐГ°ГҐГўГ®Г°Г®ГІГ  (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6 + Г—ГҐГ°Г­Г»Г© Г‘ГЇГЁГ±Г®ГЄ ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГ  + ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 20 000 000).',
+'5.8. Г’ГҐГ«ГҐГґГ®Г­Г­Г»Г© ГІГҐГ°Г°Г®Г°ГЁГ§Г¬ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'6. ГђГ Г§Г¤ГҐГ« "ГЏГ°Г®Г­ГЁГЄГ­Г®ГўГҐГ­ГЁГҐ":',
+'6.1. ГЏГ°Г®Г­ГЁГЄГ­Г®ГўГҐГ­ГЁГҐ Г­Г  Г®ГµГ°Г Г­ГїГҐГ¬ГіГѕ ГІГҐГ°Г°ГЁГІГ®Г°ГЁГѕ, ГЇГ®Г¤ Г®ГµГ°Г Г­Г®Г© ГЇГ°Г ГўГ®Г®ГµГ°Г Г­ГЁГІГҐГ«ГјГ­Г»Гµ Г®Г°ГЈГ Г­Г®Гў (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'6.2. ГЏГ°Г®Г­ГЁГЄГ­Г®ГўГҐГ­ГЁГҐ Г­Г  Г·Г Г±ГІГ­ГіГѕ ГІГҐГ°Г°ГЁГІГ®Г°ГЁГѕ ГЎГҐГ§ Г°Г Г§Г°ГҐГёГҐГ­ГЁГї ГўГ«Г Г¤ГҐГ«ГјГ¶Г  (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 4).',
+'6.3. ГЏГ°Г®Г­ГЁГЄГ­Г®ГўГҐГ­ГЁГҐ Г­Г  ГІГҐГ°Г°ГЁГІГ®Г°ГЁГѕ Г§Г ГЄГ°Г»ГІГ®Г© ГўГ®ГҐГ­Г­Г®Г© ГЎГ Г§Г» (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'7. ГђГ Г§Г¤ГҐГ« "ГЏГ°Г®Г±ГІГЁГІГіГ¶ГЁГї":',
+'7.1. Г“Г·Г Г±ГІГЁГҐ Гў ГЇГ°Г®Г±ГІГЁГІГіГ¶ГЁГЁ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 4).',
+'7.2. Г‚Г®ГўГ«ГҐГ·ГҐГ­ГЁГҐ Гў Г§Г Г­ГїГІГЁГҐ ГЇГ°Г®Г±ГІГЁГІГіГ¶ГЁГҐГ© (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 5).',
+'7.3. Г€Г§Г­Г Г±ГЁГ«Г®ГўГ Г­ГЁГҐ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'8. ГђГ Г§Г¤ГҐГ« "Г„Г Г·Г  Г«Г®Г¦Г­Г»Гµ ГЇГ®ГЄГ Г§Г Г­ГЁГ©":',
+'8.1. Г„Г Г·Г  Г§Г ГўГҐГ¤Г®Г¬Г® Г«Г®Г¦Г­Г»Гµ ГЇГ®ГЄГ Г§Г Г­ГЁГ© Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ Г¬ ГЇГ°Г ГўГ®Г®ГµГ°Г Г­ГЁГІГҐГ«ГјГ­Г»Гµ Г®Г°ГЈГ Г­Г®Гў (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 4)',
+'8.2. Г‹Г®Г¦Г­Г»Г© ГўГ»Г§Г®Гў Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ®Гў ГЇГ®Г«ГЁГ¶ГЁГЁ/Г”ГЃГђ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 4)',
+'8.3. Г“ГЄГ°Г»ГўГ ГІГҐГ«ГјГ±ГІГўГ® ГЇГ°ГҐГ±ГІГіГЇГ­ГЁГЄГ  (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 5)',
+'8.4. Г„Г Г·Г  Г«Г®Г¦Г­Г»Гµ ГЇГ®ГЄГ Г§Г Г­ГЁГ© Гў Г±ГіГ¤ГҐ. (ГГІГ°Г Гґ 5.000.000 Г¤Г®Г«Г«Г Г°Г®Гў ГЁ 4 ГіГ°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ )',
+'9. ГђГ Г§Г¤ГҐГ« "Г•ГіГ«ГЁГЈГ Г­Г±ГІГўГ®":',
+'9.1. ГЌГҐГіГўГ Г¦ГЁГІГҐГ«ГјГ­Г®ГҐ Г®ГІГ­Г®ГёГҐГ­ГЁГҐ ГЄ Г¤Г°ГіГЈГЁГ¬ Г°Г Г±Г Г¬/Г¬ГҐГ­ГјГёГЁГ­Г±ГІГўГ Г¬ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 4).',
+'9.2. Г“ГЈГ°Г®Г§Г  Г°Г Г±ГЇГ°Г ГўГ®Г© (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 3).',
+'9.3. ГЏГ®Г°Г·Г  ГЁГ¬ГіГ№ГҐГ±ГІГўГ  ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»Гµ Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГ© (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 2) ГЁГ«ГЁ ГёГІГ°Г Гґ Гў Г°Г Г§Г¬ГҐГ°ГҐ 500 000 Г¤Г®Г«Г«Г Г°Г®Гў.',
+'9.3.1. ГЏГ®Г°Г·Г  ГЁГ¬ГіГ№ГҐГ±ГІГўГ  ГЈГ°Г Г¦Г¤Г Г­Г±ГЄГЁГµ Г«ГЁГ¶ (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 1).',
+'9.4. ГЏГ®ГЇГ»ГІГЄГ  ГіГЈГ®Г­Г  ГІГ°Г Г­Г±ГЇГ®Г°ГІГ­Г®ГЈГ® Г±Г°ГҐГ¤Г±ГІГўГ  (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 3).',
+'9.4.1. Г“ГЈГ®Г­ ГІГ°Г Г­Г±ГЇГ®Г°ГІГ­Г®ГЈГ® Г±Г°ГҐГ¤Г±ГІГўГ  (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 5).',
+'9.5. ГЌГ®ГёГҐГ­ГЁГҐ ГЈГ°Г Г¦Г¤Г Г­Г±ГЄГЁГ¬ГЁ Г«ГЁГ¶Г Г¬ГЁ Г¬Г Г±ГЄГЁ, Г±ГЄГ°Г»ГўГ ГѕГ№ГҐГ© Г«ГЁГ¶Г® (Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 1). ГЏГ°ГЁГ¬ГҐГ·Г Г­ГЁГҐ: Г‘Г­Г Г·Г Г«Г  Г±Г«ГҐГ¤ГіГҐГІ ГЇГ®ГЇГ°Г®Г±ГЁГІГј Г±Г­ГїГІГј Г¬Г Г±ГЄГі, ГІГ ГЄ ГЄГ ГЄ Г¤Г Г­Г­Г»ГҐ Г«ГЁГ¶Г  ГўГ»Г§Г»ГўГ ГѕГІ ГЇГ®Г¤Г®Г§Г°ГҐГ­ГЁГї Гі Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ®Гў ГЇГ°Г ГўГ®Г®ГµГ°Г Г­ГЁГІГҐГ«ГјГ­Г»Гµ Г®Г°ГЈГ Г­Г®Гў.',
+'10. ГђГ Г§Г¤ГҐГ« "ГЏГ®Г±ГїГЈГ ГІГҐГ«ГјГ±ГІГўГ® Г­Г  Г±Г®ГЎГ±ГІГўГҐГ­Г­Г®Г±ГІГј":',
+'10.1. ГЏГ®Г±ГїГЈГ ГІГҐГ«ГјГ±ГІГўГ® Г­Г  Г·Г Г±ГІГ­ГіГѕ Г±Г®ГЎГ±ГІГўГҐГ­Г­Г®Г±ГІГј Г± ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐГ¬ Г±ГЁГ«Г» (ГГІГ°Г Гґ Г¤Г® 10 000 000 Г¤Г®Г«Г«Г Г°Г®Гў, Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 5).',
+'10.2. ГЏГ®Г±ГїГЈГ ГІГҐГ«ГјГ±ГІГўГ® Г­Г  Г·Г Г±ГІГ­ГіГѕ Г±Г®ГЎГ±ГІГўГҐГ­Г­Г®Г±ГІГј ГЇГіГІГҐГ¬ ГґГ ГЎГ°ГЁГЄГ Г¶ГЁГЁ ГѕГ°ГЁГ¤ГЁГ·ГҐГ±ГЄГЁГµ Г¤Г®ГЄГіГ¬ГҐГ­ГІГ®Гў (ГГІГ°Г Гґ Г¤Г® 10 000 000 Г¤Г®Г«Г«Г Г°Г®Гў, Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'10.3. ГЏГ®Г±ГїГЈГ ГІГҐГ«ГјГ±ГІГўГ® Г­Г  ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­ГіГѕ Г±Г®ГЎГ±ГІГўГҐГ­Г­Г®Г±ГІГј Гў Г«ГѕГЎГ®Г¬ ГўГЁГ¤ГҐ (ГГІГ°Г Гґ Г¤Г® 30 000 000 Г¤Г®Г«Г«Г Г°Г®Гў, Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'10.4. ГЌГҐГ§Г ГЄГ®Г­Г­Г Гї ГЄГіГЇГ«Гї/ГЇГ°Г®Г¤Г Г¦Г  ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г®Г© Г±Г®ГЎГ±ГІГўГҐГ­Г­Г®Г±ГІГЁ (Г‘Г­ГїГІГЁГҐ Г± Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ, ГёГІГ°Г Гґ Г¤Г® 5 000 000 Г¤Г®Г«Г«Г Г°Г®Гў, Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'11. ГђГ Г§Г¤ГҐГ« "ГЏГ°ГҐГўГ»ГёГҐГ­ГЁГҐ Г¤Г®Г«Г¦Г­Г®Г±ГІГ­Г»Гµ ГЇГ®Г«Г­Г®Г¬Г®Г·ГЁГ©":',
+'11.1. ГЏГ°ГҐГўГ»ГёГҐГ­ГЁГҐ Г¤Г®Г«Г¦Г­Г®Г±ГІГ­Г»Гµ ГЇГ®Г«Г­Г®Г¬Г®Г·ГЁГ© Г± ГЄГ®Г°Г»Г±ГІГ­Г®Г© Г¶ГҐГ«ГјГѕ (Г‘Г­ГїГІГЁГҐ Г± Г¤Г®Г«Г¦Г­Г®Г±ГІГЁ + Г—ГҐГ°Г­Г»Г© Г‘ГЇГЁГ±Г®ГЄ Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГЁ, Г“Г°Г®ГўГҐГ­Гј Г°Г®Г§Г»Г±ГЄГ : 6).',
+'Г”ГҐГ¤ГҐГ°Г Г«ГјГ­Г®ГҐ ГЇГ®Г±ГІГ Г­Г®ГўГ«ГҐГ­ГЁГҐ (Г”ГЏ)',
+'1. ГђГ Г§Г¤ГҐГ« "ГЏГ®Г«Г®Г¦ГҐГ­ГЁГї ГЄ Г”ГҐГ¤ГҐГ°Г Г«ГјГ­Г®Г¬Гі ГЏГ®Г±ГІГ Г­Г®ГўГ«ГҐГ­ГЁГѕ"',
+'1.1. Г”ГҐГ¤ГҐГ°Г Г«ГјГ­Г®ГҐ ГЏГ®Г±ГІГ Г­Г®ГўГ«ГҐГ­ГЁГҐ ГўГ»ГЇГіГ±ГЄГ ГҐГІГ±Гї ГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГҐГ© ГЏГ°ГҐГ§ГЁГ¤ГҐГ­ГІГ  ГЁ Г”ГҐГ¤ГҐГ°Г Г«ГјГ­Г»Г¬ ГЃГѕГ°Г® ГђГ Г±Г±Г«ГҐГ¤Г®ГўГ Г­ГЁГ© Гў Г®ГІГ­Г®ГёГҐГ­ГЁГЁ ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»Гµ Г±Г«ГіГ¦Г Г№ГЁГµ.',
+'1.2. Г€Г§Г¬ГҐГ­ГҐГ­ГЁГҐ Г”ГҐГ¤ГҐГ°Г Г«ГјГ­Г®ГЈГ® ГЏГ®Г±ГІГ Г­Г®ГўГ«ГҐГ­ГЁГї Г¬Г®Г¦ГҐГІ ГЎГ»ГІГј Г®Г±ГіГ№ГҐГ±ГІГўГ«ГҐГ­Г® Г„ГЁГ°ГҐГЄГІГ®Г°Г®Г¬ Г”ГЃГђ ГЁГ«ГЁ ГѓГіГЎГҐГ°Г­Г ГІГ®Г°Г®Г¬ ГёГІГ ГІГ .',
+'1.3. ГЋГЎГїГ§Г Г­Г­Г®Г±ГІГј Г±Г®ГЎГ«ГѕГ¤ГҐГ­ГЁГї Г”ГҐГ¤ГҐГ°Г Г«ГјГ­Г®ГЈГ® ГЏГ®Г±ГІГ Г­Г®ГўГ«ГҐГ­ГЁГї Г«ГҐГ¦ГЁГІ Г­Г  ГўГ±ГҐГ¬ ГЇГҐГ°Г±Г®Г­Г Г«ГҐ ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»Гµ Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГ©.',
+'1.4. ГЋГІГ±ГіГІГ±ГІГўГЁГҐ Г®Г±ГўГҐГ¤Г®Г¬Г«ГҐГ­Г­Г®Г±ГІГЁ Г® Г±Г®Г¤ГҐГ°Г¦Г Г­ГЁГЁ Г”ГҐГ¤ГҐГ°Г Г«ГјГ­Г®ГЈГ® ГЏГ®Г±ГІГ Г­Г®ГўГ«ГҐГ­ГЁГї Г­ГҐ Г®ГЇГ°Г ГўГ¤Г»ГўГ ГҐГІ Г®ГЎГўГЁГ­ГїГҐГ¬Г®ГЈГ® ГЁ Г­ГҐ Г®Г±ГўГ®ГЎГ®Г¦Г¤Г ГҐГІ ГҐГЈГ® Г®ГІ Г®ГІГўГҐГІГ±ГІГўГҐГ­Г­Г®Г±ГІГЁ.',
+'1.5. Г‚ Г±Г«ГіГ·Г ГҐ, ГҐГ±Г«ГЁ ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»Г© Г±Г«ГіГ¦Г Г№ГЁГ© Г±Г®ГўГҐГ°ГёГ ГҐГІ Г¤ГҐГ©Г±ГІГўГЁГҐ, ГЄГ®ГІГ®Г°Г®ГҐ Г¬Г®Г¦ГҐГІ Г°Г Г±Г±Г¬Г ГІГ°ГЁГўГ ГІГјГ±Гї ГЄГ ГЄ ГЄГ®Г±ГўГҐГ­Г­Г®ГҐ Г­Г Г°ГіГёГҐГ­ГЁГҐ Г­Г®Г°Г¬Г ГІГЁГўГ­Г®-ГЇГ°Г ГўГ®ГўГ®ГЈГ® Г ГЄГІГ , ГЇГ°ГЁГ¬ГҐГ­ГЁГ¬Г® ГЄ Г«ГѕГЎГ®Г¬Гі ГЁГ§ Г¤ГҐГ©Г±ГІГўГіГѕГ№ГЁГµ ГЇГіГ­ГЄГІГ®Гў Г§Г ГЄГ®Г­Г®Г¤Г ГІГҐГ«ГјГ­Г®Г© ГЎГ Г§Г» Г± Г±Г±Г»Г«ГЄГ®Г© Г­Г  Г”ГҐГ¤ГҐГ°Г Г«ГјГ­Г®ГҐ ГЏГ®Г±ГІГ Г­Г®ГўГ«ГҐГ­ГЁГҐ.',
+'1.6. ГЏГ®Г«Г®Г¦ГҐГ­ГЁГї, ГЇГ°ГҐГ¤Г®Г±ГІГ ГўГ«ГїГѕГ№ГЁГҐ ГўГ®Г§Г¬Г®Г¦Г­Г®Г±ГІГј ГўГ»ГЎГ®Г°Г  ГўГЁГ¤Г  Г­Г ГЄГ Г§Г Г­ГЁГї, ГЇГ°ГҐГ¤ГЇГ®Г«Г ГЈГ ГѕГІ ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ Г®Г¤Г­Г®ГЈГ® ГЁГ§ Г­ГЁГµ ГЇГ® ГіГ±Г¬Г®ГІГ°ГҐГ­ГЁГѕ Г­Г Г§Г­Г Г·Г ГѕГ№ГҐГЈГ® Г­Г ГЄГ Г§Г Г­ГЁГҐ, ГіГ·ГЁГІГ»ГўГ Гї ГІГїГ¦ГҐГ±ГІГј Г­Г Г°ГіГёГҐГ­ГЁГї ГЁ Г­Г Г«ГЁГ·ГЁГҐ ГЇГ°ГҐГ¤ГёГҐГ±ГІГўГіГѕГ№ГЁГµ ГЇГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГ© ГЁГ«ГЁ Г­Г Г°ГіГёГҐГ­ГЁГ© Гў ГЇГ°Г®ГёГ«Г®Г¬.',
 '',
-'2. Раздел "Положения относительно государственных организаций"',
-'2.1. Запрещается нарушение законодательной базы штата, влекущее за собой устное предупреждение, выговор, понижение или увольнение.',
-'2.2. Запрещается использование служебного положения в личных интересах, что может привести к понижению или увольнению.',
-'2.3. Запрещается несанкционированное применение физического воздействия на гражданских или государственных лиц, а также их имущество, подлежащее понижению или увольнению.',
-'2.4. Запрещается принятие, предложение или предоставление взяток, за что предусмотрено увольнение с привлечением к уголовной ответственности.',
-'2.5. Запрещается участие в преступных действиях, сговорах или террористических актах, что влечет за собой увольнение и внесение в черный список государственных структур.',
-'2.6. Запрещается заниматься личными делами в рабочее время, к чему применяются два выговора или увольнение, за исключением случаев, когда сотрудник находится в состоянии чрезвычайной ситуации.',
-'2.7. Запрещается употребление, покупка, продажа и хранение наркотических средств, подлежащих понижению или увольнению, за исключением случаев, когда это необходимо при следственных мероприятиях для агентов ФБР.',
-'2.8. Для служащих армий запрещается нахождение за пределами мест постоянной дислокации своей воинской части, кроме случаев патрулирования, поставок, ЧС и других мероприятий, утвержденных руководящим составом.',
-'2.9. Запрещается превышение должностных полномочий, что может привести к выговору, понижению или увольнению.',
-'2.10. Запрещается бездействие или неисполнение обязанностей по оказанию помощи лицам в опасной для жизни ситуации, что влечет за собой выговор или понижение.',
-'2.11. Запрещаются проявления неадекватного поведения или провокаций, за что предусмотрены предупреждение, выговор или увольнение.',
-'2.12. Запрещается игнорирование нарушений законодательства гражданскими или сотрудниками государственных структур, подлежащее выговору или увольнению.',
-'2.13. Запрещается провоцировать государственных сотрудников, что может повлечь за собой выговор, понижение или увольнение.',
-'2.14. Запрещается угрожать государственным служащим, за исключением агентов ФБР во время следственных мероприятий, когда они вправе использовать свои полномочия для задержания.',
-'2.15. Запрещено передавать или продавать государственное имущество, что ведет к увольнению.',
-'2.16. Запрещается предоставление заведомо ложной информации государственным сотрудникам, что подлежит понижению или увольнению.',
-'2.17. Запрещено использование личного транспортного средства во время исполнения служебных обязанностей, что может привести к выговору, понижению или увольнению, за исключением определенных категорий сотрудников.',
-'2.18. Запрещается вступление в сговоры с преступными синдикатами или уличными группировками, что влечет за собой увольнение и внесение в черный список государственных структур, за исключением агентов ФБР в интересах национальной безопасности.',
-'2.19. Запрещается употребление нецензурной брани, за что предусмотрены предупреждение или выговор.',
-'2.20. Запрещается заносить в базу разыскиваемых статьи, которых не существует, что подлежит предупреждению или выговору.',
-'2.21. Запрещается использование мегафона в личных целях в рамках переговоров, что может привести к выговору или понижению.',
-'2.22. Запрещается употребление алкоголя в рабочее время, что влечет за собой предупреждение, выговор или увольнение.',
-'2.23. Запрещается унижение чести и достоинства граждан, за что предусмотрены предупреждение, выговор или увольнение, с некоторыми исключениями.',
+'2. ГђГ Г§Г¤ГҐГ« "ГЏГ®Г«Г®Г¦ГҐГ­ГЁГї Г®ГІГ­Г®Г±ГЁГІГҐГ«ГјГ­Г® ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»Гµ Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГ©"',
+'2.1. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї Г­Г Г°ГіГёГҐГ­ГЁГҐ Г§Г ГЄГ®Г­Г®Г¤Г ГІГҐГ«ГјГ­Г®Г© ГЎГ Г§Г» ГёГІГ ГІГ , ГўГ«ГҐГЄГіГ№ГҐГҐ Г§Г  Г±Г®ГЎГ®Г© ГіГ±ГІГ­Г®ГҐ ГЇГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГҐ, ГўГ»ГЈГ®ГўГ®Г°, ГЇГ®Г­ГЁГ¦ГҐГ­ГЁГҐ ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГҐ.',
+'2.2. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Г±Г«ГіГ¦ГҐГЎГ­Г®ГЈГ® ГЇГ®Г«Г®Г¦ГҐГ­ГЁГї Гў Г«ГЁГ·Г­Г»Гµ ГЁГ­ГІГҐГ°ГҐГ±Г Гµ, Г·ГІГ® Г¬Г®Г¦ГҐГІ ГЇГ°ГЁГўГҐГ±ГІГЁ ГЄ ГЇГ®Г­ГЁГ¦ГҐГ­ГЁГѕ ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГѕ.',
+'2.3. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї Г­ГҐГ±Г Г­ГЄГ¶ГЁГ®Г­ГЁГ°Г®ГўГ Г­Г­Г®ГҐ ГЇГ°ГЁГ¬ГҐГ­ГҐГ­ГЁГҐ ГґГЁГ§ГЁГ·ГҐГ±ГЄГ®ГЈГ® ГўГ®Г§Г¤ГҐГ©Г±ГІГўГЁГї Г­Г  ГЈГ°Г Г¦Г¤Г Г­Г±ГЄГЁГµ ГЁГ«ГЁ ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»Гµ Г«ГЁГ¶, Г  ГІГ ГЄГ¦ГҐ ГЁГµ ГЁГ¬ГіГ№ГҐГ±ГІГўГ®, ГЇГ®Г¤Г«ГҐГ¦Г Г№ГҐГҐ ГЇГ®Г­ГЁГ¦ГҐГ­ГЁГѕ ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГѕ.',
+'2.4. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГЇГ°ГЁГ­ГїГІГЁГҐ, ГЇГ°ГҐГ¤Г«Г®Г¦ГҐГ­ГЁГҐ ГЁГ«ГЁ ГЇГ°ГҐГ¤Г®Г±ГІГ ГўГ«ГҐГ­ГЁГҐ ГўГ§ГїГІГ®ГЄ, Г§Г  Г·ГІГ® ГЇГ°ГҐГ¤ГіГ±Г¬Г®ГІГ°ГҐГ­Г® ГіГўГ®Г«ГјГ­ГҐГ­ГЁГҐ Г± ГЇГ°ГЁГўГ«ГҐГ·ГҐГ­ГЁГҐГ¬ ГЄ ГіГЈГ®Г«Г®ГўГ­Г®Г© Г®ГІГўГҐГІГ±ГІГўГҐГ­Г­Г®Г±ГІГЁ.',
+'2.5. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГіГ·Г Г±ГІГЁГҐ Гў ГЇГ°ГҐГ±ГІГіГЇГ­Г»Гµ Г¤ГҐГ©Г±ГІГўГЁГїГµ, Г±ГЈГ®ГўГ®Г°Г Гµ ГЁГ«ГЁ ГІГҐГ°Г°Г®Г°ГЁГ±ГІГЁГ·ГҐГ±ГЄГЁГµ Г ГЄГІГ Гµ, Г·ГІГ® ГўГ«ГҐГ·ГҐГІ Г§Г  Г±Г®ГЎГ®Г© ГіГўГ®Г«ГјГ­ГҐГ­ГЁГҐ ГЁ ГўГ­ГҐГ±ГҐГ­ГЁГҐ Гў Г·ГҐГ°Г­Г»Г© Г±ГЇГЁГ±Г®ГЄ ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»Гµ Г±ГІГ°ГіГЄГІГіГ°.',
+'2.6. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї Г§Г Г­ГЁГ¬Г ГІГјГ±Гї Г«ГЁГ·Г­Г»Г¬ГЁ Г¤ГҐГ«Г Г¬ГЁ Гў Г°Г ГЎГ®Г·ГҐГҐ ГўГ°ГҐГ¬Гї, ГЄ Г·ГҐГ¬Гі ГЇГ°ГЁГ¬ГҐГ­ГїГѕГІГ±Гї Г¤ГўГ  ГўГ»ГЈГ®ГўГ®Г°Г  ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГҐ, Г§Г  ГЁГ±ГЄГ«ГѕГ·ГҐГ­ГЁГҐГ¬ Г±Г«ГіГ·Г ГҐГў, ГЄГ®ГЈГ¤Г  Г±Г®ГІГ°ГіГ¤Г­ГЁГЄ Г­Г ГµГ®Г¤ГЁГІГ±Гї Гў Г±Г®Г±ГІГ®ГїГ­ГЁГЁ Г·Г°ГҐГ§ГўГ»Г·Г Г©Г­Г®Г© Г±ГЁГІГіГ Г¶ГЁГЁ.',
+'2.7. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГіГЇГ®ГІГ°ГҐГЎГ«ГҐГ­ГЁГҐ, ГЇГ®ГЄГіГЇГЄГ , ГЇГ°Г®Г¤Г Г¦Г  ГЁ ГµГ°Г Г­ГҐГ­ГЁГҐ Г­Г Г°ГЄГ®ГІГЁГ·ГҐГ±ГЄГЁГµ Г±Г°ГҐГ¤Г±ГІГў, ГЇГ®Г¤Г«ГҐГ¦Г Г№ГЁГµ ГЇГ®Г­ГЁГ¦ГҐГ­ГЁГѕ ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГѕ, Г§Г  ГЁГ±ГЄГ«ГѕГ·ГҐГ­ГЁГҐГ¬ Г±Г«ГіГ·Г ГҐГў, ГЄГ®ГЈГ¤Г  ГЅГІГ® Г­ГҐГ®ГЎГµГ®Г¤ГЁГ¬Г® ГЇГ°ГЁ Г±Г«ГҐГ¤Г±ГІГўГҐГ­Г­Г»Гµ Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГїГµ Г¤Г«Гї Г ГЈГҐГ­ГІГ®Гў Г”ГЃГђ.',
+'2.8. Г„Г«Гї Г±Г«ГіГ¦Г Г№ГЁГµ Г Г°Г¬ГЁГ© Г§Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї Г­Г ГµГ®Г¦Г¤ГҐГ­ГЁГҐ Г§Г  ГЇГ°ГҐГ¤ГҐГ«Г Г¬ГЁ Г¬ГҐГ±ГІ ГЇГ®Г±ГІГ®ГїГ­Г­Г®Г© Г¤ГЁГ±Г«Г®ГЄГ Г¶ГЁГЁ Г±ГўГ®ГҐГ© ГўГ®ГЁГ­Г±ГЄГ®Г© Г·Г Г±ГІГЁ, ГЄГ°Г®Г¬ГҐ Г±Г«ГіГ·Г ГҐГў ГЇГ ГІГ°ГіГ«ГЁГ°Г®ГўГ Г­ГЁГї, ГЇГ®Г±ГІГ ГўГ®ГЄ, Г—Г‘ ГЁ Г¤Г°ГіГЈГЁГµ Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГ©, ГіГІГўГҐГ°Г¦Г¤ГҐГ­Г­Г»Гµ Г°ГіГЄГ®ГўГ®Г¤ГїГ№ГЁГ¬ Г±Г®Г±ГІГ ГўГ®Г¬.',
+'2.9. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГЇГ°ГҐГўГ»ГёГҐГ­ГЁГҐ Г¤Г®Г«Г¦Г­Г®Г±ГІГ­Г»Гµ ГЇГ®Г«Г­Г®Г¬Г®Г·ГЁГ©, Г·ГІГ® Г¬Г®Г¦ГҐГІ ГЇГ°ГЁГўГҐГ±ГІГЁ ГЄ ГўГ»ГЈГ®ГўГ®Г°Гі, ГЇГ®Г­ГЁГ¦ГҐГ­ГЁГѕ ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГѕ.',
+'2.10. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГЎГҐГ§Г¤ГҐГ©Г±ГІГўГЁГҐ ГЁГ«ГЁ Г­ГҐГЁГ±ГЇГ®Г«Г­ГҐГ­ГЁГҐ Г®ГЎГїГ§Г Г­Г­Г®Г±ГІГҐГ© ГЇГ® Г®ГЄГ Г§Г Г­ГЁГѕ ГЇГ®Г¬Г®Г№ГЁ Г«ГЁГ¶Г Г¬ Гў Г®ГЇГ Г±Г­Г®Г© Г¤Г«Гї Г¦ГЁГ§Г­ГЁ Г±ГЁГІГіГ Г¶ГЁГЁ, Г·ГІГ® ГўГ«ГҐГ·ГҐГІ Г§Г  Г±Г®ГЎГ®Г© ГўГ»ГЈГ®ГўГ®Г° ГЁГ«ГЁ ГЇГ®Г­ГЁГ¦ГҐГ­ГЁГҐ.',
+'2.11. Г‡Г ГЇГ°ГҐГ№Г ГѕГІГ±Гї ГЇГ°Г®ГїГўГ«ГҐГ­ГЁГї Г­ГҐГ Г¤ГҐГЄГўГ ГІГ­Г®ГЈГ® ГЇГ®ГўГҐГ¤ГҐГ­ГЁГї ГЁГ«ГЁ ГЇГ°Г®ГўГ®ГЄГ Г¶ГЁГ©, Г§Г  Г·ГІГ® ГЇГ°ГҐГ¤ГіГ±Г¬Г®ГІГ°ГҐГ­Г» ГЇГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГҐ, ГўГ»ГЈГ®ГўГ®Г° ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГҐ.',
+'2.12. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГЁГЈГ­Г®Г°ГЁГ°Г®ГўГ Г­ГЁГҐ Г­Г Г°ГіГёГҐГ­ГЁГ© Г§Г ГЄГ®Г­Г®Г¤Г ГІГҐГ«ГјГ±ГІГўГ  ГЈГ°Г Г¦Г¤Г Г­Г±ГЄГЁГ¬ГЁ ГЁГ«ГЁ Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ Г¬ГЁ ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»Гµ Г±ГІГ°ГіГЄГІГіГ°, ГЇГ®Г¤Г«ГҐГ¦Г Г№ГҐГҐ ГўГ»ГЈГ®ГўГ®Г°Гі ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГѕ.',
+'2.13. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГЇГ°Г®ГўГ®Г¶ГЁГ°Г®ГўГ ГІГј ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»Гµ Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ®Гў, Г·ГІГ® Г¬Г®Г¦ГҐГІ ГЇГ®ГўГ«ГҐГ·Гј Г§Г  Г±Г®ГЎГ®Г© ГўГ»ГЈГ®ГўГ®Г°, ГЇГ®Г­ГЁГ¦ГҐГ­ГЁГҐ ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГҐ.',
+'2.14. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГіГЈГ°Г®Г¦Г ГІГј ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»Г¬ Г±Г«ГіГ¦Г Г№ГЁГ¬, Г§Г  ГЁГ±ГЄГ«ГѕГ·ГҐГ­ГЁГҐГ¬ Г ГЈГҐГ­ГІГ®Гў Г”ГЃГђ ГўГ® ГўГ°ГҐГ¬Гї Г±Г«ГҐГ¤Г±ГІГўГҐГ­Г­Г»Гµ Г¬ГҐГ°Г®ГЇГ°ГЁГїГІГЁГ©, ГЄГ®ГЈГ¤Г  Г®Г­ГЁ ГўГЇГ°Г ГўГҐ ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј Г±ГўГ®ГЁ ГЇГ®Г«Г­Г®Г¬Г®Г·ГЁГї Г¤Г«Гї Г§Г Г¤ГҐГ°Г¦Г Г­ГЁГї.',
+'2.15. Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГЇГҐГ°ГҐГ¤Г ГўГ ГІГј ГЁГ«ГЁ ГЇГ°Г®Г¤Г ГўГ ГІГј ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г®ГҐ ГЁГ¬ГіГ№ГҐГ±ГІГўГ®, Г·ГІГ® ГўГҐГ¤ГҐГІ ГЄ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГѕ.',
+'2.16. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГЇГ°ГҐГ¤Г®Г±ГІГ ГўГ«ГҐГ­ГЁГҐ Г§Г ГўГҐГ¤Г®Г¬Г® Г«Г®Г¦Г­Г®Г© ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»Г¬ Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ Г¬, Г·ГІГ® ГЇГ®Г¤Г«ГҐГ¦ГЁГІ ГЇГ®Г­ГЁГ¦ГҐГ­ГЁГѕ ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГѕ.',
+'2.17. Г‡Г ГЇГ°ГҐГ№ГҐГ­Г® ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Г«ГЁГ·Г­Г®ГЈГ® ГІГ°Г Г­Г±ГЇГ®Г°ГІГ­Г®ГЈГ® Г±Г°ГҐГ¤Г±ГІГўГ  ГўГ® ГўГ°ГҐГ¬Гї ГЁГ±ГЇГ®Г«Г­ГҐГ­ГЁГї Г±Г«ГіГ¦ГҐГЎГ­Г»Гµ Г®ГЎГїГ§Г Г­Г­Г®Г±ГІГҐГ©, Г·ГІГ® Г¬Г®Г¦ГҐГІ ГЇГ°ГЁГўГҐГ±ГІГЁ ГЄ ГўГ»ГЈГ®ГўГ®Г°Гі, ГЇГ®Г­ГЁГ¦ГҐГ­ГЁГѕ ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГѕ, Г§Г  ГЁГ±ГЄГ«ГѕГ·ГҐГ­ГЁГҐГ¬ Г®ГЇГ°ГҐГ¤ГҐГ«ГҐГ­Г­Г»Гµ ГЄГ ГІГҐГЈГ®Г°ГЁГ© Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ®Гў.',
+'2.18. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГўГ±ГІГіГЇГ«ГҐГ­ГЁГҐ Гў Г±ГЈГ®ГўГ®Г°Г» Г± ГЇГ°ГҐГ±ГІГіГЇГ­Г»Г¬ГЁ Г±ГЁГ­Г¤ГЁГЄГ ГІГ Г¬ГЁ ГЁГ«ГЁ ГіГ«ГЁГ·Г­Г»Г¬ГЁ ГЈГ°ГіГЇГЇГЁГ°Г®ГўГЄГ Г¬ГЁ, Г·ГІГ® ГўГ«ГҐГ·ГҐГІ Г§Г  Г±Г®ГЎГ®Г© ГіГўГ®Г«ГјГ­ГҐГ­ГЁГҐ ГЁ ГўГ­ГҐГ±ГҐГ­ГЁГҐ Гў Г·ГҐГ°Г­Г»Г© Г±ГЇГЁГ±Г®ГЄ ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»Гµ Г±ГІГ°ГіГЄГІГіГ°, Г§Г  ГЁГ±ГЄГ«ГѕГ·ГҐГ­ГЁГҐГ¬ Г ГЈГҐГ­ГІГ®Гў Г”ГЃГђ Гў ГЁГ­ГІГҐГ°ГҐГ±Г Гµ Г­Г Г¶ГЁГ®Г­Г Г«ГјГ­Г®Г© ГЎГҐГ§Г®ГЇГ Г±Г­Г®Г±ГІГЁ.',
+'2.19. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГіГЇГ®ГІГ°ГҐГЎГ«ГҐГ­ГЁГҐ Г­ГҐГ¶ГҐГ­Г§ГіГ°Г­Г®Г© ГЎГ°Г Г­ГЁ, Г§Г  Г·ГІГ® ГЇГ°ГҐГ¤ГіГ±Г¬Г®ГІГ°ГҐГ­Г» ГЇГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГҐ ГЁГ«ГЁ ГўГ»ГЈГ®ГўГ®Г°.',
+'2.20. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї Г§Г Г­Г®Г±ГЁГІГј Гў ГЎГ Г§Гі Г°Г Г§Г»Г±ГЄГЁГўГ ГҐГ¬Г»Гµ Г±ГІГ ГІГјГЁ, ГЄГ®ГІГ®Г°Г»Гµ Г­ГҐ Г±ГіГ№ГҐГ±ГІГўГіГҐГІ, Г·ГІГ® ГЇГ®Г¤Г«ГҐГ¦ГЁГІ ГЇГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГѕ ГЁГ«ГЁ ГўГ»ГЈГ®ГўГ®Г°Гі.',
+'2.21. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Г¬ГҐГЈГ ГґГ®Г­Г  Гў Г«ГЁГ·Г­Г»Гµ Г¶ГҐГ«ГїГµ Гў Г°Г Г¬ГЄГ Гµ ГЇГҐГ°ГҐГЈГ®ГўГ®Г°Г®Гў, Г·ГІГ® Г¬Г®Г¦ГҐГІ ГЇГ°ГЁГўГҐГ±ГІГЁ ГЄ ГўГ»ГЈГ®ГўГ®Г°Гі ГЁГ«ГЁ ГЇГ®Г­ГЁГ¦ГҐГ­ГЁГѕ.',
+'2.22. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГіГЇГ®ГІГ°ГҐГЎГ«ГҐГ­ГЁГҐ Г Г«ГЄГ®ГЈГ®Г«Гї Гў Г°Г ГЎГ®Г·ГҐГҐ ГўГ°ГҐГ¬Гї, Г·ГІГ® ГўГ«ГҐГ·ГҐГІ Г§Г  Г±Г®ГЎГ®Г© ГЇГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГҐ, ГўГ»ГЈГ®ГўГ®Г° ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГҐ.',
+'2.23. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГіГ­ГЁГ¦ГҐГ­ГЁГҐ Г·ГҐГ±ГІГЁ ГЁ Г¤Г®Г±ГІГ®ГЁГ­Г±ГІГўГ  ГЈГ°Г Г¦Г¤Г Г­, Г§Г  Г·ГІГ® ГЇГ°ГҐГ¤ГіГ±Г¬Г®ГІГ°ГҐГ­Г» ГЇГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГҐ, ГўГ»ГЈГ®ГўГ®Г° ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГҐ, Г± Г­ГҐГЄГ®ГІГ®Г°Г»Г¬ГЁ ГЁГ±ГЄГ«ГѕГ·ГҐГ­ГЁГїГ¬ГЁ.',
 '',
-'3. Раздел "Положения относительно сотрудников ФБР"',
-'3.1. Запрещается предоставление ложной информации и ввод в заблуждение Агента ФБР, Губернатора, Вице-Губернатора, Судьи, что подлежит увольнению.',
-'3.2. Запрещается провокационное поведение в отношении Агента ФБР, Губернатора, Вице-Губернатора и Судьи, что может привести к выговору или увольнению.',
-'3.3. Запрещается угрожать и оскорблять Агента ФБР, Губернатора, Вице-Губернатора и Судью, что влечет за собой увольнение.',
-'3.4. Запрещается распространение клеветы на Агента ФБР, Губернатора, Вице-Губернатора и Судью, что подлежит выговору или увольнению.',
-'3.5. Запрещается игнорирование законных требований Агента ФБР, Губернатора, Вице-Губернатора, что может привести к выговору или увольнению.',
-'3.6. Агент ФБР имеет право вызвать любого государственного сотрудника в офис Бюро без объяснения причин, но причина будет раскрыта в офисе.',
-'3.7. Любой государственный сотрудник обязан предъявить свое удостоверение по первому требованию Агента ФБР, Губернатора, Вице-Губернатора, иначе предусмотрено выговор, понижение или увольнение.',
-'3.8. Запрещается въезд на территорию Федерального Бюро Расследований без разрешения, карающийся увольнением и приравниваемый к статье 7.1 УК.',
-'3.9. Запрещается раскрывать личность агента ФБР, находящегося в маскировке, что подлежит увольнению.',
-'3.10. Запрещается преследование автомобилей Федерального Бюро Расследований, что может повлечь за собой предупреждение или увольнение.',
-'3.11. Запрещается брать на курирование спецоперации без разрешения ФБР, за исключением случаев, когда отсутствует S.W.A.T, в таком случае курирование берет Лидер S.W.A.T.',
-'3.12. Запрещается избегать проверок от ФБР или АП, что может привести к увольнению.',
-'3.13. Запрещается отдавать приказы агенту ФБР или сотруднику АП рангом выше 7 без соответствующих полномочий, подлежащее выговору или понижению.',
-'3.14. Запрещается применять санкции по отношению к агенту ФБР или сотруднику АП рангом выше 8 при исполнении (штрафы и т.п.), что ведет к выговору или понижению.',
+'3. ГђГ Г§Г¤ГҐГ« "ГЏГ®Г«Г®Г¦ГҐГ­ГЁГї Г®ГІГ­Г®Г±ГЁГІГҐГ«ГјГ­Г® Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ®Гў Г”ГЃГђ"',
+'3.1. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГЇГ°ГҐГ¤Г®Г±ГІГ ГўГ«ГҐГ­ГЁГҐ Г«Г®Г¦Г­Г®Г© ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ ГЁ ГўГўГ®Г¤ Гў Г§Г ГЎГ«ГіГ¦Г¤ГҐГ­ГЁГҐ ГЂГЈГҐГ­ГІГ  Г”ГЃГђ, ГѓГіГЎГҐГ°Г­Г ГІГ®Г°Г , Г‚ГЁГ¶ГҐ-ГѓГіГЎГҐГ°Г­Г ГІГ®Г°Г , Г‘ГіГ¤ГјГЁ, Г·ГІГ® ГЇГ®Г¤Г«ГҐГ¦ГЁГІ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГѕ.',
+'3.2. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГЇГ°Г®ГўГ®ГЄГ Г¶ГЁГ®Г­Г­Г®ГҐ ГЇГ®ГўГҐГ¤ГҐГ­ГЁГҐ Гў Г®ГІГ­Г®ГёГҐГ­ГЁГЁ ГЂГЈГҐГ­ГІГ  Г”ГЃГђ, ГѓГіГЎГҐГ°Г­Г ГІГ®Г°Г , Г‚ГЁГ¶ГҐ-ГѓГіГЎГҐГ°Г­Г ГІГ®Г°Г  ГЁ Г‘ГіГ¤ГјГЁ, Г·ГІГ® Г¬Г®Г¦ГҐГІ ГЇГ°ГЁГўГҐГ±ГІГЁ ГЄ ГўГ»ГЈГ®ГўГ®Г°Гі ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГѕ.',
+'3.3. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГіГЈГ°Г®Г¦Г ГІГј ГЁ Г®Г±ГЄГ®Г°ГЎГ«ГїГІГј ГЂГЈГҐГ­ГІГ  Г”ГЃГђ, ГѓГіГЎГҐГ°Г­Г ГІГ®Г°Г , Г‚ГЁГ¶ГҐ-ГѓГіГЎГҐГ°Г­Г ГІГ®Г°Г  ГЁ Г‘ГіГ¤ГјГѕ, Г·ГІГ® ГўГ«ГҐГ·ГҐГІ Г§Г  Г±Г®ГЎГ®Г© ГіГўГ®Г«ГјГ­ГҐГ­ГЁГҐ.',
+'3.4. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї Г°Г Г±ГЇГ°Г®Г±ГІГ°Г Г­ГҐГ­ГЁГҐ ГЄГ«ГҐГўГҐГІГ» Г­Г  ГЂГЈГҐГ­ГІГ  Г”ГЃГђ, ГѓГіГЎГҐГ°Г­Г ГІГ®Г°Г , Г‚ГЁГ¶ГҐ-ГѓГіГЎГҐГ°Г­Г ГІГ®Г°Г  ГЁ Г‘ГіГ¤ГјГѕ, Г·ГІГ® ГЇГ®Г¤Г«ГҐГ¦ГЁГІ ГўГ»ГЈГ®ГўГ®Г°Гі ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГѕ.',
+'3.5. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГЁГЈГ­Г®Г°ГЁГ°Г®ГўГ Г­ГЁГҐ Г§Г ГЄГ®Г­Г­Г»Гµ ГІГ°ГҐГЎГ®ГўГ Г­ГЁГ© ГЂГЈГҐГ­ГІГ  Г”ГЃГђ, ГѓГіГЎГҐГ°Г­Г ГІГ®Г°Г , Г‚ГЁГ¶ГҐ-ГѓГіГЎГҐГ°Г­Г ГІГ®Г°Г , Г·ГІГ® Г¬Г®Г¦ГҐГІ ГЇГ°ГЁГўГҐГ±ГІГЁ ГЄ ГўГ»ГЈГ®ГўГ®Г°Гі ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГѕ.',
+'3.6. ГЂГЈГҐГ­ГІ Г”ГЃГђ ГЁГ¬ГҐГҐГІ ГЇГ°Г ГўГ® ГўГ»Г§ГўГ ГІГј Г«ГѕГЎГ®ГЈГ® ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г®ГЈГ® Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГ  Гў Г®ГґГЁГ± ГЃГѕГ°Г® ГЎГҐГ§ Г®ГЎГєГїГ±Г­ГҐГ­ГЁГї ГЇГ°ГЁГ·ГЁГ­, Г­Г® ГЇГ°ГЁГ·ГЁГ­Г  ГЎГіГ¤ГҐГІ Г°Г Г±ГЄГ°Г»ГІГ  Гў Г®ГґГЁГ±ГҐ.',
+'3.7. Г‹ГѕГЎГ®Г© ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г»Г© Г±Г®ГІГ°ГіГ¤Г­ГЁГЄ Г®ГЎГїГ§Г Г­ ГЇГ°ГҐГ¤ГєГїГўГЁГІГј Г±ГўГ®ГҐ ГіГ¤Г®Г±ГІГ®ГўГҐГ°ГҐГ­ГЁГҐ ГЇГ® ГЇГҐГ°ГўГ®Г¬Гі ГІГ°ГҐГЎГ®ГўГ Г­ГЁГѕ ГЂГЈГҐГ­ГІГ  Г”ГЃГђ, ГѓГіГЎГҐГ°Г­Г ГІГ®Г°Г , Г‚ГЁГ¶ГҐ-ГѓГіГЎГҐГ°Г­Г ГІГ®Г°Г , ГЁГ­Г Г·ГҐ ГЇГ°ГҐГ¤ГіГ±Г¬Г®ГІГ°ГҐГ­Г® ГўГ»ГЈГ®ГўГ®Г°, ГЇГ®Г­ГЁГ¦ГҐГ­ГЁГҐ ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГҐ.',
+'3.8. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГўГєГҐГ§Г¤ Г­Г  ГІГҐГ°Г°ГЁГІГ®Г°ГЁГѕ Г”ГҐГ¤ГҐГ°Г Г«ГјГ­Г®ГЈГ® ГЃГѕГ°Г® ГђГ Г±Г±Г«ГҐГ¤Г®ГўГ Г­ГЁГ© ГЎГҐГ§ Г°Г Г§Г°ГҐГёГҐГ­ГЁГї, ГЄГ Г°Г ГѕГ№ГЁГ©Г±Гї ГіГўГ®Г«ГјГ­ГҐГ­ГЁГҐГ¬ ГЁ ГЇГ°ГЁГ°Г ГўГ­ГЁГўГ ГҐГ¬Г»Г© ГЄ Г±ГІГ ГІГјГҐ 7.1 Г“ГЉ.',
+'3.9. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї Г°Г Г±ГЄГ°Г»ГўГ ГІГј Г«ГЁГ·Г­Г®Г±ГІГј Г ГЈГҐГ­ГІГ  Г”ГЃГђ, Г­Г ГµГ®Г¤ГїГ№ГҐГЈГ®Г±Гї Гў Г¬Г Г±ГЄГЁГ°Г®ГўГЄГҐ, Г·ГІГ® ГЇГ®Г¤Г«ГҐГ¦ГЁГІ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГѕ.',
+'3.10. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГЇГ°ГҐГ±Г«ГҐГ¤Г®ГўГ Г­ГЁГҐ Г ГўГІГ®Г¬Г®ГЎГЁГ«ГҐГ© Г”ГҐГ¤ГҐГ°Г Г«ГјГ­Г®ГЈГ® ГЃГѕГ°Г® ГђГ Г±Г±Г«ГҐГ¤Г®ГўГ Г­ГЁГ©, Г·ГІГ® Г¬Г®Г¦ГҐГІ ГЇГ®ГўГ«ГҐГ·Гј Г§Г  Г±Г®ГЎГ®Г© ГЇГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГҐ ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГҐ.',
+'3.11. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГЎГ°Г ГІГј Г­Г  ГЄГіГ°ГЁГ°Г®ГўГ Г­ГЁГҐ Г±ГЇГҐГ¶Г®ГЇГҐГ°Г Г¶ГЁГЁ ГЎГҐГ§ Г°Г Г§Г°ГҐГёГҐГ­ГЁГї Г”ГЃГђ, Г§Г  ГЁГ±ГЄГ«ГѕГ·ГҐГ­ГЁГҐГ¬ Г±Г«ГіГ·Г ГҐГў, ГЄГ®ГЈГ¤Г  Г®ГІГ±ГіГІГ±ГІГўГіГҐГІ S.W.A.T, Гў ГІГ ГЄГ®Г¬ Г±Г«ГіГ·Г ГҐ ГЄГіГ°ГЁГ°Г®ГўГ Г­ГЁГҐ ГЎГҐГ°ГҐГІ Г‹ГЁГ¤ГҐГ° S.W.A.T.',
+'3.12. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГЁГ§ГЎГҐГЈГ ГІГј ГЇГ°Г®ГўГҐГ°Г®ГЄ Г®ГІ Г”ГЃГђ ГЁГ«ГЁ ГЂГЏ, Г·ГІГ® Г¬Г®Г¦ГҐГІ ГЇГ°ГЁГўГҐГ±ГІГЁ ГЄ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГѕ.',
+'3.13. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї Г®ГІГ¤Г ГўГ ГІГј ГЇГ°ГЁГЄГ Г§Г» Г ГЈГҐГ­ГІГі Г”ГЃГђ ГЁГ«ГЁ Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГі ГЂГЏ Г°Г Г­ГЈГ®Г¬ ГўГ»ГёГҐ 7 ГЎГҐГ§ Г±Г®Г®ГІГўГҐГІГ±ГІГўГіГѕГ№ГЁГµ ГЇГ®Г«Г­Г®Г¬Г®Г·ГЁГ©, ГЇГ®Г¤Г«ГҐГ¦Г Г№ГҐГҐ ГўГ»ГЈГ®ГўГ®Г°Гі ГЁГ«ГЁ ГЇГ®Г­ГЁГ¦ГҐГ­ГЁГѕ.',
+'3.14. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГЇГ°ГЁГ¬ГҐГ­ГїГІГј Г±Г Г­ГЄГ¶ГЁГЁ ГЇГ® Г®ГІГ­Г®ГёГҐГ­ГЁГѕ ГЄ Г ГЈГҐГ­ГІГі Г”ГЃГђ ГЁГ«ГЁ Г±Г®ГІГ°ГіГ¤Г­ГЁГЄГі ГЂГЏ Г°Г Г­ГЈГ®Г¬ ГўГ»ГёГҐ 8 ГЇГ°ГЁ ГЁГ±ГЇГ®Г«Г­ГҐГ­ГЁГЁ (ГёГІГ°Г ГґГ» ГЁ ГІ.ГЇ.), Г·ГІГ® ГўГҐГ¤ГҐГІ ГЄ ГўГ»ГЈГ®ГўГ®Г°Гі ГЁГ«ГЁ ГЇГ®Г­ГЁГ¦ГҐГ­ГЁГѕ.',
 '',
-'4. Раздел "Рация департамента и государственная волна"',
-'4.1. Запрещается обсуждение работы других организаций в рации департамента, что может повлечь за собой выговор, понижение или увольнение.',
-'4.2. Категорически запрещается использование нецензурной брани при общении в рации департамента, что подлежит выговору или понижению.',
-'4.3. Запрещается занимать государственную волну для проведения собеседования во время режима Чрезвычайной Ситуации, что влечет за собой предупреждение или выговор.',
-'4.4. Запрещается участвовать в создании конфликтных ситуаций между организациями, что может привести к выговору или увольнению.',
-'4.5. Если к вам обращаются по закрытому каналу, то запрещается отвечать в открытом канале, подлежит предупреждению или выговору.',
+'4. ГђГ Г§Г¤ГҐГ« "ГђГ Г¶ГЁГї Г¤ГҐГЇГ Г°ГІГ Г¬ГҐГ­ГІГ  ГЁ ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­Г Гї ГўГ®Г«Г­Г "',
+'4.1. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї Г®ГЎГ±ГіГ¦Г¤ГҐГ­ГЁГҐ Г°Г ГЎГ®ГІГ» Г¤Г°ГіГЈГЁГµ Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГ© Гў Г°Г Г¶ГЁГЁ Г¤ГҐГЇГ Г°ГІГ Г¬ГҐГ­ГІГ , Г·ГІГ® Г¬Г®Г¦ГҐГІ ГЇГ®ГўГ«ГҐГ·Гј Г§Г  Г±Г®ГЎГ®Г© ГўГ»ГЈГ®ГўГ®Г°, ГЇГ®Г­ГЁГ¦ГҐГ­ГЁГҐ ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГҐ.',
+'4.2. ГЉГ ГІГҐГЈГ®Г°ГЁГ·ГҐГ±ГЄГЁ Г§Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ Г­ГЁГҐ Г­ГҐГ¶ГҐГ­Г§ГіГ°Г­Г®Г© ГЎГ°Г Г­ГЁ ГЇГ°ГЁ Г®ГЎГ№ГҐГ­ГЁГЁ Гў Г°Г Г¶ГЁГЁ Г¤ГҐГЇГ Г°ГІГ Г¬ГҐГ­ГІГ , Г·ГІГ® ГЇГ®Г¤Г«ГҐГ¦ГЁГІ ГўГ»ГЈГ®ГўГ®Г°Гі ГЁГ«ГЁ ГЇГ®Г­ГЁГ¦ГҐГ­ГЁГѕ.',
+'4.3. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї Г§Г Г­ГЁГ¬Г ГІГј ГЈГ®Г±ГіГ¤Г Г°Г±ГІГўГҐГ­Г­ГіГѕ ГўГ®Г«Г­Гі Г¤Г«Гї ГЇГ°Г®ГўГҐГ¤ГҐГ­ГЁГї Г±Г®ГЎГҐГ±ГҐГ¤Г®ГўГ Г­ГЁГї ГўГ® ГўГ°ГҐГ¬Гї Г°ГҐГ¦ГЁГ¬Г  Г—Г°ГҐГ§ГўГ»Г·Г Г©Г­Г®Г© Г‘ГЁГІГіГ Г¶ГЁГЁ, Г·ГІГ® ГўГ«ГҐГ·ГҐГІ Г§Г  Г±Г®ГЎГ®Г© ГЇГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГҐ ГЁГ«ГЁ ГўГ»ГЈГ®ГўГ®Г°.',
+'4.4. Г‡Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї ГіГ·Г Г±ГІГўГ®ГўГ ГІГј Гў Г±Г®Г§Г¤Г Г­ГЁГЁ ГЄГ®Г­ГґГ«ГЁГЄГІГ­Г»Гµ Г±ГЁГІГіГ Г¶ГЁГ© Г¬ГҐГ¦Г¤Гі Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГїГ¬ГЁ, Г·ГІГ® Г¬Г®Г¦ГҐГІ ГЇГ°ГЁГўГҐГ±ГІГЁ ГЄ ГўГ»ГЈГ®ГўГ®Г°Гі ГЁГ«ГЁ ГіГўГ®Г«ГјГ­ГҐГ­ГЁГѕ.',
+'4.5. Г…Г±Г«ГЁ ГЄ ГўГ Г¬ Г®ГЎГ°Г Г№Г ГѕГІГ±Гї ГЇГ® Г§Г ГЄГ°Г»ГІГ®Г¬Гі ГЄГ Г­Г Г«Гі, ГІГ® Г§Г ГЇГ°ГҐГ№Г ГҐГІГ±Гї Г®ГІГўГҐГ·Г ГІГј Гў Г®ГІГЄГ°Г»ГІГ®Г¬ ГЄГ Г­Г Г«ГҐ, ГЇГ®Г¤Г«ГҐГ¦ГЁГІ ГЇГ°ГҐГ¤ГіГЇГ°ГҐГ¦Г¤ГҐГ­ГЁГѕ ГЁГ«ГЁ ГўГ»ГЈГ®ГўГ®Г°Гі.',
 }
 
 local AllWindowsPunish = imgui.OnFrame(function() return punishMenu[0] end, function()
@@ -3742,36 +3742,36 @@ local AllWindowsPunish = imgui.OnFrame(function() return punishMenu[0] end, func
 		imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(sizeX, sizeY))
 		imgui.PushFont(myFont)
-		imgui.Begin(u8'Правила', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+		imgui.Begin(u8'ГЏГ°Г ГўГЁГ«Г ', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
 		imgui.BeginChild('##punishMenu', imgui.ImVec2(195,400), false)
-		if imgui.Button(u8'Правила администрации', imgui.ImVec2(190, 35)) then
+		if imgui.Button(u8'ГЏГ°Г ГўГЁГ«Г  Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГЁ', imgui.ImVec2(190, 35)) then
 			punishSwitch = 1
 		end
-		if imgui.Button(u8'Правила лидеров', imgui.ImVec2(190, 35)) then
+		if imgui.Button(u8'ГЏГ°Г ГўГЁГ«Г  Г«ГЁГ¤ГҐГ°Г®Гў', imgui.ImVec2(190, 35)) then
 			punishSwitch = 2
 		end
-		if imgui.Button(u8'Правила саппортов', imgui.ImVec2(190, 35)) then
+		if imgui.Button(u8'ГЏГ°Г ГўГЁГ«Г  Г±Г ГЇГЇГ®Г°ГІГ®Гў', imgui.ImVec2(190, 35)) then
 			punishSwitch = 3
 		end
-		if imgui.Button(u8'Правила гос. организаций', imgui.ImVec2(190, 35)) then
+		if imgui.Button(u8'ГЏГ°Г ГўГЁГ«Г  ГЈГ®Г±. Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГ©', imgui.ImVec2(190, 35)) then
 			punishSwitch = 4
 		end
-		if imgui.Button(u8'Правила проведения отбора', imgui.ImVec2(190, 35)) then
+		if imgui.Button(u8'ГЏГ°Г ГўГЁГ«Г  ГЇГ°Г®ГўГҐГ¤ГҐГ­ГЁГї Г®ГІГЎГ®Г°Г ', imgui.ImVec2(190, 35)) then
 			punishSwitch = 5
 		end
-		if imgui.Button(u8'Правила игры в /try', imgui.ImVec2(190, 35)) then
+		if imgui.Button(u8'ГЏГ°Г ГўГЁГ«Г  ГЁГЈГ°Г» Гў /try', imgui.ImVec2(190, 35)) then
 			punishSwitch = 6
 		end
-		if imgui.Button(u8'Общие правила', imgui.ImVec2(190, 35)) then
+		if imgui.Button(u8'ГЋГЎГ№ГЁГҐ ГЇГ°Г ГўГЁГ«Г ', imgui.ImVec2(190, 35)) then
 			punishSwitch = 7
 		end
-		if imgui.Button(u8'Правила каптов', imgui.ImVec2(190, 35)) then
+		if imgui.Button(u8'ГЏГ°Г ГўГЁГ«Г  ГЄГ ГЇГІГ®Гў', imgui.ImVec2(190, 35)) then
 			punishSwitch = 8
 		end
-		if imgui.Button(u8'Правила бизваров', imgui.ImVec2(190, 35)) then
+		if imgui.Button(u8'ГЏГ°Г ГўГЁГ«Г  ГЎГЁГ§ГўГ Г°Г®Гў', imgui.ImVec2(190, 35)) then
 			punishSwitch = 9
 		end
-		if imgui.Button(u8'УК/АК/ФП', imgui.ImVec2(190, 35)) then
+		if imgui.Button(u8'Г“ГЉ/ГЂГЉ/Г”ГЏ', imgui.ImVec2(190, 35)) then
 			punishSwitch = 10
 		end
 		imgui.EndChild()
@@ -3783,9 +3783,9 @@ local AllWindowsPunish = imgui.OnFrame(function() return punishMenu[0] end, func
 		local sizeX, sizeY = 1250, 475
         imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(sizeX, sizeY))
-		imgui.Begin(u8'Правила администрации', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+		imgui.Begin(u8'ГЏГ°Г ГўГЁГ«Г  Г Г¤Г¬ГЁГ­ГЁГ±ГІГ°Г Г¶ГЁГЁ', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
 		imgui.Separator()
-		imgui.InputTextWithHint('##Search1',u8'Поиск',search,256)
+		imgui.InputTextWithHint('##Search1',u8'ГЏГ®ГЁГ±ГЄ',search,256)
 		imgui.Separator()
 		for k,v in pairs(arules) do
             if u8(v):find(ffi.string(search)) then
@@ -3799,9 +3799,9 @@ local AllWindowsPunish = imgui.OnFrame(function() return punishMenu[0] end, func
 		local sizeX, sizeY = 1250, 475
         imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(sizeX, sizeY))
-		imgui.Begin(u8'Правила лидеров', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+		imgui.Begin(u8'ГЏГ°Г ГўГЁГ«Г  Г«ГЁГ¤ГҐГ°Г®Гў', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
 		imgui.Separator()
-		imgui.InputTextWithHint('##Search2',u8'Поиск',search,256)
+		imgui.InputTextWithHint('##Search2',u8'ГЏГ®ГЁГ±ГЄ',search,256)
 		imgui.Separator()
 		for k,v in pairs(lrules) do
             if u8(v):find(ffi.string(search)) then
@@ -3815,9 +3815,9 @@ local AllWindowsPunish = imgui.OnFrame(function() return punishMenu[0] end, func
 		local sizeX, sizeY = 1250, 475
         imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(sizeX, sizeY))
-		imgui.Begin(u8'Правила саппортов', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+		imgui.Begin(u8'ГЏГ°Г ГўГЁГ«Г  Г±Г ГЇГЇГ®Г°ГІГ®Гў', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
 		imgui.Separator()
-		imgui.InputTextWithHint('##Search3',u8'Поиск',search,256)
+		imgui.InputTextWithHint('##Search3',u8'ГЏГ®ГЁГ±ГЄ',search,256)
 		imgui.Separator()
 		for k,v in pairs(srules) do
             if u8(v):find(ffi.string(search)) then
@@ -3831,9 +3831,9 @@ local AllWindowsPunish = imgui.OnFrame(function() return punishMenu[0] end, func
 		local sizeX, sizeY = 1250, 375
         imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(sizeX, sizeY))
-		imgui.Begin(u8'Правила гос. организаций', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+		imgui.Begin(u8'ГЏГ°Г ГўГЁГ«Г  ГЈГ®Г±. Г®Г°ГЈГ Г­ГЁГ§Г Г¶ГЁГ©', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
 		imgui.Separator()
-		imgui.InputTextWithHint('##Search4',u8'Поиск',search,256)
+		imgui.InputTextWithHint('##Search4',u8'ГЏГ®ГЁГ±ГЄ',search,256)
 		imgui.Separator()
 		for k,v in pairs(gosrules) do
             if u8(v):find(ffi.string(search)) then
@@ -3847,9 +3847,9 @@ local AllWindowsPunish = imgui.OnFrame(function() return punishMenu[0] end, func
 		local sizeX, sizeY = 1250, 275
         imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(sizeX, sizeY))
-		imgui.Begin(u8'Правила проведения отбора', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+		imgui.Begin(u8'ГЏГ°Г ГўГЁГ«Г  ГЇГ°Г®ГўГҐГ¤ГҐГ­ГЁГї Г®ГІГЎГ®Г°Г ', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
 		imgui.Separator()
-		imgui.InputTextWithHint('##Search5',u8'Поиск',search,256)
+		imgui.InputTextWithHint('##Search5',u8'ГЏГ®ГЁГ±ГЄ',search,256)
 		imgui.Separator()
 		for k,v in pairs(orules) do
             if u8(v):find(ffi.string(search)) then
@@ -3863,9 +3863,9 @@ local AllWindowsPunish = imgui.OnFrame(function() return punishMenu[0] end, func
 		local sizeX, sizeY = 1250, 375
         imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(sizeX, sizeY))
-		imgui.Begin(u8'Правила игры в /try', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+		imgui.Begin(u8'ГЏГ°Г ГўГЁГ«Г  ГЁГЈГ°Г» Гў /try', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
 		imgui.Separator()
-		imgui.InputTextWithHint('##Search6',u8'Поиск',search,256)
+		imgui.InputTextWithHint('##Search6',u8'ГЏГ®ГЁГ±ГЄ',search,256)
 		imgui.Separator()
 		for k,v in pairs(tryrules) do
             if u8(v):find(ffi.string(search)) then
@@ -3879,9 +3879,9 @@ local AllWindowsPunish = imgui.OnFrame(function() return punishMenu[0] end, func
 		local sizeX, sizeY = 1250, 475
         imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(sizeX, sizeY))
-		imgui.Begin(u8'Общие правила', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+		imgui.Begin(u8'ГЋГЎГ№ГЁГҐ ГЇГ°Г ГўГЁГ«Г ', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
 		imgui.Separator()
-		imgui.InputTextWithHint('##Search7',u8'Поиск',search,256)
+		imgui.InputTextWithHint('##Search7',u8'ГЏГ®ГЁГ±ГЄ',search,256)
 		imgui.Separator()
 		for k,v in pairs(punish) do
             if u8(v):find(ffi.string(search)) then
@@ -3895,9 +3895,9 @@ local AllWindowsPunish = imgui.OnFrame(function() return punishMenu[0] end, func
 		local sizeX, sizeY = 1250, 475
         imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(sizeX, sizeY))
-		imgui.Begin(u8'Правила каптов', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+		imgui.Begin(u8'ГЏГ°Г ГўГЁГ«Г  ГЄГ ГЇГІГ®Гў', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
 		imgui.Separator()
-		imgui.InputTextWithHint('##Search8',u8'Поиск',search,256)
+		imgui.InputTextWithHint('##Search8',u8'ГЏГ®ГЁГ±ГЄ',search,256)
 		imgui.Separator()
 		for k,v in pairs(capturerules) do
             if u8(v):find(ffi.string(search)) then
@@ -3911,9 +3911,9 @@ local AllWindowsPunish = imgui.OnFrame(function() return punishMenu[0] end, func
 		local sizeX, sizeY = 1250, 475
         imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(sizeX, sizeY))
-		imgui.Begin(u8'Правила бизвара', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+		imgui.Begin(u8'ГЏГ°Г ГўГЁГ«Г  ГЎГЁГ§ГўГ Г°Г ', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
 		imgui.Separator()
-		imgui.InputTextWithHint('##Search9',u8'Поиск',search,256)
+		imgui.InputTextWithHint('##Search9',u8'ГЏГ®ГЁГ±ГЄ',search,256)
 		imgui.Separator()
 		for k,v in pairs(bizwarrules) do
             if u8(v):find(ffi.string(search)) then
@@ -3927,9 +3927,9 @@ local AllWindowsPunish = imgui.OnFrame(function() return punishMenu[0] end, func
 		local sizeX, sizeY = 1250, 475
         imgui.SetNextWindowPos(imgui.ImVec2(resX / 2, resY / 2), imgui.Cond.FirstUseEver, imgui.ImVec2(0.5, 0.5))
 		imgui.SetNextWindowSize(imgui.ImVec2(sizeX, sizeY))
-		imgui.Begin(u8'УК/АК/ФП', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
+		imgui.Begin(u8'Г“ГЉ/ГЂГЉ/Г”ГЏ', punishMenu, imgui.WindowFlags.NoResize + imgui.WindowFlags.NoCollapse)
 		imgui.Separator()
-		imgui.InputTextWithHint('##Search10',u8'Поиск',search,256)
+		imgui.InputTextWithHint('##Search10',u8'ГЏГ®ГЁГ±ГЄ',search,256)
 		imgui.Separator()
 		for k,v in pairs(codex) do
             if u8(v):find(ffi.string(search)) then
