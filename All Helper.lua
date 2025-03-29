@@ -1,7 +1,7 @@
 script_name('All Helper')
 script_author('New Blood')
 script_version('29.03.2025')
-script_version = 4.0
+script_version = 4
 script_description('for owner')
 
 local enable_autoupdate = true -- false to disable auto-update + disable sending initial telemetry (server, moonloader version, script version, samp nickname, virtual volume serial number)
