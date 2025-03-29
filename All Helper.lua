@@ -1,6 +1,6 @@
 script_name('All Helper')
 script_author('New Blood')
-script_version('29.03.2025')
+script_version('30.03.2025')
 script_version = 4
 script_description('for owner')
 
